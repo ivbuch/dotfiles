@@ -1,0 +1,21 @@
+#!/home/igor/.virtualenvs/main_env/bin/python
+
+import i3ipc
+
+i3 = i3ipc.Connection()
+
+nodes = []
+
+
+def process_node(node):
+    global nodes
+    nodes.append(node)
+    for sel_node in node.nodes:
+        process_node(sel_node)
+
+
+process_node(i3.get_tree())
+
+skype_nodes = [x for x in nodes if x.window_class == "Skype"]
+
+skype_nodes[0].command("focus")
