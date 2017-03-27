@@ -172,8 +172,6 @@ exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/1187084-1280x1024-\[De
 bindsym --release $mod+x exec --no-startup-id import ~/Pictures/screenshots/file_$(date +%Y_%m_%d___%H_%M_%S).png
 
 
-#assign [class="gnome-terminal"] 
-#for_window [title="igor@buchatsky: ~"] floating enable
 assign [class="jetbrains-idea-ce"] 2
 assign [class="google-chrome"] 1
 assign [class="Skype"] 10
