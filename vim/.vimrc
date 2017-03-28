@@ -30,7 +30,7 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-
+syntax on
 set hlsearch
 set ignorecase
 command FixSvnPaths %s/\s\/.*plugins/ plugins/
@@ -54,4 +54,4 @@ let g:airline_theme='dark'
 set laststatus=2
 set t_Co=256
 colors darkblue
-so ~/.vim/user-functions.vim
+so /dotfiles/vim/user-functions.vim
