@@ -188,6 +188,7 @@ exec timetracker.sh
 exec dk start 0c1597ecaaa1
 exec dk start 24481de5aa3c
 exec dk start 246745f86c09
+exec dk start 016916e0ec68 #apache web server
 exec "xrandr --output VGA1 --auto --left-of HDMI1"
 
 workspace 0 output HDMI1

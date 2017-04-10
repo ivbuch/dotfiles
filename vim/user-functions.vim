@@ -4,5 +4,9 @@ function! ParseRailwayLog()
 endfunction	
 
 function! FormatJson()
-  %! python -c'import fileinput, json; print(json.dumps(json.loads("".join(fileinput.input())), sort_keys=True, indent=4, ensure_ascii=False))' 
+  %! python -c 'import fileinput, json; print(json.dumps(json.loads("".join(fileinput.input())), sort_keys=True, indent=4, ensure_ascii=False))' 
+endfunction
+
+function! FormatXmlSelected()
+  '<,'> ! python -c 'import lxml.etree as etree; import sys; text = etree.tostring(etree.fromstring(sys.stdin.read()), pretty_print=True); print(text.decode("utf-8"))' 
 endfunction
