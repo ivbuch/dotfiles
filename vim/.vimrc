@@ -49,6 +49,7 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 nnoremap <silent> <F12> :bn<CR>
 nnoremap <silent> <S-F12> :bp<CR>
+nnoremap <S-E> :Explore<CR>
 vmap X y/<C-R>"<CR>
 set number
 
@@ -59,3 +60,6 @@ colors darkblue
 so /dotfiles/vim/user-functions.vim
 set shiftwidth=4
 set foldmethod=manual
+set hidden
+
+let g:netrw_liststyle = 3
