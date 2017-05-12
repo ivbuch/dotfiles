@@ -8,5 +8,5 @@ function! FormatJson()
 endfunction
 
 function! FormatXmlSelected()
-  '<,'> ! python -c 'import lxml.etree as etree; import sys; text = etree.tostring(etree.fromstring(sys.stdin.read()), pretty_print=True); print(text.decode("utf-8"))' 
+  '<,'> ! python -c 'import lxml.etree as etree; import sys; text = etree.tostring(etree.fromstring(sys.stdin.read()), pretty_print=True, encoding="utf-8"); print(text.decode("utf-8"))' 
 endfunction
