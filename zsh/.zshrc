@@ -92,3 +92,4 @@ bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 export JAVA_HOME="/opt/jdk1.8.0_121"
 export PATH="$JAVA_HOME/bin":$PATH
+export ANSIBLE_NOCOWS=1
