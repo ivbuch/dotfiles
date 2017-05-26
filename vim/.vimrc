@@ -58,7 +58,7 @@ set laststatus=2
 set t_Co=256
 colors darkblue
 so /dotfiles/vim/user-functions.vim
-set shiftwidth=4
+set shiftwidth=2
 set foldmethod=manual
 set hidden
 
