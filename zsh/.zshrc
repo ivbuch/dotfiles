@@ -51,8 +51,6 @@ ZSH_THEME="ys"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(safe-paste)
-
 # User configuration
 export PATH="/opt/gradle-3.4/bin:$PATH:/home/igor/.gvm/vertx/current/bin:/home/igor/.gvm/springboot/current/bin:/home/igor/.gvm/lazybones/current/bin:/home/igor/.gvm/jbake/current/bin:/home/igor/.gvm/groovyserv/current/bin:/home/igor/.gvm/groovy/current/bin:/home/igor/.gvm/griffon/current/bin:/home/igor/.gvm/grails/current/bin:/home/igor/.gvm/glide/current/bin:/home/igor/.gvm/gaiden/current/bin:/home/igor/.gvm/crash/current/bin:/home/igor/.gvm/asciidoctorj/current/bin:/opt/jdk-from-build-server/bin:/opt/apache-maven-3.2.3/bin:/home/igor/.bin:/opt/apache-ant-1.7.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/groovy-2.4.1/bin"
 
