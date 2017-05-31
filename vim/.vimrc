@@ -42,7 +42,6 @@ nmap <F3> "*yiw
 map <S-F3> "*p
 vmap <S-F3> "*p
 inoremap jj <Esc>
-nmap <Backspace> .
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
