@@ -197,10 +197,10 @@ workspace 3 output HDMI1
 workspace 8 output HDMI1
 workspace 9 output HDMI1
 
-bindsym $mod+Ctrl+1 exec /dotfiles/i3/python-scripts/focus-skype.py
-bindsym $mod+Ctrl+2 exec /dotfiles/i3/python-scripts/focus-thunderbird.py
-bindsym $mod+Ctrl+3 exec /dotfiles/i3/python-scripts/focus-timetracker.py
-bindsym $mod+Ctrl+5 exec /dotfiles/i3/python-scripts/open-logging.py
+bindsym $mod+Ctrl+1 exec /my-tools/dotfiles/i3/python-scripts/focus-skype.py
+bindsym $mod+Ctrl+2 exec /my-tools/dotfiles/i3/python-scripts/focus-thunderbird.py
+bindsym $mod+Ctrl+3 exec /my-tools/dotfiles/i3/python-scripts/focus-timetracker.py
+bindsym $mod+Ctrl+5 exec /my-tools/dotfiles/i3/python-scripts/open-logging.py
 bindsym $mod+Ctrl+0 exec i3lock -i ~/Pictures/locked.png -t
 
 for_window [class="org-java-plugin-boot-Boot"] floating disable
