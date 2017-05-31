@@ -85,9 +85,6 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.5
 source /usr/local/bin/virtualenvwrapper.sh
 workon main_env
 export DOTFILES_PATH="/home/igor/PycharmProjects/dotfiles"
-bindkey -v
-bindkey '^[[A' up-line-or-search
-bindkey '^[[B' down-line-or-search
 export JAVA_HOME="/opt/jdk1.8.0_121"
 export PATH="$JAVA_HOME/bin":$PATH
 export ANSIBLE_NOCOWS=1
