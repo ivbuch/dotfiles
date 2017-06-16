@@ -1,0 +1,9 @@
+set smoothscroll
+map k scrollUp
+map j scrollDown
+let scrollstep = 250
+let barposition = "bottom"
+set noautofocus
+set typelinkhints
+map h previousTab
+map l nextTab

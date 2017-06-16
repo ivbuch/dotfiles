@@ -44,34 +44,27 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# next/prev workspace
+bindsym $mod+Ctrl+h workspace prev
+bindsym $mod+Ctrl+l workspace next
+
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+Alt+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+Alt+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
@@ -172,9 +165,6 @@ bar {
 }
 
 font pango: Monospace 9
-
-bindsym $mod+m move workspace to output left
-bindsym $mod+p move workspace to output right
 
 bindsym $mod+Ctrl+p exec ~/.bin/mom_client_vip_production.sh
 bindsym $mod+Ctrl+s exec ~/.bin/mom_client_vip_staging.sh
