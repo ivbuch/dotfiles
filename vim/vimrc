@@ -49,6 +49,10 @@ noremap <Right> <Nop>
 nnoremap <silent> <F12> :bn<CR>
 nnoremap <silent> <S-F12> :bp<CR>
 nnoremap <S-E> :Explore<CR>
+
+"select buffer by f5
+nnoremap <F5> :buffers<CR>:buffer<Space> 
+
 vmap X y/<C-R>"<CR>
 set number
 
@@ -62,3 +66,8 @@ set foldmethod=manual
 set hidden
 
 let g:netrw_liststyle = 3
+
+" correct folding for xml files, see http://vim.wikia.com/wiki/Vim_as_XML_Editor
+let g:xml_syntax_folding=1
+autocmd FileType xml setlocal foldmethod=syntax
+autocmd FileType xml setlocal foldlevel=100000
