@@ -55,6 +55,8 @@ nnoremap <F5> :buffers<CR>:buffer<Space>
 
 vmap X y/<C-R>"<CR>
 set number
+set relativenumber
+
 
 let g:airline_theme='dark'
 set laststatus=2

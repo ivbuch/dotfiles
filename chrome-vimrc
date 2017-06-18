@@ -7,3 +7,5 @@ set noautofocus
 set typelinkhints
 map h previousTab
 map l nextTab
+map J scrollFullPageDown
+map K scrollFullPageUp
