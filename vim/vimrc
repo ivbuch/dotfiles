@@ -14,6 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'surround.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-commentary.git' " simple comment/uncomment pluginlugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -31,49 +32,55 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 set noswapfile
-set paste
+set nopaste
 syntax on
 set hlsearch
-set ignorecase
-let mapleader=","
-command! FixSvnPaths %s/\s\/.*plugins/ plugins/
-command! FixIdeaPaths %s/^.*plugins/plugins/
-vmap <F3> "+y
-nmap <F3> "*yiw
-map <S-F3> "*p
-vmap <S-F3> "*p
-inoremap jj <Esc>
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-nnoremap <silent> <F12> :bn<CR>
-nnoremap <silent> <S-F12> :bp<CR>
-nnoremap <S-E> :Explore<CR>
-
-"select buffer by f5
-nnoremap <F5> :buffers<CR>:buffer<Space> 
-
-vmap X y/<C-R>"<CR>
 set number
 set relativenumber
-
-
-let g:airline_theme='dark'
-set laststatus=2
-set t_Co=256
-colors darkblue
-so /my-tools/dotfiles/vim/user-functions.vim
+set ignorecase
 set shiftwidth=2
 set foldmethod=manual
 set hidden
-
-let g:netrw_liststyle = 3
+set laststatus=2
+set t_Co=256
 
 " correct folding for xml files, see http://vim.wikia.com/wiki/Vim_as_XML_Editor
 let g:xml_syntax_folding=1
 autocmd FileType xml setlocal foldmethod=syntax
 autocmd FileType xml setlocal foldlevel=100000
+colors darkblue
+let g:airline_theme='dark'
+
+command! FixSvnPaths %s/\s\/.*plugins/ plugins/
+command! FixIdeaPaths %s/^.*plugins/plugins/
+so /my-tools/dotfiles/vim/user-functions.vim
+
+let mapleader=","
+
+" toggle paste mode
+set pastetoggle=<F2>
+
+" exit insert mode
+inoremap jj <Esc>
+
+" disabled arrows
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+" buffer next/prev
+nnoremap <silent> <F12> :bn<CR>
+nnoremap <silent> <S-F12> :bp<CR>
+
+" nerdtree
+nnoremap <S-E> :NERDTree<CR>
+
+"select buffer by f5
+nnoremap <F5> :buffers<CR>:buffer<Space> 
+
+" search select text
+vmap X y/<C-R>"<CR>
 
 " switch between windows
 nmap <Leader>w <C-w>w
