@@ -35,8 +35,9 @@ set paste
 syntax on
 set hlsearch
 set ignorecase
-command FixSvnPaths %s/\s\/.*plugins/ plugins/
-command FixIdeaPaths %s/^.*plugins/plugins/
+let mapleader=","
+command! FixSvnPaths %s/\s\/.*plugins/ plugins/
+command! FixIdeaPaths %s/^.*plugins/plugins/
 vmap <F3> "+y
 nmap <F3> "*yiw
 map <S-F3> "*p
@@ -73,3 +74,7 @@ let g:netrw_liststyle = 3
 let g:xml_syntax_folding=1
 autocmd FileType xml setlocal foldmethod=syntax
 autocmd FileType xml setlocal foldlevel=100000
+
+" switch between windows
+nmap <Leader>w <C-w>w
+
