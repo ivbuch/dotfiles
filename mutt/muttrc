@@ -4,10 +4,9 @@ set editor='vim'
 
 set ssl_starttls=yes
 set ssl_force_tls=yes
-set timeout = 10
-
+set timeout = 5
 # don't let your firewall kill your idle connection
-set imap_keepalive  = 300
+set imap_keepalive  = 5
 
 # cache
 set header_cache    = ~/.mutt/cache/headers
@@ -36,10 +35,9 @@ set charset      = utf-8
 set send_charset = utf-8
 
 # set up the sidebar, default not visible
-set sidebar_width=12
+set sidebar_width=24
 set sidebar_visible=yes
 set sidebar_delim='|'
-set sidebar_sort=yes
 
 # color of folders with new mail
 color sidebar_new yellow default
@@ -133,3 +131,4 @@ bind pager L list-reply
 
 # '?' is used for search-opposite
 bind pager \Ch help
+
