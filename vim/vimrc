@@ -15,6 +15,7 @@ Plugin 'surround.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-commentary.git' " simple comment/uncomment pluginlugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
+Plugin 'ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -44,10 +45,21 @@ set hidden
 set laststatus=2
 set t_Co=256
 
+" toggle paste mode
+set pastetoggle=<F2>
+
+" nerd tree - close file browser on file select
+let g:NERDTreeQuitOnOpen = 1
+
 " correct folding for xml files, see http://vim.wikia.com/wiki/Vim_as_XML_Editor
 let g:xml_syntax_folding=1
 autocmd FileType xml setlocal foldmethod=syntax
 autocmd FileType xml setlocal foldlevel=100000
+
+" python props
+autocmd FileType py setlocal expandtab
+autocmd FileType py setlocal shiftwidth=4
+
 colors darkblue
 let g:airline_theme='dark'
 
@@ -57,11 +69,11 @@ so /my-tools/dotfiles/vim/user-functions.vim
 
 let mapleader=","
 
-" toggle paste mode
-set pastetoggle=<F2>
-
 " exit insert mode
 inoremap jj <Esc>
+
+" write buffer
+noremap <Leader>s :write<CR>
 
 " disabled arrows
 noremap <Up> <Nop>
@@ -85,3 +97,9 @@ vmap X y/<C-R>"<CR>
 " switch between windows
 nmap <Leader>w <C-w>w
 
+" insert python debug info
+nmap <Leader>d  oimport ipdb<Esc>oipdb.set_trace()<Esc>0
+
+" close buffer
+nmap <F4> :bd <CR>
+nmap <Leader><F4> :bd! <CR>

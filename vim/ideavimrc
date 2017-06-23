@@ -1,1 +1,25 @@
 source ~/.vimrc
+
+set surround
+
+" refactor this
+map <Leader>a :action About <CR>
+map <Leader>r :action Refactorings.QuickListPopupAction<CR>
+
+" prev and next change location - map to vim defaults key binding
+nmap g; :action JumpToLastChange <CR>
+nmap g, :action JumpToNextChange <CR>
+
+" change word to public/protected/private
+nmap <Leader>Q ciwpublic <Esc>
+nmap <Leader>W ciwprotected <Esc>
+nmap <Leader>E ciwprivate <Esc>
+
+" reformat code
+nmap <Leader>f :action ReformatCode <CR>
+
+" file structure popup
+nmap <Leader>m :action FileStructurePopup <CR>
+
+" exit visual mode
+vmap JJ <Esc>
