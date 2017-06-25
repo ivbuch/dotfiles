@@ -16,6 +16,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-commentary.git' " simple comment/uncomment pluginlugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlp.vim'
+Plugin 'benmills/vimux'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -103,3 +104,6 @@ nmap <Leader>d  oimport ipdb<Esc>oipdb.set_trace()<Esc>0
 " close buffer
 nmap <F4> :bd <CR>
 nmap <Leader><F4> :bd! <CR>
+
+" exit vim
+nmap <Leader>q :q <CR>

@@ -20,40 +20,27 @@ set mailcap_path = ~/.mutt/mailcap
 bind attach <return> view-mailcap
 set sort = reverse-date-received
 
-source ~/.mutt/mail-account-rc
 
 set mailcap_path = ~/.mutt/mailcap
 bind attach <return> view-mailcap
 
 set index_format  = "%[%b %d %H:%M]   %-15.15L %Z %?M?<%03M> &      ?%s"
 set status_format = "%f (%s) (%?V?limited to '%V'&no limit pattern?) (%P)"
-
 set menu_scroll
-
-# I18n
 set charset      = utf-8
 set send_charset = utf-8
 
 # set up the sidebar, default not visible
 set sidebar_width=24
 set sidebar_visible=yes
-set sidebar_delim='|'
+#set sidebar_delim='|'
 
 # color of folders with new mail
 color sidebar_new yellow default
 
-# ctrl-n, ctrl-p to select next, prev folder
-# ctrl-o to open selected folder
-bind index CP sidebar-prev
-bind index CR sidebar-next
-bind index CO sidebar-open
-bind pager CP sidebar-prev
-bind pager CN sidebar-next
-bind pager CO sidebar-open
-
-# I don’t need these. just for documentation purposes. See below.
-# sidebar-scroll-up
-# sidebar-scroll-down
+bind index - sidebar-prev
+bind index = sidebar-next
+bind index 0 sidebar-open
 
 # b toggles sidebar visibility
 macro index b ‘<enter-command>toggle sidebar_visible<enter>’
@@ -67,9 +54,6 @@ bind index B bounce-message
 # macro index b ‘<enter-command>toggle sidebar_visible<enter><refresh>’
 # macro pager b ‘<enter-command>toggle sidebar_visible<enter><redraw-screen>’
 #
-
-
-# Vim-like keybindings
 
 # Index
 bind index j next-entry
@@ -98,20 +82,14 @@ bind index L list-reply
 bind index h limit
 
 # '?' is used for search-opposite
-bind index \Ch help
+bind index H help
 
 # Always start with threads collapsed and with the most recent thread selected
 push <collapse-all><last-entry>
 
-# Pager
-
+# PAGER
 bind pager j next-line
 bind pager k previous-line
-
-# The mouse wheel seems to send <up><up><up>/<down><down><down> by default with
-# GNOME Terminal. Use it to scroll through messages.
-bind pager <down> next-line
-bind pager <up>   previous-line
 
 bind pager / search
 bind pager ? search-reverse
@@ -129,6 +107,9 @@ bind pager a group-reply
 bind pager l list-reply
 bind pager L list-reply
 
-# '?' is used for search-opposite
-bind pager \Ch help
+bind pager H help
 
+# ATTACH
+macro attach W "<save-entry><bol>~/Downloads/mutt/<eol>" "Save to ~/Downloads/mutt"
+
+source ~/.mutt/mail-account-rc
