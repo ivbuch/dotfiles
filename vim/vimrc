@@ -52,6 +52,9 @@ set pastetoggle=<F2>
 " nerd tree - close file browser on file select
 let g:NERDTreeQuitOnOpen = 1
 
+" vimux panel height
+let g:VimuxHeight = "40"
+
 " correct folding for xml files, see http://vim.wikia.com/wiki/Vim_as_XML_Editor
 let g:xml_syntax_folding=1
 autocmd FileType xml setlocal foldmethod=syntax
@@ -107,3 +110,6 @@ nmap <Leader><F4> :bd! <CR>
 
 " exit vim
 nmap <Leader>q :q <CR>
+
+" execute open python file
+nmap <Leader>vp :VimuxRunCommand("clear; python " . bufname("%")) <CR>

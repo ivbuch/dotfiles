@@ -4,3 +4,4 @@ alias svnd="svn diff"
 alias tma="/my-tools/home-infostructure/python-scripts/tmux/tmux-attach-session.py"
 alias gite="/my-tools/home-infostructure/python-scripts/git/git-editor.py"
 alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
+alias r='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
