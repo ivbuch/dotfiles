@@ -112,4 +112,4 @@ nmap <Leader><F4> :bd! <CR>
 nmap <Leader>q :q <CR>
 
 " execute open python file
-nmap <Leader>vp :VimuxRunCommand("clear; python " . bufname("%")) <CR>
+nmap <Leader>vp :w <CR> :VimuxRunCommand("clear; python " . bufname("%")) <CR>
