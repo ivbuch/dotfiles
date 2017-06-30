@@ -38,7 +38,7 @@ set nopaste
 syntax on
 set hlsearch
 set number
-set relativenumber
+set norelativenumber
 set ignorecase
 set shiftwidth=2
 set foldmethod=manual
@@ -55,6 +55,8 @@ let g:NERDTreeQuitOnOpen = 1
 " vimux panel height
 let g:VimuxHeight = "40"
 
+" let ctrl search inside current dir
+let g:ctrlp_working_path_mode = 'c'
 " correct folding for xml files, see http://vim.wikia.com/wiki/Vim_as_XML_Editor
 let g:xml_syntax_folding=1
 autocmd FileType xml setlocal foldmethod=syntax
@@ -69,12 +71,15 @@ let g:airline_theme='dark'
 
 command! FixSvnPaths %s/\s\/.*plugins/ plugins/
 command! FixIdeaPaths %s/^.*plugins/plugins/
-so /my-tools/dotfiles/vim/user-functions.vim
+command! UpdateCurrentDirectory cd %:p:h
 
 let mapleader=","
 
 " exit insert mode
 inoremap jj <Esc>
+
+" exit visual mode
+vmap JJ <Esc>
 
 " write buffer
 noremap <Leader>s :write<CR>
@@ -90,7 +95,7 @@ nnoremap <silent> <F12> :bn<CR>
 nnoremap <silent> <S-F12> :bp<CR>
 
 " nerdtree
-nnoremap <S-E> :NERDTree<CR>
+nnoremap <S-E> :NERDTreeFind<CR>
 
 "select buffer by f5
 nnoremap <F5> :buffers<CR>:buffer<Space> 
@@ -113,3 +118,34 @@ nmap <Leader>q :q <CR>
 
 " execute open python file
 nmap <Leader>vp :w <CR> :VimuxRunCommand("clear; python " . bufname("%")) <CR>
+
+" execute rest client
+nmap <Leader>vr :w <CR> :VimuxRunCommand("clear; ./rest_client.py \| less") <CR>
+
+" source ~/.vimrc
+nmap <Leader>so :source ~/.vimrc <CR>
+
+function! FormatXml()
+  % ! python -c 'import lxml.etree as etree; import sys; 
+	\text = etree.tostring(etree.fromstring(sys.stdin.read()), pretty_print=True, encoding="utf-8");
+	\ print(text.decode("utf-8"))' 
+endfunction
+
+function! ParseRailwayLog()
+    /<request>/ !python -c "import sys; import urllib.parse; text = sys.stdin.read(); print(urllib.parse.unquote_plus(text))"
+    /<password>/ delete
+endfunction	
+
+function! FormatJson()
+  %! python -c 'import fileinput, json; print(json.dumps(json.loads("".join(fileinput.input())), sort_keys=True, indent=4, ensure_ascii=False))' 
+endfunction
+
+function! FormatSelectedXml()
+  '<,'> ! python -c 'import lxml.etree as etree; import sys; 
+	\text = etree.tostring(etree.fromstring(sys.stdin.read()), pretty_print=True, encoding="utf-8"); print(text.decode("utf-8"))' 
+endfunction
+
+function! PythonTemplate()
+  execute "normal o" . "def main():\<CR>    print(1)\<CR>"
+  execute "normal! i" . "if __name__ == \"__main__\":\<CR>   main()\<CR>"
+endfunction  

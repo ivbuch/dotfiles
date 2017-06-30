@@ -7,3 +7,4 @@ alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`;
 alias r='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias gd='git difftool'
 alias gs='git status'
+alias ja='jira-accident-folder.sh'

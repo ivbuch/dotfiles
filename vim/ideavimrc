@@ -15,11 +15,14 @@ nmap <Leader>Q ciwpublic <Esc>
 nmap <Leader>W ciwprotected <Esc>
 nmap <Leader>E ciwprivate <Esc>
 
+" collect to list
+nmap <Leader>jc A.collect(Collectors.toList()); <Esc>
+
+" final variable
+nmap <Leader>jf Ifinal <Esc>
+
 " reformat code
 nmap <Leader>f :action ReformatCode <CR>
 
 " file structure popup
 nmap <Leader>m :action FileStructurePopup <CR>
-
-" exit visual mode
-vmap JJ <Esc>

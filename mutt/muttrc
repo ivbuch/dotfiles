@@ -112,4 +112,9 @@ bind pager H help
 # ATTACH
 macro attach W "<save-entry><bol>~/Downloads/mutt/<eol>" "Save to ~/Downloads/mutt"
 
+# delete all messages
+macro index A "<delete-pattern>~A^M$^M"
+
+#macro attach s <save-entry>lt;bol>my_saved/incoming/
+
 source ~/.mutt/mail-account-rc
