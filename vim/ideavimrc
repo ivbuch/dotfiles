@@ -2,18 +2,28 @@ source ~/.vimrc
 
 set surround
 
+" IDEA ACTIONS
+
 " refactor this
 map <Leader>a :action About <CR>
 map <Leader>r :action Refactorings.QuickListPopupAction<CR>
+
+" reformat code
+nmap <Leader>f :action ReformatCode <CR>
+
+" file structure popup
+nmap <Leader>m :action FileStructurePopup <CR>
 
 " prev and next change location - map to vim defaults key binding
 nmap g; :action JumpToLastChange <CR>
 nmap g, :action JumpToNextChange <CR>
 
+" JAVA MAPS
+
 " change word to public/protected/private
-nmap <Leader>Q ciwpublic <Esc>
-nmap <Leader>W ciwprotected <Esc>
-nmap <Leader>E ciwprivate <Esc>
+nmap <Leader>jq ciwpublic <Esc>
+nmap <Leader>jw ciwprotected <Esc>
+nmap <Leader>je ciwprivate <Esc>
 
 " collect to list
 nmap <Leader>jc A.collect(Collectors.toList()); <Esc>
@@ -21,8 +31,5 @@ nmap <Leader>jc A.collect(Collectors.toList()); <Esc>
 " final variable
 nmap <Leader>jf Ifinal <Esc>
 
-" reformat code
-nmap <Leader>f :action ReformatCode <CR>
-
-" file structure popup
-nmap <Leader>m :action FileStructurePopup <CR>
+" delete all nsl
+nmap <Leader>jdn :%s/ \/\/\$NON-NLS-1\$//gc <CR>
