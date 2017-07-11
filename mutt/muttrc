@@ -1,4 +1,3 @@
-auto_view text/html
 set use_from = yes
 set editor='vim'
 
@@ -16,12 +15,11 @@ set certificate_file    = ~/.mutt/certificates
 source ~/.mutt/color-scheme
 
 set beep_new=yes
-set mailcap_path = ~/.mutt/mailcap
-bind attach <return> view-mailcap
 set sort = reverse-date-received
 
 
 set mailcap_path = ~/.mutt/mailcap
+auto_view text/html
 bind attach <return> view-mailcap
 
 set index_format  = "%[%b %d %H:%M]   %-15.15L %Z %?M?<%03M> &      ?%s"

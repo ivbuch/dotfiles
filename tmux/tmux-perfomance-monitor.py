@@ -14,6 +14,9 @@ def tmux_attach():
 def tmux_open_windows():    
     call_tmux_command(["send-keys", "-t", SESSION_NAME + ":top", "top", "Enter"])
 
+    call_tmux_command(["new-window", "-t", SESSION_NAME, "-n","iotop"])
+    call_tmux_command(["send-keys", "-t", SESSION_NAME + ":iotop", "sudo iotop -k -o", "Enter"])
+
 def tmux_open_session():    
     call_tmux_command(["new", "-s", SESSION_NAME, "-d", "-n","top"])
 
