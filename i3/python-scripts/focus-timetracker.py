@@ -1,4 +1,4 @@
-#!/home/igor/.virtualenvs/main_env/bin/python
+#!/usr/local/bin/python3
 
 import i3ipc
 

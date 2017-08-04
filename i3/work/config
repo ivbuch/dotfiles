@@ -168,6 +168,12 @@ bindsym $mod+plus scratchpad show
 # screenshot
 bindsym --release $mod+x exec --no-startup-id import ~/Pictures/screenshots/file_$(date +%Y_%m_%d___%H_%M_%S).png
 
+# open mail workspace
+bindsym $mod+Ctrl+m exec /my-tools/dotfiles/i3/python-scripts/i3-open-workspace-by-name.py mail 
+
+# open rest-rest workspace
+bindsym $mod+Ctrl+r exec /my-tools/dotfiles/i3/python-scripts/i3-open-workspace-by-name.py rest-test 
+
 bindsym $mod+Ctrl+1 exec /my-tools/dotfiles/i3/python-scripts/focus-skype.py
 bindsym $mod+Ctrl+2 exec /my-tools/dotfiles/i3/python-scripts/focus-thunderbird.py
 bindsym $mod+Ctrl+3 exec /my-tools/dotfiles/i3/python-scripts/focus-timetracker.py

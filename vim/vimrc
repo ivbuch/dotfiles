@@ -109,7 +109,7 @@ vmap X y/<C-R>"<CR>
 nmap <Leader>w <C-w>w
 
 " insert python debug info
-nmap <Leader>d  oimport ipdb<Esc>oipdb.set_trace()<Esc>0
+nmap <Leader>pd  oimport ipdb<Esc>oipdb.set_trace()<Esc>0
 
 " close buffer
 nmap <F4> :bd <CR>
