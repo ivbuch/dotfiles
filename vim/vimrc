@@ -126,6 +126,15 @@ nmap <Leader>vr :w <CR> :VimuxRunCommand("clear; ./rest_client.py \| less") <CR>
 
 " source ~/.vimrc
 nmap <Leader>so :source ~/.vimrc <CR>
+"
+" format Xml
+nmap <Leader>fx :call FormatXml() <CR>
+
+" format selected xml
+vmap <Leader>fx :call FormatSelectedXml() <CR>
+
+" format json
+nmap <Leader>fj :call FormatJson() <CR>
 
 function! FormatXml()
   % ! python -c 'import lxml.etree as etree; import sys; 
