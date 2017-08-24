@@ -147,7 +147,7 @@ bar {
 	inactive_workspace #333333 #222222 #888888
 	urgent_workspace   #aa0000 #990000 #ffffff
     }
-    font pango: Monospace 9
+    font pango: Monospace 10
     status_command /home/igor/.virtualenvs/main_env/bin/py3status 
     #status_command i3status 
 }
