@@ -46,6 +46,10 @@ set hidden
 set laststatus=2
 set t_Co=256
 
+" split new windows on right, bottom sides
+set splitbelow
+set splitright
+
 set history=500
 
 " toggle paste mode
@@ -67,6 +71,11 @@ autocmd FileType xml setlocal foldlevel=100000
 " python props
 autocmd FileType py setlocal expandtab
 autocmd FileType py setlocal shiftwidth=4
+
+" groovy props
+autocmd FileType groovy setlocal expandtab
+autocmd FileType groovy setlocal shiftwidth=5
+autocmd FileType groovy setlocal tabstop=4
 
 colors darkblue
 let g:airline_theme='dark'
