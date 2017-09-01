@@ -9,3 +9,7 @@ alias gd='git difftool'
 alias gs='git status'
 alias ja='jira-accident-folder.sh'
 alias ll="ls -lht"
+alias e="exit"
+alias _="sudo"
+alias cdd="cd /my-tools/dotfiles"
+alias cdh="cd /my-tools/home-infostructure"

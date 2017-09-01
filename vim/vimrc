@@ -145,6 +145,16 @@ vmap <Leader>fx :call FormatSelectedXml() <CR>
 " format json
 nmap <Leader>fj :call FormatJson() <CR>
 
+" quick copy&paste word
+nmap <Leader>c "ayiw
+nmap <Leader>z "ap 
+nmap <Leader>x viw"ap
+vmap <Leader>z "ap
+
+" quick copy&paste any text block
+nmap <Leader>C "by
+nmap <Leader>Z "bp 
+
 function! FormatXml()
   % ! python -c 'import lxml.etree as etree; import sys; 
 	\text = etree.tostring(etree.fromstring(sys.stdin.read()), pretty_print=True, encoding="utf-8");
