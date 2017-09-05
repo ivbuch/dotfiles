@@ -1,0 +1,17 @@
+- name: create conf link
+  file:
+    src: "{{ mytools_path }}/dotfiles/tmux/tmux.conf"
+    dest: "{{ ansible_env.HOME }}/.tmux.conf"
+    state: link
+
+- name: remove unsupported in mac tmux settings
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.tmux.conf"
+    regexp: "{{ item }}"
+    state: absent
+  with_items:
+    - "bind -t vi-copy.*"
+    - ".*mouse.*"
+    - ".*utf8.*"
+    - ".*set-buffer.*"
+  when: is_mac_os
