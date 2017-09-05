@@ -17,7 +17,7 @@ source ~/.mutt/color-scheme
 set beep_new=yes
 set sort = reverse-date-received
 
-
+set mailcap_path = ~/.mutt/mailcap
 auto_view text/html
 bind attach <return> view-mailcap
 
