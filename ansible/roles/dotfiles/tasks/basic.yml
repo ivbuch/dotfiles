@@ -1,0 +1,18 @@
+- name: create main directory {{ mytools_path }}
+  file:
+    path: "/my-tools"
+    state: directory
+  become: yes
+  become_method: sudo
+
+- name: create links to {{ mytools_path }}/dotfiles and {{ mytools_path }}/ansible
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  become: yes
+  become_method: sudo
+  with_items:
+    - { "src": "{{ dotfiles_path }}", "dest": "{{ mytools_path }}/dotfiles" }
+    - { "src": "{{ homeinfostructure_path }}/ansible", "dest": "{{ mytools_path }}/ansible" }
+    - { "src": "{{ homeinfostructure_path }}", "dest": "{{ mytools_path }}/home-infostructure" }

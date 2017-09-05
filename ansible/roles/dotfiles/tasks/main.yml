@@ -1,33 +1,11 @@
-- name: create main directory {{ mytools_path }}
-  file:
-    path: "/my-tools"
-    state: directory
-  become: yes
-  become_method: sudo
+- include: basic.yml
+- include: mutt.yml
 
-- name: create links to {{ mytools_path }}/dotfiles and {{ mytools_path }}/ansible
-  file:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    state: link
-  become: yes
-  become_method: sudo
-  with_items:
-    - { "src": "{{ dotfiles_path }}", "dest": "{{ mytools_path }}/dotfiles" }
-    - { "src": "{{ homeinfostructure_path }}/ansible", "dest": "{{ mytools_path }}/ansible" }
-    - { "src": "{{ homeinfostructure_path }}", "dest": "{{ mytools_path }}/home-infostructure" }
-
-- name: create mutt directory
+- name: create directory
   file:
     path: "{{ ansible_env.HOME }}/{{ item }}"
     state: directory
   with_items:
-    - ".mutt"
-    - ".mutt/cache"
-    - ".mutt/cache/headers"
-    - ".mutt/cache/bodies"
-    - ".mutt/cache/certificates"
-    - "Downloads/mutt"
     - ".ssh"
     - ".i3"
     - ".config"
@@ -44,8 +22,6 @@
     - {src: "tmux/tmux.conf", dest: ".tmux.conf" }
     - {src: "i3/work/config", dest: ".i3/config" }
     - {src: "ansible/ansible.cfg", dest: ".ansible.cfg" }
-    - {src: "mutt/muttrc", dest: ".mutt/muttrc" }
-    - {src: "mutt/color-scheme", dest: ".mutt/color-scheme" }
     - {src: "ranger/rc.conf", dest: ".config/ranger/rc.conf" }
 
 - name: create link in etc
