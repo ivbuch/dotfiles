@@ -10,4 +10,21 @@
       src: "/my-tools/home-infostructure/ansible/playbooks/home/dot-files/qutebrowser"
       dest: "{{ ansible_env.HOME }}/Library/Preferences/qutebrowser"
       state: link
+  - name: delete unsupported properties    
+    lineinfile:
+      path: "{{ ansible_env.HOME }}/Library/Preferences/qutebrowser/qutebrowser.conf"
+      state: absent
+      regexp: "{{ item }}"
+    with_items:  
+      - "^history-session-interval"
+      - "^keyhint-delay"
+      - "^favicon-scale"
+      - "^pinned-width"
+      - "^title-format-pinned"
+      - "^offline-web-application-cache"
+      - "^statusbar.fg.private"
+      - "^statusbar.bg.private"
+      - "^statusbar.fg.command.private"
+      - "^statusbar.bg.command.private"
+      - "^web-size-minimum" 
   when: is_mac_os
