@@ -2,10 +2,11 @@ alias weather="curl wttr.in"
 alias tma="/my-tools/home-infostructure/python-scripts/tmux/tmux-attach-session.py"
 alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias r='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
-alias ja='jira-accident-folder.sh'
+alias ja='. jira-accident-folder.sh'
 alias l="ls -lht"
 alias e="exit"
 alias _="sudo"
+alias t="tail -f"
 
 alias cdd="cd /my-tools/dotfiles"
 alias cdh="cd /my-tools/home-infostructure"
@@ -18,3 +19,4 @@ alias gs='git status'
 alias gite="/my-tools/home-infostructure/python-scripts/git/git-editor.py"
 alias svns="svn status | grep -v -E '^Performing' | grep -v -E '^X.*'  | grep -v -E '^$'"
 alias svnd="svn diff"
+alias svnl="svn up && svn log -l 200 -v | less"

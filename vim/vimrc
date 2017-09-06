@@ -43,7 +43,11 @@ set ignorecase
 set shiftwidth=2
 set foldmethod=manual
 set hidden
+
+" statusline
 set laststatus=2
+set statusline+=%F
+
 set t_Co=256
 
 " split new windows on right, bottom sides
@@ -154,6 +158,7 @@ vmap <Leader>z "ap
 " quick copy&paste any text block
 nmap <Leader>C "by
 nmap <Leader>Z "bp 
+vmap <Leader>Z "bp
 
 function! FormatXml()
   % ! python -c 'import lxml.etree as etree; import sys; 
@@ -178,4 +183,9 @@ endfunction
 function! PythonTemplate()
   execute "normal o" . "def main():\<CR>    print(1)\<CR>"
   execute "normal! i" . "if __name__ == \"__main__\":\<CR>   main()\<CR>"
+endfunction  
+
+" copy current filename into clipboard
+function! CopyCurrentFileFullPathIntoClipboard()
+  ! echo %:p | xclip -selection clipboard
 endfunction  

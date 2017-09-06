@@ -13,7 +13,7 @@ def main():
 def open_workspace(name):
     i3 = i3ipc.Connection()
     workspaces = i3.get_workspaces()
-    selected_workspace = next(filter(lambda w: w.name == name, workspaces))
+    selected_workspace = next(filter(lambda w: w.name.lower() == name.lower(), workspaces))
     i3.command('workspace "{}"'.format(selected_workspace.name))
 
 if __name__ == "__main__":
