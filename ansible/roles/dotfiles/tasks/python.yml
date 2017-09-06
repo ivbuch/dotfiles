@@ -1,0 +1,17 @@
+- name: check python3 exec
+  stat:
+    path: /usr/local/bin/python3
+  register: p3_check
+
+- name: check where python3 exec located
+  shell: which python3
+  register: sc
+  changed_when: false
+
+- name: create links to /usr/local/bin/python3 from {{ sc.stdout }}
+  file:
+    src: "{{ sc.stdout }}"
+    dest: /usr/local/bin/python3
+    state: link
+  become: yes
+  when: p3_check.stat.exists == false

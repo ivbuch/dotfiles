@@ -16,3 +16,8 @@
     - { "src": "{{ dotfiles_path }}", "dest": "{{ mytools_path }}/dotfiles" }
     - { "src": "{{ homeinfostructure_path }}/ansible", "dest": "{{ mytools_path }}/ansible" }
     - { "src": "{{ homeinfostructure_path }}", "dest": "{{ mytools_path }}/home-infostructure" }
+
+- name: create directory
+  file:
+    path: "{{ ansible_env.HOME }}/.config"
+    state: directory

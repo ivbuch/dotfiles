@@ -1,0 +1,13 @@
+- name: create link to quteconfig
+  file:
+    src: "{{ mytools_path }}/home-infostructure/ansible/playbooks/home/dot-files/qutebrowser"
+    dest: "{{ ansible_env.HOME }}/.config/qutebrowser"
+    state: link
+
+- block:
+  - name: link qutebrowser settings
+    file:
+      src: "/my-tools/home-infostructure/ansible/playbooks/home/dot-files/qutebrowser"
+      dest: "{{ ansible_env.HOME }}/Library/Preferences/qutebrowser"
+      state: link
+  when: is_mac_os

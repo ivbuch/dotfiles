@@ -1,0 +1,10 @@
+- name: create directory
+  file:
+    path: "{{ ansible_env.HOME }}/.config/ranger"
+    state: directory
+
+- name: create file links
+  file:
+    src: "{{ mytools_path }}/dotfiles/ranger/rc.conf"
+    dest: "{{ ansible_env.HOME }}/.config/ranger/rc.conf"
+    state: link

@@ -1,0 +1,18 @@
+- name: create i3 directory
+  file:
+    path: "{{ ansible_env.HOME }}/.i3"
+    state: directory
+
+- name: create config link
+  file:
+    src: "{{ mytools_path }}/dotfiles/i3/work/config"
+    dest: "{{ ansible_env.HOME }}/.i3/config"
+    state: link
+
+- name: create i3status link in etc
+  file:
+    src: "{{ mytools_path }}/dotfiles/i3/i3status.conf"
+    dest: "/etc/i3status.conf"
+    state: link
+  become: yes
+  become_method: sudo

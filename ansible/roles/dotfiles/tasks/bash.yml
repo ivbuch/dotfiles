@@ -1,0 +1,38 @@
+- name: touch .zshrc file
+  file: 
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+    state: touch
+  register: touch_log
+  changed_when: touch_log.diff.before.state != "file"
+
+- name: create .bash_aliases file if not exists
+  file: 
+    dest: "{{ ansible_env.HOME }}/.bash_aliases"
+    state: touch
+  register: touch_log
+  changed_when: touch_log.diff.before.state != "file"
+
+- name: Source custom bash aliases file
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.bash_aliases"
+    line: "{{ item }}"
+    state: present
+  with_items:
+    - "source {{ mytools_path }}/dotfiles/bash/bash_aliases"
+    - "source {{ mytools_path }}/home-infostructure/bash-scripts/work/bash_aliases"
+    - "source {{ mytools_path }}/home-infostructure/bash-scripts/work/bash_functions.sh"
+
+- name: .zshrc must source aliases
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.zshrc"
+    line: "{{ item }}"
+    state: present
+  with_items:
+    - "source ~/.bash_aliases"
+    - "source ~/.bash_aliases"
+    - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/docker"
+    - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/svn"
+    - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/tmux"
+    - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/git"
+    - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/i3"
+    - "export PATH=$PATH:/my-tools/home-infostructure/bash-scripts/work"
