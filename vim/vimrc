@@ -67,19 +67,15 @@ let g:VimuxHeight = "40"
 
 " let ctrl search inside current dir
 let g:ctrlp_working_path_mode = 'c'
+
 " correct folding for xml files, see http://vim.wikia.com/wiki/Vim_as_XML_Editor
 let g:xml_syntax_folding=1
-autocmd FileType xml setlocal foldmethod=syntax
-autocmd FileType xml setlocal foldlevel=100000
 
-" python props
-autocmd FileType py setlocal expandtab
-autocmd FileType py setlocal shiftwidth=4
-
-" groovy props
-autocmd FileType groovy setlocal expandtab
-autocmd FileType groovy setlocal shiftwidth=5
-autocmd FileType groovy setlocal tabstop=4
+" fileType properties
+autocmd FileType xml    setlocal foldmethod=syntax foldlevel=100000
+autocmd FileType py     setlocal expandtab shiftwidth=4
+autocmd FileType groovy setlocal expandtab shiftwidth=5 tabstop=4
+autocmd FileType json   setlocal foldmethod=syntax foldlevel=100000
 
 colors darkblue
 let g:airline_theme='dark'
@@ -89,6 +85,9 @@ command! FixIdeaPaths %s/^.*plugins/plugins/
 command! UpdateCurrentDirectory cd %:p:h
 
 let mapleader=","
+
+" jump between brackets
+nmap <Leader><Space> %
 
 " exit insert mode
 inoremap jj <Esc>
@@ -130,6 +129,7 @@ nmap <Leader><F4> :bd! <CR>
 
 " exit vim
 nmap <Leader>q :q <CR>
+nmap <Leader>Q :qa <CR>
 
 " execute open python file
 nmap <Leader>vp :w <CR> :VimuxRunCommand("clear; python " . bufname("%")) <CR>
@@ -149,16 +149,23 @@ vmap <Leader>fx :call FormatSelectedXml() <CR>
 " format json
 nmap <Leader>fj :call FormatJson() <CR>
 
-" quick copy&paste word
+" quick yank
+" word
 nmap <Leader>c "ayiw
+" selected text
+vmap <Leader>c "ay
+" any object
+nmap <Leader>C "by
+
+" quick paste
 nmap <Leader>z "ap 
 nmap <Leader>x viw"ap
 vmap <Leader>z "ap
-
-" quick copy&paste any text block
-nmap <Leader>C "by
 nmap <Leader>Z "bp 
 vmap <Leader>Z "bp
+
+" open edit ~/.vimrc
+nmap <Leader>ev :e ~/.vimrc <CR>
 
 function! FormatXml()
   % ! python -c 'import lxml.etree as etree; import sys; 
