@@ -3,7 +3,7 @@ alias tma="/my-tools/home-infostructure/python-scripts/tmux/tmux-attach-session.
 alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias r='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias ja='. jira-accident-folder.sh'
-alias l="ls -lht"
+alias l="ls -alht"
 alias e="exit"
 alias _="sudo"
 alias t="tail -f"
@@ -12,6 +12,7 @@ alias cdd="cd /my-tools/dotfiles"
 alias cdh="cd /my-tools/home-infostructure"
 alias cda="cd /my-tools/ansible"
 alias cdap="cd /my-tools/ansible/playbooks"
+alias cdw="cd ~/ideaProjects"
 
 alias gur="git-update-repositories.py"
 alias gd='git difftool'

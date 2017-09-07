@@ -86,8 +86,17 @@ command! UpdateCurrentDirectory cd %:p:h
 
 let mapleader=","
 
+" toggle wrap
+nmap <F3> :set wrap!<CR>
+
 " jump between brackets
 nmap <Leader><Space> %
+
+" jump to closing tag
+nmap <Leader>t vat<esc>
+
+" jump to opening tag
+nmap <Leader>T vato<esc>
 
 " exit insert mode
 inoremap jj <Esc>
@@ -135,7 +144,7 @@ nmap <Leader>Q :qa <CR>
 nmap <Leader>vp :w <CR> :VimuxRunCommand("clear; python " . bufname("%")) <CR>
 
 " execute rest client
-nmap <Leader>vr :w <CR> :VimuxRunCommand("clear; ./rest_client.py \| less") <CR>
+nmap <Leader>vr :w <CR> :VimuxRunCommand("clear; ./rest_client.py local \| less") <CR>
 
 " source ~/.vimrc
 nmap <Leader>so :source ~/.vimrc <CR>
@@ -151,7 +160,7 @@ nmap <Leader>fj :call FormatJson() <CR>
 
 " quick yank
 " word
-nmap <Leader>c "ayiw
+nmap <Leader>c mz"ayiw`z
 " selected text
 vmap <Leader>c "ay
 " any object
