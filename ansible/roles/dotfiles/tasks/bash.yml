@@ -18,8 +18,8 @@
     line: "{{ item }}"
     state: present
   with_items:
-    - "source {{ mytools_path }}/dotfiles/bash/bash_aliases"
-    - "source {{ mytools_path }}/home-infostructure/bash-scripts/work/bash_aliases"
+    - "source {{ mytools_path }}/dotfiles/bash/bash_aliases.sh"
+    - "source {{ mytools_path }}/home-infostructure/bash-scripts/work/bash_aliases.sh"
     - "source {{ mytools_path }}/home-infostructure/bash-scripts/work/bash_functions.sh"
 
 - name: .zshrc must source aliases
@@ -28,7 +28,6 @@
     line: "{{ item }}"
     state: present
   with_items:
-    - "source ~/.bash_aliases"
     - "source ~/.bash_aliases"
     - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/docker"
     - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/svn"

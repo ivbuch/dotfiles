@@ -56,8 +56,6 @@ set splitright
 
 set history=500
 
-" toggle paste mode
-set pastetoggle=<F2>
 
 " nerd tree - close file browser on file select
 let g:NERDTreeQuitOnOpen = 1
@@ -86,8 +84,26 @@ command! UpdateCurrentDirectory cd %:p:h
 
 let mapleader=","
 
+" toggle paste mode
+set pastetoggle=<F2>
+
 " toggle wrap
 nmap <F3> :set wrap!<CR>
+
+" close buffer
+nmap <F4> :bd <CR>
+nmap <Leader><F4> :bd! <CR>
+
+"select buffer by f5
+nnoremap <F5> :buffers<CR>:buffer<Space> 
+
+" buffer next/prev
+nnoremap <silent> <F12> :bn<CR>
+nnoremap <silent> <S-F12> :bp<CR>
+
+" switch next/prev tab
+nmap <F7> gT
+nmap <F8> gt
 
 " jump between brackets
 nmap <Leader><Space> %
@@ -113,28 +129,20 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-" buffer next/prev
-nnoremap <silent> <F12> :bn<CR>
-nnoremap <silent> <S-F12> :bp<CR>
 
 " nerdtree
 nnoremap <S-E> :NERDTreeFind<CR>
 
-"select buffer by f5
-nnoremap <F5> :buffers<CR>:buffer<Space> 
 
 " search select text
 vmap X y/<C-R>"<CR>
 
 " switch between windows
-nmap <Leader>w <C-w>w
+nmap <Tab> <C-w>w
 
 " insert python debug info
 nmap <Leader>pd  oimport ipdb<Esc>oipdb.set_trace()<Esc>0
 
-" close buffer
-nmap <F4> :bd <CR>
-nmap <Leader><F4> :bd! <CR>
 
 " exit vim
 nmap <Leader>q :q <CR>
@@ -156,7 +164,10 @@ nmap <Leader>fx :call FormatXml() <CR>
 vmap <Leader>fx :call FormatSelectedXml() <CR>
 
 " format json
-nmap <Leader>fj :call FormatJson() <CR>
+nmap <Leader>fj :call FormatJson() <CR>:set filetype=json <CR>
+
+" insert and format json from system buffer
+nmap <Leader>fij :put +<cr>:set filetype=json<cr>:call FormatJson()<cr>
 
 " quick yank
 " word
