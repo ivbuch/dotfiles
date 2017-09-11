@@ -216,3 +216,11 @@ endfunction
 function! CopyCurrentFileFullPathIntoClipboard()
   ! echo %:p | xclip -selection clipboard
 endfunction  
+
+function! UrlEncode()
+  '<,'> ! python -c 'import sys; import urllib.parse; print(urllib.parse.quote(sys.stdin.read()))'
+endfunction
+
+function! UrlDecode()
+  '<,'> ! python -c 'import sys; import urllib.parse; print(urllib.parse.unquote(sys.stdin.read()))'
+endfunction

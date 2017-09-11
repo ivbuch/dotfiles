@@ -36,5 +36,5 @@ alias svnd="svn diff"
 alias svnl="svn up && svn log -l 200 -v | less"
 
 # URL encode/decode
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
-alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[2])"'
+alias url_encode='python -c "import sys; import urllib.parse; print(urllib.parse.quote(sys.argv[1]))"'
+alias url_decode='python -c "import sys; import urllib.parse; print(urllib.parse.unquote(sys.argv[1]))"'
