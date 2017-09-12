@@ -123,6 +123,9 @@ vmap JJ <Esc>
 " write buffer
 noremap <Leader>s :write<CR>
 
+" write and quit
+noremap <Leader>S :write<CR>:quit<CR>
+
 " disabled arrows
 noremap <Up> <Nop>
 noremap <Down> <Nop>

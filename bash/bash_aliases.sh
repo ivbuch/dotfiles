@@ -12,6 +12,8 @@ alias v="vim"
 alias psg="ps -ef | grep"
 alias clipboard="xclip -selection clipboard"
 alias pwdc="pwd | xclip -selection clipboard"
+alias rm="rm -v"
+alias chmod="chmod -v"
 
 # open & xdg-open
 if [[ $(uname -a) == *"Linux"* ]]; then
@@ -20,6 +22,8 @@ else
   alias o="open"  
 fi
 
+alias c="cd"
+alias cu="cd .."
 alias cdd="cd /my-tools/dotfiles"
 alias cdh="cd /my-tools/home-infostructure"
 alias cda="cd /my-tools/ansible"
