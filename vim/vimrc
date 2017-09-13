@@ -75,8 +75,7 @@ autocmd FileType py     setlocal expandtab shiftwidth=4
 autocmd FileType groovy setlocal expandtab shiftwidth=5 tabstop=4
 autocmd FileType json   setlocal foldmethod=syntax foldlevel=100000
 
-colors darkblue
-let g:airline_theme='dark'
+colorscheme darkblue
 
 command! FixSvnPaths %s/\s\/.*plugins/ plugins/
 command! FixIdeaPaths %s/^.*plugins/plugins/
@@ -175,6 +174,9 @@ nmap <Leader>fj :call FormatJson() <CR>:set filetype=json <CR>
 " insert and format json from system buffer
 nmap <Leader>fij :put +<cr>:set filetype=json<cr>:call FormatJson()<cr>
 
+" insert and format xml from system buffer
+nmap <Leader>fix :put +<cr>:set filetype=xml<cr>:call FormatXml()<cr>
+
 " quick yank
 " word
 nmap <Leader>c mz"ayiw`z
@@ -192,6 +194,9 @@ vmap <Leader>Z "bp
 
 " open edit ~/.vimrc
 nmap <Leader>ev :e ~/.vimrc <CR>
+
+" help - list all bindings
+nmap <leader>? :help index.txt<CR>
 
 function! FormatXml()
   % ! python -c 'import lxml.etree as etree; import sys; 
