@@ -10,10 +10,13 @@ alias _="sudo"
 alias t="tail -f"
 alias v="vim"
 alias psg="ps -ef | grep"
-alias clipboard="xclip -selection clipboard"
+alias clipboard_from="xclip -o -selection clipboard"
+alias clipboard_to="xclip -i -selection clipboard"
 alias pwdc="pwd | xclip -selection clipboard"
 alias rm="rm -v"
+alias mv="mv -v"
 alias chmod="chmod -v"
+alias rsync="rsync -v"
 
 # open & xdg-open
 if [[ $(uname -a) == *"Linux"* ]]; then
