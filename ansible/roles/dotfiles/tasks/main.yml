@@ -7,3 +7,4 @@
 - include: ranger.yml
 - include: bash.yml
 - include: qutebrowser.yml
+- include: python.yml

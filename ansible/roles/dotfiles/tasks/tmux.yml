@@ -15,3 +15,9 @@
     - ".*utf8.*"
     - ".*set-buffer.*"
   when: is_mac_os
+
+- name: create tmuxp directory
+  file:
+    src: "{{ mytools_path }}/home-infostructure/tmuxp"
+    dest: "{{ ansible_env.HOME }}/.tmuxp"
+    state: link

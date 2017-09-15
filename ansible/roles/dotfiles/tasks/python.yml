@@ -15,3 +15,29 @@
     state: link
   become: yes
   when: p3_check.stat.exists == false
+
+- name: create links to /usr/local/bin/python3 from {{ sc.stdout }}
+  file:
+    src: "{{ sc.stdout }}"
+    dest: /usr/local/bin/python3
+    state: link
+  become: yes
+  when: p3_check.stat.exists == false
+
+- name: create virtualenvs directories
+  file:
+    path: "{{ ansible_env.HOME }}/.config/virtual-enviroments"
+    state: directory
+
+- name: create virtualenvs directories
+  file:
+    path: "{{ ansible_env.HOME }}/.config/virtual-envs"
+    state: directory
+
+- name: create main virtual-env    
+  command: virtualenv {{ ansible_env.HOME }}/.config/virtual-envs/main -p /usr/local/bin/python3
+
+- name: install tmuxp
+  shell: source {{ ansible_env.HOME }}/.config/virtual-envs/main/bin/activate && pip install tmuxp
+  args:
+    executable: /bin/bash  

@@ -22,7 +22,7 @@
     - "source {{ mytools_path }}/home-infostructure/bash-scripts/work/bash_aliases.sh"
     - "source {{ mytools_path }}/home-infostructure/bash-scripts/work/bash_functions.sh"
 
-- name: .zshrc must source aliases
+- name: .zshrc must source aliases and python main virtual-env
   lineinfile:
     path: "{{ ansible_env.HOME }}/.zshrc"
     line: "{{ item }}"
@@ -35,3 +35,4 @@
     - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/git"
     - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/i3"
     - "export PATH=$PATH:/my-tools/home-infostructure/bash-scripts/work"
+    - "source {{ ansible_env.HOME }}/.config/virtual-envs/main/bin/activate"
