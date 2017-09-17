@@ -21,3 +21,6 @@
     src: "{{ mytools_path }}/home-infostructure/tmuxp"
     dest: "{{ ansible_env.HOME }}/.tmuxp"
     state: link
+
+- name: clone tmux plugin manager
+  command: git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  
