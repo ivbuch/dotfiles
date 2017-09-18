@@ -158,8 +158,9 @@ nmap <Leader>vp :w <CR> :VimuxRunCommand("clear; python " . bufname("%")) <CR>
 " execute rest client
 nmap <Leader>vr :w <CR> :VimuxRunCommand("clear; ./rest_client.py local \| less") <CR>
 
+
 " compile java class
-nmap <Leader>vj :w <CR> :VimuxRunCommand("clear; javac " . bufname("%") . "; echo done") <CR>
+autocmd FileType java nmap <Leader>vj :w <CR> :VimuxRunCommand("clear; javac " . bufname("%") . "; echo done") <CR>
 
 " source ~/.vimrc
 nmap <Leader>so :source ~/.vimrc <CR>
