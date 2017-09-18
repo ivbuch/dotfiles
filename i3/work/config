@@ -20,9 +20,9 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal with tma
-bindsym $mod+Return exec gnome-terminal --window-with-profile="profile-with-init-tma-shell-command"
+bindsym $mod+Return exec urxvtc
 # start a terminal with no tma
-bindsym $mod+Shift+Return exec gnome-terminal
+bindsym $mod+Shift+Return exec urxvtc
 
 # kill focused window
 bindsym $mod+q kill
@@ -241,5 +241,8 @@ exec docker start 24481de5aa3c #bof postgres
 exec docker start vip_apache2
 exec docker start vip_active_mq
 exec "xrandr --output VGA1 --auto --left-of HDMI1"
+
+# start daemon mode
+exec urxvtd -q -f -o
 
 # exec workspace $tab_misc layout tabbed

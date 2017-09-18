@@ -13,7 +13,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'surround.vim'
 Plugin 'vim-airline/vim-airline'
-Plugin 'tpope/vim-commentary.git' " simple comment/uncomment pluginlugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-commentary.git' " simple comment/uncomment plugin
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlp.vim'
 Plugin 'benmills/vimux'
@@ -75,7 +76,8 @@ autocmd FileType py     setlocal expandtab shiftwidth=4
 autocmd FileType groovy setlocal expandtab shiftwidth=5 tabstop=4
 autocmd FileType json   setlocal foldmethod=syntax foldlevel=100000
 
-colorscheme darkblue
+" colorscheme darkblue
+let g:airline_theme='light'
 
 command! FixSvnPaths %s/\s\/.*plugins/ plugins/
 command! FixIdeaPaths %s/^.*plugins/plugins/

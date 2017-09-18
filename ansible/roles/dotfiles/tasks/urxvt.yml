@@ -1,0 +1,5 @@
+- name: create Xresources link
+  file:
+    src: "{{ mytools_path }}/dotfiles/urxvt/Xresources"
+    dest: "{{ ansible_env.HOME }}/.Xresources"
+    state: link

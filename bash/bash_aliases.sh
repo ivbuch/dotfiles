@@ -18,6 +18,10 @@ alias rm="rm -v"
 alias mv="mv -v"
 alias chmod="chmod -v"
 alias rsync="rsync -v"
+alias mkdir="mkdir -v"
+alias reload_xresources="xrdb ~/.Xresources"
+alias apt="sudo apt"
+alias apti="sudo apt install"
 
 # open & xdg-open
 if [[ $(uname -a) == *"Linux"* ]]; then

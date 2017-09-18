@@ -22,5 +22,11 @@
     dest: "{{ ansible_env.HOME }}/.tmuxp"
     state: link
 
+- name: check virtual_env
+  stat:
+    path: "~/.tmux/plugins/tpm"
+  register: tpm_check
+
 - name: clone tmux plugin manager
   command: git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  
+  when: tpm_check.stat.exists == false

@@ -8,3 +8,4 @@
 - include: bash.yml
 - include: qutebrowser.yml
 - include: python.yml
+- include: urxvt.yml
