@@ -162,6 +162,11 @@ nmap <Leader>vr :w <CR> :VimuxRunCommand("clear; ./rest_client.py local \| less"
 " compile java class
 autocmd FileType java nmap <Leader>vj :w <CR> :VimuxRunCommand("clear; javac " . bufname("%") . "; echo done") <CR>
 
+" insert java main method
+autocmd FileType java abbreviate psm public static void main(String[] args) {<CR>}
+
+autocmd FileType java abbreviate sop System.out.println("")
+
 " source ~/.vimrc
 nmap <Leader>so :source ~/.vimrc <CR>
 "

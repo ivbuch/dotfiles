@@ -1,6 +1,7 @@
 alias weather="curl wttr.in"
 alias tma="/my-tools/home-infostructure/python-scripts/tmux/tmux-attach-session.py"
 alias tx="tmuxp load"
+alias txl="ls ~/.tmuxp/"
 alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias r='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias ja='. jira-accident-folder.sh'
