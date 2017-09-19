@@ -30,8 +30,7 @@ else
   alias o="open"  
 fi
 
-alias c="cd"
-alias cu="cd .."
+alias u="cd .."
 alias cdd="cd /my-tools/dotfiles"
 alias cdh="cd /my-tools/home-infostructure"
 alias cda="cd /my-tools/ansible"
