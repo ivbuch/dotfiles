@@ -153,11 +153,10 @@ nmap <Leader>q :q <CR>
 nmap <Leader>Q :qa <CR>
 
 " execute open python file
-nmap <Leader>vp :w <CR> :VimuxRunCommand("clear; python " . bufname("%")) <CR>
+autocmd FileType python nmap <Leader>vp :w <CR> :VimuxRunCommand("clear; python " . bufname("%")) <CR>
 
 " execute rest client
-nmap <Leader>vr :w <CR> :VimuxRunCommand("clear; ./rest_client.py local \| less") <CR>
-
+autocmd FileType python nmap <Leader>vr :w <CR> :VimuxRunCommand("clear; ./rest_client.py local \| less") <CR>
 
 " compile java class
 autocmd FileType java nmap <Leader>vj :w <CR> :VimuxRunCommand("clear; javac " . bufname("%") . "; echo done") <CR>
@@ -165,6 +164,7 @@ autocmd FileType java nmap <Leader>vj :w <CR> :VimuxRunCommand("clear; javac " .
 " insert java main method
 autocmd FileType java abbreviate psm public static void main(String[] args) {<CR>}
 
+" out println
 autocmd FileType java abbreviate sop System.out.println("")
 
 " source ~/.vimrc

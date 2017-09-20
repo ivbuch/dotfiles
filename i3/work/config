@@ -151,7 +151,7 @@ bar {
 	inactive_workspace #333333 #222222 #888888
 	urgent_workspace   #aa0000 #990000 #ffffff
     }
-    font pango: Monospace 10
+    font pango: Inconsolata 12
     status_command /home/igor/.virtualenvs/main_env/bin/py3status 
     #status_command i3status 
 }
@@ -172,7 +172,7 @@ bindsym $mod+plus scratchpad show
 #### CUSTOM BINDINGS ####
 
 # screenshot
-bindsym --release $mod+x exec --no-startup-id import ~/Pictures/screenshots/file_$(date +%Y_%m_%d___%H_%M_%S).png
+bindsym --release $mod+x exec --no-startup-id scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/screenshots/$f'
 
 # open mail workspace
 bindsym $mod+m exec /my-tools/dotfiles/i3/python-scripts/i3-open-workspace-by-name.py mail 
@@ -204,6 +204,9 @@ bindsym $mod+p exec cmus-remote --pause
 # kill local servers
 bindsym $mod+End exec ~/.bin/kill_local_servers.sh
 
+# perfomance
+bindsym $mod+Shift+p exec urxvt -hold -T "PERFOMANCE" -e zsh -c "source ~/.zshrc && tmuxp load perfomance"
+
 # assign window to workspace
 assign [class="google-chrome"] $tab_www
 assign [class="qutebrowser"] $tab_www
@@ -215,6 +218,7 @@ assign [class="Amarok"] $tab_misc
 assign [class="Thunderbird"] $tab_misc
 assign [class="Skype"] $tab_misc
 assign [class="Wine"] $tab_misc
+assign [title="PERFOMANCE"] PERFOMANCE
 for_window [class="org-java-plugin-boot-Boot"] floating disable
 for_window [class="Wine"] floating disable
 
