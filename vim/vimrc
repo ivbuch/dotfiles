@@ -165,7 +165,7 @@ autocmd FileType java nmap <Leader>vj :w <CR> :VimuxRunCommand("clear; javac " .
 autocmd FileType java abbreviate psm public static void main(String[] args) {<CR>}
 
 " out println
-autocmd FileType java abbreviate sop System.out.println("")
+autocmd FileType java abbreviate sop System.out.println("");
 
 " source ~/.vimrc
 nmap <Leader>so :source ~/.vimrc <CR>
@@ -206,8 +206,14 @@ nmap <Leader>ev :e ~/.vimrc <CR>
 " open edit ~/.i3/config
 nmap <Leader>ei3 :e ~/.vimrc <CR>
 
+" open edit ~/.config/ranger/rc.conf
+nmap <Leader>er :e ~/.config/ranger/rc.conf <CR>
+
 " open edit ~/.config/qutebrowser/keys/conf
 nmap <Leader>eq :e ~/.config/qutebrowser/keys.conf <CR>
+
+" open edit ~/.tmux.conf
+nmap <Leader>et :e ~/.tmux.conf <CR>
 
 " help - list all bindings
 nmap <leader>? :help index.txt<CR>
