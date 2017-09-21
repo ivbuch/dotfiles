@@ -14,6 +14,10 @@ URxvt.saveLines: 1000000
 !! perl scripts
 URxvt.perl-ext-common: default
 
+!! Cursor
+URxvt.cursorBlink:          true
+URxvt.cursorUnderline:      false
+
 URxvt.color0: rgb:00/00/00
 URxvt.color1: rgb:CC/00/00
 URxvt.color2: rgb:4E/9A/06

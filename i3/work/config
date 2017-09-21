@@ -181,7 +181,7 @@ bindsym $mod+m exec /my-tools/dotfiles/i3/python-scripts/i3-open-workspace-by-na
 bindsym $mod+w exec /my-tools/dotfiles/i3/python-scripts/workspace-dmenu.py
 
 # dmenu with workspaces
-bindsym $mod+Home exec /my-tools/dotfiles/i3/python-scripts/i3-open-workspace-by-name.py rest-test 
+bindsym $mod+Home exec /my-tools/dotfiles/i3/python-scripts/i3-open-workspace-by-name.py REST-CLIENT
 
 # open build workspace
 bindsym $mod+b exec /my-tools/dotfiles/i3/python-scripts/i3-open-workspace-by-name.py build 
