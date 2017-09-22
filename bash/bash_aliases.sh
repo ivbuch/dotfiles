@@ -5,8 +5,12 @@ alias txl="ls ~/.tmuxp/"
 alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias r='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias ja='. jira-accident-folder.sh'
-alias l="ls -alht"
-alias lh="ls -alht | head"
+
+alias l="ls -lh"
+alias lt="ls -lht"
+alias la="ls -laht"
+alias lh="ls -lht | head"
+
 alias e="exit"
 alias _="sudo"
 alias t="tail -f"

@@ -79,6 +79,9 @@ autocmd FileType json   setlocal foldmethod=syntax foldlevel=100000
 " colorscheme darkblue
 let g:airline_theme='light'
 
+" visual bg color
+hi Visual term=reverse cterm=reverse guibg=Grey
+
 command! FixSvnPaths %s/\s\/.*plugins/ plugins/
 command! FixIdeaPaths %s/^.*plugins/plugins/
 command! UpdateCurrentDirectory cd %:p:h
@@ -94,6 +97,10 @@ nmap <F3> :set wrap!<CR>
 " close buffer
 nmap <F4> :bd <CR>
 nmap <Leader><F4> :bd! <CR>
+
+" scroll horizontally
+nmap <S-l> 10zl
+nmap <S-h> 10zh
 
 "select buffer by f5
 nnoremap <F5> :buffers<CR>:buffer<Space> 
@@ -204,7 +211,7 @@ vmap <Leader>Z "bp
 nmap <Leader>ev :e ~/.vimrc <CR>
 
 " open edit ~/.i3/config
-nmap <Leader>ei3 :e ~/.vimrc <CR>
+nmap <Leader>ei3 :e ~/.i3/config <CR>
 
 " open edit ~/.config/ranger/rc.conf
 nmap <Leader>er :e ~/.config/ranger/rc.conf <CR>
@@ -214,6 +221,9 @@ nmap <Leader>eq :e ~/.config/qutebrowser/keys.conf <CR>
 
 " open edit ~/.tmux.conf
 nmap <Leader>et :e ~/.tmux.conf <CR>
+
+" open edit ~/.Xresources
+nmap <Leader>ex :e ~/.Xresources <CR>
 
 " help - list all bindings
 nmap <leader>? :help index.txt<CR>

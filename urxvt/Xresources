@@ -4,6 +4,8 @@ URxvt.background: black
 URxvt.foreground: white
 URxvt.transparent: true
 URxvt.shading: 50
+URxvt.loginShell:  true
+URxvt.fading: 30
 
 URxvt.font: xft:Inconsolata:pixelsize=17
 URxvt.boldFont: xft:Inconsolata:pixelsize=17:weight=bold
