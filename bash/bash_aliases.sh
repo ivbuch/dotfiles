@@ -42,6 +42,9 @@ alias cda="cd /my-tools/ansible"
 alias cdap="cd /my-tools/ansible/playbooks"
 alias cdw="cd ~/ideaProjects"
 
+# init dotfiles
+alias init_dotfiles="cd /my-tools/dotfiles/ansible && ansible-playbook init-dotfiles.yml --ask-sudo-pass"
+
 # source version control
 alias gur="git-update-repositories.py"
 alias gd='git difftool'

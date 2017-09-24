@@ -166,7 +166,10 @@ autocmd FileType python nmap <Leader>vp :w <CR> :VimuxRunCommand("clear; python 
 autocmd FileType python nmap <Leader>vr :w <CR> :VimuxRunCommand("clear; ./rest_client.py local \| less") <CR>
 
 " compile java class
-autocmd FileType java nmap <Leader>vj :w <CR> :VimuxRunCommand("clear; javac " . bufname("%") . "; echo done") <CR>
+autocmd FileType java nmap <Leader>jc :w <CR> :VimuxRunCommand("clear; javac " . bufname("%") . "; echo done") <CR>
+
+" compile and run java
+autocmd FileType java nmap <silent> <Leader>jr :w <CR> :VimuxRunCommand("clear; javac " . bufname("%") . "; echo compiled ; java " . expand("%:r")) <CR>
 
 " insert java main method
 autocmd FileType java abbreviate psm public static void main(String[] args) {<CR>}
