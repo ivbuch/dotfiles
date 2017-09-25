@@ -1,18 +1,24 @@
 - name: create i3 directory
   file:
-    path: "{{ ansible_env.HOME }}/.i3"
+    path: "{{ ansible_env.HOME }}/{{ item }}"
     state: directory
+  items:  
+    - ".config/i3"
+    - ".config/i3status"
 
 - name: create config link
   file:
     src: "{{ mytools_path }}/dotfiles/i3/work/config"
-    dest: "{{ ansible_env.HOME }}/.i3/config"
+    dest: "{{ ansible_env.HOME }}/.config/i3/config"
     state: link
 
-- name: create i3status link in etc
+- name: create i3status link
   file:
     src: "{{ mytools_path }}/dotfiles/i3/i3status.conf"
-    dest: "/etc/i3status.conf"
+    dest: "{{ ansible_env.HOME }}/.config/i3status/config"
     state: link
-  become: yes
-  become_method: sudo
+
+- name: install py3status
+  shell: source {{ ansible_env.HOME }}/.config/virtual-envs/main/bin/activate && pip install py3status
+  args:
+    executable: /bin/bash

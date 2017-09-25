@@ -153,14 +153,13 @@ bar {
 	separator  $fg
 
 	# Type             border  background font
-	focused_workspace  $fg_a     $bg_a        $fg
-	active_workspace   $fg_a     $bg_a        $fg
+	focused_workspace  $fg_a   $bg_a      $bg
+	active_workspace   $fg_a   $bg_a      $bg
 	inactive_workspace $fg     $bg        $fg
 	urgent_workspace   $fg     $bg        $fg
     }
     font pango: Inconsolata 12
-    status_command /home/igor/.virtualenvs/main_env/bin/py3status 
-    #status_command i3status 
+    status_command .config/virtual-envs/main/bin/py3status
 }
 
 font pango: Monospace 10

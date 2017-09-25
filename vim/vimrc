@@ -214,7 +214,7 @@ vmap <Leader>Z "bp
 nmap <Leader>ev :e ~/.vimrc <CR>
 
 " open edit ~/.i3/config
-nmap <Leader>ei3 :e ~/.i3/config <CR>
+nmap <Leader>ei3 :e ~/.config/i3/config <CR>
 
 " open edit ~/.config/ranger/rc.conf
 nmap <Leader>er :e ~/.config/ranger/rc.conf <CR>

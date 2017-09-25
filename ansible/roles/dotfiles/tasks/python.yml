@@ -46,4 +46,4 @@
 - name: install tmuxp
   shell: source {{ ansible_env.HOME }}/.config/virtual-envs/main/bin/activate && pip install tmuxp
   args:
-    executable: /bin/bash  
+    executable: /bin/bash
