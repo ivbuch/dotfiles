@@ -35,6 +35,9 @@ set sidebar_visible=yes
 # color of folders with new mail
 color sidebar_new yellow default
 
+# messages from JIRA
+color index black red "~s JIRA"
+
 bind index - sidebar-prev
 bind index = sidebar-next
 bind index 0 sidebar-open
