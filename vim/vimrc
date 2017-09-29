@@ -231,6 +231,9 @@ nmap <Leader>ex :e ~/.Xresources <CR>
 " help - list all bindings
 nmap <leader>? :help index.txt<CR>
 
+" map space to jump between brackets
+noremap <space> %
+
 function! FormatXml()
   % ! python -c 'import lxml.etree as etree; import sys; 
 	\text = etree.tostring(etree.fromstring(sys.stdin.read()), pretty_print=True, encoding="utf-8");
