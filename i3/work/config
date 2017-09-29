@@ -1,3 +1,8 @@
+set_from_resource $bg i3wm.color0 #f0f0f0
+set_from_resource $fg i3wm.color15 #f0f0f0
+set_from_resource $bg_a i3wm.color3 #a0f0f0
+set_from_resource $fg_a i3wm.color13 #a0f0f0
+
 set $tab_www  "1: www"
 set $tab_ide  "2: ide"
 set $tab_mom  "3: mom"
@@ -28,7 +33,7 @@ bindsym $mod+Shift+Return exec urxvtc
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
 
 # change focus
 bindsym $mod+h focus left
@@ -138,11 +143,6 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-set_from_resource $bg i3wm.color0 #f0f0f0
-set_from_resource $fg i3wm.color15 #f0f0f0
-
-set_from_resource $bg_a i3wm.color3 #a0f0f0
-set_from_resource $fg_a i3wm.color13 #a0f0f0
 
 bar {
    
@@ -160,14 +160,30 @@ bar {
     }
     font pango: Inconsolata 12
     status_command .config/virtual-envs/main/bin/py3status
+    separator_symbol "  |  "
 }
 
 font pango: Monospace 10
 
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+client.background       $bg
+
+# hide window title
+new_window pixel 2
+
+hide_edge_borders both
+
+# go back&forth between workspaces
+workspace_auto_back_and_forth yes
+
 bindsym $mod+Ctrl+p exec ~/.bin/mom_client_vip_production.sh
 bindsym $mod+Ctrl+s exec ~/.bin/mom_client_vip_staging.sh
 bindsym $mod+Ctrl+d exec ~/.bin/mom_client_vip_development2.sh
-
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+plus move scratchpad
