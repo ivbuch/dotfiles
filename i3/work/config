@@ -232,6 +232,7 @@ bindsym $mod+Shift+p exec urxvt -hold -T "PERFOMANCE" -e zsh -c "source ~/.zshrc
 # assign window to workspace
 assign [class="google-chrome"] $tab_www
 assign [class="qutebrowser"] $tab_www
+assign [class="google-chrome"] $tab_www
 assign [class="jetbrains-idea-ce"] $tab_ide
 assign [class="org-java-plugin-boot-Boot"] $tab_mom
 assign [class="com-intellij-rt-execution-application-AppMain"] $tab_mom
