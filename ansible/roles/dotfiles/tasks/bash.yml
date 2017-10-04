@@ -29,6 +29,7 @@
     state: present
   with_items:
     - "source ~/.bash_aliases"
+    - "source /my-tools/dotfiles/bash/bash_functions.sh"
     - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/docker"
     - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/svn"
     - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/tmux"
