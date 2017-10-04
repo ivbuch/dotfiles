@@ -35,4 +35,5 @@
     - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/git"
     - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/i3"
     - "export PATH=$PATH:/my-tools/home-infostructure/bash-scripts/work"
+    - "export PATH=$PATH:/opt/translate-script"
     - "source {{ ansible_env.HOME }}/.config/virtual-envs/main/bin/activate"
