@@ -203,6 +203,9 @@ vmap <Leader>c "ay
 " any object
 nmap <Leader>C "by
 
+" paste from system clipboard
+nmap <Leader>i "+p 
+
 " quick paste
 nmap <Leader>z "ap 
 nmap <Leader>x viw"ap
