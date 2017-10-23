@@ -160,16 +160,16 @@ nmap <Leader>q :q <CR>
 nmap <Leader>Q :qa <CR>
 
 " execute open python file
-autocmd FileType python nmap <Leader>vp :w <CR> :VimuxRunCommand("clear; python " . bufname("%")) <CR>
+autocmd FileType python nmap <Leader>vp :write <CR> :VimuxRunCommand("clear; python " . bufname("%")) <CR>
 
 " execute rest client
-autocmd FileType python nmap <Leader>vr :w <CR> :VimuxRunCommand("clear; ./rest_client.py local \| less") <CR>
+autocmd FileType python nmap <Leader>vr :write <CR> :VimuxRunCommand("clear; ./rest_client.py local \| less") <CR>
 
 " compile java class
-autocmd FileType java nmap <Leader>jc :w <CR> :VimuxRunCommand("clear; javac " . bufname("%") . "; echo done") <CR>
+autocmd FileType java nmap <Leader>jc :write <CR> :VimuxRunCommand("clear; javac " . bufname("%") . "; echo done") <CR>
 
 " compile and run java
-autocmd FileType java nmap <silent> <Leader>jr :w <CR> :VimuxRunCommand("clear; javac " . bufname("%") . "; echo compiled ; java " . expand("%:r")) <CR>
+autocmd FileType java nmap <silent> <Leader>jr :write <CR> :VimuxRunCommand("clear; javac " . bufname("%") . "; echo compiled ; java " . expand("%:r")) <CR>
 
 " insert java main method
 autocmd FileType java abbreviate psm public static void main(String[] args) {<CR>}
