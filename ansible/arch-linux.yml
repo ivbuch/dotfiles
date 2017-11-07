@@ -1,0 +1,4 @@
+- hosts: localhost
+  gather_facts: yes
+  roles: 
+    - arch-linux

@@ -18,6 +18,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlp.vim'
 Plugin 'benmills/vimux'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -203,8 +205,12 @@ vmap <Leader>c "ay
 " any object
 nmap <Leader>C "by
 
-" paste from system clipboard
-nmap <Leader>i "+p 
+" paste from system clipboard after cursor
+nmap <Leader>i "+p
+" paste from system clipboard before cursor
+nmap <Leader>I "+P
+" paste from system clipboard after current line
+nmap <Leader>io :put +<cr>
 
 " quick paste
 nmap <Leader>z "ap 
