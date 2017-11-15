@@ -1,32 +1,15 @@
-- name: create link to quteconfig
+- name: create link to quteconfig (unix)
   file:
-    src: "{{ mytools_path }}/home-infostructure/ansible/playbooks/home/dot-files/qutebrowser"
+    src: "{{ homeinfostructure_path }}/ansible/playbooks/home/dot-files/qutebrowser"
     dest: "{{ ansible_env.HOME }}/.config/qutebrowser"
     state: link
+  when: not is_mac_os
 
-- block:
-  - name: link qutebrowser settings
-    file:
-      src: "/my-tools/home-infostructure/ansible/playbooks/home/dot-files/qutebrowser"
-      dest: "{{ ansible_env.HOME }}/Library/Preferences/qutebrowser"
-      state: link
-  - name: delete unsupported properties    
-    lineinfile:
-      path: "{{ ansible_env.HOME }}/Library/Preferences/qutebrowser/qutebrowser.conf"
-      state: absent
-      regexp: "{{ item }}"
-    with_items:  
-      - "^history-session-interval"
-      - "^keyhint-delay"
-      - "^favicon-scale"
-      - "^pinned-width"
-      - "^title-format-pinned"
-      - "^offline-web-application-cache"
-      - "^statusbar.fg.private"
-      - "^statusbar.bg.private"
-      - "^statusbar.fg.command.private"
-      - "^statusbar.bg.command.private"
-      - "^web-size-minimum" 
+- name: create link to quteconfig
+  file:
+    src: "{{ homeinfostructure_path }}/ansible/playbooks/home/dot-files/qutebrowser"
+    dest: "{{ ansible_env.HOME }}/.qutebrowser"
+    state: link
   when: is_mac_os
 
 - name: create download temp directory
