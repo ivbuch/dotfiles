@@ -3,7 +3,7 @@
     src: "{{ homeinfostructure_path }}/ansible/playbooks/home/dot-files/qutebrowser"
     dest: "{{ ansible_env.HOME }}/.config/qutebrowser"
     state: link
-  when: not is_mac_os
+  when: not_is_mac_os
 
 - name: create link to quteconfig
   file:
