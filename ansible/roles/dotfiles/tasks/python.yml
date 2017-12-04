@@ -26,11 +26,6 @@
 
 - name: create virtualenvs directories
   file:
-    path: "{{ ansible_env.HOME }}/.config/virtual-enviroments"
-    state: directory
-
-- name: create virtualenvs directories
-  file:
     path: "{{ ansible_env.HOME }}/.config/virtual-envs"
     state: directory
 

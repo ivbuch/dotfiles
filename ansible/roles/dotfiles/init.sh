@@ -3,9 +3,10 @@ set -e
 set -x
 
 PP="$HOME/PycharmProjects"
+DOT_FILES="$PP/dotfiles"
 mkdir -p $PP
 
-if [ ! -d "$PP/dotfiles" ]; then
+if [ ! -d "$DOT_FILES" ]; then
   cd $PP
   git clone https://github.com/ivbuch/dotfiles.git
 fi
@@ -15,4 +16,9 @@ if [ ! -d "$PP/home-infostructure" ]; then
   git clone git@bitbucket.org:buchatsky/home-infostructure.git
 fi
 
-pacman -Sy ansible
+sudo pacman -Sy ansible
+
+cd $DOT_FILES/ansible
+
+ansible-playbook arch-linux.yml --ask-sudo-pass
+ansible-playbook init-dotfiles.yml --ask-sudo-pass

@@ -1,3 +1,25 @@
+- name: check oh-my-zsh install
+  stat:
+    path: ~/.oh-my-zsh
+  register: oh_my_zsh_register
+
+- name: Cloning  oh-my-zsh
+  git:
+    repo=https://github.com/robbyrussell/oh-my-zsh
+    dest=~/.oh-my-zsh
+  when: oh_my_zsh_register.stat.exists == false
+  register: cloning
+
+- name: Creating new ~/.zshrc
+  copy:
+    src=~/.oh-my-zsh/templates/zshrc.zsh-template
+    dest=~/.zshrc
+  when: cloning|success
+
+- name: Set zsh default shell
+  shell: chsh -s $(which zsh) igor
+  become: yes
+
 - name: touch .zshrc file
   file: 
     dest: "{{ ansible_env.HOME }}/.zshrc"
@@ -25,16 +47,5 @@
 - name: .zshrc must source aliases and python main virtual-env
   lineinfile:
     path: "{{ ansible_env.HOME }}/.zshrc"
-    line: "{{ item }}"
+    line: "source /my-tools/dotfiles/bash/zshrc.sh"
     state: present
-  with_items:
-    - "source ~/.bash_aliases"
-    - "source /my-tools/dotfiles/bash/bash_functions.sh"
-    - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/docker"
-    - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/svn"
-    - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/tmux"
-    - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/git"
-    - "export PATH=$PATH:/my-tools/home-infostructure/python-scripts/i3"
-    - "export PATH=$PATH:/my-tools/home-infostructure/bash-scripts/work"
-    - "export PATH=$PATH:/opt/translate-script"
-    - "source {{ ansible_env.HOME }}/.config/virtual-envs/main/bin/activate"

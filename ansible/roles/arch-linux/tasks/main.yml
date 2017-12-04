@@ -1,1 +1,1 @@
-- include: pacman.yml
+- import_tasks: pacman.yml

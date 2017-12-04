@@ -32,3 +32,9 @@
     src: "/my-tools/home-infostructure/fonts"
     path: "{{ ansible_env.HOME }}/.local/share/fonts"
     state: link
+
+- name: /opt ownership
+  file:
+    path: /opt
+    owner: igor
+  become: yes  
