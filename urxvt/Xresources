@@ -2,7 +2,7 @@ URxvt.termName: rxvt-unicode
 URxvt.scrollBar: false
 URxvt.background: black
 URxvt.foreground: white
-URxvt.transparent: true
+URxvt.transparent: false
 URxvt.shading: 50
 URxvt.loginShell:  true
 URxvt.fading: 30

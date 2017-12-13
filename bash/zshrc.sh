@@ -9,6 +9,7 @@ export PATH=$PATH:$HI/python-scripts/git
 export PATH=$PATH:$HI/python-scripts/i3
 export PATH=$PATH:$HI/bash-scripts/work
 export PATH=$PATH:/opt/translate-script
+export PATH="$HOME/.bin:$PATH"
 
 source ~/.bash_aliases
 source /my-tools/dotfiles/bash/bash_functions.sh
