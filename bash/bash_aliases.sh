@@ -52,6 +52,8 @@ alias gur="git-update-repositories.py"
 alias gd='git difftool'
 alias gs='git status'
 alias gite="/my-tools/home-infostructure/python-scripts/git/git-editor.py"
+alias ggraph="git log --oneline --graph --decorate"
+
 alias svns="svn status | grep -v -E '^Performing' | grep -v -E '^X.*'  | grep -v -E '^$'"
 alias svnd="svn diff"
 alias svnl="svn up && svn log -l 200 -v | less"
