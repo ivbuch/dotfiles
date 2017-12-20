@@ -111,6 +111,10 @@ nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <silent> <F12> :bn<CR>
 nnoremap <silent> <S-F12> :bp<CR>
 
+" move between vimdiff changes
+nmap <F9> ]c
+nmap <F10> [c
+
 " switch next/prev tab
 nmap <F7> gT
 nmap <F8> gt
