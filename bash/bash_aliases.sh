@@ -47,7 +47,7 @@ alias cdw="cd ~/ideaProjects"
 # init dotfiles
 alias init_dotfiles="cd /my-tools/dotfiles/ansible && ansible-playbook init-dotfiles.yml --ask-sudo-pass"
 
-# source version control
+# GIT
 alias gur="git-update-repositories.py"
 alias gd='git difftool'
 alias gs='git status'
@@ -56,7 +56,9 @@ alias ggraph="git log --oneline --graph --decorate"
 alias gl="git log --name-status"
 alias gb="git branch"
 alias gc="git checkout"
+alias gC="git commit -m"
 
+# SVN
 alias svns="svn status | grep -v -E '^Performing' | grep -v -E '^X.*'  | grep -v -E '^$'"
 alias svnd="svn diff"
 alias svnl="svn up && svn log -l 200 -v | less"

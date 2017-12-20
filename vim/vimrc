@@ -163,7 +163,9 @@ nmap <Leader>pd  oimport ipdb<Esc>oipdb.set_trace()<Esc>0
 
 " exit vim
 nmap <Leader>q :q <CR>
-nmap <Leader>Q :qa <CR>
+
+" close all buffers
+nmap <F1> :qa <CR>
 
 " execute open python file
 autocmd FileType python nmap <Leader>vp :write <CR> :VimuxRunCommand("clear; python " . bufname("%")) <CR>

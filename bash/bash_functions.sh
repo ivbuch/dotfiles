@@ -18,3 +18,18 @@ function kill_java_process_by_keyword() {
     kill -9 $pid
   fi  
 }
+
+# fbr - checkout git branch
+fgb() {
+  local branches branch
+  branches=$(git branch -vv) 
+  branch=$(echo "$branches" | fzf +m)
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+# open files with editor
+fe() {
+  local files
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}

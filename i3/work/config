@@ -50,9 +50,8 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # next/prev workspace
-# bindsym $mod+Ctrl+h workspace prev
-# bindsym $mod+Ctrl+l workspace next
-
+bindsym $mod+F9 workspace prev
+bindsym $mod+F10 workspace next
 
 # split in horizontal orientation, PageDown
 bindsym $mod+Next split h
@@ -251,7 +250,7 @@ exec qutebrowser
 exec setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
 
 # fix two monitors mode (what is left and right)
-exec "xrandr --output VGA-2 --auto --left-of VGA-1"
+exec "xrandr --output VGA-1 --auto --left-of VGA-1"
 
 # start daemon mode
 exec urxvtd -q -f -o
