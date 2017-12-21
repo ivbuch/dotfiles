@@ -33,3 +33,13 @@ fe() {
   IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
+
+# remove docker container
+fdr() {
+  local branches branch
+  items=$(docker ps -a | sed '1d') 
+  branch=$(echo "$items" | fzf)
+  branchId=$(echo $branch | awk '{print $1}')
+  docker rm -f $branchId
+  echo "container $branchId removed"
+}

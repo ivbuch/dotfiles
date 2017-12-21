@@ -66,3 +66,6 @@ alias svnl="svn up && svn log -l 200 -v | less"
 # URL encode/decode
 alias url_encode='python -c "import sys; import urllib.parse; print(urllib.parse.quote(sys.argv[1]))"'
 alias url_decode='python -c "import sys; import urllib.parse; print(urllib.parse.unquote(sys.argv[1]))"'
+
+# Docker
+alias d="docker"
