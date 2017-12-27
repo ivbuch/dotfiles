@@ -11,6 +11,7 @@ alias lt="ls -lht"
 alias la="ls -laht"
 alias lh="ls -lht | head"
 
+alias g="grep"
 alias p="less"
 alias e="exit"
 alias _="sudo"
