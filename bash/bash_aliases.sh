@@ -55,7 +55,7 @@ alias gs='git status'
 alias gite="/my-tools/home-infostructure/python-scripts/git/git-editor.py"
 alias ggraph="git log --oneline --graph --decorate"
 alias gl="git log --name-status"
-alias gb="git branch"
+alias gb="git branch -vv"
 alias gc="git checkout"
 alias gC="git commit -m"
 
