@@ -235,7 +235,7 @@ nmap <Leader>ei3 :e ~/.config/i3/config <CR>
 nmap <Leader>er :e ~/.config/ranger/rc.conf <CR>
 
 " open edit ~/.config/qutebrowser/keys/conf
-nmap <Leader>eq :e ~/.config/qutebrowser/keys.conf <CR>
+nmap <Leader>eq :e ~/.config/qutebrowser/config.py <CR>
 
 " open edit ~/.tmux.conf
 nmap <Leader>et :e ~/.tmux.conf <CR>
