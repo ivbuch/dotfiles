@@ -51,3 +51,12 @@ fdr() {
   docker rm -f $branchId
   echo "container $branchId removed"
 }
+
+# bash exec docker container
+fde() {
+  local branches branch
+  items=$(docker ps -a | sed '1d') 
+  branch=$(echo "$items" | fzf)
+  branchId=$(echo $branch | awk '{print $1}')
+  docker exec -it $branchId bash
+}
