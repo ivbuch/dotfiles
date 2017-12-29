@@ -19,3 +19,4 @@
     - docker-compose  
     - unzip
     - xclip
+    - w3m
