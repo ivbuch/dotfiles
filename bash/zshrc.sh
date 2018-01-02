@@ -1,5 +1,6 @@
 export EDITOR="vim"
 export PAGER="less"
+export ORACLE_PATH="/my-tools/dotfiles/sqlplus"
 
 HI="/my-tools/home-infostructure"
 export PATH=$PATH:$HI/python-scripts/docker
