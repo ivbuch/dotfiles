@@ -1,6 +1,7 @@
 export EDITOR="vim"
 export PAGER="less"
 export ORACLE_PATH="/my-tools/dotfiles/sqlplus"
+export SPRING_HOME="/opt/spring-boot/actual"
 
 HI="/my-tools/home-infostructure"
 export PATH=$PATH:$HI/python-scripts/docker
@@ -10,6 +11,7 @@ export PATH=$PATH:$HI/python-scripts/git
 export PATH=$PATH:$HI/python-scripts/i3
 export PATH=$PATH:$HI/bash-scripts/work
 export PATH=$PATH:/opt/translate-script
+export PATH=$PATH:$SPRING_HOME/bin
 export PATH="$HOME/.bin:$PATH"
 
 source ~/.bash_aliases

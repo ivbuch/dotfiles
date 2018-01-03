@@ -20,3 +20,4 @@
     - unzip
     - xclip
     - w3m
+    - lsof
