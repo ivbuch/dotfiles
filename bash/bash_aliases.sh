@@ -52,6 +52,7 @@ alias init_dotfiles="cd /my-tools/dotfiles/ansible && ansible-playbook init-dotf
 # GIT
 alias gur="git-update-repositories.py"
 alias gd='git difftool'
+alias gdm='git difftool --tool=meld'
 alias gs='git status'
 alias gite="/my-tools/home-infostructure/python-scripts/git/git-editor.py"
 alias ggraph="git log --oneline --graph --decorate"

@@ -20,7 +20,7 @@ function kill_java_process_by_keyword() {
 }
 
 # fbr - checkout git branch
-fgb() {
+fgc() {
   local branches branch
   branches=$(git branch -vv) 
   branch=$(echo "$branches" | fzf +m)
@@ -28,7 +28,7 @@ fgb() {
 }
 
 # fbr - checkout git branch all
-fgba() {
+fgca() {
   local branches branch
   branches=$(git branch -a -vv) 
   branch=$(echo "$branches" | fzf +m)
