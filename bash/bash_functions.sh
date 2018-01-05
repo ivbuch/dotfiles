@@ -19,7 +19,7 @@ function kill_java_process_by_keyword() {
   fi  
 }
 
-# fbr - checkout git branch
+# checkout git branch
 fgc() {
   local branches branch
   branches=$(git branch -vv) 
@@ -27,12 +27,22 @@ fgc() {
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
-# fbr - checkout git branch all
+# checkout git branch all
 fgca() {
   local branches branch
   branches=$(git branch -a -vv) 
   branch=$(echo "$branches" | fzf +m)
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+# show commit diff
+fgcd() {
+  local commits commit
+  commits=$(git log --name-status --abbrev-commit) 
+  commit=$(echo "$commits" | fzf +m)
+  id=$(echo "$commit" | cut -d\  -f2)
+  git difftool $id^..$id
+  echo $id
 }
 
 # open files with editor
