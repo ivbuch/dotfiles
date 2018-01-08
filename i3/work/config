@@ -249,6 +249,9 @@ exec idea
 exec qutebrowser
 exec setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
 
+# start oracle container
+exec docker start identity-db
+
 # fix two monitors mode (what is left and right)
 exec "xrandr --output VGA-1 --auto --left-of VGA-1"
 
