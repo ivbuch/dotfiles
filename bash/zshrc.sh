@@ -2,6 +2,7 @@ export EDITOR="vim"
 export PAGER="less"
 export ORACLE_PATH="/my-tools/dotfiles/sqlplus"
 export SPRING_HOME="/opt/spring-boot/actual"
+export DISABLE_AUTO_TITLE="true"
 
 HI="/my-tools/home-infostructure"
 export PATH=$PATH:$HI/python-scripts/docker
