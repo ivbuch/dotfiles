@@ -60,6 +60,7 @@ alias gl="git log --name-status --abbrev-commit"
 alias gb="git branch -vv"
 alias gc="git checkout"
 alias gC="git commit -m"
+alias gf="git fetch"
 
 # SVN
 alias svns="svn status | grep -v -E '^Performing' | grep -v -E '^X.*'  | grep -v -E '^$'"
