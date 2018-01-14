@@ -1,0 +1,9 @@
+- name: install virtual-evn
+  become: yes
+  pip:
+    name: virtualenv
+
+- name: install pywal
+  become: yes
+  pip:
+    name: pywal

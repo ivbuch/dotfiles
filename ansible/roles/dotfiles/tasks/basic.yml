@@ -38,3 +38,8 @@
     path: /opt
     owner: igor
   become: yes  
+
+- name: create wallpapers folder
+  file:
+    path: "{{ ansible_env.HOME }}/Pictures/wallpapers"
+    state: directory

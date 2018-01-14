@@ -22,3 +22,14 @@
     - w3m
     - lsof
     - sysstat
+    - python-pip
+    - rxvt-unicode
+    - urxvt-perls
+    - rofi
+    - imagemagick
+    - fzf
+    - maven
+    - gradle
+    - jad
+    - nodejs
+    - npm

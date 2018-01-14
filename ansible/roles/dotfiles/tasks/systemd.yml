@@ -1,0 +1,6 @@
+- name: enable service httpd and ensure it is not masked
+  become: yes
+  systemd:
+    name: docker
+    enabled: yes
+    state: started

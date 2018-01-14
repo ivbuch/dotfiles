@@ -2,17 +2,17 @@
 set -e
 set -x
 
-PP="$HOME/PycharmProjects"
-DOT_FILES="$PP/dotfiles"
-mkdir -p $PP
+WORKSPACE="$HOME/workspace"
+DOT_FILES="$WORKSPACE/dotfiles"
+mkdir -p $WORKSPACE
 
 if [ ! -d "$DOT_FILES" ]; then
-  cd $PP
+  cd $WORKSPACE
   git clone https://github.com/ivbuch/dotfiles.git
 fi
 
-if [ ! -d "$PP/home-infostructure" ]; then
-  cd $PP
+if [ ! -d "$WORKSPACE/home-infostructure" ]; then
+  cd $WORKSPACE
   git clone git@bitbucket.org:buchatsky/home-infostructure.git
 fi
 

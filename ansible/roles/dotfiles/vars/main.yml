@@ -1,5 +1,5 @@
 mytools_path: /my-tools
-homeinfostructure_path: "{{ ansible_env.HOME }}/PycharmProjects/home-infostructure"
-dotfiles_path: "{{ ansible_env.HOME }}/PycharmProjects/dotfiles"
+homeinfostructure_path: "{{ ansible_env.HOME }}/workspace/home-infostructure"
+dotfiles_path: "{{ ansible_env.HOME }}/workspace/dotfiles"
 is_mac_os: "'Mac' in ansible_nodename"
 not_is_mac_os: "'Mac' not in ansible_nodename"
