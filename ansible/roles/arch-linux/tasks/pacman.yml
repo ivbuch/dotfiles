@@ -7,7 +7,7 @@
   become: yes
   with_items:
     - git
-    - vim
+    - gvim
     - tmux
     - qutebrowser
     - cmus
@@ -33,3 +33,6 @@
     - jad
     - nodejs
     - npm
+    - jdk8-openjdk
+    - groovy
+    - keepassx2
