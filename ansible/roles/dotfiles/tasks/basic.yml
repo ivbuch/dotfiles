@@ -39,7 +39,12 @@
     owner: igor
   become: yes  
 
-- name: create wallpapers folder
+- name: create folders
   file:
-    path: "{{ ansible_env.HOME }}/Pictures/wallpapers"
+    path: "{{ ansible_env.HOME }}/{{ item }}"
     state: directory
+  with_items:
+    - "Pictures/wallpapers"
+    - "Music/chillout"
+    - "Documents"
+    - "Movies"

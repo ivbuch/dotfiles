@@ -36,3 +36,4 @@
     - jdk8-openjdk
     - groovy
     - keepassx2
+    - rsync
