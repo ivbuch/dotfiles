@@ -39,3 +39,7 @@
     - rsync
     - ttf-dejavu
     - alsa-utils
+    - automake
+    - autoconf
+    - fakeroot
+    - base-devel
