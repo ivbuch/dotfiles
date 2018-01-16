@@ -13,3 +13,4 @@
 - import_tasks: git.yml
 - import_tasks: ssh.yml
 - import_tasks: systemd.yml
+- import_tasks: cmus.yml
