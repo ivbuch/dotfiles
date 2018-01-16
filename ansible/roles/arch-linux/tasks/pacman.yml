@@ -37,3 +37,5 @@
     - groovy
     - keepassx2
     - rsync
+    - ttf-dejavu
+    - alsa-utils
