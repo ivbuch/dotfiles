@@ -252,6 +252,9 @@ exec setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
 # start oracle container
 exec docker start identity-db
 
+# start postgres container
+exec docker start claire-db
+
 # fix two monitors mode (what is left and right)
 exec "xrandr --output VGA-1 --auto --left-of VGA-1"
 

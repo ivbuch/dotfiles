@@ -48,6 +48,7 @@ alias cdai="cd $HOME/workspace/mfss-embeddable/apps/identity-server"
 
 # init dotfiles
 alias init_dotfiles="cd /my-tools/dotfiles/ansible && ansible-playbook init-dotfiles.yml --ask-sudo-pass"
+alias init_arch_linux="cd /my-tools/dotfiles/ansible && ansible-playbook arch-linux.yml --ask-sudo-pass"
 
 # GIT
 alias gur="git-update-repositories.py"

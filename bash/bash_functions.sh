@@ -83,3 +83,8 @@ init_wallpaper() {
   ln -s -f $WALLPAPERS/$FILENAME $LN_NAME
   wal -i "$LN_NAME" && sleep 1 && i3-msg restart
 }
+
+# view markdown
+mdview() {
+  pandoc $1 | lynx -stdin
+}
