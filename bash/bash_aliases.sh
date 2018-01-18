@@ -44,10 +44,11 @@ alias cdh="cd /my-tools/home-infostructure"
 alias cda="cd /my-tools/ansible"
 alias cdap="cd /my-tools/ansible/playbooks"
 alias cdw="cd ~/ideaProjects"
-alias cdai="cd $HOME/workspace/apps/identity-server"
+alias cdai="cd $HOME/workspace/mfss-embeddable/apps/identity-server"
 
 # init dotfiles
 alias init_dotfiles="cd /my-tools/dotfiles/ansible && ansible-playbook init-dotfiles.yml --ask-sudo-pass"
+alias init_arch_linux="cd /my-tools/dotfiles/ansible && ansible-playbook arch-linux.yml --ask-sudo-pass"
 
 # GIT
 alias gur="git-update-repositories.py"

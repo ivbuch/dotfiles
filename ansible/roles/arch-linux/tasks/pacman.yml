@@ -43,3 +43,5 @@
     - autoconf
     - fakeroot
     - base-devel
+    - pandoc
+    - lynx
