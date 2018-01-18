@@ -161,11 +161,13 @@ bar {
 	focused_workspace  $fg_a   $bg_a      $bg
 	active_workspace   $fg_a   $bg_a      $bg
 	inactive_workspace $fg     $bg        $fg
+
 	urgent_workspace   $fg     $bg        $fg
     }
     font pango: Inconsolata 12
     status_command .config/virtual-envs/main/bin/py3status
     separator_symbol "  |  "
+    tray_output primary
 }
 
 font pango: Monospace 10
@@ -245,7 +247,6 @@ workspace $tab_www output VGA-1
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/wallpaper.jpg
 
 # applications
-exec idea 
 exec qutebrowser
 exec setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
 
@@ -260,3 +261,9 @@ exec "sleep 3 && ~/.config/virtual-envs/main/bin/wal -i ~/Pictures/wallpapers/ac
 
 # start daemon mode
 exec urxvtd -q -f -o
+
+# network manager applet
+exec --no-startup-id nm-applet --sm-disable
+
+# volume control
+# exec --no-startup-id volwheel */
