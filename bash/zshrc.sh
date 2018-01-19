@@ -4,6 +4,9 @@ export ORACLE_PATH="/my-tools/dotfiles/sqlplus"
 export SPRING_HOME="/opt/spring-boot/actual"
 export DISABLE_AUTO_TITLE="true"
 
+# makes less search case insensitive
+export LESS="-i -R"
+
 HI="/my-tools/home-infostructure"
 export PATH=$PATH:$HI/python-scripts/docker
 export PATH=$PATH:$HI/python-scripts/svn
@@ -18,3 +21,4 @@ export PATH="$HOME/.bin:$PATH"
 source ~/.bash_aliases
 source /my-tools/dotfiles/bash/bash_functions.sh
 source $HOME/.config/virtual-envs/main/bin/activate
+source /my-tools/home-infostructure/python-scripts/medfusion/export-ports.sh
