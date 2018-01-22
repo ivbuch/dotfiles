@@ -274,4 +274,5 @@ exec --no-startup-id nm-applet --sm-disable
 # exec --no-startup-id volwheel */
 
 # conky
+exec --no-startup-id conky -c /my-tools/home-infostructure/ansible/playbooks/home/dot-files/conky-work.conf
 exec --no-startup-id conky -c /my-tools/dotfiles/conky/conky.conf
