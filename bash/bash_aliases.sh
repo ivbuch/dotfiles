@@ -42,7 +42,7 @@ alias cdd="cd /my-tools/dotfiles"
 alias cdh="cd /my-tools/home-infostructure"
 alias cda="cd /my-tools/ansible"
 alias cdap="cd /my-tools/ansible/playbooks"
-alias cdw="cd ~/ideaProjects"
+alias cdw="cd ~/workspace"
 alias cdai="cd $HOME/workspace/mfss-embeddable/apps/identity-server"
 
 # init dotfiles
