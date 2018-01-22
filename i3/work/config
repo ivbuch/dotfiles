@@ -8,6 +8,7 @@ set $tab_vim  "2: vim"
 
 set $tab_www  "6: www"
 set $tab_default  "7: default"
+set $tab_monitor  "9: monitor"
 set $tab_chats "10: messenger"
 
 set $mod Mod4
@@ -236,6 +237,7 @@ assign [class="google-chrome"] $tab_www
 assign [class="jetbrains-idea-ce"] $tab_ide
 assign [class="Thunderbird"] $tab_chats
 assign [class="Skype"] $tab_chats
+assign [class="Conky"] $tab_monitor
 assign [title="PERFOMANCE"] PERFOMANCE
 
 workspace $tab_ide output VGA-2
@@ -270,3 +272,6 @@ exec --no-startup-id nm-applet --sm-disable
 
 # volume control
 # exec --no-startup-id volwheel */
+
+# conky
+exec --no-startup-id conky -c /my-tools/dotfiles/conky/conky.conf

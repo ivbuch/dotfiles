@@ -47,3 +47,6 @@
     - lynx
     - traceroute
     - dnsutils
+    - conky
+    - net-tools
+    - gnu-netcat
