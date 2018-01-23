@@ -246,6 +246,12 @@ nmap <Leader>ex :e ~/.Xresources <CR>
 " help - list all bindings
 nmap <leader>? :help index.txt<CR>
 
+" open conky config
+nmap <Leader>ecd :e /my-tools/dotfiles/conky/conky.conf <CR>
+
+" open conky config
+nmap <Leader>ecw :e /my-tools/home-infostructure/ansible/playbooks/home/dot-files/conky-work.conf <CR>
+
 " map space to jump between brackets
 noremap <space> %
 

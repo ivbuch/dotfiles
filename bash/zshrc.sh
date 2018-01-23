@@ -21,4 +21,4 @@ export PATH="$HOME/.bin:$PATH"
 source ~/.bash_aliases
 source /my-tools/dotfiles/bash/bash_functions.sh
 source $HOME/.config/virtual-envs/main/bin/activate
-source /my-tools/home-infostructure/python-scripts/medfusion/export-ports.sh
+source /my-tools/home-infostructure/work/medfusion/export-ports.sh
