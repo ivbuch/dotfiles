@@ -50,3 +50,5 @@
     - conky
     - net-tools
     - gnu-netcat
+    - unrar
+    - zip
