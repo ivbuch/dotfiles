@@ -7,8 +7,9 @@ URxvt.shading: 50
 URxvt.loginShell:  true
 URxvt.fading: 30
 
-URxvt.font: xft:Inconsolata:pixelsize=17
-URxvt.boldFont: xft:Inconsolata:pixelsize=17:weight=bold
+URxvt.font:     xft:mono:medium:size=11
+xterm.faceName: xft:mono:medium:size=11
+URxvt.lineSpace: 2
 
 !! history limit
 URxvt.saveLines: 1000000

@@ -230,6 +230,15 @@ bindsym $mod+p exec cmus-remote --pause
 # perfomance
 bindsym $mod+Shift+p exec urxvt -hold -T "PERFOMANCE" -e zsh -c "source ~/.zshrc && tmuxp load perfomance"
 
+# brightness
+bindsym XF86MonBrightnessDown exec /my-tools/dotfiles/bash/thinkpad/change_backlight.sh decrement
+bindsym XF86MonBrightnessUp exec /my-tools/dotfiles/bash/thinkpad/change_backlight.sh increment
+
+# sound
+bindsym XF86AudioLowerVolume exec amixer set Master 5%-
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+bindsym XF86AudioMute exec amixer set Master toggle
+
 # assign window to workspace
 assign [class="google-chrome"] $tab_www
 assign [class="qutebrowser"] $tab_www
