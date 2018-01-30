@@ -46,7 +46,8 @@
     - pandoc
     - lynx
     - traceroute
-    - dnsutils
+    # https://github.com/ansible/ansible/issues/24110
+    # - dnsutils
     - conky
     - net-tools
     - gnu-netcat

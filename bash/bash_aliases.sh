@@ -44,6 +44,7 @@ alias cda="cd /my-tools/ansible"
 alias cdap="cd /my-tools/ansible/playbooks"
 alias cdw="cd ~/workspace"
 alias cdai="cd $HOME/workspace/mfss-embeddable/apps/identity-server"
+alias cdmf="cd /my-tools/home-infostructure/work/medfusion/mf-docker"
 
 # init dotfiles
 alias init_dotfiles="cd /my-tools/dotfiles/ansible && ansible-playbook init-dotfiles.yml --ask-sudo-pass"
@@ -74,3 +75,4 @@ alias url_decode='python -c "import sys; import urllib.parse; print(urllib.parse
 # Docker
 alias d="docker"
 alias dc="docker-compose"
+alias dps="docker ps --format 'table {{.Image}}\t{{.Status}}\t{{.Ports}}'"
