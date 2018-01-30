@@ -45,6 +45,7 @@
     state: directory
   with_items:
     - "Pictures/wallpapers"
+    - "Pictures/screenshots"
     - "Music/chillout"
     - "Documents"
     - "Movies"
