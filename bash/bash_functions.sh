@@ -75,6 +75,15 @@ fde() {
   docker exec -it $branchId bash
 }
 
+# bash exec docker container as root
+fder() {
+  local branches branch
+  items=$(docker ps -a | sed '1d') 
+  branch=$(echo "$items" | fzf)
+  branchId=$(echo $branch | awk '{print $1}')
+  docker exec -u 0 -it $branchId bash
+}
+
 # set last wallpaper active
 init_wallpaper() {
   WALLPAPERS=~/Pictures/wallpapers
