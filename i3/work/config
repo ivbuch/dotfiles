@@ -312,7 +312,7 @@ exec docker start claire-db
 exec "xrandr --output VGA-1 --auto --left-of VGA-1"
 
 # set colors
-exec "sleep 3 && ~/.config/virtual-envs/main/bin/wal -i ~/Pictures/wallpapers/active.jpg && i3-msg restart"
+exec "sleep 2 && ~/.config/virtual-envs/main/bin/wal -i ~/Pictures/wallpapers/active.jpg && i3-msg restart"
 
 # start daemon mode
 exec urxvtd -q -f -o

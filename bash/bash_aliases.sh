@@ -77,3 +77,4 @@ alias dc="docker-compose"
 
 # PACMAN
 alias pacsu="sudo pacman -Syu"
+alias pacman_package_files="pacman -Q -l" # next goes package name
