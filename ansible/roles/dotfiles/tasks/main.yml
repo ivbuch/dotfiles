@@ -14,3 +14,4 @@
 - import_tasks: ssh.yml
 - import_tasks: systemd.yml
 - import_tasks: cmus.yml
+- import_tasks: mongodb.yml

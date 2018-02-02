@@ -1,0 +1,5 @@
+- name: create config link
+  file:
+    src: "{{ mytools_path }}/dotfiles/mongodb/mongorc.js"
+    dest: "{{ ansible_env.HOME }}/.mongorc.js"
+    state: link
