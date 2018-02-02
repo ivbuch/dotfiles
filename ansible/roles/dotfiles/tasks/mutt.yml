@@ -18,10 +18,3 @@
   with_items:
     - {src: "mutt/muttrc", dest: ".mutt/muttrc" }
     - {src: "mutt/color-scheme", dest: ".mutt/color-scheme" }
-      
-- name: create mailcap link on macos machine
-  file:
-    src: "{{ mytools_path }}/dotfiles/mutt/mailcap"
-    dest: "{{ ansible_env.HOME }}/.mutt/mailcap"
-    state: link
-  when: is_mac_os

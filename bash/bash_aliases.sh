@@ -1,5 +1,5 @@
 alias weather="curl wttr.in"
-alias tma="/my-tools/home-infostructure/python-scripts/tmux/tmux-attach-session.py"
+alias tma="$HOME_INFOSTRUCTURE/python-scripts/tmux/tmux-attach-session.py"
 alias tx="tmuxp load -2"
 alias txl="ls ~/.tmuxp/"
 alias r='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
@@ -38,17 +38,17 @@ else
 fi
 
 alias u="cd .."
-alias cdd="cd /my-tools/dotfiles"
-alias cdh="cd /my-tools/home-infostructure"
+alias cdd="cd $DOT_FILES"
+alias cdh="cd $HOME_INFOSTRUCTURE"
 alias cda="cd /my-tools/ansible"
 alias cdap="cd /my-tools/ansible/playbooks"
 alias cdw="cd ~/workspace"
-alias cdai="cd $HOME/workspace/mfss-embeddable/apps/identity-server"
-alias cdmf="cd /my-tools/home-infostructure/work/medfusion/mf-docker"
+alias cdmfd="cd $HOME_INFOSTRUCTURE/work/medfusion/mf-docker"
+alias cdmfs="cd $HOME/workspace/mfss"
 
 # init dotfiles
-alias init_dotfiles="cd /my-tools/dotfiles/ansible && ansible-playbook init-dotfiles.yml --ask-sudo-pass"
-alias init_arch_linux="cd /my-tools/dotfiles/ansible && ansible-playbook arch-linux.yml --ask-sudo-pass"
+alias init_dotfiles="cd $DOT_FILES/ansible && ansible-playbook init-dotfiles.yml --ask-sudo-pass"
+alias init_arch_linux="cd $DOT_FILES/ansible && ansible-playbook arch-linux.yml --ask-sudo-pass"
 
 # GIT
 alias gur="git-update-repositories.py"
