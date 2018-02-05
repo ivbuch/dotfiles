@@ -61,11 +61,12 @@ select_docker_containter_and_invoke_command() {
   items=$(docker ps $1 | sed '1d') 
   item=$(echo "$items" | fzf)
   item=$(echo $item | awk '{print $1}')
-  eval docker $2 $item $3
+  echo $2 $3
+  eval "docker $2 $item $3"
 } 
 
 # remove docker container
-fdr() {
+fd_remove() {
   select_docker_containter_and_invoke_command "-a" "rm -f"
   echo "container $branchId removed"
 }
@@ -73,6 +74,11 @@ fdr() {
 # bash exec docker container
 fd_exec() {
   select_docker_containter_and_invoke_command "" "exec -it" "bash"
+}
+
+# bash restart docker container
+fd_restart() {
+  select_docker_containter_and_invoke_command "" "restart" ""
 }
 
 # bash exec docker container as root
