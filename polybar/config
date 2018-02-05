@@ -18,6 +18,7 @@ secondary = ${colors.background}
 alert = ${colors.foreground}
 
 [bar/ivbuch]
+monitor = ${env:MONITOR}
 bottom = true
 width = 100%
 height = 27
@@ -207,7 +208,7 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %percentage_used%%
-format = <bar-used>
+format = RAM <label>
 
 bar-used-indicator =
 bar-used-width = 50

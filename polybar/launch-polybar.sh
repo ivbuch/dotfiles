@@ -7,6 +7,13 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch bar1 and bar2
-polybar --config=/my-tools/dotfiles/polybar/config ivbuch --reload &
+# polybar --config=/my-tools/dotfiles/polybar/config ivbuch --reload &
+
+for i in $(polybar -m | awk -F: '{print $1}'); do 
+  export MONITOR=$i 
+  polybar --config=/my-tools/dotfiles/polybar/config ivbuch --reload & 
+done
+
+
 
 echo "Bars launched..."
