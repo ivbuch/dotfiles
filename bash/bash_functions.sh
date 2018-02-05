@@ -93,6 +93,15 @@ fdl() {
   docker logs -f $item
 }
 
+# start docker container
+fds() {
+  local branches branch
+  items=$(docker ps -a | sed '1d') 
+  item=$(echo "$items" | fzf)
+  item=$(echo $item | awk '{print $1}')
+  docker start $item
+}
+
 # set last wallpaper active
 init_wallpaper() {
   WALLPAPERS=~/Pictures/wallpapers

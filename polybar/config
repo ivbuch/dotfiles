@@ -11,10 +11,10 @@
 background = ${xrdb:color0:#222}
 background-alt = ${xrdb:color1:#222}
 foreground = ${xrdb:color15:#222}
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+foreground-alt = ${xrdb:color15:#222}
+primary = ${colors.foreground}
+secondary = ${colors.background}
+alert = ${colors.foreground}
 
 [bar/ivbuch]
 bottom = true
@@ -29,7 +29,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
-line-color = #f00
+line-color = ${colors.foreground}
 
 border-size = 4
 border-color = ${colors.background}
@@ -120,13 +120,13 @@ label-empty-padding = 2
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
-wrapping-scroll = false
+wrapping-scroll = true
 strip-wsnumbers = false
 
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
-label-mode-padding = 2
+label-mode-padding = 3
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
