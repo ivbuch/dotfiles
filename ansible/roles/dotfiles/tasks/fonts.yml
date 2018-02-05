@@ -1,0 +1,19 @@
+- name: font directory exits
+  file:
+    path: "{{ ansible_env.HOME }}/.local/share"
+    state: directory
+
+- name: link fonts
+  file:
+    src: "/my-tools/home-infostructure/fonts"
+    path: "{{ ansible_env.HOME }}/.local/share/fonts"
+    state: link
+
+- name: link fonts
+  file:
+    src: "/my-tools/home-infostructure/fonts/desktop"
+    path: "{{ ansible_env.HOME }}/.fonts"
+    state: link
+
+- name: clear fonts cache
+  shell: fc-cache -f

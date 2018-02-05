@@ -15,3 +15,4 @@
 - import_tasks: systemd.yml
 - import_tasks: cmus.yml
 - import_tasks: mongodb.yml
+- import_tasks: fonts.yml

@@ -18,8 +18,8 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
-[bar/example]
-;monitor = ${env:MONITOR:HDMI-1}
+[bar/ivbuch]
+bottom = true
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -39,12 +39,11 @@ border-color = #00000000
 padding-left = 2
 padding-right = 2
 
-module-margin-left = 5
-module-margin-right = 5
+module-margin-left = 1
+module-margin-right = 1
 
-font-0 = fixed:pixelsize=12;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=12;1
+font-0 = UbuntuMono-Regular:pixelsize=13;1
+font-1 = FontAwesome5FreeRegular:size=10:antialias=true
 
 modules-left = i3
 modules-center = 
@@ -127,7 +126,7 @@ wrapping-scroll = false
 strip-wsnumbers = false
 
 ; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+pin-workspaces = true
 
 label-mode-padding = 2
 label-mode-foreground = #000
@@ -338,7 +337,8 @@ format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
-label = %temperature%
+label-font = 1
+label = 🔇 %temperature%
 label-warn = %temperature%
 label-warn-foreground = ${colors.secondary}
 
@@ -386,5 +386,4 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
-
 ; vim:ft=dosini

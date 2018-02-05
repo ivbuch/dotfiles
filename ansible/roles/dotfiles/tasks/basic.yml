@@ -22,17 +22,6 @@
     path: "{{ ansible_env.HOME }}/.config"
     state: directory
 
-- name: font directory exits
-  file:
-    path: "{{ ansible_env.HOME }}/.local/share"
-    state: directory
-
-- name: link fonts
-  file:
-    src: "/my-tools/home-infostructure/fonts"
-    path: "{{ ansible_env.HOME }}/.local/share/fonts"
-    state: link
-
 - name: /opt ownership
   file:
     path: /opt

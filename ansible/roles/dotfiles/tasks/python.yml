@@ -42,3 +42,8 @@
   shell: source {{ ansible_env.HOME }}/.config/virtual-envs/main/bin/activate && pip install tmuxp
   args:
     executable: /bin/bash
+
+- name: install tldr
+  shell: source {{ ansible_env.HOME }}/.config/virtual-envs/main/bin/activate && pip install tldr
+  args:
+    executable: /bin/bash

@@ -4,6 +4,7 @@ alias tx="tmuxp load -2"
 alias txl="ls ~/.tmuxp/"
 alias r='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias ja='. jira-accident-folder.sh'
+alias die="kill -9"
 
 alias l="ls -lh"
 alias lt="ls -lht"
@@ -80,3 +81,6 @@ alias dps="docker ps --format 'table {{.Image}}\t{{.Status}}\t{{.Ports}}'"
 # PACMAN
 alias pacsu="sudo pacman -Syu"
 alias pacman_package_files="pacman -Q -l" # next goes package name
+
+# NETWORK
+alias ports='netstat -tulanp'

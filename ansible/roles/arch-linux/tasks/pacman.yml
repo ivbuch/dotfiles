@@ -23,8 +23,6 @@
     - lsof
     - sysstat
     - python-pip
-    - rxvt-unicode
-    - urxvt-perls
     - rofi
     - imagemagick
     - fzf
@@ -54,3 +52,6 @@
     - unrar
     - zip
     - scrot
+    - ngrep
+    - wget
+    - meld
