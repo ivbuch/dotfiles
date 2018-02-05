@@ -56,50 +56,39 @@ fe() {
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
+select_docker_containter_and_invoke_command() {
+  local branches branch
+  items=$(docker ps $1 | sed '1d') 
+  item=$(echo "$items" | fzf)
+  item=$(echo $item | awk '{print $1}')
+  eval docker $2 $item $3
+} 
+
 # remove docker container
 fdr() {
-  local branches branch
-  items=$(docker ps -a | sed '1d') 
-  branch=$(echo "$items" | fzf)
-  branchId=$(echo $branch | awk '{print $1}')
-  docker rm -f $branchId
+  select_docker_containter_and_invoke_command "-a" "rm -f"
   echo "container $branchId removed"
 }
 
 # bash exec docker container
-fde() {
-  local branches branch
-  items=$(docker ps -a | sed '1d') 
-  branch=$(echo "$items" | fzf)
-  branchId=$(echo $branch | awk '{print $1}')
-  docker exec -it $branchId bash
+fd_exec() {
+  select_docker_containter_and_invoke_command "" "exec -it" "bash"
 }
 
 # bash exec docker container as root
-fder() {
+fd_exec_root() {
   local branches branch
-  items=$(docker ps -a | sed '1d') 
-  branch=$(echo "$items" | fzf)
-  branchId=$(echo $branch | awk '{print $1}')
-  docker exec -u 0 -it $branchId bash
+  select_docker_containter_and_invoke_command "" "exec -u 0 -it" "bash"
 }
 
 # bash log docker container
-fdl() {
-  local branches branch
-  items=$(docker ps -a | sed '1d') 
-  item=$(echo "$items" | fzf)
-  item=$(echo $item | awk '{print $1}')
-  docker logs -f $item
+fd_log() {
+  select_docker_containter_and_invoke_command "-a" "logs -f" ""
 }
 
 # start docker container
-fds() {
-  local branches branch
-  items=$(docker ps -a | sed '1d') 
-  item=$(echo "$items" | fzf)
-  item=$(echo $item | awk '{print $1}')
-  docker start $item
+fd_start() {
+  select_docker_containter_and_invoke_command "-a" "start" ""
 }
 
 # set last wallpaper active
@@ -112,6 +101,6 @@ init_wallpaper() {
 }
 
 # view markdown
-mdview() {
+markdown_view() {
   pandoc $1 | lynx -stdin
 }
