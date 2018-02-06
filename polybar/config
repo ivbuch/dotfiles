@@ -47,9 +47,7 @@ font-1 = FontAwesome:size=10
 
 modules-left = i3
 modules-center = 
-modules-right = memory filesystem xbacklight volume cpu wlan eth battery date powermenu xkeyboard
-
-separator = |
+modules-right = memory separator filesystem separator xbacklight separator volume separator cpu separator wlan separator eth separator battery separator date separator powermenu xkeyboard
 
 tray-position = right
 tray-padding = 2
@@ -99,7 +97,7 @@ interval = 60
 
 mount-0 = /
 
-label-mounted = %{F#0a81f5}HDD %mountpoint%%{F-}: %percentage_used%% used
+label-mounted = %{F#0a81f5} %mountpoint%%{F-}: %percentage_used%% used
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -201,18 +199,18 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = ""
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-label = CPU:%percentage:2%%
+label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 3
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 ; format-underline = #4bffdc
 label = %gb_used%/%gb_total%
-format = RAM used <label>
+format = <label>
 
 bar-used-indicator =
 bar-used-width = 50
@@ -266,8 +264,8 @@ format-disconnected = <label-disconnected>
 type = internal/date
 interval = 5
 
-date =
-date-alt = " %Y-%m-%d"
+date-alt =   %A, %d %B %Y %H:%M
+date = %{F#928374}%{F-} %H:%M
 
 time = %H:%M
 time-alt = %H:%M:%S
@@ -284,7 +282,7 @@ headphone-mixer = Headphone
 headphone-id = 9
 
 format-volume = <label-volume> <bar-volume>
-label-volume = Volume
+label-volume = VOL
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
@@ -398,3 +396,8 @@ screenchange-reload = true
 margin-top = 5
 margin-bottom = 5
 ; vim:ft=dosini
+
+[module/separator]
+type = custom/text
+content = |
+content-foreground = #ffffff
