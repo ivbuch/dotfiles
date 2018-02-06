@@ -43,7 +43,7 @@ module-margin-left = 1
 module-margin-right = 1
 
 font-0 = UbuntuMono-Regular:pixelsize=13;1
-font-1 = FontAwesome5FreeRegular:size=10:antialias=true
+font-1 = FontAwesome:size=10
 
 modules-left = i3
 modules-center = 
@@ -314,23 +314,29 @@ battery = BAT0
 adapter = AC
 full-at = 98
 
-format-charging = Battery charging: <animation-charging> <label-charging>
+format-charging = <animation-charging> <label-charging>
+label-charging = %percentage%% 
 
-format-discharging = Battery: <ramp-capacity> <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
+label-discharging = %percentage%%
 
-format-full-prefix = " Battery:"
-format-full-prefix-foreground = ${colors.foreground-alt}
+format-full = <label-full>
+format-full-prefix =  
+format-full-prefix-foreground = #55aa55
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+ramp-capacity-0 =  
+ramp-capacity-1 =  
+ramp-capacity-2 =   
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-0 =  
+animation-charging-1 =   
+animation-charging-2 =  
+animation-charging-foreground = #55aa55
 animation-charging-framerate = 750
+
+format-full-padding = 1
+format-charging-padding = 1
+format-discharging-padding = 1
 
 [module/temperature]
 type = internal/temperature
