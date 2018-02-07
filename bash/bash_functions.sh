@@ -97,6 +97,11 @@ fd_start() {
   select_docker_containter_and_invoke_command "-a" "start" ""
 }
 
+# stop docker container
+fd_stop() {
+  select_docker_containter_and_invoke_command "" "stop" ""
+}
+
 # set last wallpaper active
 init_wallpaper() {
   WALLPAPERS=~/Pictures/wallpapers
