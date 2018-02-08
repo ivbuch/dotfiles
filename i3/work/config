@@ -265,14 +265,10 @@ bindsym XF86AudioMute exec amixer set Master toggle
 assign [class="google-chrome"] $tab_www
 assign [class="qutebrowser"] $tab_www
 assign [class="google-chrome"] $tab_www
-assign [class="jetbrains-idea-ce"] $tab_ide
 assign [class="Thunderbird"] $tab_chats
 assign [class="Skype"] $tab_chats
 assign [class="Conky"] $tab_monitor
 assign [title="PERFOMANCE"] PERFOMANCE
-
-workspace $tab_ide output VGA-2
-workspace $tab_www output VGA-1
 
 # STARTUP 
 
@@ -282,12 +278,6 @@ exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/wallpaper.jpg
 # applications
 exec qutebrowser
 exec setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
-
-# start oracle container
-exec docker start identity-db
-
-# start postgres container
-exec docker start claire-db
 
 # fix two monitors mode (what is left and right)
 exec "xrandr --output VGA-1 --auto --left-of VGA-1"
