@@ -44,7 +44,7 @@ alias cdh="cd $HOME_INFOSTRUCTURE"
 alias cda="cd /my-tools/ansible"
 alias cdap="cd /my-tools/ansible/playbooks"
 alias cdw="cd ~/workspace"
-alias cdmfd="cd $HOME_INFOSTRUCTURE/work/medfusion/mf-docker"
+alias cdmfd="cd $HOME_INFOSTRUCTURE/work/medfusion/mf-apps"
 alias cdmfs="cd $HOME/workspace/mfss"
 
 # init dotfiles

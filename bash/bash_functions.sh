@@ -1,7 +1,9 @@
+source $DOT_FILES/bash/bash_functions_docker.sh
+source $DOT_FILES/bash/bash_functions_git.sh
+
 function t_ru() {
   translate :ru $1 | less
-}
-
+} 
 function t_en() {
   translate ru:en $1 | less
 }
@@ -23,83 +25,11 @@ function kill_java_process_by_keyword() {
   fi  
 }
 
-# checkout git branch
-fgc() {
-  local branches branch
-  branches=$(git branch -vv) 
-  branch=$(echo "$branches" | fzf +m)
-  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
-}
-
-# checkout git branch all
-fgca() {
-  local branches branch
-  branches=$(git branch -a -vv) 
-  branch=$(echo "$branches" | fzf +m)
-  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
-}
-
-# show commit diff
-fgcd() {
-  local commits commit
-  commits=$(git log --name-status --abbrev-commit) 
-  commit=$(echo "$commits" | fzf +m)
-  id=$(echo "$commit" | cut -d\  -f2)
-  git difftool $id^..$id
-  echo $id
-}
-
 # open files with editor
 fe() {
   local files
   IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
-}
-
-select_docker_containter_and_invoke_command() {
-  local branches branch
-  items=$(docker ps $1 | sed '1d') 
-  item=$(echo "$items" | fzf)
-  item=$(echo $item | awk '{print $1}')
-  echo $2 $3
-  eval "docker $2 $item $3"
-} 
-
-# remove docker container
-fd_remove() {
-  select_docker_containter_and_invoke_command "-a" "rm -f"
-  echo "container $branchId removed"
-}
-
-# bash exec docker container
-fd_exec() {
-  select_docker_containter_and_invoke_command "" "exec -it" "bash"
-}
-
-# bash restart docker container
-fd_restart() {
-  select_docker_containter_and_invoke_command "" "restart" ""
-}
-
-# bash exec docker container as root
-fd_exec_root() {
-  local branches branch
-  select_docker_containter_and_invoke_command "" "exec -u 0 -it" "bash"
-}
-
-# bash log docker container
-fd_log() {
-  select_docker_containter_and_invoke_command "-a" "logs -f" ""
-}
-
-# start docker container
-fd_start() {
-  select_docker_containter_and_invoke_command "-a" "start" ""
-}
-
-# stop docker container
-fd_stop() {
-  select_docker_containter_and_invoke_command "" "stop" ""
 }
 
 # set last wallpaper active
