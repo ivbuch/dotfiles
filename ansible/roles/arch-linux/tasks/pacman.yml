@@ -56,3 +56,4 @@
     - wget
     - meld
     - awesome-terminal-fonts
+    - tig
