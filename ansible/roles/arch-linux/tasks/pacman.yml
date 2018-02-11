@@ -57,3 +57,5 @@
     - meld
     - awesome-terminal-fonts
     - tig
+    - compton
+    - termite

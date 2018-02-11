@@ -32,9 +32,8 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal with tma
-bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec termite
 # start a terminal with no tma
-bindsym $mod+Shift+Return exec urxvtc
 
 # kill focused window
 bindsym $mod+q kill
@@ -249,9 +248,6 @@ bindsym $mod+c exec /my-tools/dotfiles/i3/python-scripts/i3-open-workspace-by-na
 # cmus pause player
 bindsym $mod+p exec cmus-remote --pause
 
-# perfomance
-bindsym $mod+Shift+p exec urxvt -hold -T "PERFOMANCE" -e zsh -c "source ~/.zshrc && tmuxp load perfomance"
-
 # brightness
 bindsym XF86MonBrightnessDown exec $script_path/change_backlight.sh decrement
 bindsym XF86MonBrightnessUp exec $script_path/change_backlight.sh increment
@@ -285,9 +281,6 @@ exec "xrandr --output VGA-1 --auto --left-of VGA-1"
 # set colors
 exec "sleep 2 && ~/.config/virtual-envs/main/bin/wal -i ~/Pictures/wallpapers/active.jpg && i3-msg restart"
 
-# start daemon mode
-exec urxvtd -q -f -o
-
 # network manager applet
 exec --no-startup-id nm-applet --sm-disable
 
@@ -297,3 +290,6 @@ exec --no-startup-id nm-applet --sm-disable
 # conky
 exec --no-startup-id conky -c /my-tools/home-infostructure/ansible/playbooks/home/dot-files/conky-work.conf
 exec --no-startup-id conky -c /my-tools/dotfiles/conky/conky.conf
+
+# compton
+exec --no-startup-id compton

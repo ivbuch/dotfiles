@@ -1,5 +1,5 @@
 - import_tasks: basic.yml
-- import_tasks: urxvt.yml
+- import_tasks: termite.yml
 - import_tasks: mutt.yml
 - import_tasks: vim.yml
 - import_tasks: tmux.yml
