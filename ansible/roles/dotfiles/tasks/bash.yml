@@ -49,3 +49,20 @@
     path: "{{ ansible_env.HOME }}/.zshrc"
     line: "source /my-tools/dotfiles/bash/zshrc.sh"
     state: present
+
+- name: link powerline theme
+  file:
+    src: "{{ mytools_path }}/dotfiles/bash/oh-my-zsh-theme/powerline.zsh-theme"
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/themes/powerline.zsh-theme"
+    state: link
+  tags:
+    - oh-my-zsh
+
+- name: powerline settings
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.zshrc"
+    line: "source /my-tools/dotfiles/bash/oh-my-zsh-theme/theme-settings.sh"
+    insertafter: '^ZSH_THEME='
+    state: present
+  tags:
+    - oh-my-zsh
