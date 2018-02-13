@@ -123,6 +123,8 @@ macro attach W "<save-entry><bol>~/Downloads/mutt/<eol>" "Save to ~/Downloads/mu
 # delete all messages
 macro index A "<delete-pattern>~A^M$^M"
 
-#macro attach s <save-entry>lt;bol>my_saved/incoming/
+# url scan
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 
 source ~/.mutt/mail-account-rc

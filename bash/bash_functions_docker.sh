@@ -42,3 +42,17 @@ fd_start() {
 fd_stop() {
   select_docker_containter_and_invoke_command "" "stop" ""
 }
+
+# docker compose up service
+fdc_up() {
+  services="$(ls -l | grep -e "^d" | grep -v logs | awk '{print $9}')"
+  item=$(echo "$services" | fzf)
+  docker-compose up -d $item
+}
+
+# docker compose build service
+fdc_build() {
+  services="$(ls -l | grep -e "^d" | grep -v logs | awk '{print $9}')"
+  item=$(echo "$services" | fzf)
+  docker-compose build $item
+}
