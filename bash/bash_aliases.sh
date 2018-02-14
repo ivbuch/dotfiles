@@ -84,3 +84,7 @@ alias pacman_package_files="pacman -Q -l" # next goes package name
 
 # NETWORK
 alias ports='netstat -tulanp'
+
+# MAVEN
+alias mp='mvn clean package'
+alias mi='mvn clean install'
