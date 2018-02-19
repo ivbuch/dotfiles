@@ -5,6 +5,7 @@ alias txl="ls ~/.tmuxp/"
 alias r='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias ja='. jira-accident-folder.sh'
 alias die="kill -9"
+alias rl="readlink -f"
 
 alias l="ls -lh"
 alias lt="ls -lht"
@@ -84,3 +85,7 @@ alias pacman_package_files="pacman -Q -l" # next goes package name
 
 # NETWORK
 alias ports='netstat -tulanp'
+
+# MAVEN
+alias mp='mvn clean package'
+alias mi='mvn clean install'

@@ -18,3 +18,4 @@
   with_items:
     - {src: "mutt/muttrc", dest: ".mutt/muttrc" }
     - {src: "mutt/color-scheme", dest: ".mutt/color-scheme" }
+    - {src: "mutt/mailcap", dest: ".mutt/mailcap" }

@@ -5,6 +5,7 @@ export SPRING_HOME="/opt/spring-boot/actual"
 export DISABLE_AUTO_TITLE="true"
 export DOT_FILES="/my-tools/dotfiles"
 export HOME_INFOSTRUCTURE="/my-tools/home-infostructure"
+export BROWSER="/usr/bin/qutebrowser"
 
 # makes less search case insensitive
 export LESS="-i -R"
