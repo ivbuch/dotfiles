@@ -138,7 +138,7 @@ label-mode-background = ${colors.primary}
 label-focused = %name%
 label-focused-foreground = ${colors.background}
 label-focused-background = ${colors.foreground}
-label-focused-underline = ${colors.marked}
+label-focused-underline = #ffffff
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
@@ -154,6 +154,7 @@ label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
+label-urgent-foreground = ${colors.background}
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
