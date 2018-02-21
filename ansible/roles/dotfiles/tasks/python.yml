@@ -38,12 +38,12 @@
   command: virtualenv {{ ansible_env.HOME }}/.config/virtual-envs/main -p /usr/local/bin/python3
   when: virtual_env_check.stat.exists == false
 
-- name: install tmuxp
-  shell: source {{ ansible_env.HOME }}/.config/virtual-envs/main/bin/activate && pip install tmuxp
+- name: install packages in main virtual-env
+  shell: source {{ ansible_env.HOME }}/.config/virtual-envs/main/bin/activate && pip install {{ item }}
   args:
     executable: /bin/bash
-
-- name: install tldr
-  shell: source {{ ansible_env.HOME }}/.config/virtual-envs/main/bin/activate && pip install tldr
-  args:
-    executable: /bin/bash
+  with_items:
+    - "tmuxp"
+    - "tldr"
+    - "keepassx"
+    - "rtv"

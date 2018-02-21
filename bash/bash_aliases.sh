@@ -21,7 +21,7 @@ alias v="vim"
 alias psg="ps -ef | grep"
 alias clipboard_from="xclip -o -selection clipboard"
 alias clipboard_to="xclip -i -selection clipboard"
-alias pwdc="pwd | xclip -selection clipboard"
+alias pwdc="pwd | tr -d '[:space:]' | xclip -selection clipboard && echo pwd copied to clipboard"
 alias rm="rm -v"
 alias mv="mv -v"
 alias cp="cp -v"
@@ -31,6 +31,7 @@ alias mkdir="mkdir -v"
 alias reload_xresources="xrdb ~/.Xresources"
 alias apt="sudo apt"
 alias apti="sudo apt install"
+alias reddit="rtv"
 
 # open & xdg-open
 if [[ $(uname -a) == *"Linux"* ]]; then
