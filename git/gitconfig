@@ -1,0 +1,16 @@
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[alias]
+    c = checkout
+    co = commit
+    com = commit -m
+    s = status
+    b = branch
+    d = difftool
+    dm = difftool --tool=meld
+    lg = log --oneline --graph --decorate
+    l = log --name-status --abbrev-commit
+    ba = branch -vv
+    f = fetch

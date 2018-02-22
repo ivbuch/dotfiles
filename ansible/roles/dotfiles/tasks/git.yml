@@ -1,6 +1,14 @@
-- name: vim diff
-  shell: git config --global {{ item }}
-  with_items:
-    - diff.tool vimdiff
-    - difftool.prompt false
-    - alias.d difftool
+- name: create directory
+  file:
+    path: "{{ ansible_env.HOME }}/.config/git"
+    state: directory
+  tags:
+    - git
+
+- name: link config file
+  file:
+    src: "{{ mytools_path }}/dotfiles/git/gitconfig"
+    dest: "{{ ansible_env.HOME }}/.config/git/config"
+    state: link
+  tags:
+    - git

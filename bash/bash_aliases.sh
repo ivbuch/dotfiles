@@ -53,19 +53,6 @@ alias cdmfs="cd $HOME/workspace/mfss"
 alias init_dotfiles="cd $DOT_FILES/ansible && ansible-playbook init-dotfiles.yml --ask-sudo-pass"
 alias init_arch_linux="cd $DOT_FILES/ansible && ansible-playbook arch-linux.yml --ask-sudo-pass"
 
-# GIT
-alias gur="git-update-repositories.py"
-alias gd='git difftool'
-alias gdm='git difftool --tool=meld'
-alias gs='git status'
-alias gite="/my-tools/home-infostructure/python-scripts/git/git-editor.py"
-alias ggraph="git log --oneline --graph --decorate"
-alias gl="git log --name-status --abbrev-commit"
-alias gb="git branch -vv"
-alias gc="git checkout"
-alias gC="git commit -m"
-alias gf="git fetch"
-
 # SVN
 alias svns="svn status | grep -v -E '^Performing' | grep -v -E '^X.*'  | grep -v -E '^$'"
 alias svnd="svn diff"
