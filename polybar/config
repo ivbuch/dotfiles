@@ -6,6 +6,7 @@
 ;   The README contains alot of information
 ;
 ;=====================================================
+; https://fontawesome.com/cheatsheet
 
 [colors]
 background = ${xrdb:color0:#222}
@@ -47,7 +48,7 @@ font-1 = FontAwesome:size=10
 
 modules-left = i3
 modules-center = 
-modules-right = memory separator filesystem separator xbacklight separator volume separator cpu separator battery separator date separator powermenu xkeyboard
+modules-right = memory separator filesystem separator cpu separator battery separator time-local separator time-moscow separator powermenu xkeyboard
 
 tray-position = right
 tray-padding = 2
@@ -80,10 +81,9 @@ format = <label-layout> <label-indicator>
 format-spacing = 0
 
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = ${colors.secondary}
 
-label-layout = %{F#0a81f5}%layout%
+label-layout = %layout%
 label-layout-underline = ${colors.secondary}
 
 label-indicator-padding = 2
@@ -97,7 +97,7 @@ interval = 60
 
 mount-0 = /
 
-label-mounted = %{F#0a81f5} %mountpoint%%{F-}: %percentage_used%% used
+label-mounted =  %mountpoint%%: %percentage_used%% used
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -200,7 +200,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 label = %percentage:2%%
 
@@ -261,12 +261,11 @@ format-disconnected = <label-disconnected>
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-[module/date]
+[module/time-local]
 type = internal/date
 interval = 5
 
-date-alt =   %A, %d %B %Y %H:%M
-date = %{F#928374}%{F-} %H:%M
+date =  %D
 
 time = %H:%M
 time-alt = %H:%M:%S
@@ -330,7 +329,6 @@ ramp-capacity-2 =  
 animation-charging-0 =  
 animation-charging-1 =   
 animation-charging-2 =  
-animation-charging-foreground = #55aa55
 animation-charging-framerate = 750
 
 format-full-padding = 1
@@ -373,3 +371,8 @@ margin-bottom = 5
 type = custom/text
 content = |
 content-foreground = #ffffff
+
+[module/time-moscow]
+type = custom/script
+exec = TZ=Europe/Moscow date +": %H:%M"
+interval = 30
