@@ -14,3 +14,4 @@
     l = log --name-status --abbrev-commit
     ba = branch -vv
     f = fetch
+    p = push
