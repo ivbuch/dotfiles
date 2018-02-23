@@ -3,18 +3,21 @@
 [difftool]
     prompt = false
 [alias]
-    a = !git add . && git status
-    au = !git add -u . && git status
-    aa = !git add -u . && git add . && git status
+    a = !git add . && git status .
+    au = !git add -u . && git status .
+    aa = !git add -u . && git add . && git status .
     c = checkout
     co = commit
     com = commit -m
-    s = status
+    s = status .
     b = branch
-    d = difftool
-    dm = difftool --tool=meld
+    d = difftool .
+    ds = difftool --staged .
+    dm = difftool --tool=meld .
+    dms = difftool --staged --tool=meld .
     lg = log --oneline --graph --decorate
     l = log --name-status --abbrev-commit
     ba = branch -vv
     f = fetch
     p = push
+    r = reset HEAD
