@@ -3,6 +3,9 @@
 [difftool]
     prompt = false
 [alias]
+    a = !git add . && git status
+    au = !git add -u . && git status
+    aa = !git add -u . && git add . && git status
     c = checkout
     co = commit
     com = commit -m
