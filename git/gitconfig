@@ -10,14 +10,16 @@
     co = commit
     com = commit -m
     s = status .
-    b = branch
+
+    b = branch -vv
+    ba = branch -vv --all
+
     d = difftool .
     ds = difftool --staged .
     dm = difftool --tool=meld .
     dms = difftool --staged --tool=meld .
     lg = log --oneline --graph --decorate
     l = log --name-status --abbrev-commit
-    ba = branch -vv
     f = fetch
     p = push
     r = reset HEAD
