@@ -20,6 +20,7 @@ Plugin 'ctrlp.vim'
 Plugin 'benmills/vimux'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'w0rp/ale' " async lint
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

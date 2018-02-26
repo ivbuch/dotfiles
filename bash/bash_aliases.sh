@@ -1,12 +1,12 @@
 alias gs="echo type git s please"
 alias weather="curl wttr.in"
-alias tma="$HOME_INFOSTRUCTURE/python-scripts/tmux/tmux-attach-session.py"
+alias tma='$HOME_INFOSTRUCTURE/python-scripts/tmux/tmux-attach-session.py'
 alias tx="tmuxp load -2"
 alias txl="ls ~/.tmuxp/"
 alias r='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias ja='. jira-accident-folder.sh'
 alias die="kill -9"
-alias rl="readlink -f"
+alias bash_check="shellcheck"
 
 alias l="ls -lh"
 alias lt="ls -lht"
@@ -43,16 +43,16 @@ else
 fi
 
 alias u="cd .."
-alias cdd="cd $DOT_FILES"
-alias cdh="cd $HOME_INFOSTRUCTURE"
+alias cdd='cd $DOT_FILES'
+alias cdh='cd $HOME_INFOSTRUCTURE'
 alias cda="cd /my-tools/ansible"
 alias cdap="cd /my-tools/ansible/playbooks"
 alias cdw="cd ~/workspace"
-alias cdmfd="cd $HOME_INFOSTRUCTURE/work/medfusion/mf-apps"
-alias cdmfs="cd $HOME/workspace/mfss"
+alias cdmfd='cd $HOME_INFOSTRUCTURE/work/medfusion/mf-apps'
+alias cdmfs='cd $HOME/workspace/mfss'
 
 # init dotfiles
-alias init_dotfiles="cd $DOT_FILES/ansible && ansible-playbook init-dotfiles.yml --ask-sudo-pass"
+alias init_dotfiles='cd $DOT_FILES/ansible && ansible-playbook init-dotfiles.yml --ask-sudo-pass'
 alias init_arch_linux="cd $DOT_FILES/ansible && ansible-playbook arch-linux.yml --ask-sudo-pass"
 
 # SVN

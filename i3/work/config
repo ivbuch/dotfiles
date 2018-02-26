@@ -34,7 +34,6 @@ floating_modifier $mod
 
 # start a terminal with tma
 bindsym $mod+Return exec termite
-# start a terminal with no tma
 
 # kill focused window
 bindsym $mod+q kill
@@ -109,12 +108,6 @@ bindsym $mod+Shift+7 move container to workspace number $tab_default
 bindsym $mod+Shift+8 move container to workspace number $tab_mutt
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number $tab_chats
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -205,8 +198,6 @@ bindsym $mod+Shift+plus move scratchpad
 # Show the sup-mail scratchpad window, if any.
 bindsym $mod+plus scratchpad show
 
-#### CUSTOM BINDINGS ####
-
 # SCREENSHOTS
 set $FN $HOME/Pictures/screenshots/%Y-%m-%d__%H-%M-%S.png
 set $mode_screenshot Screenshot mode (d) desktop (w) window selection
@@ -222,6 +213,22 @@ mode "$mode_screenshot" {
 bindsym Print mode "$mode_screenshot"
 
 
+# SETTINGS
+set $mode_settings Settings mode (r) reload i3 config (a) restart i3 (p) polybar
+mode "$mode_settings" {
+
+    bindsym r reload
+
+    bindsym a restart
+
+    bindsym p exec /home/igor/workspace/dotfiles/polybar/launch-polybar.sh
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+r mode "$mode_settings"
+
 # open mail workspace
 bindsym $mod+m exec /my-tools/dotfiles/i3/python-scripts/i3-open-workspace-by-name.py mail 
 
@@ -230,12 +237,6 @@ bindsym $mod+w exec /my-tools/dotfiles/i3/python-scripts/workspace-dmenu.py
 
 # dmenu with workspaces
 bindsym $mod+Home exec /my-tools/dotfiles/i3/python-scripts/i3-open-workspace-by-name.py REST-CLIENT
-
-# open build workspace
-bindsym $mod+b exec /my-tools/dotfiles/i3/python-scripts/i3-open-workspace-by-name.py build 
-
-# timetracker
-bindsym $mod+t exec /my-tools/dotfiles/i3/python-scripts/focus-timetracker.py
 
 # lock screen
 bindsym $mod+o exec i3lock -i ~/Pictures/locked.png -t
