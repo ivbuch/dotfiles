@@ -1,7 +1,7 @@
 select_docker_containter_and_invoke_command() {
   local branches branch
   items=$(eval "docker ps $1" | sed '1d') 
-  item=$(echo "$items" | fzf --nth=2)
+  item=$(echo "$items" | fzf --nth=2 --tac)
   item=$(echo $item | awk '{print $1}')
   eval "docker $2 $item $3"
 } 
@@ -46,13 +46,13 @@ fd_stop() {
 # docker compose up service
 fdc_up() {
   services="$(ls -l | grep -e "^d" | grep -v logs | awk '{print $9}')"
-  item=$(echo "$services" | fzf)
+  item=$(echo "$services" | fzf --tac)
   docker-compose up -d $item
 }
 
 # docker compose build service
 fdc_build() {
   services="$(ls -l | grep -e "^d" | grep -v logs | awk '{print $9}')"
-  item=$(echo "$services" | fzf)
+  item=$(echo "$services" | fzf --tac)
   docker-compose build $item
 }
