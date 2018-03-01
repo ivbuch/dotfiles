@@ -47,7 +47,7 @@ markdown_view() {
   pandoc "$1" | lynx -stdin
 }
 
-read_link() {
+rl() {
   filename=$(readlink -f "$1")
   echo "$filename" | tr -d '[:space:]'| xclip -i -selection clipboard
   echo "Copied '$filename' to clipboard"

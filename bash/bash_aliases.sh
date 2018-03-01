@@ -79,3 +79,4 @@ alias ports='netstat -tulanp'
 # MAVEN
 alias mp='mvn clean package'
 alias mi='mvn clean install'
+alias mps='mvn clean package -DskipTests=true'

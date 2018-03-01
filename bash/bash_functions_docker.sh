@@ -1,5 +1,10 @@
+select_service_and_invoke_command() {
+  services="$(ls -l | grep -e "^d" | grep -v logs | awk '{print $9}')"
+  item=$(echo "$services" | fzf --tac)
+  eval "docker-compose $1 $item"
+} 
+
 select_docker_containter_and_invoke_command() {
-  local branches branch
   items=$(eval "docker ps $1" | sed '1d') 
   item=$(echo "$items" | fzf --nth=2 --tac)
   item=$(echo $item | awk '{print $1}')
@@ -45,9 +50,12 @@ fd_stop() {
 
 # docker compose up service
 fdc_up() {
-  services="$(ls -l | grep -e "^d" | grep -v logs | awk '{print $9}')"
-  item=$(echo "$services" | fzf --tac)
-  docker-compose up -d $item
+  select_service_and_invoke_command "up -d"
+}
+
+# docker compose start service
+fdc_start() {
+  select_service_and_invoke_command "start"
 }
 
 # docker compose build service
