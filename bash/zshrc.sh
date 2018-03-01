@@ -35,3 +35,5 @@ source $DOT_FILES/bash/z.sh
 
 # Alternative (blocks terminal for 0-3ms)
 cat ~/.cache/wal/sequences
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
