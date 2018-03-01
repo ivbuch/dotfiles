@@ -16,3 +16,4 @@
 - import_tasks: cmus.yml
 - import_tasks: mongodb.yml
 - import_tasks: fonts.yml
+- import_tasks: fzf.yml
