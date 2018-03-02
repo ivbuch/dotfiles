@@ -29,7 +29,7 @@ function kill_java_process_by_keyword() {
 # open files with editor
 fe() {
   local files
-  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0 --reverse))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 

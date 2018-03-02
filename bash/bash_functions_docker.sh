@@ -1,20 +1,27 @@
 select_service_and_invoke_command() {
   services="$(ls -l | grep -e "^d" | grep -v logs | awk '{print $9}')"
-  item=$(echo "$services" | fzf --tac)
-  eval "docker-compose $1 $item"
+  item=$(echo "$services" | fzf --reverse --tac)
+  if [[ "$?" -eq "0" ]]; then
+    echo "Execute: docker-compose $1 $item"
+    eval "docker-compose $1 $item"
+    echo "Done"
+  fi
 } 
 
 select_docker_containter_and_invoke_command() {
   items=$(eval "docker ps $1" | sed '1d') 
-  item=$(echo "$items" | fzf --nth=2 --tac)
-  item=$(echo $item | awk '{print $1}')
-  eval "docker $2 $item $3"
+  item=$(echo "$items" | fzf --reverse --nth=2 --tac)
+  if [[ "$?" -eq "0" ]]; then
+    item=$(echo $item | awk '{print $1}')
+    echo "Execute: docker $2 $item $3"
+    eval "docker $2 $item $3"
+    echo "Done"
+  fi
 } 
 
 # remove docker container
 fd_remove() {
   select_docker_containter_and_invoke_command "-a" "rm -f"
-  echo "container $branchId removed"
 }
 
 # bash exec docker container
@@ -29,7 +36,6 @@ fd_restart() {
 
 # bash exec docker container as root
 fd_exec_root() {
-  local branches branch
   select_docker_containter_and_invoke_command "" "exec -u 0 -it" "bash"
 }
 
@@ -60,7 +66,5 @@ fdc_start() {
 
 # docker compose build service
 fdc_build() {
-  services="$(ls -l | grep -e "^d" | grep -v logs | awk '{print $9}')"
-  item=$(echo "$services" | fzf --tac)
-  docker-compose build $item
+  select_service_and_invoke_command "build"
 }
