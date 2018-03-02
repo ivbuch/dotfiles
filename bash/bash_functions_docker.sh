@@ -2,7 +2,7 @@ select_service_and_invoke_command() {
   services="$(ls -l | grep -e "^d" | grep -v logs | awk '{print $9}')"
   item=$(echo "$services" | fzf --reverse --tac)
   if [[ "$?" -eq "0" ]]; then
-    echo "Execute: docker-compose $1 $item"
+    echo "Execute: dc $1 $item"
     eval "docker-compose $1 $item"
     echo "Done"
   fi
@@ -13,7 +13,7 @@ select_docker_containter_and_invoke_command() {
   item=$(echo "$items" | fzf --reverse --nth=2 --tac)
   if [[ "$?" -eq "0" ]]; then
     item=$(echo $item | awk '{print $1}')
-    echo "Execute: docker $2 $item $3"
+    echo "Execute: d $2 $item $3"
     eval "docker $2 $item $3"
     echo "Done"
   fi
