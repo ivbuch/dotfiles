@@ -1,5 +1,4 @@
 sound
-keyboard backlight
 wifi
 scanner
 battery
