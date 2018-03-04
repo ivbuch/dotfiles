@@ -1,0 +1,9 @@
+- name: copy udev rules
+  copy:
+    src: "{{ mytools_path }}/home-infostructure/dotfiles/udev/10-custom-user.rules"
+    dest: "/etc/udev/rules.d"
+    remote_src: yes
+  become: yes
+  become_method: sudo
+  tags:
+    - udev

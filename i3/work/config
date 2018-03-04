@@ -286,6 +286,9 @@ exec "sleep 2 && ~/.config/virtual-envs/main/bin/wal -i ~/Pictures/wallpapers/ac
 # network manager applet
 exec --no-startup-id nm-applet --sm-disable
 
+# bluetooth manager applet
+exec --no-startup-id blueman-applet
+
 # volume control
 # exec --no-startup-id volwheel */
 
@@ -295,3 +298,6 @@ exec --no-startup-id conky -c /my-tools/dotfiles/conky/conky.conf
 
 # compton
 exec --no-startup-id compton
+
+# disable bluetooth
+exec --no-startup-id "sleep 3 && rfkill block bluetooth"
