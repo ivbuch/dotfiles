@@ -1,4 +1,3 @@
 sound
-wifi
 scanner
-battery
+polybar - battery sound

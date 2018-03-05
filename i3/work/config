@@ -263,7 +263,7 @@ bindsym XF86MonBrightnessUp exec $script_path/change_backlight.sh increment
 # sound
 bindsym XF86AudioLowerVolume exec amixer set Master 5%-
 bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
-bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioMute exec $script_path/volume_toggle.sh
 
 # assign window to workspace
 assign [class="google-chrome"] $tab_www
