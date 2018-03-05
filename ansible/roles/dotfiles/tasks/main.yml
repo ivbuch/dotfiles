@@ -18,3 +18,4 @@
 - import_tasks: fonts.yml
 - import_tasks: fzf.yml
 - import_tasks: psql.yml
+- import_tasks: udev.yml

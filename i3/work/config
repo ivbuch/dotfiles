@@ -214,14 +214,20 @@ bindsym Print mode "$mode_screenshot"
 
 
 # SETTINGS
-set $mode_settings Settings mode (r) reload i3 config (a) restart i3 (p) polybar
+set $mode_settings Settings mode (r) reload i3 config (a) restart i3 (p) polybar (k) keyboard backlight
 mode "$mode_settings" {
 
+    # reload i3wm settings
     bindsym r reload
 
+    # restart i3wm
     bindsym a restart
 
+    # restart polybar
     bindsym p exec /home/igor/workspace/dotfiles/polybar/launch-polybar.sh
+
+    # keyboard backlight
+    bindsym k exec exec $script_path/change_kgb_backlight.sh
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -257,7 +263,7 @@ bindsym XF86MonBrightnessUp exec $script_path/change_backlight.sh increment
 # sound
 bindsym XF86AudioLowerVolume exec amixer set Master 5%-
 bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
-bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioMute exec $script_path/volume_toggle.sh
 
 # assign window to workspace
 assign [class="google-chrome"] $tab_www
@@ -286,6 +292,9 @@ exec "sleep 2 && ~/.config/virtual-envs/main/bin/wal -i ~/Pictures/wallpapers/ac
 # network manager applet
 exec --no-startup-id nm-applet --sm-disable
 
+# bluetooth manager applet
+exec --no-startup-id blueman-applet
+
 # volume control
 # exec --no-startup-id volwheel */
 
@@ -295,3 +304,6 @@ exec --no-startup-id conky -c /my-tools/dotfiles/conky/conky.conf
 
 # compton
 exec --no-startup-id compton
+
+# disable bluetooth
+exec --no-startup-id "sleep 3 && rfkill block bluetooth"

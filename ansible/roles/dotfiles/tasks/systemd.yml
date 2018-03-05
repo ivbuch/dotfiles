@@ -1,6 +1,30 @@
-- name: enable service httpd and ensure it is not masked
+- name: copy rc-local.service
+  copy:
+    src: "{{ mytools_path }}/home-infostructure/dotfiles/rc-local/rc-local.service"
+    dest: "/usr/lib/systemd/system/rc-local.service"
+    remote_src: yes
+  become: yes
+  become_method: sudo
+  tags:
+    - systemd
+
+- name: link rc.local script
+  file:
+    src: "{{ mytools_path }}/home-infostructure/dotfiles/rc-local/rc.local"
+    dest: "/etc/rc.local"
+    state: link
+  become: yes
+  tags:
+    - systemd
+
+- name: enable services
   become: yes
   systemd:
-    name: docker
+    name: "{{ item }}"
     enabled: yes
     state: started
+  with_items:
+    - docker
+    # - rc-local
+  tags:
+    - systemd
