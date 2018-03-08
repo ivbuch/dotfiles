@@ -1,3 +1,13 @@
+- name: create system directory
+  file:
+    path: "{{ ansible_env.HOME }}/{{ item }}"
+    state: directory
+  items:  
+    - ".config/systemd"
+    - ".config/systemd/user"
+  tags:
+    - systemd
+
 - name: copy rc-local.service
   copy:
     src: "{{ mytools_path }}/home-infostructure/dotfiles/rc-local/rc-local.service"

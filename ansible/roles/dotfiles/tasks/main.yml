@@ -4,6 +4,7 @@
 - import_tasks: vim.yml
 - import_tasks: tmux.yml
 - import_tasks: python.yml
+- import_tasks: systemd.yml
 - import_tasks: i3.yml
 - import_tasks: ansible.yml
 - import_tasks: ranger.yml
@@ -12,7 +13,6 @@
 - import_tasks: translate.yml
 - import_tasks: git.yml
 - import_tasks: ssh.yml
-- import_tasks: systemd.yml
 - import_tasks: cmus.yml
 - import_tasks: mongodb.yml
 - import_tasks: fonts.yml

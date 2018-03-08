@@ -1,6 +1,10 @@
 source "$DOT_FILES/bash/bash_functions_docker.sh"
 source "$DOT_FILES/bash/bash_functions_git.sh"
 
+lg() {
+  ls -lah | grep -i "$1"
+}
+
 function t_ru() {
   translate :ru "$1" | less
 } 

@@ -5,20 +5,54 @@
   items:  
     - ".config/i3"
     - ".config/i3status"
+  tags:
+    - "i3"
 
 - name: create config link
   file:
     src: "{{ mytools_path }}/dotfiles/i3/work/config"
     dest: "{{ ansible_env.HOME }}/.config/i3/config"
     state: link
+  tags:
+    - "i3"
 
 - name: create i3status link
   file:
     src: "{{ mytools_path }}/dotfiles/i3/i3status.conf"
     dest: "{{ ansible_env.HOME }}/.config/i3status/config"
     state: link
+  tags:
+    - "i3"
 
 - name: install py3status
   shell: source {{ ansible_env.HOME }}/.config/virtual-envs/main/bin/activate && pip install py3status
   args:
     executable: /bin/bash
+  tags:
+    - "i3"
+
+- name: create log directory
+  file:
+    path: "/var/log/set-random-themes-logs"
+    state: directory
+    owner: igor
+  become: yes
+  become_method: sudo
+  tags:
+    - "i3"
+
+- name: create set random theme service
+  file:
+    src: "{{ mytools_path }}/dotfiles/i3/theme-changer/set-random-theme.service"
+    dest: "{{ ansible_env.HOME }}/.config/systemd/user/set-random-theme.service"
+    state: link
+  tags:
+    - "i3"
+
+- name: enable set-random-theme service
+  systemd:
+    name: set-random-theme.service
+    enabled: yes
+    user: yes
+  tags:
+    - "i3"

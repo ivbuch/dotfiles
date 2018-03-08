@@ -214,7 +214,7 @@ bindsym Print mode "$mode_screenshot"
 
 
 # SETTINGS
-set $mode_settings Settings mode (r) reload i3 config (a) restart i3 (p) polybar (k) keyboard backlight
+set $mode_settings Settings mode (r) reload i3 config (a) restart i3 (p) polybar (k) keyboard backlight (t) theme
 mode "$mode_settings" {
 
     # reload i3wm settings
@@ -227,7 +227,10 @@ mode "$mode_settings" {
     bindsym p exec /home/igor/workspace/dotfiles/polybar/launch-polybar.sh
 
     # keyboard backlight
-    bindsym k exec exec $script_path/change_kgb_backlight.sh
+    bindsym k exec $script_path/change_kgb_backlight.sh
+
+    # set random theme
+    bindsym t exec systemctl start set-random-theme --user
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
