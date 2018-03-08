@@ -59,6 +59,11 @@ fdc_up() {
   select_service_and_invoke_command "up -d"
 }
 
+# docker compose up service
+fdc_remove_rebuild_up() {
+  select_service_and_invoke_command "up -d --build --force-recreate"
+}
+
 # docker compose start service
 fdc_start() {
   select_service_and_invoke_command "start"
