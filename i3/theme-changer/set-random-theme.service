@@ -3,7 +3,7 @@ Description=Change i3 theme
 
 [Service]
 Type=forking
-ExecStart=/home/igor/IdeaProjects/dotfiles/i3/theme-changer/set-random-theme.sh
+ExecStart=/my-tools/dotfiles/i3/theme-changer/set-random-theme.sh
 
 [Install]
 WantedBy=multi-user.target

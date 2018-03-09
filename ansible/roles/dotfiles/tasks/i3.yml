@@ -49,10 +49,22 @@
   tags:
     - "i3"
 
-- name: enable set-random-theme service
+- name: create set random theme timer service
+  file:
+    src: "{{ mytools_path }}/dotfiles/i3/theme-changer/set-random-theme.timer"
+    dest: "{{ ansible_env.HOME }}/.config/systemd/user/set-random-theme.timer"
+    state: link
+  tags:
+    - "i3"
+
+- name: enable set-random-theme units
   systemd:
-    name: set-random-theme.service
+    name: "{{ item }}"
+    state: started
     enabled: yes
     user: yes
+  items:
+    - "set-random-theme.service"
+    - "set-random-theme.timer"
   tags:
     - "i3"

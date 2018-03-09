@@ -82,3 +82,9 @@ alias ports='netstat -tulanp'
 alias mp='mvn clean package'
 alias mi='mvn clean install'
 alias mps='mvn clean package -DskipTests=true'
+
+# SOUND
+alias soundctl="pavucontrol"
+
+# DISPLAY
+alias displayctl="arandr"

@@ -1,0 +1,5 @@
+[Unit]
+Description=Change theme periodically (every 2 hours)
+
+[Timer]
+OnCalendar=0/2:00:00

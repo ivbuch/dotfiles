@@ -1,3 +1,2 @@
-sound
 scanner
 polybar - battery sound
