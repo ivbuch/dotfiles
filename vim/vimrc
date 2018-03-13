@@ -80,6 +80,7 @@ autocmd FileType xml    setlocal foldmethod=syntax foldlevel=100000
 autocmd FileType py     setlocal expandtab shiftwidth=4
 autocmd FileType groovy setlocal expandtab shiftwidth=5 tabstop=4
 autocmd FileType json   setlocal foldmethod=syntax foldlevel=100000
+autocmd FileType html   setlocal expandtab ts=4 sw=4 ai
 
 " colorscheme darkblue
 let g:airline_theme='light'
@@ -260,6 +261,10 @@ nmap <Leader>ecw :e /my-tools/home-infostructure/ansible/playbooks/home/dot-file
 
 " map space to jump between brackets
 noremap <space> %
+
+" spell checking, on and off
+noremap <Leader><F9> :setlocal spell spelllang=en_us<CR>
+noremap <Leader><F10> :setlocal nospell<CR>
 
 function! FormatXml()
   % ! python -c 'import lxml.etree as etree; import sys; 
