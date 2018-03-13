@@ -54,8 +54,8 @@ alias cdmfd='cd $HOME_INFOSTRUCTURE/work/medfusion/mf-apps'
 alias cdmfs='cd $HOME/workspace/mfss'
 
 # init dotfiles
-alias init_dotfiles='cd $DOT_FILES/ansible && ansible-playbook init-dotfiles.yml --ask-sudo-pass'
-alias init_arch_linux="cd $DOT_FILES/ansible && ansible-playbook arch-linux.yml --ask-sudo-pass"
+alias init_dotfiles='cd $DOT_FILES/ansible && ansible-playbook init-dotfiles.yml --ask-become-pass'
+alias init_arch_linux="cd $DOT_FILES/ansible && ansible-playbook arch-linux.yml --ask-become-pass"
 
 # SVN
 alias svns="svn status | grep -v -E '^Performing' | grep -v -E '^X.*'  | grep -v -E '^$'"
