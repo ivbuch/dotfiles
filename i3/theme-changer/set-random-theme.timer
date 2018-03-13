@@ -2,4 +2,4 @@
 Description=Change theme periodically (every 2 hours)
 
 [Timer]
-OnCalendar=0/2:00:00
+OnCalendar=0/1:00:00

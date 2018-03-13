@@ -88,3 +88,7 @@ alias soundctl="pavucontrol"
 
 # DISPLAY
 alias displayctl="arandr"
+
+# SYSTEMD
+alias sd="systemctl"
+alias sdu="systemctl --user"
