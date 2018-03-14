@@ -109,7 +109,7 @@ nmap <S-l> 10zl
 nmap <S-h> 10zh
 
 "select buffer by f5
-nnoremap <F5> :buffers<CR>:buffer<Space> 
+nnoremap <F5> :Buffers<CR>
 
 " buffer next/prev
 nnoremap <silent> <F12> :bn<CR>

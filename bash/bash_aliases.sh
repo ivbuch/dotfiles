@@ -92,3 +92,6 @@ alias displayctl="arandr"
 # SYSTEMD
 alias sd="systemctl"
 alias sdu="systemctl --user"
+
+# WORK
+alias rc='$HOME_INFOSTRUCTURE/work/medfusion/rest/rest-client/main.py' 
