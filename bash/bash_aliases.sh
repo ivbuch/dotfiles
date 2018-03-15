@@ -36,11 +36,7 @@ alias apti="sudo apt install"
 alias reddit="rtv"
 
 # open & xdg-open
-if [[ $(uname -a) == *"Linux"* ]]; then
-  alias o="nohup xdg-open"
-else
-  alias o="open"  
-fi
+alias o="nohup 1>/tmp/nohup.log 2>&1 xdg-open"
 
 alias u="cd .."
 alias cdd='cd $DOT_FILES'

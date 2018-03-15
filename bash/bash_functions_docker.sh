@@ -44,6 +44,21 @@ fd_log() {
   select_docker_containter_and_invoke_command "-a" "logs -f" ""
 }
 
+# bash inspect docker container
+fd_inspect() {
+  select_docker_containter_and_invoke_command "-a" "inspect" ""
+}
+
+# bash copy docker container name
+fd_copy_container_name() {
+  item=$(docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Image}}' | sed '1d' | fzf --tac)
+  if [[ "$?" -eq "0" ]]; then
+    name=$(echo $item | awk '{print $1}')
+    echo -n $name | xclip -selection clipboard
+    echo "Name $name copied to clipboard"
+  fi
+}
+
 # start docker container
 fd_start() {
   select_docker_containter_and_invoke_command "-a --filter \"status=exited\"" "start" ""
