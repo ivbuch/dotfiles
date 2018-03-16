@@ -6,4 +6,4 @@ Type=forking
 ExecStart=/my-tools/dotfiles/i3/theme-changer/set-random-theme.sh
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
