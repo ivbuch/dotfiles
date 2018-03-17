@@ -5,4 +5,4 @@ Description=Change theme periodically
 OnCalendar=0/1:00:00
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=timers.target
