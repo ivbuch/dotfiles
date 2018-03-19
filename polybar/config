@@ -18,6 +18,10 @@ primary = ${colors.foreground}
 secondary = ${colors.background}
 alert = ${colors.foreground}
 
+focused-tab = ${xrdb:color6}
+focused-tab-color = ${xrdb:color1}
+focused-tab-underline = ${xrdb:color1}
+
 [bar/ivbuch]
 monitor = ${env:MONITOR}
 bottom = false
@@ -141,9 +145,9 @@ label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %name%
-label-focused-foreground = ${colors.foreground-alt}
-label-focused-background = ${colors.marked}
-label-focused-underline = #ffffff
+label-focused-foreground = ${colors.focused-tab-color}
+label-focused-background = ${colors.focused-tab}
+label-focused-underline = ${colors.focused-tab-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
@@ -165,7 +169,7 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 label-separator = |
 label-separator-padding = 2
-label-separator-foreground = #ffffff
+label-separator-foreground = ${colors.foreground}
 
 [module/mpd]
 type = internal/mpd
@@ -375,7 +379,7 @@ margin-bottom = 5
 [module/separator]
 type = custom/text
 content = |
-content-foreground = #ffffff
+content-foreground = ${colors.foreground}
 
 [module/time-moscow]
 type = custom/script
