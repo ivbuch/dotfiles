@@ -61,4 +61,5 @@
     - compton
     - termite
     - zathura
+    - zathura-pdf-poppler
     - arandr
