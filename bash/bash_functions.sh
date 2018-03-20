@@ -5,22 +5,22 @@ lg() {
   ls -lah | grep -i "$1"
 }
 
-function t_ru() {
+t_ru() {
   translate :ru "$1" | less
 } 
-function t_en() {
+t_en() {
   translate ru:en "$1" | less
 }
 
-function t_() {
+t_() {
   translate "$1" | less
 }
 
-function find_term() {
+find_term() {
   find . -type f | xargs grep -l "$1"
 }
 
-function kill_java_process_by_keyword() {
+kill_java_process_by_keyword() {
   local pid
   pid=$(ps -f -u "$USER" | grep identity-server | grep -v grep | grep java | awk '{print $2}')
   if [ ! -z "$pid" ]; 
@@ -51,10 +51,18 @@ markdown_view() {
   pandoc "$1" | lynx -stdin
 }
 
+# copy filename full path to clipboard
 rl() {
   filename=$(readlink -f "$1")
   echo "$filename" | tr -d '[:space:]'| xclip -i -selection clipboard
   echo "Copied '$filename' to clipboard"
+}
+
+# copy filename to clipboard
+rf() {
+  fn=$(basename "$(readlink -f "$1")")
+  echo "$fn" | tr -d '[:space:]'| xclip -i -selection clipboard
+  echo "Copied '$fn' to clipboard"
 }
 
 # extract archive
@@ -77,4 +85,10 @@ ex () {
   else
     echo "'$1' is not a valid file"
   fi
+}
+
+mkdir_move() {
+  mkdir "$1"
+  mv "$2" "$1"
+  echo "Moved $2 to $1"
 }
