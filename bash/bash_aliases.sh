@@ -8,10 +8,10 @@ alias ja='. jira-accident-folder.sh'
 alias die="kill -9"
 alias bash_check="shellcheck"
 
-alias l="ls -lh"
-alias lt="ls -lht"
-alias la="ls -laht"
-alias lh="ls -lht | head"
+alias l="ls -lh --classify"
+alias lt="ls -lh --classify --sort=time"
+alias la="ls -lah --classify --sort=time"
+alias lh="ls -lh --classify --sort=time | head"
 
 alias g="git"
 alias gr="grep"

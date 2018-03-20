@@ -139,14 +139,14 @@ strip-wsnumbers = false
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
-label-mode-padding = 3
-label-mode-foreground = #000
+label-mode-padding = 5
+label-mode-foreground = ${colors.focused-tab-color}
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %name%
 label-focused-foreground = ${colors.focused-tab-color}
-label-focused-background = ${colors.focused-tab}
+label-focused-background = ${colors.background-alt}
 label-focused-underline = ${colors.focused-tab-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
