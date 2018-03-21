@@ -56,7 +56,7 @@
     font-1 = FontAwesome:size=10
 
     modules-left = i3
-    modules-center = 
+    modules-center = mpd
     modules-right = time-local separator battery separator time-moscow separator powermenu xkeyboard
 
     tray-position = right
@@ -166,16 +166,24 @@
 
 [module/mpd]
     type = internal/mpd
-    format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+    format-online = <label-song> <label-time> <toggle> <bar-progress>
 
-    icon-prev = 
-    icon-stop = 
-    icon-play = 
-    icon-pause = 
-    icon-next = 
+    icon-play = ⏵
+    icon-pause = ⏸
+    icon-stop = ⏹
+    icon-prev = ⏮
+    icon-next = ⏭
+    icon-seekb = ⏪
+    icon-seekf = ⏩
 
-    label-song-maxlen = 25
+    label-song-maxlen = 100
     label-song-ellipsis = true
+
+    ; Only applies if <bar-progress> is used
+    bar-progress-width = 45
+    bar-progress-indicator = |
+    bar-progress-fill = ─
+    bar-progress-empty = ─
 
 [module/time-local]
     type = internal/date

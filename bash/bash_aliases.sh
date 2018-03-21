@@ -7,6 +7,7 @@ alias r='ranger --choosedir=/tmp/ranger-$USER-rangerdir; LASTDIR=`cat /tmp/range
 alias ja='. jira-accident-folder.sh'
 alias die="kill -9"
 alias bash_check="shellcheck"
+alias music="ncmpcpp"
 
 alias l="ls -lh --classify"
 alias lt="ls -lh --classify --sort=time"
