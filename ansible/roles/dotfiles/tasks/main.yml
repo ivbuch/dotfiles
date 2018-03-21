@@ -19,3 +19,4 @@
 - import_tasks: fzf.yml
 - import_tasks: psql.yml
 - import_tasks: udev.yml
+- import_tasks: mpd.yml

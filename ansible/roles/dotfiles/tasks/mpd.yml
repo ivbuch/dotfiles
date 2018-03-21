@@ -1,0 +1,25 @@
+- name: create mpd config directory
+  file:
+    path: "{{ ansible_env.HOME }}/{{ item }}"
+    state: directory
+  items:  
+    - ".config/mpd"
+  tags:
+    - "mpd"
+
+- name: create config link
+  file:
+    src: "{{ mytools_path }}/dotfiles/mpd/mpd.conf"
+    dest: "{{ ansible_env.HOME }}/.config/mpd/mpd.conf"
+    state: link
+  tags:
+    - "mpd"
+
+- name: enable mpd service
+  systemd:
+    name: "mpd.service"
+    state: started
+    enabled: yes
+    user: yes
+  tags:
+    - "mpd"
