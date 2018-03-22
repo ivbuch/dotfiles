@@ -20,3 +20,4 @@
 - import_tasks: psql.yml
 - import_tasks: udev.yml
 - import_tasks: mpd.yml
+- import_tasks: ncmpcpp.yml

@@ -1,0 +1,16 @@
+- name: create ncmpcpp config directory
+  file:
+    path: "{{ ansible_env.HOME }}/{{ item }}"
+    state: directory
+  items:  
+    - ".config/ncmpcpp"
+  tags:
+    - "ncmpcpp"
+
+- name: create config link
+  file:
+    src: "{{ mytools_path }}/dotfiles/ncmpcpp/bindings"
+    dest: "{{ ansible_env.HOME }}/.config/ncmpcpp/bindings"
+    state: link
+  tags:
+    - "ncmpcpp"

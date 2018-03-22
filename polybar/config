@@ -166,24 +166,13 @@
 
 [module/mpd]
     type = internal/mpd
-    format-online = <label-song> <label-time> <toggle> <bar-progress>
+    format-online = <label-song> <label-time> | <icon-prev> | <toggle> | <icon-next> | <icon-stop>
 
-    icon-play = ⏵
-    icon-pause = ⏸
-    icon-stop = ⏹
-    icon-prev = ⏮
-    icon-next = ⏭
-    icon-seekb = ⏪
-    icon-seekf = ⏩
-
-    label-song-maxlen = 100
-    label-song-ellipsis = true
-
-    ; Only applies if <bar-progress> is used
-    bar-progress-width = 45
-    bar-progress-indicator = |
-    bar-progress-fill = ─
-    bar-progress-empty = ─
+    icon-play = 
+    icon-pause = 
+    icon-stop = 
+    icon-prev = 
+    icon-next = 
 
 [module/time-local]
     type = internal/date

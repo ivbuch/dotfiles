@@ -256,8 +256,8 @@ bindsym $mod+s exec /my-tools/dotfiles/i3/python-scripts/focus-skype.py
 # open cmus
 bindsym $mod+c exec /my-tools/dotfiles/i3/python-scripts/i3-open-workspace-by-name.py music 
 
-# cmus pause player
-bindsym $mod+p exec cmus-remote --pause
+# pause mpd player
+bindsym $mod+p exec mpc toggle
 
 # brightness
 bindsym XF86MonBrightnessDown exec $script_path/change_backlight.sh decrement
