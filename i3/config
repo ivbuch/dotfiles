@@ -206,9 +206,13 @@ hide_edge_borders both
 # go back&forth between workspaces
 workspace_auto_back_and_forth yes
 
+# start scratchpad window
+exec --no-startup-id termite --exec=vim --class="termite-vim-scratchpad"
+
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+plus move scratchpad
 
+for_window [class="termite-vim-scratchpad"] move scratchpad 
 # Show the sup-mail scratchpad window, if any.
 bindsym $mod+plus scratchpad show
 
@@ -252,23 +256,21 @@ mode "$mode_settings" {
 }
 bindsym $mod+Shift+r mode "$mode_settings"
 
-# workspace dmenu
-bindsym $mod+w exec /my-tools/dotfiles/i3/python-scripts/workspace-dmenu.py
-
-# dmenu with workspaces
-bindsym $mod+Home exec /my-tools/dotfiles/i3/python-scripts/i3-open-workspace-by-name.py REST-CLIENT
-
 # lock screen
 bindsym $mod+o exec i3lock -i ~/Pictures/locked.png -t
 
-# skype
-bindsym $mod+s exec /my-tools/dotfiles/i3/python-scripts/focus-skype.py
-
-# open cmus
-bindsym $mod+c exec /my-tools/dotfiles/i3/python-scripts/i3-open-workspace-by-name.py music 
-
 # pause mpd player
 bindsym $mod+p exec mpc toggle
+
+# idea
+bindsym $mod+i [class="jetbrains-idea"] focus
+
+# browser
+bindsym $mod+b [class="qutebrowser"] focus
+
+# chrome
+bindsym $mod+c [class="Chromium"] focus
+
 
 # brightness
 bindsym XF86MonBrightnessDown exec $script_path/change_backlight.sh decrement
