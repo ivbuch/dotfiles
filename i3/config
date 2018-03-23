@@ -47,11 +47,6 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
 
 # next/prev workspace
 bindsym $mod+Ctrl+h workspace prev
@@ -108,6 +103,25 @@ bindsym $mod+Shift+7 move container to workspace number $tab_default
 bindsym $mod+Shift+8 move container to workspace number $tab_mutt
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number $tab_chats
+
+set $mode_move (h/j/k/l) move containters (H/L) workspace to output
+mode "$mode_move" {
+
+	# move focused window
+	bindsym h move left
+	bindsym j move down
+	bindsym k move up
+	bindsym l move right
+
+	# move workspaces
+	bindsym Shift+h move workspace to output left
+	bindsym Shift+l move workspace to output right
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+m mode "$mode_move"
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -237,9 +251,6 @@ mode "$mode_settings" {
     bindsym Escape mode "default"
 }
 bindsym $mod+Shift+r mode "$mode_settings"
-
-# open mail workspace
-bindsym $mod+m exec /my-tools/dotfiles/i3/python-scripts/i3-open-workspace-by-name.py mail 
 
 # workspace dmenu
 bindsym $mod+w exec /my-tools/dotfiles/i3/python-scripts/workspace-dmenu.py
