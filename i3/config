@@ -284,11 +284,8 @@ bindsym XF86AudioMute exec $script_path/volume_toggle.sh
 # assign window to workspace
 assign [class="google-chrome"] $tab_www
 assign [class="qutebrowser"] $tab_www
-assign [class="google-chrome"] $tab_www
-assign [class="Thunderbird"] $tab_chats
-assign [class="Skype"] $tab_chats
+assign [class="jetbrains-idea"] $tab_ide
 assign [class="Conky"] $tab_monitor
-assign [title="PERFOMANCE"] PERFOMANCE
 
 # STARTUP 
 

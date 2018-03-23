@@ -4,7 +4,6 @@
     state: directory
   items:  
     - ".config/i3"
-    - ".config/i3status"
   tags:
     - "i3"
 
@@ -13,21 +12,6 @@
     src: "{{ mytools_path }}/dotfiles/i3/config"
     dest: "{{ ansible_env.HOME }}/.config/i3/config"
     state: link
-  tags:
-    - "i3"
-
-- name: create i3status link
-  file:
-    src: "{{ mytools_path }}/dotfiles/i3/i3status.conf"
-    dest: "{{ ansible_env.HOME }}/.config/i3status/config"
-    state: link
-  tags:
-    - "i3"
-
-- name: install py3status
-  shell: source {{ ansible_env.HOME }}/.config/virtual-envs/main/bin/activate && pip install py3status
-  args:
-    executable: /bin/bash
   tags:
     - "i3"
 
