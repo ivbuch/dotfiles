@@ -66,6 +66,8 @@
     - ncmpcpp
     - simplescreenrecorder
     - vlc
+    - ttf-hack
+    - sxiv
 
 - name: remove packages
   pacman:

@@ -14,6 +14,9 @@ for i in $(polybar -m | awk -F: '{print $1}'); do
   polybar --config=/my-tools/dotfiles/polybar/config ivbuch --reload & 
 done
 
-
+if [ "$1" = "i3-restart" ]; then
+  sleep 1
+  i3-msg restart
+fi
 
 echo "Bars launched..."

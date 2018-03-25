@@ -3,7 +3,7 @@
 #audible_bell = false
 #clickable_url = true
 #dynamic_title = true
-font = Monospace 11
+font = Hack 12
 # font = DejaVu Sans Mono 9
 #fullscreen = true
 #geometry = 640x480

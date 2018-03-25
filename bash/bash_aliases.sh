@@ -1,3 +1,4 @@
+alias pgy="ping ya.ru"
 alias gs="echo type git s please"
 alias weather="curl wttr.in"
 alias tma='$HOME_INFOSTRUCTURE/python-scripts/tmux/tmux-attach-session.py'
