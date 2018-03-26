@@ -68,6 +68,7 @@
     - vlc
     - ttf-hack
     - sxiv
+    - atool
 
 - name: remove packages
   pacman:
