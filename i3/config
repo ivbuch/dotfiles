@@ -262,7 +262,7 @@ mode "$mode_settings" {
 bindsym $mod+Shift+r mode "$mode_settings"
 
 # lock screen
-bindsym $mod+o exec i3lock -i ~/Pictures/locked.png -t
+bindsym $mod+o exec i3lock-fancy
 
 # pause mpd player
 bindsym $mod+p exec mpc toggle
