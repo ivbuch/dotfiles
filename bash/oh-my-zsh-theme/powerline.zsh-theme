@@ -147,7 +147,7 @@ else
     VENV_STATUS=""
 fi
 
-PROMPT="$POWERLINE_SEC1_BG$POWERLINE_SEC1_TXT $POWERLINE_USER_NAME $VENV_STATUS%k%f$POWERLINE_SEC1_FG%K{blue}"$'\ue0b0'"%k%f%F{white}%K{blue} "$POWERLINE_PATH"%F{blue}"$POWERLINE_GIT_INFO_LEFT" %k"$'\ue0b0'"%f "
+PROMPT="$POWERLINE_SEC1_BG$POWERLINE_SEC1_TXT $POWERLINE_USER_NAME $VENV_STATUS%k%f$POWERLINE_SEC1_FG%K{blue}"$'\ue0b0'"%k%f%F{white}%K{blue} %F{blue}"$POWERLINE_GIT_INFO_LEFT" %k"$'\ue0b0'"%f "
 
 if [ "$POWERLINE_NO_BLANK_LINE" = "" ]; then
     PROMPT="
@@ -163,3 +163,13 @@ if [ "$POWERLINE_DISABLE_RPROMPT" = "" ]; then
         RPROMPT="$POWERLINE_GIT_INFO_RIGHT%F{white}"$'\ue0b2'"%k%F{black}%K{white} $POWERLINE_RIGHT_B %f%F{$POWERLINE_RIGHT_A_COLOR_BACK}"$'\ue0b2'"%f%k%K{$POWERLINE_RIGHT_A_COLOR_BACK}%F{$POWERLINE_RIGHT_A_COLOR_FRONT} $POWERLINE_RIGHT_A %f%k"
     fi
 fi
+
+precmd() {
+  LEFT="$(echo -e '\033(0lq\033(B') [ $(pwd) "
+  RIGHT="$(date) "
+  RIGHTWIDTH=$(($COLUMNS-${#LEFT}))
+  print $LEFT${(l:$RIGHTWIDTH::-:)RIGHT}
+}
+
+ PROMPT="$(echo -e '\033(0mq\033(B') [ $PROMPT "
+
