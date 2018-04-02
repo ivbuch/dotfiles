@@ -165,11 +165,13 @@ if [ "$POWERLINE_DISABLE_RPROMPT" = "" ]; then
 fi
 
 precmd() {
-  LEFT="$(echo -e '\033(0lq\033(B') [ $(pwd) "
-  RIGHT="$(date) "
+  exit_status="$(echo  $?)"
+  LEFT="\n$(echo -e '\033(0lq\033(B') [ $(pwd) "
+  RIGHT=" $exit_status"
   RIGHTWIDTH=$(($COLUMNS-${#LEFT}))
   print $LEFT${(l:$RIGHTWIDTH::-:)RIGHT}
 }
 
- PROMPT="$(echo -e '\033(0mq\033(B') [ $PROMPT "
+RPROMPT=""
+PROMPT="$(echo -e '\033(0mq\033(B') [ $PROMPT "
 

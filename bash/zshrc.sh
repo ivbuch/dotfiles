@@ -22,7 +22,9 @@ export PATH="$HOME/.bin:$PATH"
 
 source ~/.bash_aliases
 source $DOT_FILES/bash/bash_functions.sh
-source $HOME/.config/virtual-envs/main/bin/activate
+
+
+VIRTUAL_ENV_DISABLE_PROMPT=1 source $HOME/.config/virtual-envs/main/bin/activate
 source $HOME_INFOSTRUCTURE/work/medfusion/export-ports.sh
 
 # https://github.com/rupa/z

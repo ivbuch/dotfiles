@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$#" -lt 2 ]; then  
-  echo "Usage: device filesystem"
+  echo "Usage: script /dev/sdc1 ntfs"
   exit 1
 fi
 
