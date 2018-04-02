@@ -2,7 +2,7 @@
   file:
     path: "{{ ansible_env.HOME }}/{{ item }}"
     state: directory
-  items:  
+  with_items:  
     - ".config/i3"
   tags:
     - "i3"
@@ -47,7 +47,7 @@
     state: started
     enabled: yes
     user: yes
-  items:
+  with_with_items:
     - "set-random-theme.service"
     - "set-random-theme.timer"
   tags:

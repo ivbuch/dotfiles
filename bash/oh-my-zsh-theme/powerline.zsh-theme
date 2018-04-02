@@ -167,5 +167,9 @@ precmd() {
   print $LEFT${(l:$RIGHTWIDTH::-:)RIGHT}
 }
 
+preexec() {
+  echo ""
+}
+
 RPROMPT=""
-PROMPT="$(echo -e '\033(0mq\033(B') [ $PROMPT "
+PROMPT="$(echo -e '\033(0mq\033(B') [ $PROMPT"

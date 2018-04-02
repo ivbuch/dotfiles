@@ -1,10 +1,14 @@
 - name: create link to quteconfig (unix)
   file:
-    src: "{{ homeinfostructure_path }}/ansible/playbooks/home/dot-files/qutebrowser"
+    src: "{{ homeinfostructure_path }}/dotfiles/qutebrowser"
     dest: "{{ ansible_env.HOME }}/.config/qutebrowser"
     state: link
+  tags:
+    - qutebrowser
 
 - name: create download temp directory
   file:
     path: "{{ ansible_env.HOME }}/Downloads/temp"
     state: directory
+  tags:
+    - qutebrowser

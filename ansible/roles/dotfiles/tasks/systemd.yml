@@ -2,7 +2,7 @@
   file:
     path: "{{ ansible_env.HOME }}/{{ item }}"
     state: directory
-  items:  
+  with_items:  
     - ".config/systemd"
     - ".config/systemd/user"
   tags:
