@@ -109,7 +109,7 @@ ZSH_THEME_GIT_PROMPT_DIVERGED=" ⬍"
 # else
     if [ "$POWERLINE_SHOW_GIT_ON_RIGHT" = "" ]; then
         if [ "$POWERLINE_HIDE_GIT_PROMPT_STATUS" = "" ]; then
-            POWERLINE_GIT_INFO_LEFT=" %F{blue}%K{white}"$'\ue0b0'"%F{white}%F{black}%K{white}"$'$(git_prompt_info)$(git_prompt_status)%F{white}'
+            POWERLINE_GIT_INFO_LEFT="%K{white}%F{white}%F{black}%K{white}"$'$(git_prompt_info)$(git_prompt_status)%F{white}'
         else
             POWERLINE_GIT_INFO_LEFT=" %F{blue}%K{white}"$'\ue0b0'"%F{white}%F{black}%K{white}"$'$(git_prompt_info)%F{white}'
         fi
@@ -147,12 +147,7 @@ else
     VENV_STATUS=""
 fi
 
-PROMPT="$POWERLINE_SEC1_BG$POWERLINE_SEC1_TXT $POWERLINE_USER_NAME $VENV_STATUS%k%f$POWERLINE_SEC1_FG%K{blue}"$'\ue0b0'"%k%f%F{white}%K{blue} %F{blue}"$POWERLINE_GIT_INFO_LEFT" %k"$'\ue0b0'"%f "
-
-if [ "$POWERLINE_NO_BLANK_LINE" = "" ]; then
-    PROMPT="
-"$PROMPT
-fi
+PROMPT="%F{blue}"$POWERLINE_GIT_INFO_LEFT" %k"$'\ue0b0'"%f "
 
 if [ "$POWERLINE_DISABLE_RPROMPT" = "" ]; then
     if [ "$POWERLINE_RIGHT_A" = "" ]; then
@@ -166,7 +161,7 @@ fi
 
 precmd() {
   exit_status="$(echo  $?)"
-  LEFT="\n$(echo -e '\033(0lq\033(B') [ $(pwd) "
+  LEFT="\n$(echo -e '\033(0lq\033(B') [   $(pwd) "
   RIGHT=" $exit_status"
   RIGHTWIDTH=$(($COLUMNS-${#LEFT}))
   print $LEFT${(l:$RIGHTWIDTH::-:)RIGHT}
@@ -174,4 +169,3 @@ precmd() {
 
 RPROMPT=""
 PROMPT="$(echo -e '\033(0mq\033(B') [ $PROMPT "
-
