@@ -1,2 +1,5 @@
-bind main 7 !git difftool %(commit)^ %(commit)
-bind main 8 !git difftool --tool='meld' %(commit)^ %(commit)
+bind generic 7 !git difftool %(commit)^ %(commit)
+bind generic 8 !git difftool --tool='meld' %(commit)^ %(commit)
+
+bind generic 0 !@sh -c "echo -n %(commit) | xclip -selection c"
+bind generic 1 !@sh -c "echo -n %(directory)%(file) | xclip -selection c"

@@ -15,8 +15,8 @@ set $tab_chats "10: messenger"
 
 set $mod Mod4
 
-gaps inner 6
-gaps outer 6
+gaps inner 14
+gaps outer 14
 # smart_gaps no
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -322,11 +322,14 @@ exec "sleep 2 && ~/.config/virtual-envs/main/bin/wal -i ~/Pictures/wallpapers/ac
 exec --no-startup-id nm-applet --sm-disable
 
 # bluetooth manager applet
-exec --no-startup-id [ -n "$WORK_OS" ] && blueman-applet
+exec --no-startup-id [ -n "$HOME_OS" ] && blueman-applet
 
 # conky
 exec --no-startup-id [ -n "$WORK_OS" ] && conky -c /my-tools/home-infostructure/dotfiles/conky/conky-work.conf
 exec --no-startup-id [ -n "$WORK_OS" ] && conky -c /my-tools/dotfiles/conky/conky.conf
+
+# idea
+exec --no-startup-id [ -n "$WORK_OS" ] && idea
 
 # compton
 exec --no-startup-id compton
