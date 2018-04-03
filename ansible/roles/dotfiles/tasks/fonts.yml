@@ -23,5 +23,6 @@
 
 - name: clear fonts cache
   shell: fc-cache -f
+  changed_when: no
   tags:
     - fonts

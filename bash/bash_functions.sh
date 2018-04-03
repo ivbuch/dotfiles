@@ -92,3 +92,7 @@ mkdir_move() {
   mv "$2" "$1"
   echo "Moved $2 to $1"
 }
+
+download_youtube_audio() {
+  youtube-dl -x --audio-format mp3 -o "$HOME/Music/youtube/%(title)s.%(ext)s" "$1"
+}

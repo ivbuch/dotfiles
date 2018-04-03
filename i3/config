@@ -279,7 +279,6 @@ bindsym $mod+c [class="Chromium"] focus
 # terminal
 bindsym $mod+t [class="Termite"] focus
 
-
 # brightness
 bindsym XF86MonBrightnessDown exec $script_path/change_backlight.sh decrement
 bindsym XF86MonBrightnessUp exec $script_path/change_backlight.sh increment
@@ -303,17 +302,18 @@ workspace $tab_vim output VGA-3
 workspace $tab_chats output VGA-3
 workspace $tab_terminal output VGA-3
 
-# STARTUP 
+# ----------------------------------------------------------------------------------- STARTUP APPS
 
 # set wallpaper
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/wallpaper.jpg
 
 # applications
 exec qutebrowser
+exec chromium
 exec setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
 
 # fix two monitors mode (what is left and right)
-exec "xrandr --output VGA-1 --auto --left-of VGA-1"
+# exec "xrandr --output VGA-1 --auto --left-of VGA-1"
 
 # set colors
 exec "sleep 2 && ~/.config/virtual-envs/main/bin/wal -i ~/Pictures/wallpapers/active.jpg && i3-msg restart"
@@ -322,14 +322,11 @@ exec "sleep 2 && ~/.config/virtual-envs/main/bin/wal -i ~/Pictures/wallpapers/ac
 exec --no-startup-id nm-applet --sm-disable
 
 # bluetooth manager applet
-exec --no-startup-id blueman-applet
-
-# volume control
-# exec --no-startup-id volwheel */
+exec --no-startup-id [ -n "$WORK_OS" ] && blueman-applet
 
 # conky
-exec --no-startup-id conky -c /my-tools/home-infostructure/ansible/playbooks/home/dot-files/conky-work.conf
-exec --no-startup-id conky -c /my-tools/dotfiles/conky/conky.conf
+exec --no-startup-id [ -n "$WORK_OS" ] && conky -c /my-tools/home-infostructure/dotfiles/conky/conky-work.conf
+exec --no-startup-id [ -n "$WORK_OS" ] && conky -c /my-tools/dotfiles/conky/conky.conf
 
 # compton
 exec --no-startup-id compton
