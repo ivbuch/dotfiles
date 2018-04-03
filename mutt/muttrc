@@ -15,11 +15,6 @@ set imap_idle
 unset mark_old
 set ssl_use_sslv3=yes
 
-# cache
-set header_cache    = ~/.mutt/cache/headers
-set message_cachedir    = ~/.mutt/cache/bodies
-set certificate_file    = ~/.mutt/certificates
-
 source ~/.mutt/color-scheme
 
 set beep_new=yes
@@ -127,4 +122,4 @@ macro index A "<delete-pattern>~A^M$^M"
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 
-source ~/.mutt/mail-account-rc
+source $MUTT_MAIL_ACCOUNT

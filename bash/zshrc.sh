@@ -1,5 +1,3 @@
-export EDITOR="vim"
-export PAGER="less"
 export ORACLE_PATH="/my-tools/dotfiles/sqlplus"
 export SPRING_HOME="/opt/spring-boot/actual"
 export DISABLE_AUTO_TITLE="true"
@@ -18,7 +16,6 @@ export PATH=$PATH:$HOME_INFOSTRUCTURE/python-scripts/i3
 export PATH=$PATH:$HOME_INFOSTRUCTURE/bash-scripts/work
 export PATH=$PATH:/opt/translate-script
 export PATH=$PATH:$SPRING_HOME/bin
-export PATH="$HOME/.bin:$PATH"
 
 source ~/.bash_aliases
 source $DOT_FILES/bash/bash_functions.sh

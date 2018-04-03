@@ -62,7 +62,6 @@ set splitright
 
 set history=500
 
-
 " nerd tree - close file browser on file select
 let g:NERDTreeQuitOnOpen = 1
 

@@ -4,10 +4,16 @@
     state: directory
   with_items:
     - ".mutt"
-    - ".mutt/cache"
-    - ".mutt/cache/headers"
-    - ".mutt/cache/bodies"
-    - ".mutt/cache/certificates"
+    - ".mutt/account-home"
+    - ".mutt/account-work"
+    - ".mutt/account-home/cache"
+    - ".mutt/account-home/cache/headers"
+    - ".mutt/account-home/cache/bodies"
+    - ".mutt/account-home/cache/certificates"
+    - ".mutt/account-work/cache"
+    - ".mutt/account-work/cache/headers"
+    - ".mutt/account-work/cache/bodies"
+    - ".mutt/account-work/cache/certificates"
     - "Downloads/mutt"
   tags:
     - mutt

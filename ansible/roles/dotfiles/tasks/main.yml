@@ -13,7 +13,6 @@
 - import_tasks: translate.yml
 - import_tasks: git.yml
 - import_tasks: ssh.yml
-- import_tasks: cmus.yml
 - import_tasks: mongodb.yml
 - import_tasks: fonts.yml
 - import_tasks: fzf.yml
