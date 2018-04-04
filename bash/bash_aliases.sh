@@ -38,6 +38,7 @@ alias reload_xresources="xrdb ~/.Xresources"
 alias apt="sudo apt"
 alias apti="sudo apt install"
 alias reddit="rtv"
+alias red="rtv"
 
 # open & xdg-open
 alias o="nohup 1>/tmp/nohup.log 2>&1 xdg-open"
