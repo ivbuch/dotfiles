@@ -2,15 +2,35 @@
   file:
     path: "{{ ansible_env.HOME }}/.config/ranger"
     state: directory
+  tags:
+    - ranger
 
 - name: create file links
   file:
-    src: "{{ mytools_path }}/dotfiles/ranger/rc.conf"
-    dest: "{{ ansible_env.HOME }}/.config/ranger/rc.conf"
+    src: "{{ mytools_path }}/dotfiles/ranger/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.config/ranger/{{ item }}"
     state: link
+  with_items:
+    - rc.conf
+    - rifle.conf
+  tags:
+    - ranger
 
 - name: create file links
   file:
-    src: "{{ mytools_path }}/dotfiles/ranger/rifle.conf"
-    dest: "{{ ansible_env.HOME }}/.config/ranger/rifle.conf"
+    src: "{{ mytools_path }}/dotfiles/ranger/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.config/ranger/{{ item }}"
     state: link
+  with_items:
+    - rc.conf
+    - rifle.conf
+  tags:
+    - ranger
+
+- name: bookmarks link
+  file:
+    src: "{{ mytools_path }}/home-infostructure/dotfiles/ranger/bookmarks"
+    dest: "{{ ansible_env.HOME }}/.config/ranger/bookmarks"
+    state: link
+  tags:
+    - ranger
