@@ -34,6 +34,9 @@ floating_modifier $mod
 # start a terminal with tma
 bindsym $mod+Return exec termite
 
+# start a default terminal
+bindsym $mod+Shift+Return exec termite --class="termite-default"
+
 # kill focused window
 bindsym $mod+q kill
 
@@ -277,7 +280,7 @@ bindsym $mod+b [class="qutebrowser"] focus
 bindsym $mod+c [class="Chromium"] focus
 
 # terminal
-bindsym $mod+t [class="Termite"] focus
+bindsym $mod+t [class="termite-default"] focus
 
 # brightness
 bindsym XF86MonBrightnessDown exec $script_path/change_backlight.sh decrement
