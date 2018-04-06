@@ -69,6 +69,8 @@
     - ttf-hack
     - sxiv
     - atool
+    - wstools
+    - flashfocus
 
 - name: remove packages
   pacman:
