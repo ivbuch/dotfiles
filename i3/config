@@ -16,7 +16,7 @@ set $tab_chats "10: messenger"
 set $mod Mod4
 
 gaps inner 14
-gaps outer 14
+gaps outer 0
 # smart_gaps no
 
 # Font for window titles. Will also be used by the bar unless a different font
