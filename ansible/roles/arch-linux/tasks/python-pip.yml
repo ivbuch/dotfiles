@@ -6,4 +6,8 @@
 - name: install pywal
   become: yes
   pip:
-    name: pywal
+    name: "{{ item }}"
+  with_items:
+    - pywal
+    - wstools
+    - flashfocus

@@ -29,7 +29,7 @@
     height = 32
     offset-x = 0%
     offset-y = 0%
-    radius = 3.0
+    radius = 0
     fixed-center = true
     dim-value = 0.5
 
@@ -39,7 +39,7 @@
     line-size = 2
     line-color = ${colors.foreground}
 
-    border-size = 10
+    border-size = 14
     border-top-size = 10
     border-bottom-size = 0
     border-color = #00000000
