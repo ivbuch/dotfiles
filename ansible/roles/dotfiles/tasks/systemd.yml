@@ -33,6 +33,7 @@
     name: "{{ item }}"
     enabled: yes
     state: started
+  changed_when: false
   with_items:
     - docker
     # - rc-local

@@ -47,6 +47,7 @@
     state: started
     enabled: yes
     user: yes
+  changed_when: false
   with_with_items:
     - "set-random-theme.service"
     - "set-random-theme.timer"
