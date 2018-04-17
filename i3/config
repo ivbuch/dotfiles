@@ -342,3 +342,6 @@ exec --no-startup-id "sleep 3 && rfkill block bluetooth"
 
 # flash window on focus
 exec_always --no-startup-id ~/.config/virtual-envs/main/bin/flashfocus
+
+# clipboard manager
+exec --no-startup-id copyq
