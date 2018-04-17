@@ -9,15 +9,22 @@ select_service_and_invoke_command() {
 } 
 
 select_docker_containter_and_invoke_command() {
-  items=$(eval "docker ps $1" | sed '1d') 
-  item=$(echo "$items" | fzf --reverse --nth=2 --tac)
+  items=$(eval "docker ps --format \"table {{.Image}}\\t{{.Names}}\\t{{.Status}}\" $1" | sed '1d') 
+  items=$(echo "$items" | fzf --reverse --nth=2 --tac --multi)
   if [[ "$?" -eq "0" ]]; then
-    item=$(echo $item | awk '{print $1}')
-    echo "Execute: d $2 $item $3"
-    eval "docker $2 $item $3"
+    items=$(echo $items | awk '{print $2}')
+    lines="$(echo $items | wc -l)"
+    if [[ "$lines" -eq "1" ]]; then
+      eval "docker $2 $items $3"
+    else  
+      while read -r item; do
+	echo "Execute: d $2 $item $3"
+	eval "docker $2 $item $3"
+      done <<< "$items"
+    fi
     echo "Done"
   fi
-} 
+}
 
 # remove docker container
 fd_remove() {
