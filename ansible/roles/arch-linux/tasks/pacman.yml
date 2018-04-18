@@ -69,7 +69,6 @@
     - ttf-hack
     - sxiv
     - atool
-    - copyq
 
 - name: remove packages
   pacman:
