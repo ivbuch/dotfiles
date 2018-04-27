@@ -33,3 +33,4 @@ source $HOME_INFOSTRUCTURE/work/medfusion/export-ports.sh
 cat ~/.cache/wal/sequences
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -z "$TMUX" ] && tmux
