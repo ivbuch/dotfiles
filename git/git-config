@@ -11,8 +11,9 @@
     com = commit -m
     s = status .
 
-    b = branch -vv
-    ba = branch -vv --all
+    b = branch
+    bv = branch -vv
+    bva = branch -vv --all
 
     d = difftool .
     ds = difftool --staged .

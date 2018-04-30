@@ -85,6 +85,8 @@ alias ports='netstat -tulanp'
 alias mp='mvn clean package'
 alias mi='mvn clean install'
 alias mps='mvn clean package -DskipTests=true'
+alias mt='mvn clean test'
+alias mtd='mvn clean test -Dmaven.surefire.debug test'
 
 # SOUND
 alias soundctl="pavucontrol"

@@ -15,10 +15,11 @@ select_docker_containter_and_invoke_command() {
     items=$(echo $items | awk '{print $2}')
     lines="$(echo $items | wc -l)"
     if [[ "$lines" -eq "1" ]]; then
+      echo "Execute: docker $2 $items $3"
       eval "docker $2 $items $3"
     else  
       while read -r item; do
-	echo "Execute: d $2 $item $3"
+	echo "Execute: docker $2 $item $3"
 	eval "docker $2 $item $3"
       done <<< "$items"
     fi
