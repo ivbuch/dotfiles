@@ -295,7 +295,6 @@ bindsym XF86AudioMute exec $script_path/volume_toggle.sh
 assign [class="google-chrome"] $tab_www
 assign [class="qutebrowser"] $tab_www
 assign [class="jetbrains-idea"] $tab_ide
-assign [class="Conky"] $tab_monitor
 assign [class="Chromium"] $tab_chats
 
 workspace $tab_monitor output VGA-1
@@ -326,10 +325,6 @@ exec --no-startup-id nm-applet --sm-disable
 
 # bluetooth manager applet
 exec --no-startup-id [ -n "$HOME_OS" ] && blueman-applet
-
-# conky
-exec --no-startup-id [ -n "$WORK_OS" ] && conky -c /my-tools/home-infostructure/dotfiles/conky/conky-work.conf
-exec --no-startup-id [ -n "$WORK_OS" ] && conky -c /my-tools/dotfiles/conky/conky.conf
 
 # idea
 exec --no-startup-id [ -n "$WORK_OS" ] && idea
