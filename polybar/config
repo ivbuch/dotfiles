@@ -122,11 +122,11 @@
     fuzzy-match = true
     default-label = %icon% %name%
 
-    ws-icon-0 = default;
+    ws-icon-0 = terminal;
     ws-icon-1 = ide;
     ws-icon-2 = www;
     ws-icon-3 = mutt;
-    ws-icon-4 = messenger;
+    ws-icon-4 = chats;
     ws-icon-5 = vim;
     ws-icon-default = 
 

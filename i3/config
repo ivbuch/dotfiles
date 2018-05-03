@@ -5,13 +5,13 @@ set_from_resource $fg_a i3wm.color13
 
 set $script_path /my-tools/dotfiles/bash/thinkpad
 
-set $tab_ide  "1: ide"
-set $tab_vim  "2: vim"
-set $tab_www  "6: www"
-set $tab_terminal  "7: terminal"
-set $tab_mutt  "8: mutt"
-set $tab_monitor  "9: monitor"
-set $tab_chats "10: messenger"
+set $tab_www  "1: www"
+set $tab_terminal  "2: terminal"
+set $tab_ide  "3: ide"
+set $tab_vim  "4: vim"
+set $tab_chrome  "5: chrome"
+set $tab_mutt  "9: mutt"
+set $tab_chats "10: chats"
 
 set $mod Mod4
 
@@ -33,9 +33,6 @@ floating_modifier $mod
 
 # start a terminal with tma
 bindsym $mod+Return exec termite
-
-# start a default terminal
-bindsym $mod+Shift+Return exec termite --class="termite-default"
 
 # kill focused window
 bindsym $mod+q kill
@@ -81,29 +78,29 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace number $tab_ide
-bindsym $mod+2 workspace number $tab_vim
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
+bindsym $mod+1 workspace number $tab_www
+bindsym $mod+2 workspace number $tab_terminal
+bindsym $mod+3 workspace number $tab_ide
+bindsym $mod+4 workspace number $tab_vim
+bindsym $mod+5 workspace number $tab_chrome
 
-bindsym $mod+6 workspace number $tab_www
-bindsym $mod+7 workspace number $tab_terminal
-bindsym $mod+8 workspace number $tab_mutt
-bindsym $mod+9 workspace number 9
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number $tab_mutt
 bindsym $mod+0 workspace number $tab_chats
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $tab_ide
-bindsym $mod+Shift+2 move container to workspace number $tab_vim
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+1 move container to workspace number $tab_www
+bindsym $mod+Shift+2 move container to workspace number $tab_terminal
+bindsym $mod+Shift+3 move container to workspace number $tab_ide
+bindsym $mod+Shift+4 move container to workspace number $tab_vim
+bindsym $mod+Shift+5 move container to workspace number $tab_chrome
 
-bindsym $mod+Shift+6 move container to workspace number $tab_www
-bindsym $mod+Shift+7 move container to workspace number $tab_terminal
-bindsym $mod+Shift+8 move container to workspace number $tab_mutt
-bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number $tab_mutt
 bindsym $mod+Shift+0 move container to workspace number $tab_chats
 
 set $mode_move (h/j/k/l) move containters (H/L) workspace to output
@@ -205,6 +202,8 @@ hide_edge_borders both
 # go back&forth between workspaces
 workspace_auto_back_and_forth yes
 
+for_window [class="^jetbrains-.+"][window_type=dialog] focus
+
 ### --------------------------------------------------------------------- SCRATCHPADS
 bindsym $mod+shift+shift+plus move scratch
 
@@ -280,7 +279,7 @@ bindsym $mod+b [class="qutebrowser"] focus
 bindsym $mod+c [class="Chromium"] focus
 
 # terminal
-bindsym $mod+t [class="termite-default"] focus
+bindsym $mod+t workspace number $tab_terminal
 
 # brightness
 bindsym XF86MonBrightnessDown exec $script_path/change_backlight.sh decrement
@@ -292,12 +291,11 @@ bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
 bindsym XF86AudioMute exec $script_path/volume_toggle.sh
 
 # assign window to workspace
-assign [class="google-chrome"] $tab_www
 assign [class="qutebrowser"] $tab_www
 assign [class="jetbrains-idea"] $tab_ide
-assign [class="Chromium"] $tab_chats
+assign [class="Chromium"] $tab_chrome
 
-workspace $tab_monitor output VGA-1
+workspace $tab_chrome output VGA-1
 workspace $tab_ide output VGA-2
 workspace $tab_www output VGA-3
 workspace $tab_vim output VGA-3
