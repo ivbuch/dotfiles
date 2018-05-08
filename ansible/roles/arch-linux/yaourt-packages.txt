@@ -2,4 +2,3 @@ lnav
 urlscan
 shellcheck
 i3lock-fancy-git
-copyq
