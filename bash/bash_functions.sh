@@ -67,19 +67,22 @@ rf() {
 
 # extract archive
 ex () {
-  if [ -f $1 ] ; then
+  if [ -f "$1" ] ; then
     case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1   ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
+      *.tar.bz2)   tar xjf "$1"   ;;
+      *.tar.gz)    tar xzf "$1"   ;;
+      *.bz2)       bunzip2 "$1"   ;;
+      *.rar)       unrar x "$1"   ;;
+      *.gz)        gunzip "$1"    ;;
+      *.tar)       tar xf "$1"    ;;
+      *.tbz2)      tar xjf "$1"   ;;
+      *.tgz)       tar xzf "$1"   ;;
+      *.zip)       unzip "$1"     ;;
+      *.Z)         uncompress "$1" ;;
+      *.7z)        7z x "$1"      ;;
+      *.jar)        unzip "$1"     ;;
+      *.war)        unzip "$1"     ;;
+      *.ear)        unzip "$1"     ;;
       *)           echo "'$1' cannot be extracted via ex()" ;;
     esac
   else
@@ -95,4 +98,12 @@ mkdir_move() {
 
 download_youtube_audio() {
   youtube-dl -x --audio-format mp3 -o "$HOME/Music/youtube/%(title)s.%(ext)s" "$1"
+}
+
+who_opened_port() {
+  sudo lsof -i :$1
+}
+
+opened_ports_by_pid() {
+  sudo lsof -Pan -p "$1" -i
 }
