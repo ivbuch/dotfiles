@@ -107,3 +107,24 @@ who_opened_port() {
 opened_ports_by_pid() {
   sudo lsof -Pan -p "$1" -i
 }
+
+ipc() {
+  # Copies ip address to clipboard
+  i="$(ip -4 route get 8.8.8.8 | awk {'print $7'} | tr -d '\n')"
+  echo -n "$i" | xclip -selection clipboard
+  echo "IP $i copied to clipboard"
+}
+
+ipe() {
+  printf "%20s" "Interface" "Status" "Ip"
+  echo
+  interfaces=$(ip addr | grep 'state UP' | sed -e 's/^[0-9]*: \(.*\):.*/\1/')
+  while read -r interface; do
+    ipa="$(ip address show $interface)"
+    # echo "$interface - $ipa UP"
+    ia="$(ip address show $ipa 2>&1 | grep -E '\w*inet .* ' | sed  's/\w*inet \([0-9\./]*\).*/\1/' | sed 's/^ *//;s/ *$//')"
+    s="$(ip a show $ipa 2>&1 | head -n 1 | grep -E -o "state [A-Z]* group" | awk '{print $2}')"
+    printf "%20s" "$interface" "$s" "$ia"
+    echo
+  done <<< "$interfaces"
+}
