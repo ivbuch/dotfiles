@@ -31,7 +31,6 @@
     - npm
     - jdk8-openjdk
     - groovy
-    - keepassx2
     - keepassx
     - rsync
     - ttf-dejavu
@@ -77,6 +76,7 @@
   become: yes
   with_items:
     - cmus
+    - keepassx2
   tags:
     - pacman
     - pacman-remove
