@@ -3,7 +3,6 @@ export SPRING_HOME="/opt/spring-boot/actual"
 export DISABLE_AUTO_TITLE="true"
 export DOT_FILES="/my-tools/dotfiles"
 export HOME_INFOSTRUCTURE="/my-tools/home-infostructure"
-export BROWSER="/usr/bin/qutebrowser"
 
 # for karma test runner
 export CHROME_BIN="$(which chromium)"
