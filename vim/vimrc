@@ -171,6 +171,12 @@ nmap <Leader>q :q <CR>
 " close all buffers
 nmap <F1> :qa <CR>
 
+" move curson in insert mode hjkl
+imap <C-h> <C-o>h
+imap <C-j> <C-o>j
+imap <C-k> <C-o>k
+imap <C-l> <C-o>l
+
 " execute open python file
 autocmd FileType python nmap <Leader>vp :write <CR> :VimuxRunCommand("clear; python " . bufname("%")) <CR>
 

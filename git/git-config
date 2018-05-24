@@ -25,3 +25,5 @@
     p = push
     r = reset HEAD
     m = merge
+[branch]
+    pager = cat
