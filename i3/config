@@ -292,8 +292,6 @@ bindsym XF86AudioMute exec $script_path/volume_toggle.sh
 
 # assign window to workspace
 assign [class="qutebrowser"] $tab_www
-assign [class="jetbrains-idea"] $tab_ide
-assign [class="Chromium"] $tab_chrome
 
 workspace $tab_chrome output VGA-1
 workspace $tab_ide output VGA-2
