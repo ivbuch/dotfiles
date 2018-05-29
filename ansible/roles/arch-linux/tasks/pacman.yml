@@ -68,6 +68,7 @@
     - ttf-hack
     - sxiv
     - atool
+    - dunst
 
 - name: remove packages
   pacman:
