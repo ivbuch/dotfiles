@@ -1,3 +1,4 @@
+alias m="man"
 alias piy="ping ya.ru"
 alias gs="echo type git s please"
 alias weather="curl wttr.in"
