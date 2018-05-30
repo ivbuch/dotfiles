@@ -2,11 +2,15 @@
   stat:
     path: /usr/local/bin/python3
   register: p3_check
+  tags:
+    - python
 
 - name: check where python3 exec located
   shell: which python3
   register: sc
   changed_when: false
+  tags:
+    - python
 
 - name: create links to /usr/local/bin/python3 from {{ sc.stdout }}
   file:
@@ -15,6 +19,8 @@
     state: link
   become: yes
   when: p3_check.stat.exists == false
+  tags:
+    - python
 
 - name: create links to /usr/local/bin/python3 from {{ sc.stdout }}
   file:
@@ -23,20 +29,28 @@
     state: link
   become: yes
   when: p3_check.stat.exists == false
+  tags:
+    - python
 
 - name: create virtualenvs directories
   file:
     path: "{{ ansible_env.HOME }}/.config/virtual-envs"
     state: directory
+  tags:
+    - python
 
 - name: check virtual_env
   stat:
     path: "{{ ansible_env.HOME }}/.config/virtual-envs/main"
   register: virtual_env_check
+  tags:
+    - python
 
 - name: create main virtual-env    
   command: virtualenv {{ ansible_env.HOME }}/.config/virtual-envs/main -p /usr/local/bin/python3
   when: virtual_env_check.stat.exists == false
+  tags:
+    - python
 
 - name: install packages in main virtual-env
   shell: source {{ ansible_env.HOME }}/.config/virtual-envs/main/bin/activate && pip install {{ item }}
@@ -49,3 +63,6 @@
     - "rtv"
     - "PyQt5"
     - "qutebrowser"
+    - "yapf"
+  tags:
+    - python

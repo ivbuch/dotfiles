@@ -11,3 +11,4 @@
     - pywal
     - wstools
     - flashfocus
+    - pylint
