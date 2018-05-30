@@ -69,6 +69,7 @@
     - sxiv
     - atool
     - dunst
+    - gtk2fontsel
 
 - name: remove packages
   pacman:

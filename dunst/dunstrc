@@ -1,5 +1,5 @@
 [global]
-    font = Cantarell 10
+    font = Share-TechMono 14
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
