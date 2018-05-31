@@ -14,3 +14,12 @@
     state: link
   tags:
     - dunst
+
+- name: restart service
+  systemd:
+    name: "dunst.service"
+    state: restarted
+    enabled: yes
+    user: yes
+  tags:
+    - dunst
