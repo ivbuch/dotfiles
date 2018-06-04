@@ -286,8 +286,8 @@ bindsym XF86MonBrightnessDown exec $script_path/change_backlight.sh decrement
 bindsym XF86MonBrightnessUp exec $script_path/change_backlight.sh increment
 
 # sound
-bindsym XF86AudioLowerVolume exec amixer set Master 5%-
-bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+bindsym XF86AudioLowerVolume exec amixer set Master 5%- && notify-send "Decreased volume $(date +'%H:%M:%S')"
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ && notify-send "Increased volume $(date +'%H:%M:%S')"
 bindsym XF86AudioMute exec $script_path/volume_toggle.sh
 
 # assign window to workspace

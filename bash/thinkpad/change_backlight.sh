@@ -19,3 +19,4 @@ if [[ $1 == "decrement" ]]; then
 fi
 
 echo $UPDATED > $FN
+notify-send "Brightness set to $UPDATED"
