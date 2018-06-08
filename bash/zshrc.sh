@@ -5,7 +5,7 @@ export DOT_FILES="/my-tools/dotfiles"
 export HOME_INFOSTRUCTURE="/my-tools/home-infostructure"
 
 # for karma test runner
-export CHROME_BIN="$(which chromium)"
+export "CHROME_BIN=$(which chromium)"
 
 # makes less search case insensitive
 export LESS="-i -R"
@@ -24,7 +24,7 @@ source $DOT_FILES/bash/bash_functions.sh
 
 
 VIRTUAL_ENV_DISABLE_PROMPT=1 source $HOME/.config/virtual-envs/main/bin/activate
-source $HOME_INFOSTRUCTURE/work/medfusion/export-ports.sh
+source "$HOME_INFOSTRUCTURE/work/medfusion/export-ports.sh"
 
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
