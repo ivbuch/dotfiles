@@ -11,6 +11,7 @@ alias die="kill -9"
 alias bash_check="shellcheck"
 alias music="ncmpcpp"
 alias i3_tree="i3-msg -t get_tree | jq '.'  | vim - -c 'set filetype=json'"
+alias f="find ."
 
 alias l="ls -lh --classify"
 alias lt="ls -lh --classify --sort=time"
@@ -86,9 +87,10 @@ alias ports='netstat -tulanp'
 # MAVEN
 alias mp='mvn clean package'
 alias mi='mvn clean install'
-alias mps='mvn clean package -DskipTests=true'
+alias mp_st='mvn clean package -DskipTests=true'
 alias mt='mvn clean test'
-alias mtd='mvn clean test -Dmaven.surefire.debug test'
+alias mt_debug='mvn clean test -Dmaven.surefire.debug test'
+alias mi_st='mvn clean install -DskipTests=true'
 
 # SOUND
 alias soundctl="pavucontrol"
