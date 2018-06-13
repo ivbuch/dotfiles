@@ -1,2 +1,0 @@
-scanner
-polybar - battery sound
