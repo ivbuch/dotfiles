@@ -1,0 +1,7 @@
+- name: create config link
+  file:
+    src: "{{ mytools_path }}/dotfiles/rofi"
+    dest: "{{ ansible_env.HOME }}/.config/rofi"
+    state: link
+  tags:
+    - rofi

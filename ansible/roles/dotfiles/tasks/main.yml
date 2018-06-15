@@ -23,3 +23,4 @@
 - import_tasks: compton.yml
 - import_tasks: dunst.yml
 - import_tasks: pylint.yml
+- import_tasks: rofi.yml
