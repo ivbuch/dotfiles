@@ -26,11 +26,11 @@
     monitor = ${env:MONITOR}
     bottom = false
     width = 100%
-    height = 32
+    height = 40
     offset-x = 0%
     offset-y = 0%
-    radius = 0
-    fixed-center = true
+    radius = 20
+    fixed-center = false
     dim-value = 0.5
 
     ; background = ${colors.background}
@@ -53,8 +53,8 @@
     module-margin-left = 1
     module-margin-right = 1
 
-    font-0 = Share-TechMono:pixelsize=14
-    font-1 = FontAwesome:size=10
+    font-0 = Share-TechMono:pixelsize=16
+    font-1 = FontAwesome:size=14
 
     modules-left = i3
     modules-center = mpd
