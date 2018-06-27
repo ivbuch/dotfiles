@@ -182,12 +182,12 @@
 
     date = %m-%d-%Y
 
-    time =   %H:%M
+    time =  %H:%M 
 
     format-prefix = 
     format-prefix-foreground = ${colors.foreground-alt}
 
-    label = %date% %time%
+    label = %time% %date% 
 
 [module/volume]
     type = internal/volume
