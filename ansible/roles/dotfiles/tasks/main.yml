@@ -24,3 +24,4 @@
 - import_tasks: dunst.yml
 - import_tasks: pylint.yml
 - import_tasks: rofi.yml
+- import_tasks: gtk-3_0.yml

@@ -1,0 +1,14 @@
+- name: create main directory {{ mytools_path }}
+  file:
+    path: "{{ ansible_env.HOME }}/.config/gtk-3.0"
+    state: directory
+  tags:
+    - gtk
+
+- name: create config link
+  file:
+    src: "{{ mytools_path }}/dotfiles/gtk-3.0/gtk.css"
+    dest: "{{ ansible_env.HOME }}/.config/gtk-3.0/gtk.css"
+    state: link
+  tags:
+    - gtk
