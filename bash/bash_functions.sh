@@ -52,14 +52,14 @@ markdown_view() {
 }
 
 # copy filename full path to clipboard
-rl() {
+ap() {
   filename=$(readlink -f "$1")
   echo "$filename" | tr -d '[:space:]'| xclip -i -selection clipboard
   echo "Copied '$filename' to clipboard"
 }
 
 # copy filename to clipboard
-rf() {
+fn() {
   fn=$(basename "$(readlink -f "$1")")
   echo "$fn" | tr -d '[:space:]'| xclip -i -selection clipboard
   echo "Copied '$fn' to clipboard"
