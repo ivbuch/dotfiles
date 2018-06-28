@@ -17,7 +17,7 @@ t_() {
 }
 
 find_term() {
-  find . -type f | xargs grep -l "$1"
+  find . -type f \! -ipath '*.git*' | xargs grep -l "$1"
 }
 
 kill_java_process_by_keyword() {
