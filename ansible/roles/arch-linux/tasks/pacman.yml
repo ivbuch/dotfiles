@@ -70,6 +70,7 @@
     - atool
     - dunst
     - gtk2fontsel
+    - task
 
 - name: remove packages
   pacman:

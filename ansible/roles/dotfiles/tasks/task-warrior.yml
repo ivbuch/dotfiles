@@ -1,0 +1,7 @@
+- name: create config link
+  file:
+    src: "{{ mytools_path }}/home-infostructure/dotfiles/task"
+    dest: "{{ ansible_env.HOME }}/.task"
+    state: link
+  tags:
+    - task-warrior
