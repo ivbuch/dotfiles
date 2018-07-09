@@ -133,3 +133,7 @@ ipe() {
 s() {
   rofi -show ssh -ssh-command '/my-tools/dotfiles/rofi/save-ssh-host.sh {host}' && ssh "$(cat /tmp/__rofi__selected_ssh_host)"
 }
+
+java_heap_dump() {
+  jmap -dump:format=b,file="heap-dump-$1.bin" "$1"
+}  
