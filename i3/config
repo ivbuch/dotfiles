@@ -304,12 +304,7 @@ workspace $tab_terminal output VGA-3
 
 # ----------------------------------------------------------------------------------- STARTUP APPS
 
-# set wallpaper
-exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/wallpaper.jpg
-
 # applications
-exec qutebrowser
-exec chromium
 exec setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
 
 # fix two monitors mode (what is left and right)
@@ -323,9 +318,6 @@ exec --no-startup-id nm-applet --sm-disable
 
 # bluetooth manager applet
 exec --no-startup-id [ -n "$HOME_OS" ] && blueman-applet
-
-# idea
-exec --no-startup-id [ -n "$WORK_OS" ] && idea
 
 # compton
 exec --no-startup-id compton
