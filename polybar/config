@@ -21,6 +21,7 @@
     focused-tab = ${xrdb:color6}
     focused-tab-color = ${xrdb:color1}
     focused-tab-underline = ${xrdb:color1}
+    red = #FF0000
 
 [bar/ivbuch]
     monitor = ${env:MONITOR}
@@ -58,7 +59,7 @@
 
     modules-left = i3
     modules-center = mpd
-    modules-right = time-local separator battery separator time-moscow separator powermenu xkeyboard
+    modules-right = time-local separator battery separator time-moscow separator powermenu xkeyboard separator vpn
 
     tray-position = right
     tray-padding = 2
@@ -271,3 +272,12 @@ content-foreground = ${colors.alert}
 type = custom/script
 exec = TZ=Europe/Moscow date +" %H:%M"
 interval = 30
+
+[module/vpn]
+type = custom/script
+exec = echo " VPN ON "
+exec-if = pgrep -x openvpn
+interval = 3
+label = %output%
+label-background = ${colors.red}
+format = <label> |
