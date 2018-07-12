@@ -121,6 +121,7 @@
     strip-wsnumbers = false
     fuzzy-match = true
     default-label = %icon% %name%
+    default-padding = 2
 
     ws-icon-0 = terminal;
     ws-icon-1 = ide;
@@ -133,7 +134,7 @@
     ; Only show workspaces on the same output as the bar
     pin-workspaces = true
 
-    label-mode-padding = 1
+    label-mode-padding = ${self.default-padding}
     label-mode-foreground = ${colors.focused-tab-color}
     label-mode-background = ${colors.primary}
 
@@ -142,11 +143,11 @@
     label-focused-foreground = ${colors.focused-tab-color}
     label-focused-background = ${colors.background-alt}
     label-focused-underline = ${colors.focused-tab-underline}
-    label-focused-padding = ${module/bspwm.label-focused-padding}
+    label-focused-padding = ${self.default-padding}
 
     ; unfocused = Inactive workspace on any monitor
     label-unfocused = ${self.default-label}
-    label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+    label-unfocused-padding = ${self.default-padding}
     label-unfocused-background = ${colors.background}
 
     ; visible = Active workspace on unfocused monitor
@@ -154,16 +155,16 @@
     label-visible-background = ${colors.background-alt}
     label-visible-foreground = ${colors.background}
     label-visible-underline = ${self.label-focused-underline}
-    label-visible-padding = ${self.label-focused-padding}
+    label-visible-padding = ${self.default-padding}
 
     ; urgent = Workspace with urgency hint set
     label-urgent = ${self.default-label}
     label-urgent-foreground = ${colors.foreground}
     label-urgent-background = ${colors.background}
-    label-urgent-padding = ${module/bspwm.label-urgent-padding}
+    label-urgent-padding = ${self.default-padding}
 
     label-separator = 
-    label-separator-padding = 2
+    label-separator-padding = ${self.default-padding}
     label-separator-foreground = ${colors.foreground}
 
 [module/mpd]
