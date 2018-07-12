@@ -30,7 +30,6 @@
     height = 40
     offset-x = 0%
     offset-y = 0%
-    radius = 20
     fixed-center = false
     dim-value = 0.5
 
@@ -134,7 +133,7 @@
     ; Only show workspaces on the same output as the bar
     pin-workspaces = true
 
-    label-mode-padding = 5
+    label-mode-padding = 1
     label-mode-foreground = ${colors.focused-tab-color}
     label-mode-background = ${colors.primary}
 
@@ -163,7 +162,7 @@
     label-urgent-background = ${colors.background}
     label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
-    label-separator = |
+    label-separator = 
     label-separator-padding = 2
     label-separator-foreground = ${colors.foreground}
 
