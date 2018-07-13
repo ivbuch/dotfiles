@@ -28,17 +28,17 @@ select_docker_containter_and_invoke_command() {
 }
 
 # remove docker container
-fd_remove() {
+fdr() {
   select_docker_containter_and_invoke_command "-a" "rm -f"
 }
 
 # bash exec docker container
-fd_exec() {
+fde() {
   select_docker_containter_and_invoke_command "" "exec -it" "bash"
 }
 
 # bash restart docker container
-fd_restart() {
+fdr() {
   select_docker_containter_and_invoke_command "" "restart -t 0" ""
 }
 
@@ -48,12 +48,12 @@ fd_exec_root() {
 }
 
 # bash log docker container
-fd_log() {
+fdl() {
   select_docker_containter_and_invoke_command "-a" "logs -f" ""
 }
 
 # bash inspect docker container
-fd_inspect() {
+fdi() {
   select_docker_containter_and_invoke_command "-a" "inspect" ""
 }
 
@@ -68,12 +68,12 @@ fd_copy_container_name() {
 }
 
 # start docker container
-fd_start() {
+fds() {
   select_docker_containter_and_invoke_command "-a --filter \"status=exited\"" "start" ""
 }
 
 # stop docker container
-fd_stop() {
+fdst() {
   select_docker_containter_and_invoke_command "" "stop" ""
 }
 
