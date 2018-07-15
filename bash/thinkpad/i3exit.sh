@@ -12,7 +12,7 @@ case "$1" in
         systemctl suspend
         ;;
     hibernate)
-        lock && systemctl hibernate
+        systemctl hibernate
         ;;
     reboot)
         systemctl reboot

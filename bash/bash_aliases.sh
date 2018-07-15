@@ -80,7 +80,8 @@ alias dc="docker-compose"
 alias dps="docker ps --format 'table {{.Image}}\t{{.Status}}\t{{.Ports}}'"
 
 # PACMAN
-alias pacman_upgrade="sudo pacman -Syu"
+alias pmu="sudo pacman -Syu"
+alias pms="pacman -Ss"
 alias pacman_package_files="pacman -Q -l" # next goes package name
 
 # NETWORK
