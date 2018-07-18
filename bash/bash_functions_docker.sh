@@ -28,7 +28,7 @@ select_docker_containter_and_invoke_command() {
 }
 
 # remove docker container
-fdr() {
+fdrm() {
   select_docker_containter_and_invoke_command "-a" "rm -f"
 }
 

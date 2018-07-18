@@ -82,6 +82,7 @@ alias dps="docker ps --format 'table {{.Image}}\t{{.Status}}\t{{.Ports}}'"
 # PACMAN
 alias pmu="sudo pacman -Syu"
 alias pms="pacman -Ss"
+alias pmi="sudo pacman -S"
 alias pacman_package_files="pacman -Q -l" # next goes package name
 
 # NETWORK
