@@ -132,7 +132,9 @@ disable=print-statement,
         xreadlines-attribute,
         deprecated-sys-function,
         exception-escape,
-        comprehension-escape, missing-docstring
+        comprehension-escape, missing-docstring,
+	ungrouped-imports,
+        misplaced-comparison-constant
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
