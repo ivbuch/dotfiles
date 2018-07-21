@@ -137,3 +137,18 @@ s() {
 java_heap_dump() {
   jmap -dump:format=b,file="heap-dump-$1.bin" "$1"
 }  
+
+# fzf file to vim
+vf() {
+  if item=$(fzf); then
+    vim "$item"
+  fi
+}
+
+# fzf ssh
+sshf() {
+  hosts=$(grep Host ~/.ssh/config -w | awk '{print $2}')
+  if item=$(echo "$hosts" | fzf); then
+    ssh "$item"
+  fi
+}
