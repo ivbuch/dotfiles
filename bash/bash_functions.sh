@@ -17,7 +17,7 @@ t_() {
 }
 
 find_term() {
-  find . -type f \! -ipath '*.git*' | xargs grep -l "$1"
+  find . -type f \! -ipath '*.git*' -print0 | xargs -0 -I{} grep -l "$1" {}
 }
 
 kill_java_process_by_keyword() {
@@ -149,6 +149,12 @@ vf() {
 sshf() {
   hosts=$(grep Host ~/.ssh/config -w | awk '{print $2}')
   if item=$(echo "$hosts" | fzf); then
+    echo "ssh $item"
     ssh "$item"
   fi
+}
+
+# copy to clipboard from history
+clipf() {
+  echo -n "$(greenclip print | fzf -e -i)" | xclip -selection clipboard
 }
