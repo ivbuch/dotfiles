@@ -129,11 +129,6 @@ ipe() {
   done <<< "$interfaces"
 }
 
-# select ssh host with rofi and connects to it
-s() {
-  rofi -show ssh -ssh-command '/my-tools/dotfiles/rofi/save-ssh-host.sh {host}' && ssh "$(cat /tmp/__rofi__selected_ssh_host)"
-}
-
 java_heap_dump() {
   jmap -dump:format=b,file="heap-dump-$1.bin" "$1"
 }  
@@ -146,15 +141,19 @@ vf() {
 }
 
 # fzf ssh
-sshf() {
+s() {
   hosts=$(grep Host ~/.ssh/config -w | awk '{print $2}')
-  if item=$(echo "$hosts" | fzf); then
+  if [ -d "$HOME/.ssh/mfss" ] ; then
+    hosts="$hosts\\n$(grep Host ~/.ssh/mfss/* -w | awk '{print $2}')"
+  fi  
+ 
+  if item=$(echo "$hosts" | sort | fzf); then
     echo "ssh $item"
     ssh "$item"
   fi
 }
 
 # copy to clipboard from history
-clipf() {
+cf() {
   echo -n "$(greenclip print | fzf -e -i)" | xclip -selection clipboard
 }
