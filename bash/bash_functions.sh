@@ -157,3 +157,13 @@ s() {
 cf() {
   echo -n "$(greenclip print | fzf -e -i)" | xclip -selection clipboard
 }
+
+# xdg-open doc
+o() {
+  nohup xdg-open "$1" 1>/tmp/nohup.log 2>&1 &
+}
+
+mkdir_now() {
+  d=$(date -u +'%Y-%m-%d-----%H:%M')
+  mkdir "$d"
+}
