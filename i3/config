@@ -13,6 +13,10 @@ set $tab_chrome  "5: chrome"
 set $tab_mutt  "9: mutt"
 set $tab_chats "10: chats"
 
+set $firefox_wm_class_teams "wm_class_firefox_teams"
+set $firefox_wm_class_skype "wm_class_firefox_skype"
+set $termite_wm_class_terminal "wm_class_termite_terminal"
+
 set $mod Mod4
 
 gaps inner 14
@@ -330,3 +334,20 @@ exec_always --no-startup-id ~/.config/virtual-envs/main/bin/flashfocus
 
 # clipboard manager
 exec --no-startup-id greenclip daemon
+
+exec --no-startup-id qutebrowser
+
+# work chats
+exec --no-startup-id [ -n "$WORK_OS" ] && firefox -P "skype" --class="$firefox_wm_class_skype" https://web.skype.com/en/
+exec --no-startup-id [ -n "$WORK_OS" ] && firefox -P "teams" --class="$firefox_wm_class_teams" https://teams.microsoft.com
+
+# mutt work
+exec --no-startup-id [ -n "$WORK_OS" ] && mutt-work
+
+# terminal
+exec --no-startup-id termite --class="$termite_wm_class_terminal"
+
+assign [class=$firefox_wm_class_teams] $tab_chats
+assign [class=$firefox_wm_class_skype] $tab_chats
+assign [class="wm_class_termite_work"] $tab_mutt
+assign [class=$termite_wm_class_terminal] $tab_terminal
