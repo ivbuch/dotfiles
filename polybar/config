@@ -57,8 +57,8 @@
     font-1 = FontAwesome:size=14
 
     modules-left = i3
-    modules-center = mpd
-    modules-right = time-local separator battery separator time-moscow separator powermenu xkeyboard separator vpn
+    modules-center = 
+    modules-right = time-local separator battery separator time-moscow separator powermenu xkeyboard separator vpn docker separator mail
 
     tray-position = right
     tray-padding = 2
@@ -167,16 +167,6 @@
     label-separator-padding = ${self.default-padding}
     label-separator-foreground = ${colors.foreground}
 
-[module/mpd]
-    type = internal/mpd
-    format-online = <label-song> <label-time> | <icon-prev> | <toggle> | <icon-next> | <icon-stop>
-
-    icon-play = 
-    icon-pause = 
-    icon-stop = 
-    icon-prev = 
-    icon-next = 
-
 [module/time-local]
     type = internal/date
     interval = 5
@@ -281,3 +271,17 @@ interval = 3
 label = %output%
 label-background = ${colors.red}
 format = <label> |
+
+[module/docker]
+type = custom/script
+exec = /my-tools/dotfiles/polybar/docker-module.sh
+interval = 3
+label = %output%
+format = <label>
+
+[module/mail]
+type = custom/script
+exec = python /my-tools/home-infostructure/work/medfusion/get-unread-mail.py
+interval = 3
+label = %output%
+format = <label>
