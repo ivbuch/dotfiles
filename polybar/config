@@ -148,7 +148,7 @@
     ; unfocused = Inactive workspace on any monitor
     label-unfocused = ${self.default-label}
     label-unfocused-padding = ${self.default-padding}
-    label-unfocused-background = ${colors.background}
+    ; label-unfocused-background = ${colors.red}
 
     ; visible = Active workspace on unfocused monitor
     label-visible = ${self.default-label}
