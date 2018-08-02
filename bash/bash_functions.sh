@@ -167,3 +167,15 @@ mkdir_now() {
   d=$(date -u +'%Y-%m-%d-----%H:%M')
   mkdir "$d"
 }
+
+# ps + kill
+k() {
+  if selected=$(ps -ef | fzf --tac --multi); then
+    pids=$(echo "$selected" | awk '{print $2}')
+    echo "Killing $selected"
+    echo "Killing pids: $pids"
+    echo 
+
+    echo "$pids" | xargs -I{} kill -9 {}
+  fi  
+}
