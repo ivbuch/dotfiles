@@ -284,6 +284,8 @@ bindsym $mod+b [class="qutebrowser"] focus
 # chrome
 bindsym $mod+c [class="Chromium"] focus
 
+bindsym $mod+Shift+c exec chromium
+
 # terminal
 bindsym $mod+t workspace number $tab_terminal
 
