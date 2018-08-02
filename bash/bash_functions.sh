@@ -164,6 +164,6 @@ o() {
 }
 
 mkdir_now() {
-  d=$(date -u +'%Y-%m-%d-----%H:%M')
+  d=$(date +'%Y-%m-%d-----%H:%M')
   mkdir "$d"
 }

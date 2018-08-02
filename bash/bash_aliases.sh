@@ -1,4 +1,5 @@
 alias m="man"
+alias c="cat"
 alias piy="ping ya.ru"
 alias gs="echo type git s please"
 alias weather="curl wttr.in"
@@ -92,6 +93,7 @@ alias mp_st='mvn clean package -DskipTests=true'
 alias mt='mvn clean test'
 alias mt_debug='mvn clean test -Dmaven.surefire.debug test'
 alias mi_st='mvn clean install -DskipTests=true'
+alias m_dep='mvn dependency:tree -Dverbose  | less'
 
 # SOUND
 alias soundctl="pavucontrol"

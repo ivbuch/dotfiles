@@ -84,7 +84,7 @@
     format-prefix = " "
     format-prefix-underline = ${colors.secondary}
 
-    label-layout = %layout%
+    label-layout =  %layout%
     label-layout-underline = ${colors.secondary}
 
     label-indicator-padding = 2
@@ -160,7 +160,7 @@
     ; urgent = Workspace with urgency hint set
     label-urgent = ${self.default-label}
     label-urgent-foreground = ${colors.foreground}
-    label-urgent-background = ${colors.background}
+    ; label-urgent-background = ${colors.background}
     label-urgent-padding = ${self.default-padding}
 
     label-separator = 
@@ -171,14 +171,14 @@
     type = internal/date
     interval = 5
 
-    date = %m-%d-%Y
+    date = %m/%d/%Y
 
-    time =  %H:%M 
+    time =   %H:%M
 
     format-prefix = 
     format-prefix-foreground = ${colors.foreground-alt}
 
-    label = %time% %date% 
+    label =  %date% %time%
 
 [module/volume]
     type = internal/volume
@@ -282,6 +282,6 @@ format = <label>
 [module/mail]
 type = custom/script
 exec = python /my-tools/home-infostructure/work/medfusion/get-unread-mail.py
-interval = 3
+interval = 30
 label = %output%
 format = <label>
