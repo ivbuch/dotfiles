@@ -36,3 +36,7 @@ cat ~/.cache/wal/sequences
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -z "$TMUX" ] && tmux
+
+
+# zle -N ssh_connect fdr
+# bindkey "^s" ssh_connect

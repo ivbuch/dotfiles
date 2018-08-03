@@ -58,7 +58,7 @@
 
     modules-left = i3
     modules-center = 
-    modules-right = time-local separator battery separator time-moscow separator powermenu xkeyboard separator vpn docker separator mail
+    modules-right = time-local separator battery separator time-moscow separator powermenu xkeyboard separator vpn docker separator weather separator mail
 
     tray-position = right
     tray-padding = 2
@@ -173,12 +173,12 @@
 
     date = %m/%d/%Y
 
-    time =   %H:%M
+    time =    %H:%M 
 
     format-prefix = 
     format-prefix-foreground = ${colors.foreground-alt}
 
-    label =  %date% %time%
+    label =  %date%    %time%
 
 [module/volume]
     type = internal/volume
@@ -274,8 +274,15 @@ format = <label> |
 
 [module/docker]
 type = custom/script
-exec = /my-tools/dotfiles/polybar/docker-module.sh
+exec = /my-tools/dotfiles/polybar/module-docker.sh
 interval = 3
+label = %output%
+format = <label>
+
+[module/weather]
+type = custom/script
+exec = /my-tools/dotfiles/polybar/module-weather.sh
+interval = 60
 label = %output%
 format = <label>
 
