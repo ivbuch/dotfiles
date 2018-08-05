@@ -1,5 +1,8 @@
 [global]
     font = Share-TechMono 14
+
+    # Merge multiple notifications with the same content
+    stack_duplicates = false
     
     # Allow a small subset of html markup:
     #   <b>bold</b>

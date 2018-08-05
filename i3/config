@@ -19,9 +19,10 @@ set $termite_wm_class_terminal "wm_class_termite_terminal"
 
 set $mod Mod4
 
-gaps inner 14
-gaps outer 0
+gaps inner 10
+gaps outer 10
 # smart_gaps no
+smart_borders on
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -299,8 +300,8 @@ bindsym XF86MonBrightnessDown exec $script_path/change_backlight.sh decrement
 bindsym XF86MonBrightnessUp exec $script_path/change_backlight.sh increment
 
 # sound
-bindsym XF86AudioLowerVolume exec amixer set Master 5%- && notify-send "Decreased volume $(date +'%H:%M:%S')"
-bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ && notify-send "Increased volume $(date +'%H:%M:%S')"
+bindsym XF86AudioLowerVolume exec amixer set Master 10%- && notify-send "Volume $(amixer get Master  | tail -n 1 | sed -r 's/.*\[([0-9]*)\%].*/\1/')%"
+bindsym XF86AudioRaiseVolume exec amixer set Master 10%+ && notify-send "Volume $(amixer get Master  | tail -n 1 | sed -r 's/.*\[([0-9]*)\%].*/\1/')%"
 bindsym XF86AudioMute exec $script_path/volume_toggle.sh
 
 # assign window to workspace
