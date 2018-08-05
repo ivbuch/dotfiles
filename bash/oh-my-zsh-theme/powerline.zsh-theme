@@ -160,8 +160,8 @@ if [ "$POWERLINE_DISABLE_RPROMPT" = "" ]; then
 fi
 
 precmd() {
-  exit_status="$(echo [  $?)"
-  LEFT="\n$(echo -e '\033(0lq\033(B')  ]  $(pwd) "
+  exit_status="$(echo [ 🦈 $?)"
+  LEFT="\n$(echo -e '\033(0lq\033(B') 📂 ]  $(pwd) "
   RIGHT=" $exit_status"
   RIGHTWIDTH=$(($COLUMNS-${#LEFT}))
   print $LEFT${(l:$RIGHTWIDTH::-:)RIGHT}
@@ -172,4 +172,4 @@ preexec() {
 }
 
 RPROMPT=""
-PROMPT="$(echo -e '\033(0mq\033(B')  ] $PROMPT"
+PROMPT="$(echo -e '\033(0mq\033(B') 💀 ] $PROMPT"

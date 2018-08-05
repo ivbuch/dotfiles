@@ -79,9 +79,6 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
-
 # switch to workspace
 bindsym $mod+1 workspace number $tab_www
 bindsym $mod+2 workspace number $tab_terminal
@@ -291,6 +288,8 @@ bindsym $mod+Ctrl+c exec echo -n "$(greenclip print | rofi -dmenu)" | xclip -sel
 
 # kill with rofi
 bindsym $mod+Ctrl+k exec $script_path/i3-rofi-kill.sh
+# windows select 
+bindsym $mod+w exec "rofi -show window" 
 
 # terminal
 bindsym $mod+t workspace number $tab_terminal
