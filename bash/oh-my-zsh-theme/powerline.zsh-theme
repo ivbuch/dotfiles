@@ -160,7 +160,7 @@ if [ "$POWERLINE_DISABLE_RPROMPT" = "" ]; then
 fi
 
 precmd() {
-  exit_status="$(echo [ 🦈 $?)"
+  exit_status=$(echo "[✖️  $?")
   LEFT="\n$(echo -e '\033(0lq\033(B') 📂 ]  $(pwd) "
   RIGHT=" $exit_status"
   RIGHTWIDTH=$(($COLUMNS-${#LEFT}))

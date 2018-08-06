@@ -71,6 +71,8 @@
     - dunst
     - gtk2fontsel
     - task
+    - noto-fonts-emoji
+    - i3blocks
 
 - name: remove packages
   pacman:

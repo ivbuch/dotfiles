@@ -58,7 +58,7 @@
 
     modules-left = i3
     modules-center = 
-    modules-right = time-local separator battery separator time-moscow separator powermenu xkeyboard separator vpn docker separator weather separator mail
+    modules-right = separator vpn 
 
     tray-position = right
     tray-padding = 2
@@ -73,26 +73,6 @@
 [module/xwindow]
     type = internal/xwindow
     label = %title:0:30:...%
-
-[module/xkeyboard]
-    type = internal/xkeyboard
-    blacklist-0 = num lock
-
-    format = <label-layout> <label-indicator>
-    format-spacing = 0
-
-    format-prefix = " "
-    format-prefix-underline = ${colors.secondary}
-
-    label-layout =  %layout%
-    label-layout-underline = ${colors.secondary}
-
-    label-indicator-padding = 2
-    label-indicator-margin = 1
-    label-indicator-background = ${colors.background}
-    label-indicator-underline = ${colors.secondary}
-
-    label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/bspwm]
     type = internal/bspwm
@@ -166,19 +146,6 @@
     label-separator = 
     label-separator-padding = ${self.default-padding}
     label-separator-foreground = ${colors.foreground}
-
-[module/time-local]
-    type = internal/date
-    interval = 5
-
-    date = %m/%d/%Y
-
-    time =    %H:%M 
-
-    format-prefix = 
-    format-prefix-foreground = ${colors.foreground-alt}
-
-    label =  %date%    %time%
 
 [module/volume]
     type = internal/volume
@@ -258,11 +225,6 @@ type = custom/text
 content = |
 content-foreground = ${colors.alert}
 
-[module/time-moscow]
-type = custom/script
-exec = TZ=Europe/Moscow date +" %H:%M"
-interval = 30
-
 [module/vpn]
 type = custom/script
 exec = echo " VPN ON "
@@ -271,24 +233,3 @@ interval = 3
 label = %output%
 label-background = ${colors.red}
 format = <label> |
-
-[module/docker]
-type = custom/script
-exec = /my-tools/dotfiles/polybar/module-docker.sh
-interval = 3
-label = %output%
-format = <label>
-
-[module/weather]
-type = custom/script
-exec = /my-tools/dotfiles/polybar/module-weather.sh
-interval = 60
-label = %output%
-format = <label>
-
-[module/mail]
-type = custom/script
-exec = python /my-tools/home-infostructure/work/medfusion/get-unread-mail.py
-interval = 30
-label = %output%
-format = <label>

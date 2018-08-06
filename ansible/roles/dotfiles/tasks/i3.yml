@@ -4,14 +4,18 @@
     state: directory
   with_items:  
     - ".config/i3"
+    - ".config/i3blocks"
   tags:
     - "i3"
 
 - name: create config link
   file:
-    src: "{{ mytools_path }}/dotfiles/i3/config"
-    dest: "{{ ansible_env.HOME }}/.config/i3/config"
+    src: "{{ mytools_path }}/dotfiles/{{ item }}/config"
+    dest: "{{ ansible_env.HOME }}/.config/{{ item }}/config"
     state: link
+  with_items:
+    - i3
+    - i3blocks
   tags:
     - "i3"
 
