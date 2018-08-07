@@ -53,6 +53,6 @@ command=/my-tools/dotfiles/i3blocks/module-vpn.sh
 interval=2
 
 [time]
-label=📅
-command=echo $(date '+%Y %b %d (%a)  %I:%M%p') 🕓
+label=
+command=echo $(date '+%b %d (%a) 🕓  %H:%M')
 interval=30

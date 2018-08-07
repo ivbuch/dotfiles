@@ -28,8 +28,13 @@ bar {
       font pango:Input Mono 12
  	colors {
  		    background $bg
- 		    statusline $fg
+ 		    statusline #fff
  		    separator $fg_a
+
+		    focused_workspace  $fg $bg #fff
+		    active_workspace   #333333 #5f676a #ffffff
+		    inactive_workspace $fg $fg #fff
+		    urgent_workspace   $fg $bg #ff0000
  		}
 	status_command i3blocks
 	position top
