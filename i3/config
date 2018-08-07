@@ -25,20 +25,21 @@ gaps outer 10
 smart_borders on
 
 bar {
-	font pango:mono 11
-	colors {
-		    background $bg
-		    statusline $fg
-		    separator #fff
-		    focused_workspace  $blue $darkblue $darkblack
-		    active_workspace   $blue $blue $darkwhite
-		    inactive_workspace $darkblack $darkblack $white
-		    urgent_workspace   $darkblack $darkblack $white
-		}
+      font pango:DejaVu Sans Mono 12
+# 	colors {
+# 		    background $bg
+# 		    statusline $fg_a
+# 		    separator #fff
+# 		    focused_workspace  $fg_a $fg $bg
+# 		    active_workspace   #fff $bg $bg
+# 		    inactive_workspace $fg $bg $fg
+# 		    urgent_workspace   $fg $bg $bg
+# 		}
 	status_command i3blocks
-	position top
+	position bottom
 	mode dock
 	modifier None
+	separator_symbol "|"
 }
 
 # Font for window titles. Will also be used by the bar unless a different font
