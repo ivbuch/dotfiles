@@ -64,5 +64,6 @@
     - "PyQt5"
     - "qutebrowser"
     - "yapf"
+    - "pywal"
   tags:
     - python
