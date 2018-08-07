@@ -3,3 +3,4 @@ urlscan
 shellcheck
 i3lock-fancy-git
 rofi-greenclip
+rofimoji
