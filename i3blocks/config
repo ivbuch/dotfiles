@@ -3,7 +3,7 @@ separator_block_width=15
 markup=pango
 
 [pacman]
-label=📦
+label=🎁
 command=/my-tools/dotfiles/i3blocks/module-pacman.sh
 interval=3600
 
@@ -33,12 +33,12 @@ command=/my-tools/dotfiles/i3blocks/module-weather.sh
 interval=30
 
 [moscow-time]
-label= 
-command=TZ=Europe/Moscow date +" %H:%M"
+label=🌜
+command=TZ=Europe/Moscow date +"%H:%M"
 interval=30
 
 [keyboard]
-label=  
+label=⌨️
 command=/my-tools/dotfiles/i3blocks/module-keyboard.sh
 interval=1
 
@@ -48,7 +48,7 @@ command=/my-tools/dotfiles/i3blocks/module-battery.sh
 interval=1
 
 [vpn]
-label=  
+label=🔔
 command=/my-tools/dotfiles/i3blocks/module-vpn.sh
 interval=2
 
