@@ -4,9 +4,8 @@ markup=pango
 
 [pacman]
 label=📦
-command=i3pacman
-interval=once
-signal=8
+command=/my-tools/dotfiles/i3blocks/module-pacman.sh
+interval=3600
 
 [mail]
 label=📬
@@ -19,27 +18,12 @@ interval=once
 command=i3volume
 signal=10
 
-[iface]
-label=🌐
-#instance=wlan0
-interval=10
-
 [battery]
 command=i3battery
 interval=5
 
-[time]
-label=📅
-command=echo $(date '+%Y %b %d (%a)  %I:%M%p') 🕓
-interval=30
-
-[wifi]
-command=i3wifi
-instance=wlp2s0
-interval=10
-
 [docker]
-label=2
+# label=2
 command=/my-tools/dotfiles/i3blocks/module-docker.sh
 interval=1
 
@@ -59,6 +43,16 @@ command=/my-tools/dotfiles/i3blocks/module-keyboard.sh
 interval=1
 
 [battery]
-label=  
+label=
 command=/my-tools/dotfiles/i3blocks/module-battery.sh
 interval=1
+
+[vpn]
+label=  
+command=/my-tools/dotfiles/i3blocks/module-vpn.sh
+interval=2
+
+[time]
+label=📅
+command=echo $(date '+%Y %b %d (%a)  %I:%M%p') 🕓
+interval=30

@@ -12,4 +12,4 @@ text=$(echo "$line" | sed -r -n "s/.*text:\"(.*)\".*/\\1/p")
 # echo real $real_feel
 # echo text $text
 
-echo "❄️ $text $temp° (☀️ $real_feel°)"
+echo "❄️ $text $temp° ☀️ $real_feel°"

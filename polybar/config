@@ -40,7 +40,7 @@
     line-size = 2
     line-color = ${colors.foreground}
 
-    border-size = 14
+    border-size = 10
     border-top-size = 10
     border-bottom-size = 0
     border-color = #00000000
@@ -56,9 +56,9 @@
     font-0 = Share-TechMono:pixelsize=16
     font-1 = FontAwesome:size=14
 
-    modules-left = i3
-    modules-center = 
-    modules-right = separator vpn 
+    modules-left = 
+    modules-center = i3
+    modules-right = 
 
     tray-position = right
     tray-padding = 2
@@ -218,18 +218,3 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
-; vim:ft=dosini
-
-[module/separator]
-type = custom/text
-content = |
-content-foreground = ${colors.alert}
-
-[module/vpn]
-type = custom/script
-exec = echo " VPN ON "
-exec-if = pgrep -x openvpn
-interval = 3
-label = %output%
-label-background = ${colors.red}
-format = <label> |

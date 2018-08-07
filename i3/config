@@ -26,20 +26,17 @@ smart_borders on
 
 bar {
       font pango:DejaVu Sans Mono 12
-# 	colors {
-# 		    background $bg
-# 		    statusline $fg_a
-# 		    separator #fff
-# 		    focused_workspace  $fg_a $fg $bg
-# 		    active_workspace   #fff $bg $bg
-# 		    inactive_workspace $fg $bg $fg
-# 		    urgent_workspace   $fg $bg $bg
-# 		}
+ 	colors {
+ 		    background $bg
+ 		    statusline $fg
+ 		    separator $fg_a
+ 		}
 	status_command i3blocks
-	position bottom
+	position top
 	mode dock
 	modifier None
 	separator_symbol "|"
+	workspace_buttons no
 }
 
 # Font for window titles. Will also be used by the bar unless a different font
