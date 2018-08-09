@@ -343,9 +343,6 @@ exec setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
 # set colors
 exec "sleep 2 && ~/.config/virtual-envs/main/bin/wal -i ~/Pictures/wallpapers/active.jpg && i3-msg restart"
 
-# network manager applet
-exec --no-startup-id nm-applet --sm-disable
-
 # bluetooth manager applet
 exec --no-startup-id [ -n "$HOME_OS" ] && blueman-applet
 

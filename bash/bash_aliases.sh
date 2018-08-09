@@ -13,6 +13,7 @@ alias bash_check="shellcheck"
 alias music="ncmpcpp"
 alias i3_tree="i3-msg -t get_tree | jq '.'  | vim - -c 'set filetype=json'"
 alias f="find ."
+alias calendar="cal"
 
 alias l="ls -lh --classify"
 alias lt="ls -lh --classify --sort=time"
@@ -81,6 +82,7 @@ alias dps="docker ps --format 'table {{.Image}}\t{{.Status}}\t{{.Ports}}'"
 alias pmu="sudo pacman -Syu"
 alias pms="pacman -Ss"
 alias pmi="sudo pacman -S"
+alias pmrm="sudo pacman -R"
 alias pacman_package_files="pacman -Q -l" # next goes package name
 
 # NETWORK

@@ -39,3 +39,22 @@
     # - rc-local
   tags:
     - systemd
+
+- name: create nm-applet service
+  file:
+    src: "{{ mytools_path }}/dotfiles/systemd/nm-applet.service"
+    dest: "{{ ansible_env.HOME }}/.config/systemd/user/nm-applet.service"
+    state: link
+  tags:
+    - systemd
+
+- name: enable nm-applet service
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+    user: yes
+  with_with_items:
+    - nm-applet.service
+  tags:
+    - systemd

@@ -8,7 +8,7 @@ command=/my-tools/dotfiles/i3blocks/module-pacman.sh
 interval=3600
 
 [mail]
-label=📬
+label=
 command=python /my-tools/home-infostructure/work/medfusion/get-unread-mail.py
 interval=10
 signal=12
@@ -48,7 +48,6 @@ command=/my-tools/dotfiles/i3blocks/module-battery.sh
 interval=1
 
 [vpn]
-label=🔔
 command=/my-tools/dotfiles/i3blocks/module-vpn.sh
 interval=2
 
