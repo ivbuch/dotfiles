@@ -22,10 +22,9 @@ set $mod Mod4
 gaps inner 10
 gaps outer 10
 # smart_gaps no
-smart_borders on
+# smart_borders on
 
 bar {
-      font pango:Input Mono 12
  	colors {
  		    background $bg
  		    statusline #fff
@@ -35,7 +34,9 @@ bar {
 		    active_workspace   #333333 #5f676a #ffffff
 		    inactive_workspace $fg $fg #fff
 		    urgent_workspace   $fg $bg #ff0000
- 		}
+	}
+	height 30
+	font pango:Input Mono 12
 	status_command i3blocks
 	position top
 	mode dock
@@ -209,7 +210,7 @@ bindsym $mod+Escape exec --no-startup-id exec $script_path/i3exit.sh hibernate
 font pango: Monospace 10
 
 # class                 border  backgr. text indicator child_border
-# client.focused          $bg     $bg     $fg  $bg       $fg
+client.focused          $bg     $bg     $fg  $bg       $fg
 # client.focused_inactive $bg     $bg     $fg  $bg       $bg
 # client.unfocused        $bg     $bg     $fg  $bg       $bg
 # client.urgent           $bg     $bg     $fg  $bg       $bg
