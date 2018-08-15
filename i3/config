@@ -300,7 +300,7 @@ bindsym $mod+b [class="qutebrowser"] focus
 
 bindsym $mod+c [class="Chromium"] focus
 
-bindsym $mod+Shift+c exec chromium
+bindsym $mod+Shift+c exec chromium $(xclip -o -selection clipboard)
 
 # copy clipboard history into system clipboard
 bindsym $mod+Ctrl+c exec echo -n "$(greenclip print | rofi -dmenu)" | xclip -selection clipboard

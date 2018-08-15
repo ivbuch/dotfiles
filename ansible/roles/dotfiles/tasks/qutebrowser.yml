@@ -14,7 +14,7 @@
     - qutebrowser
 
 - name: create a link to qutebrowser color template in pywal
-  command: find "{{ ansible_env.HOME }}/.config/virtual-envs" -type d -name "pywal"
+  command: find "{{ ansible_env.HOME }}/.config/virtual-envs/main" -type d -name "pywal"
   register: pywal_path
   tags:
     - qutebrowser
