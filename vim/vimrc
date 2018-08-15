@@ -275,6 +275,12 @@ noremap <space> %
 noremap <Leader><F9> :setlocal spell spelllang=en_us<CR>
 noremap <Leader><F10> :setlocal nospell<CR>
 
+" paste from system clipboard
+noremap <Leader>P "+p
+
+" copy to system clipboard
+vmap <Leader>C "+y
+
 function! FormatXml()
   % ! python -c 'import lxml.etree as etree; import sys; 
 	\text = etree.tostring(etree.fromstring(sys.stdin.read()), pretty_print=True, encoding="utf-8");
