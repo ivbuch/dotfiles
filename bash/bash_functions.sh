@@ -174,3 +174,19 @@ cdf() {
   echo "$dir"
   cd "$dir"
 }
+
+umount_flash() {
+  sudo umount /mnt/flash-drive && notify-send "Unmounted"
+}
+
+mount_flash() {
+  COLS="name,type,size,mountpoint"
+
+  drives="$(lsblk -rpo "$COLS" | grep sda -v | grep -v luks | awk '$4==""{printf "%s (%s)\n",$1,$3}')"
+  [ -z "$drives" ] && exit 0
+  chosen="$(echo "$drives" | rofi -dmenu | awk '{print $1}')"
+  [ -z "$chosen" ] && exit 0
+
+  mp="/mnt/flash-drive"
+  sudo -A mount "$chosen" "$mp" && notify-send "$chosen mounted to $mp."
+}
