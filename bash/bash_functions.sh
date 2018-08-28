@@ -148,6 +148,7 @@ s() {
   fi  
  
   if item=$(echo "$hosts" | sort | fzf); then
+    export S_LATEST_CONNECT="$item"
     echo "ssh $item"
     ssh "$item"
   fi
