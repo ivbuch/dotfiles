@@ -5,7 +5,7 @@ markup=pango
 [pacman]
 label=🎁
 command=/my-tools/dotfiles/i3blocks/module-pacman.sh
-interval=3600
+interval=60
 
 [mail]
 label=
