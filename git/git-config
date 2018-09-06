@@ -1,5 +1,6 @@
-[diff]
-    tool = vimdiff
+[pager]
+    diff = diff-so-fancy | less --tabs=1,5 -RFX
+    show = diff-so-fancy | less --tabs=1,5 -RFX
 [difftool]
     prompt = false
 [alias]
@@ -15,8 +16,10 @@
     bv = branch -vv
     bva = branch -vv --all
 
-    d = difftool .
+    d = diff .
+    dt = difftool .
     ds = difftool --staged .
+    dts = difftool --staged .
     dm = difftool --tool=meld .
     dms = difftool --staged --tool=meld .
     lg = log --oneline --graph --decorate

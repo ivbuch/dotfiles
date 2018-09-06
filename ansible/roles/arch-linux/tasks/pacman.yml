@@ -74,6 +74,7 @@
     - noto-fonts-emoji
     - i3blocks
     - cronie
+    - diff-so-fancy
 
 - name: remove packages
   pacman:
