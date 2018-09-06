@@ -32,11 +32,11 @@
   systemd:
     name: "{{ item }}"
     enabled: yes
-    state: started
-  changed_when: false
+    state: restarted
+  changed_when: true
   with_items:
     - docker
-    # - rc-local
+    - paccache.timer
   tags:
     - systemd
 
