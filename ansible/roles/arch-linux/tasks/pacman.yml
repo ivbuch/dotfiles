@@ -75,6 +75,9 @@
     - i3blocks
     - cronie
     - diff-so-fancy
+    - pacman-contrib
+  tags:
+    - pacman
 
 - name: remove packages
   pacman:
