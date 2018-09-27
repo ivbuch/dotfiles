@@ -14,6 +14,7 @@ alias music="ncmpcpp"
 alias i3_tree="i3-msg -t get_tree | jq '.'  | vim - -c 'set filetype=json'"
 alias f="find ."
 alias calendar="cal"
+alias ta="task"
 
 alias l="ls -lh --classify"
 alias lt="ls -lh --classify --sort=time"
