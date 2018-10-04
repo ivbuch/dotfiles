@@ -148,10 +148,15 @@ s() {
   fi  
  
   if item=$(echo "$hosts" | sort | fzf); then
-    export S_LATEST_CONNECT="$item"
+    echo "$item" > /tmp/s_latest_host.txt
     echo "ssh $item"
     ssh "$item"
   fi
+}
+
+# echo latest s host
+sl() {
+  echo -n "$(cat /tmp/s_latest_host.txt)"
 }
 
 # copy to clipboard from history
