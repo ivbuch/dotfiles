@@ -10,7 +10,8 @@
     c = checkout
     co = commit
     com = commit -m
-    s = status .
+    s = status . -sb
+    sf = status . 
 
     b = branch
     bv = branch -vv

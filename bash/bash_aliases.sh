@@ -36,12 +36,12 @@ alias psg="ps -ef | grep"
 alias clipboard_from="xclip -o -selection clipboard"
 alias clipboard_to="xclip -i -selection clipboard"
 alias pwdc="pwd | tr -d '[:space:]' | xclip -selection clipboard && echo pwd copied to clipboard"
-alias rm="rm -v"
+alias rm="rm -v -r"
 alias mv="mv -v"
-alias cp="cp -v"
+alias cp="cp -v -r"
 alias chmod="chmod -v"
 alias rsync="rsync -v"
-alias mkdir="mkdir -v"
+alias mkdir="mkdir -v -p"
 alias reload_xresources="xrdb ~/.Xresources"
 alias apt="sudo apt"
 alias apti="sudo apt install"
@@ -98,6 +98,7 @@ alias mt='mvn clean test'
 alias mt_debug='mvn clean test -Dmaven.surefire.debug test'
 alias mi_st='mvn clean install -DskipTests=true'
 alias m_dep='mvn dependency:tree -Dverbose  | less'
+alias mvr='mvn verify'
 
 # SOUND
 alias soundctl="pavucontrol"
