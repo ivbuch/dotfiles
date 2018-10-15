@@ -360,6 +360,9 @@ exec --no-startup-id greenclip daemon
 
 exec --no-startup-id qutebrowser
 
+# mount manager
+exec --no-startup-id udiskie --tray --use-udisks2
+
 # work chats
 exec --no-startup-id [ -n "$WORK_OS" ] && firefox -P "skype" --class="$firefox_wm_class_skype" https://web.skype.com/en/
 exec --no-startup-id [ -n "$WORK_OS" ] && firefox -P "teams" --class="$firefox_wm_class_teams" https://teams.microsoft.com
