@@ -1,5 +1,6 @@
 source "$DOT_FILES/bash/bash_functions_docker.sh"
 source "$DOT_FILES/bash/bash_functions_git.sh"
+source "$DOT_FILES/bash/bash_functions_task.sh"
 
 lg() {
   ls -lah | grep -i "$1"
