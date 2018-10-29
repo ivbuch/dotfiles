@@ -118,3 +118,7 @@ alias js_karma="node_modules/karma/bin/karma start karma.conf.js"
 
 # PYTHON
 alias pytest_ipdb="pytest -s --pdb --pdbcls=IPython.terminal.debugger:Pdb"
+
+# KUBERNETES
+alias kc="microk8s.kubectl"
+alias kd="microk8s.docker"
