@@ -310,9 +310,6 @@ bindsym $mod+Ctrl+k exec $script_path/i3-rofi-kill.sh
 # windows select 
 bindsym $mod+w exec "rofi -show window" 
 
-# terminal
-bindsym $mod+t workspace number $tab_terminal
-
 # brightness
 bindsym XF86MonBrightnessDown exec $script_path/change_backlight.sh decrement
 bindsym XF86MonBrightnessUp exec $script_path/change_backlight.sh increment
@@ -321,6 +318,9 @@ bindsym XF86MonBrightnessUp exec $script_path/change_backlight.sh increment
 bindsym XF86AudioLowerVolume exec amixer set Master 10%- && notify-send "Volume $(amixer get Master  | tail -n 1 | sed -r 's/.*\[([0-9]*)\%].*/\1/')%"
 bindsym XF86AudioRaiseVolume exec amixer set Master 10%+ && notify-send "Volume $(amixer get Master  | tail -n 1 | sed -r 's/.*\[([0-9]*)\%].*/\1/')%"
 bindsym XF86AudioMute exec $script_path/volume_toggle.sh
+
+# translate hotkey
+bindsym $mod+t exec $script_path/translate_rofi.sh
 
 # assign window to workspace
 assign [class="qutebrowser"] $tab_www

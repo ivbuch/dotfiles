@@ -6,6 +6,9 @@ lg() {
   ls -lah | grep -i "$1"
 }
 
+td() {
+  translate "$1" -d | less
+} 
 t_ru() {
   translate :ru "$1" | less
 } 
