@@ -1,5 +1,5 @@
 [global]
-    font = Share-TechMono 14
+    font = Share-TechMono 12
 
     # Merge multiple notifications with the same content
     stack_duplicates = false
