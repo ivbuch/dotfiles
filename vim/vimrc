@@ -82,9 +82,6 @@ autocmd FileType json   setlocal foldmethod=syntax foldlevel=100000
 autocmd FileType html   setlocal expandtab ts=4 sw=4 ai
 autocmd FileType css   setlocal expandtab ts=4 sw=4 ai
 
-" format python file
-autocmd FileType python nnoremap <Leader>= :0,$!yapf<CR>
-
 " colorscheme darkblue
 let g:airline_theme='light'
 
@@ -218,6 +215,9 @@ nmap <Leader>fij :put +<cr>:set filetype=json<cr>:call FormatJson()<cr>
 
 " insert and format xml from system buffer
 nmap <Leader>fix :put +<cr>:set filetype=xml<cr>:call FormatXml()<cr>
+
+" format python
+nmap <Leader>fp ::0,$!yapf<CR>
 
 " quick yank
 " word
