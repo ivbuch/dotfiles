@@ -10,7 +10,7 @@ select_service_and_invoke_command() {
 
 select_docker_containter_and_invoke_command() {
   items=$(eval "docker ps --format \"table {{.Image}}\\t{{.Names}}\\t{{.Status}}\" $1" | sed '1d') 
-  items=$(echo "$items" | fzf --reverse --nth=2 --tac --multi)
+  items=$(echo "$items" | fzf -e --reverse --nth=2 --tac --multi)
   if [[ "$?" -eq "0" ]]; then
     items=$(echo $items | awk '{print $2}')
     lines="$(echo $items | wc -l)"

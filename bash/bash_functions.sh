@@ -139,7 +139,7 @@ java_heap_dump() {
 
 # fzf file to vim
 vf() {
-  if item=$(fzf); then
+  if item=$(find . -type f  ! -path "*.git/*" ! -path "^target/*" ! -path "*__pycache__*" -printf '%P\n' | sort | fzf -e --reverse); then
     vim "$item"
   fi
 }
