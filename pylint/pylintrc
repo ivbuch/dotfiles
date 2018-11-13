@@ -54,6 +54,7 @@ confidence=
 # no Warning level messages displayed, use"--disable=all --enable=classes
 # --disable=W"
 disable=print-statement,
+	no-self-use,
         invalid-name,
         parameter-unpacking,
         unpacking-in-except,
