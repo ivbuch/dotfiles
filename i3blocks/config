@@ -33,7 +33,7 @@ interval=1
 
 [weather]
 label=
-command=/my-tools/dotfiles/i3blocks/module-weather.sh
+command=/my-tools/home-infostructure/dotfiles/i3blocks/module-weather.sh
 interval=60
 
 [moscow-time]
