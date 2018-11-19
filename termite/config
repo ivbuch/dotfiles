@@ -1,7 +1,7 @@
 [options]
 #allow_bold = true
 #audible_bell = false
-#clickable_url = true
+clickable_url = false
 #dynamic_title = true
 font = Hack 9
 # font = DejaVu Sans Mono 9
