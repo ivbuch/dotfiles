@@ -27,3 +27,4 @@
 - import_tasks: gtk-3_0.yml
 - import_tasks: task-warrior.yml
 - import_tasks: cron.yml
+- import_tasks: buku.yml

@@ -1,0 +1,7 @@
+- name: link buku dir
+  file:
+    src: "{{ mytools_path }}/home-infostructure/dotfiles/buku"
+    dest: "{{ ansible_env.HOME }}/.local/share/buku"
+    state: link
+  tags:
+    - buku
