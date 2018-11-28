@@ -231,18 +231,18 @@ for_window [class="^jetbrains-.+"][window_type=dialog] focus
 bindsym $mod+shift+shift+plus move scratch
 
 set $scratchpad_vim_class "termite-vim-scratchpad"
-set $scratchpad_music_class "termite-music-scratchpad"
+set $scratchpad_buku_class "termite-buku-scratchpad"
 
 # start vim scratchpad window
 exec --no-startup-id termite --exec=vim --class=$scratchpad_vim_class
 for_window [class=$scratchpad_vim_class] move scratchpad 
 
 # start music scratchpad window
-exec --no-startup-id termite --exec=ncmpcpp --class="$scratchpad_music_class"
-for_window [class=$scratchpad_music_class] move scratchpad 
+exec --no-startup-id termite --exec=buku --class="$scratchpad_buku_class"
+for_window [class=$scratchpad_buku_class] move scratchpad 
 
 bindsym $mod+plus [class=$scratchpad_vim_class] scratchpad show
-bindsym $mod+Home [class=$scratchpad_music_class] scratchpad show
+bindsym $mod+Home [class=$scratchpad_buku_class] scratchpad show
 
 ### --------------------------------------------------------------------- SCRATCHPADS
 
