@@ -1,22 +1,30 @@
 #!/bin/bash
 
-# cd "$DOT_FILES"
-cd "/my-tools/home-infostructure"
-git status 2>&1 | grep "nothing to commit" > /dev/null
-hi_s="$?"
+function get_status() {
+  cd "$1"
+  st="$(git status 2>&1)"
+  echo "$st" | grep "ahead of" > /dev/null
+  if [ "$?" -eq "0" ];  then
+    return 1
+  fi
 
-cd "/my-tools/dotfiles"
-git status 2>&1 | grep "nothing to commit" > /dev/null
-df_s="$?"
+  echo "$st" | grep "nothing to commit" > /dev/null
+  if [ "$?" -eq "1" ];  then
+    return 1
+  fi
+  return 0
+}
 
-if [ "$df_s" -eq "1" ];  then
-  echo -n "<span foreground='#ffffff' background='#ff0000'> DF </span>"
-else
-  echo -n "<span> DF </span>"
-fi
-
-if [ "$hi_s" -eq "1" ];  then
+get_status "/my-tools/home-infostructure"
+if [ "$?" -eq "1" ];  then
   echo -n "<span foreground='#ffffff' background='#ff0000'> HI </span>"
 else
   echo -n "<span> HI </span>"
+fi
+
+get_status "/my-tools/dotfiles"
+if [ "$?" -eq "1" ];  then
+  echo -n "<span foreground='#ffffff' background='#ff0000'> DF </span>"
+else
+  echo -n "<span> DF </span>"
 fi
