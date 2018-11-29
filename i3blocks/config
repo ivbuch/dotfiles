@@ -9,7 +9,7 @@ interval=2
 [git]
 label=🎁
 command=/my-tools/dotfiles/i3blocks/module-git.sh
-interval=30
+interval=1
 
 [pacman]
 label=🎁
