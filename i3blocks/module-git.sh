@@ -17,14 +17,14 @@ function get_status() {
 
 get_status "/my-tools/home-infostructure"
 if [ "$?" -eq "1" ];  then
-  echo -n "<span foreground='#ffffff' background='#ff0000'>HI </span>|"
+  echo -n "<span foreground='#ffffff' background='#ff0000'>HI</span>."
 else
-  echo -n "<span>HI </span>|"
+  echo -n "<span>HI</span>."
 fi
 
 get_status "/my-tools/dotfiles"
 if [ "$?" -eq "1" ];  then
-  echo -n "<span foreground='#ffffff' background='#ff0000'> DF </span>"
+  echo -n "<span foreground='#ffffff' background='#ff0000'>DF</span>"
 else
-  echo -n "<span> DF </span>"
+  echo -n "<span>DF</span>"
 fi
