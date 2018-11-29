@@ -7,7 +7,7 @@ command=/my-tools/dotfiles/i3blocks/module-check-internet.sh
 interval=2
 
 [git]
-label=🎁
+label=🚾
 command=/my-tools/dotfiles/i3blocks/module-git.sh
 interval=5
 
