@@ -217,7 +217,10 @@ nmap <Leader>fij :put +<cr>:set filetype=json<cr>:call FormatJson()<cr>
 nmap <Leader>fix :put +<cr>:set filetype=xml<cr>:call FormatXml()<cr>
 
 " format python
-nmap <Leader>fp ::0,$!yapf<CR>
+nmap <Leader>fp ::0,$! python -c 'import yaml, sys; yaml.safe_load(sys.stdin)'<CR>
+"
+" validate yaml
+nmap <Leader>vy :call ValidateYaml() <CR>
 
 " quick yank
 " word
@@ -261,15 +264,6 @@ nmap <Leader>ex :e ~/.Xresources <CR>
 
 " help - list all bindings
 nmap <leader>? :help index.txt<CR>
-
-" open conky config
-nmap <Leader>ecd :e /my-tools/dotfiles/conky/conky.conf <CR>
-
-" open conky config
-nmap <Leader>ecw :e /my-tools/home-infostructure/ansible/playbooks/home/dot-files/conky-work.conf <CR>
-
-" map space to jump between brackets
-noremap <space> %
 
 " spell checking, on and off
 noremap <Leader><F9> :setlocal spell spelllang=en_us<CR>
@@ -321,4 +315,8 @@ endfunction
 
 function! UrlDecode()
   '<,'> ! python -c 'import sys; import urllib.parse; print(urllib.parse.unquote(sys.stdin.read()))'
+endfunction
+
+function! ValidateYaml()
+  0,$ ! python -c 'import yaml, sys; yaml.safe_load(sys.stdin)'
 endfunction
