@@ -126,3 +126,6 @@ alias kd="microk8s.docker"
 
 # BUKU
 alias b="buku"
+
+# TORRENT
+alias torrent_start="systemctl restart transmission.service && chromium http://localhost:9091"
