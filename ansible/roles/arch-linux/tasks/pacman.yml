@@ -79,6 +79,8 @@
     - udiskie
     - borg
     - network-manager-applet
+    - powertop
+    - acpi
   tags:
     - pacman
 
