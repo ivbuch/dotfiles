@@ -78,6 +78,7 @@
     - pacman-contrib
     - udiskie
     - borg
+    - network-manager-applet
   tags:
     - pacman
 
