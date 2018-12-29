@@ -81,6 +81,8 @@
     - network-manager-applet
     - powertop
     - acpi
+    - lightdm-gtk-greeter
+    - numix-gtk-theme
   tags:
     - pacman
 
