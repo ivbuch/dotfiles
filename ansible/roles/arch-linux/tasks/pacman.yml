@@ -83,6 +83,7 @@
     - acpi
     - lightdm-gtk-greeter
     - numix-gtk-theme
+    - dnsutils
   tags:
     - pacman
 
