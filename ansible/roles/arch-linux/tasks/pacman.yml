@@ -84,6 +84,9 @@
     - lightdm-gtk-greeter
     - numix-gtk-theme
     - dnsutils
+    - tlp
+    - acpi_call
+    - tpacpi-bat
   tags:
     - pacman
 
