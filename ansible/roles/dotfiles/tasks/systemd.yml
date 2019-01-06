@@ -48,18 +48,26 @@
   tags:
     - systemd
 
-- name: enable services
+- name: create powertop service
+  copy:
+    src: "{{ mytools_path }}/dotfiles/systemd/powertop.service"
+    dest: "/etc/systemd/system/powertop.service"
+  become: yes
+  tags:
+    - systemd
+
+- name: enable user services
   systemd:
     name: "{{ item }}"
     state: started
     enabled: yes
-    user: yes
+    scope: user
   with_items:
     - nm-applet.service
   tags:
     - systemd
 
-- name: enable services
+- name: enable system services
   systemd:
     name: "{{ item }}"
     state: started
@@ -68,5 +76,6 @@
   with_items:
     - tlp.service
     - tlp-sleep.service
+    - powertop.service
   tags:
     - systemd
