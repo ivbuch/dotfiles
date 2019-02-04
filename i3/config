@@ -1,14 +1,13 @@
 set_from_resource $status_bg i3wm.color0
-set_from_resource $statusline_fg i3wm.color2
-set_from_resource $statusline_sep i3wm.color2
+set_from_resource $statusline_sep i3wm.color3
 
-set_from_resource $workspace_focused_bg i3wm.color1
-set_from_resource $workspace_focused_line i3wm.color1
+set_from_resource $workspace_focused_bg i3wm.color6
+set_from_resource $workspace_focused_line i3wm.color6
 set_from_resource $workspace_focused_fg i3wm.color0
 
-set_from_resource $workspace_inactive_bg i3wm.color0
-set_from_resource $workspace_inactive_fg i3wm.color1
-set_from_resource $workspace_inactive_line i3wm.color1
+set_from_resource $workspace_inactive_bg i3wm.color2
+set_from_resource $workspace_inactive_fg i3wm.color0
+set_from_resource $workspace_inactive_line i3wm.color2
 
 set_from_resource $bg i3wm.color1
 set_from_resource $fg i3wm.color1
@@ -33,20 +32,20 @@ set $termite_wm_class_terminal "wm_class_termite_terminal"
 set $mod Mod4
 
 gaps inner 10
-gaps outer 10
+gaps outer 0
 # smart_gaps no
 # smart_borders on
 
 bar {
  	colors {
  		    background $status_bg
- 		    statusline $statusline_fg
+ 		    statusline #aaa
  		    separator $statusline_sep
 
 		    focused_workspace  $workspace_focused_line $workspace_focused_bg $workspace_focused_fg
 		    active_workspace   #333333 #5f676a #ffffff
 		    inactive_workspace $workspace_inactive_line $workspace_inactive_bg $workspace_inactive_fg
-		    urgent_workspace   $fg $bg #ff0000
+		    urgent_workspace   $workspace_inactive_line $workspace_inactive_bg #ff0000
 	}
 	height 38
 	font pango: Ubuntu Mono 15
