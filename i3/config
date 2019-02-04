@@ -19,8 +19,8 @@ set $termite_wm_class_terminal "wm_class_termite_terminal"
 
 set $mod Mod4
 
-gaps inner 0
-gaps outer 0
+gaps inner 10
+gaps outer 10
 # smart_gaps no
 # smart_borders on
 
