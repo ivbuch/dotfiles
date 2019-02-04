@@ -1,6 +1,19 @@
-set_from_resource $bg i3wm.color0
+set_from_resource $status_bg i3wm.color0
+set_from_resource $statusline_fg i3wm.color2
+set_from_resource $statusline_sep i3wm.color2
+
+set_from_resource $workspace_focused_bg i3wm.color1
+set_from_resource $workspace_focused_line i3wm.color1
+set_from_resource $workspace_focused_fg i3wm.color0
+
+set_from_resource $workspace_inactive_bg i3wm.color0
+set_from_resource $workspace_inactive_fg i3wm.color1
+set_from_resource $workspace_inactive_line i3wm.color1
+
+set_from_resource $bg i3wm.color1
 set_from_resource $fg i3wm.color1
-set_from_resource $bg_a i3wm.color3
+
+set_from_resource $bg_a i3wm.color2
 set_from_resource $fg_a i3wm.color13
 
 set $script_path /my-tools/dotfiles/bash/thinkpad
@@ -26,17 +39,17 @@ gaps outer 10
 
 bar {
  	colors {
- 		    background $bg
- 		    statusline #fff
- 		    separator $fg_a
+ 		    background $status_bg
+ 		    statusline $statusline_fg
+ 		    separator $statusline_sep
 
-		    focused_workspace  $fg $bg #fff
+		    focused_workspace  $workspace_focused_line $workspace_focused_bg $workspace_focused_fg
 		    active_workspace   #333333 #5f676a #ffffff
-		    inactive_workspace $fg $fg #fff
+		    inactive_workspace $workspace_inactive_line $workspace_inactive_bg $workspace_inactive_fg
 		    urgent_workspace   $fg $bg #ff0000
 	}
-	height 30
-	font pango:Input Mono 12
+	height 38
+	font pango: Ubuntu Mono 15
 	status_command i3blocks
 	position top
 	mode dock
