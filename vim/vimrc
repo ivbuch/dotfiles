@@ -23,6 +23,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'w0rp/ale' " async lint
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'jamessan/vim-gnupg'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -61,6 +62,13 @@ set splitbelow
 set splitright
 
 set history=500
+
+" armor format for gpg
+let g:GPGPreferArmor = 1
+let g:GPGPossibleRecipients=[
+        \$GPG_HOME_RECIPIENT,
+        \$GPG_WORK_RECIPIENT,
+      \]
 
 " nerd tree - close file browser on file select
 let g:NERDTreeQuitOnOpen = 1
