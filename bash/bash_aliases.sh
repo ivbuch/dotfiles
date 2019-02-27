@@ -130,3 +130,6 @@ alias b="buku"
 
 # TORRENT
 alias torrent_start="systemctl restart transmission.service && chromium http://localhost:9091"
+ 
+# task warrior gui
+alias tw="firefox http://localhost:5678"
