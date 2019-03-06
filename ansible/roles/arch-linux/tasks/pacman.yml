@@ -87,6 +87,7 @@
     - tlp
     - acpi_call
     - tpacpi-bat
+    - bat
   tags:
     - pacman
 

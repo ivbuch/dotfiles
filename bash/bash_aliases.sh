@@ -1,5 +1,5 @@
 alias m="man"
-alias c="cat"
+alias c="bat"
 alias piy="ping ya.ru"
 alias gs="echo type git s please"
 alias weather="curl wttr.in"
