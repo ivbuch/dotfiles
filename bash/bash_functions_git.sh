@@ -1,5 +1,5 @@
 # checkout git branch
-fg_checkout() {
+fgc() {
   local branches branch
   branches=$(git branch -vv) 
   branch=$(echo "$branches" | fzf +m)
