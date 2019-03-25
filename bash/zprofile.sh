@@ -1,6 +1,6 @@
 export EDITOR="vim"
 export PAGER="less"
-export BROWSER="/usr/bin/qutebrowser"
+export BROWSER="qutebrowser"
 export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.bin/exec-scripts:$PATH"
 export PATH="$HOME/.config/virtual-envs/main/bin:$PATH"
