@@ -113,7 +113,7 @@ alias sd="systemctl"
 alias sdu="systemctl --user"
 
 # WORK
-alias rc='$HOME_INFOSTRUCTURE/work/medfusion/rest/rest-client/main.py' 
+alias rc='python $HOME_INFOSTRUCTURE/work/medfusion/rest/rest-client/main.py' 
 
 # KARMA
 alias js_karma="node_modules/karma/bin/karma start karma.conf.js"
