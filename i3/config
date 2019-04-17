@@ -322,6 +322,11 @@ bindsym $mod+Ctrl+k exec $script_path/i3-rofi-kill.sh
 # windows select 
 bindsym $mod+w exec "rofi -show window" 
 
+# open browser url
+bindsym $mod+Ctrl+g exec $script_path/i3-rofi-buku.sh "chromium"
+bindsym $mod+Ctrl+f exec $script_path/i3-rofi-buku.sh "firefox"
+bindsym $mod+Ctrl+b exec $script_path/i3-rofi-buku.sh "qutebrowser"
+
 # brightness
 bindsym XF86MonBrightnessDown exec $script_path/change_backlight.sh decrement
 bindsym XF86MonBrightnessUp exec $script_path/change_backlight.sh increment
