@@ -200,3 +200,8 @@ mount_flash() {
   mp="/mnt/flash-drive"
   sudo -A mount "$chosen" "$mp" && notify-send "$chosen mounted to $mp."
 }
+
+use_java_7() {
+  export JAVA_HOME=/opt/jdk7
+  export PATH="$JAVA_HOME/bin:$PATH"
+}
