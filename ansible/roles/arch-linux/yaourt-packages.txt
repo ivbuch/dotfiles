@@ -4,3 +4,4 @@ i3lock-fancy-git
 rofi-greenclip
 rofimoji
 autorandr
+direnv

@@ -42,3 +42,5 @@ cat ~/.cache/wal/sequences
 
 # zle -N ssh_connect fdr
 # bindkey "^s" ssh_connect
+
+eval "$(direnv hook zsh)"
