@@ -16,6 +16,7 @@ alias f="find ."
 alias calendar="cal"
 alias ta="task"
 alias du1="du -h -d1"
+alias j="jrnl"
 
 alias l="ls -lh --classify"
 alias lt="ls -lh --classify --sort=time"
