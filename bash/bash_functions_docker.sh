@@ -29,6 +29,10 @@ select_docker_containter_and_invoke_command() {
 
 # remove docker container
 fdrm() {
+  select_docker_containter_and_invoke_command "" "rm -f"
+}
+
+fdrma() {
   select_docker_containter_and_invoke_command "-a" "rm -f"
 }
 
@@ -49,6 +53,9 @@ fd_exec_root() {
 
 # bash log docker container
 fdl() {
+  select_docker_containter_and_invoke_command "" "logs -f" ""
+}
+fdla() {
   select_docker_containter_and_invoke_command "-a" "logs -f" ""
 }
 
