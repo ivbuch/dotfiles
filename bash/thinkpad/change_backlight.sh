@@ -2,7 +2,7 @@
 FN="/sys/class/backlight/intel_backlight/brightness"
 VALUE="$(cat $FN)"
 MAX="$(cat /sys/class/backlight/intel_backlight/max_brightness)"
-STEP="50"
+STEP="300"
 MIN="50"
 if [[ $1 == "increment" ]]; then
   UPDATED=$((VALUE + STEP))
