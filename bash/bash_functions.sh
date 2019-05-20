@@ -151,7 +151,7 @@ s() {
     hosts="$hosts\\n$(grep Host ~/.ssh/mfss/* -w | awk '{print $2}')"
   fi  
  
-  if item=$(echo "$hosts" | sort | fzf); then
+  if item=$(echo "$hosts" | sort | fzf -e); then
     echo "$item" > /tmp/s_latest_host.txt
     echo "ssh $item"
     ssh "$item"
