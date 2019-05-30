@@ -68,6 +68,7 @@ alias cdmfd='cd $HOME_INFOSTRUCTURE/work/medfusion/mf-apps'
 alias cdmfs='cd $HOME/workspace/mfss'
 alias cdmfr='cd $HOME_INFOSTRUCTURE/work/medfusion/rest/rest-client'
 alias cdmft='cd $HOME_INFOSTRUCTURE/work/medfusion/scripts/integration-test-client'
+alias cdmfk='cd $HOME_INFOSTRUCTURE/work/medfusion/kafka'
 
 
 # init dotfiles
@@ -99,14 +100,14 @@ alias pacman_package_files="pacman -Q -l" # next goes package name
 alias ports='netstat -tulanp'
 
 # MAVEN
-alias mp='mvn clean package'
-alias mi='mvn clean install'
-alias mp_st='mvn clean package -DskipTests=true'
-alias mt='mvn clean test'
-alias mt_debug='mvn clean test -Dmaven.surefire.debug test'
-alias mi_st='mvn clean install -DskipTests=true'
-alias m_dep='mvn dependency:tree -Dverbose  | less'
-alias mvr='mvn verify'
+alias mvn_p='mvn clean package'
+alias mvn_i='mvn clean install'
+alias mvn_pst='mvn clean package -DskipTests=true'
+alias mvn_t='mvn clean test'
+alias mvn_test_debug='mvn clean test -Dmaven.surefire.debug test'
+alias mvn_ist='mvn clean install -DskipTests=true'
+alias mvn_dep='mvn dependency:tree -Dverbose  | less'
+alias mvn_ep='mvn help:effective-pom'
 
 # SOUND
 alias soundctl="pavucontrol"
