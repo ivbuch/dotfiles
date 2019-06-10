@@ -140,3 +140,6 @@ alias torrent_start="systemctl restart transmission.service && chromium http://l
  
 # task warrior gui
 alias tw="firefox http://localhost:5678"
+
+# yaml
+alias yaml_validate="python -c 'import yaml, sys; print(yaml.safe_load(sys.stdin))'"
