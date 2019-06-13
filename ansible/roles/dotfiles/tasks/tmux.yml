@@ -1,5 +1,13 @@
 - name: create conf link
   file:
+    src: "{{ mytools_path }}/dotfiles/tmux/tmux.conf.local"
+    dest: "{{ ansible_env.HOME }}/.tmux.conf.local"
+    state: link
+  tags:
+    - tmux
+
+- name: create conf link
+  file:
     src: "{{ mytools_path }}/dotfiles/tmux/tmux.conf"
     dest: "{{ ansible_env.HOME }}/.tmux.conf"
     state: link
