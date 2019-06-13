@@ -3,18 +3,34 @@
     src: "{{ mytools_path }}/dotfiles/tmux/tmux.conf"
     dest: "{{ ansible_env.HOME }}/.tmux.conf"
     state: link
+  tags:
+    - tmux
+
+- name: create local conf link
+  file:
+    src: "{{ mytools_path }}/dotfiles/tmux/tmux.local"
+    dest: "{{ ansible_env.HOME }}/.tmux.conf.local"
+    state: link
+  tags:
+    - tmux
 
 - name: create tmuxp directory
   file:
     src: "{{ mytools_path }}/home-infostructure/tmuxp"
     dest: "{{ ansible_env.HOME }}/.tmuxp"
     state: link
+  tags:
+    - tmux
 
 - name: check virtual_env
   stat:
     path: "~/.tmux/plugins/tpm"
   register: tpm_check
+  tags:
+    - tmux
 
 - name: clone tmux plugin manager
   command: git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  
   when: tpm_check.stat.exists == false
+  tags:
+    - tmux
