@@ -96,6 +96,7 @@ alias pmi="sudo pacman -S"
 alias pmrm="sudo pacman -Rs"
 alias pacman_package_files="pacman -Q -l" # next goes package name
 alias pacman_download="pacman -Syuw" # downloads packages to install
+alias pacman_cleanup_cach="sudo paccache -ruk0" # removes pacman cached packages
 
 # NETWORK
 alias ports='netstat -tulanp'
