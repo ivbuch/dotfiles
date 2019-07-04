@@ -2,6 +2,8 @@
   stat:
     path: ~/.oh-my-zsh
   register: oh_my_zsh_register
+  tags:
+    - bash
 
 - name: Cloning  oh-my-zsh
   git:
@@ -9,16 +11,22 @@
     dest=~/.oh-my-zsh
   when: oh_my_zsh_register.stat.exists == false
   register: cloning
+  tags:
+    - bash
 
 - name: Creating new ~/.zshrc
   copy:
     src=~/.oh-my-zsh/templates/zshrc.zsh-template
     dest=~/.zshrc
   when: cloning|success
+  tags:
+    - bash
 
 - name: Set zsh default shell
   shell: chsh -s $(which zsh) igor
   become: yes
+  tags:
+    - bash
 
 - name: touch .zshrc file
   file: 
@@ -26,6 +34,8 @@
     state: touch
   register: touch_log
   changed_when: touch_log.diff.before.state != "file"
+  tags:
+    - bash
 
 - name: create .bash_aliases file if not exists
   file: 
@@ -33,6 +43,8 @@
     state: touch
   register: touch_log
   changed_when: touch_log.diff.before.state != "file"
+  tags:
+    - bash
 
 - name: Source custom bash aliases file
   lineinfile:
@@ -43,12 +55,16 @@
     - "source {{ mytools_path }}/dotfiles/bash/bash_aliases.sh"
     - "source {{ mytools_path }}/home-infostructure/bash-scripts/work/bash_aliases.sh"
     - "source {{ mytools_path }}/home-infostructure/bash-scripts/work/bash_functions.sh"
+  tags:
+    - bash
 
 - name: .zshrc must source aliases and python main virtual-env
   lineinfile:
     path: "{{ ansible_env.HOME }}/.zshrc"
     line: "source /my-tools/dotfiles/bash/zshrc.sh"
     state: present
+  tags:
+    - bash
 
 - name: link powerline theme
   file:
@@ -56,7 +72,7 @@
     dest: "{{ ansible_env.HOME }}/.oh-my-zsh/themes/powerline.zsh-theme"
     state: link
   tags:
-    - oh-my-zsh
+    - bash
 
 - name: powerline settings
   lineinfile:
@@ -65,7 +81,7 @@
     insertafter: '^ZSH_THEME='
     state: present
   tags:
-    - oh-my-zsh
+    - bash
 
 - name: touch profile files
   file: 
@@ -75,7 +91,7 @@
     - .profile
     - .zprofile
   tags:
-    - oh-my-zsh
+    - bash
 
 - name: source profile.sh
   lineinfile:
@@ -86,7 +102,7 @@
     - .profile
     - .zprofile
   tags:
-    - oh-my-zsh
+    - bash
 
 - name: link exec-scripts folder
   file:
@@ -94,4 +110,4 @@
     dest: "{{ ansible_env.HOME }}/.bin/exec-scripts"
     state: link
   tags:
-    - oh-my-zsh
+    - bash
