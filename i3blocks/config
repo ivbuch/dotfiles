@@ -6,6 +6,16 @@ markup=pango
 command=/my-tools/dotfiles/i3blocks/module-check-internet.sh
 interval=2
 
+[battery]
+label=
+command=/my-tools/dotfiles/i3blocks/module-battery.sh
+interval=1
+
+[battery2]
+command=/my-tools/dotfiles/i3blocks/module-batter2.sh
+markup=pango
+interval=30
+
 [git]
 label=🚾
 command=/my-tools/dotfiles/i3blocks/module-git.sh
@@ -36,11 +46,6 @@ interval=5
 command=/my-tools/dotfiles/i3blocks/module-docker.sh
 interval=1
 
-[weather]
-label=
-command=/my-tools/home-infostructure/dotfiles/i3blocks/module-weather.sh
-interval=600
-
 [moscow-time]
 label=🌜
 command=TZ=Europe/Moscow date +"%H:%M"
@@ -51,16 +56,11 @@ label=⌨️
 command=/my-tools/dotfiles/i3blocks/module-keyboard.sh
 interval=1
 
-[battery]
-label=
-command=/my-tools/dotfiles/i3blocks/module-battery.sh
-interval=1
-
 [vpn]
 command=/my-tools/dotfiles/i3blocks/module-vpn.sh
 interval=2
 
 [time]
 label=
-command=echo $(date '+%b %d (%a) 🕓  %H:%M')
+command=echo $(date '+%b %d (%a) %H:%M')
 interval=30

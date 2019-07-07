@@ -48,7 +48,7 @@ bar {
 		    urgent_workspace   $workspace_inactive_line $workspace_inactive_bg #ff0000
 	}
 	height 38
-	font pango: Ubuntu Mono 15
+	font pango: Ubuntu Mono 12
 	status_command i3blocks
 	position bottom
 	mode dock
@@ -371,9 +371,6 @@ exec --no-startup-id "sleep 3 && rfkill block bluetooth"
 
 # flash window on focus
 exec_always --no-startup-id ~/.config/virtual-envs/main/bin/flashfocus
-
-# clipboard manager
-exec --no-startup-id greenclip daemon
 
 exec --no-startup-id qutebrowser
 
