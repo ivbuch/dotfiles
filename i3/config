@@ -50,7 +50,7 @@ bar {
 	height 38
 	font pango: Ubuntu Mono 12
 	status_command i3blocks
-	position bottom
+	position top
 	mode dock
 	modifier None
 	separator_symbol "|"
