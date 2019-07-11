@@ -7,12 +7,7 @@ command=/my-tools/dotfiles/i3blocks/module-check-internet.sh
 interval=2
 
 [battery]
-label=
 command=/my-tools/dotfiles/i3blocks/module-battery.sh
-interval=1
-
-[battery2]
-command=/my-tools/dotfiles/i3blocks/module-batter2.sh
 markup=pango
 interval=30
 

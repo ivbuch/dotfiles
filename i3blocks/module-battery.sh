@@ -1,136 +1,102 @@
-#!/usr/bin/env bash
-#  batterybar; displays battery percentage as a bar on i3blocks
-#  
-#  Copyright 2015 Keftaa <adnan.37h@gmail.com>
-#  
-#  This program is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation; either version 2 of the License, or
-#  (at your option) any later version.
-#  
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#  
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software
-#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-#  MA 02110-1301, USA.
-#  
-#  
-readarray -t output <<< $(acpi battery)
-battery_count=${#output[@]}
+#!/usr/bin/env python3
+#
+# Copyright (C) 2016 James Murphy
+# Licensed under the GPL version 2 only
+#
+# A battery indicator blocklet script for i3blocks
 
-for line in "${output[@]}";
-do
-    percentages+=($(echo "$line" | grep -o -m1 '[0-9]\{1,3\}%' | tr -d '%'))
-    statuses+=($(echo "$line" | egrep -o -m1 'Discharging|Charging|AC|Full|Unknown'))
-    remaining=$(echo "$line" | egrep -o -m1 '[0-9][0-9]:[0-9][0-9]')
-    if [[ -n $remaining ]]; then
-        remainings+=(" ($remaining)")
-    else 
-        remainings+=("")
-    fi
-done
+import re
+from subprocess import check_output
 
-squares="■"
+status = check_output(['acpi'], universal_newlines=True)
 
-#There are 8 colors that reflect the current battery percentage when 
-#discharging
-dis_colors=("#FF0027" "#FF3B05" "#FFB923" "#FFD000" "#E4FF00" "#ADFF00"
-			"#6DFF00" "#10BA00") 
-charging_color="#00AFE3"
-full_color="#FFFFFF"
-ac_color="#535353"
+if not status:
+    # stands for no battery found
+    fulltext = "<span color='red'><span font='FontAwesome'>\uf00d \uf240</span></span>"
+    percentleft = 100
+else:
+    # if there is more than one battery in one laptop, the percentage left is 
+    # available for each battery separately, although state and remaining 
+    # time for overall block is shown in the status of the first battery 
+    batteries = status.split("\n")
+    state_batteries=[]
+    commasplitstatus_batteries=[]
+    percentleft_batteries=[]
+    time = ""
+    for battery in batteries:
+        if battery!='':
+            state_batteries.append(battery.split(": ")[1].split(", ")[0])
+            commasplitstatus = battery.split(", ")
+            if not time:
+                time = commasplitstatus[-1].strip()
+                # check if it matches a time
+                time = re.match(r"(\d+):(\d+)", time)
+                if time:
+                    time = ":".join(time.groups())
+                    timeleft = " ({})".format(time)
+                else:
+                    timeleft = ""
+
+            p = int(commasplitstatus[1].rstrip("%\n"))
+            if p>0:
+                percentleft_batteries.append(p)
+            commasplitstatus_batteries.append(commasplitstatus)
+    state = state_batteries[0]
+    commasplitstatus = commasplitstatus_batteries[0]
+    if percentleft_batteries:
+        percentleft = int(sum(percentleft_batteries)/len(percentleft_batteries))
+    else:
+        percentleft = 0
+
+    # stands for charging
+    FA_LIGHTNING = "<span color='yellow'><span font='FontAwesome'>\uf0e7</span></span>"
+
+    # stands for plugged in
+    FA_PLUG = "<span font='FontAwesome'>\uf1e6</span>"
+
+    # stands for using battery
+    FA_BATTERY = "<span font='FontAwesome'>\uf240</span>"
+
+    # stands for unknown status of battery
+    FA_QUESTION = "<span font='FontAwesome'>\uf128</span>"
 
 
-while getopts 1:2:3:4:5:6:7:8:c:f:a:h opt; do
-    case "$opt" in
-        1) dis_colors[0]="$OPTARG";;
-        2) dis_colors[1]="$OPTARG";;
-        3) dis_colors[2]="$OPTARG";;
-        4) dis_colors[3]="$OPTARG";;
-        5) dis_colors[4]="$OPTARG";;
-        6) dis_colors[5]="$OPTARG";;
-        7) dis_colors[6]="$OPTARG";;
-        8) dis_colors[7]="$OPTARG";;
-        c) charging_color="$OPTARG";;
-        f) full_color="$OPTARG";;
-        a) ac_color="$OPTARG";;
-        h) printf "Usage: batterybar [OPTION] color
-        When discharging, there are 8 [1-8] levels colors.
-        You can specify custom colors, for example:
-        
-        batterybar -1 red -2 \"#F6F6F6\" -8 green
-        
-        You can also specify the colors for the charging, AC and
-        charged states:
-        
-        batterybar -c green -f white -a \"#EEEEEE\"\n";
-        exit 0;
-    esac
-done
+    if state == "Discharging":
+        fulltext = FA_BATTERY + " "
+    elif state == "Full":
+        fulltext = FA_PLUG + " "
+        timeleft = ""
+    elif state == "Unknown":
+        fulltext = FA_QUESTION + " " + FA_BATTERY + " "
+        timeleft = ""
+    else:
+        fulltext = FA_LIGHTNING + " " + FA_PLUG + " "
 
-end=$(($battery_count - 1))
-for i in $(seq 0 $end);
-do
-    if (( percentages[$i] > 0 && percentages[$i] < 20  )); then
-        squares="■"
-    elif (( percentages[$i] >= 20 && percentages[$i] < 40 )); then
-        squares="■■"
-    elif (( percentages[$i] >= 40 && percentages[$i] < 60 )); then
-        squares="■■■"
-    elif (( percentages[$i] >= 60 && percentages[$i] < 80 )); then
-        squares="■■■■"
-    elif (( percentages[$i] >=80 )); then
-        squares="■■■■■"
-    fi
+    def color(percent):
+        if percent < 10:
+            # exit code 33 will turn background red
+            return "#FFFFFF"
+        if percent < 20:
+            return "#FF3300"
+        if percent < 30:
+            return "#FF6600"
+        if percent < 40:
+            return "#FF9900"
+        if percent < 50:
+            return "#FFCC00"
+        if percent < 60:
+            return "#FFFF00"
+        if percent < 70:
+            return "#FFFF33"
+        if percent < 80:
+            return "#FFFF66"
+        return "#FFFFFF"
 
-    if [[ "${statuses[$i]}" = "Unknown" ]]; then
-        squares="<sup>?</sup>$squares"
-    fi
+    form =  '<span color="{}">{}%</span>'
+    fulltext += form.format(color(percentleft), percentleft)
+    fulltext += timeleft
 
-    case "${statuses[$i]}" in
-    "Charging")
-        color="$charging_color"
-    ;;
-    "Full")
-        color="$full_color"
-    ;;
-    "AC")
-        color="$ac_color"
-    ;;
-    "Discharging"|"Unknown")
-        if (( percentages[$i] >= 0 && percentages[$i] < 10 )); then
-            color="${dis_colors[0]}"
-        elif (( percentages[$i] >= 10 && percentages[$i] < 20 )); then
-            color="${dis_colors[1]}"
-        elif (( percentages[$i] >= 20 && percentages[$i] < 30 )); then
-            color="${dis_colors[2]}"
-        elif (( percentages[$i] >= 30 && percentages[$i] < 40 )); then
-            color="${dis_colors[3]}"
-        elif (( percentages[$i] >= 40 && percentages[$i] < 60 )); then
-            color="${dis_colors[4]}"
-        elif (( percentages[$i] >= 60 && percentages[$i] < 70 )); then
-            color="${dis_colors[5]}"
-        elif (( percentages[$i] >= 70 && percentages[$i] < 80 )); then
-            color="${dis_colors[6]}"
-        elif (( percentages[$i] >= 80 )); then
-            color="${dis_colors[7]}"
-        fi
-    ;;
-    esac
-
-    # Print Battery number if there is more than one
-    if (( $end > 0 )) ; then 
-        message="$message $(($i + 1)):" 
-    fi
-
-    if [[ "$BLOCK_BUTTON" -eq 1 ]]; then 
-        message="$message ${statuses[$i]} <span foreground=\"$color\">${percentages[$i]}%${remainings[i]}</span>"
-    fi
-        message="$message <span foreground=\"$color\">$squares</span>" 
-done
-
-echo $message
+print(fulltext)
+print(fulltext)
+if percentleft < 10:
+    exit(33)
