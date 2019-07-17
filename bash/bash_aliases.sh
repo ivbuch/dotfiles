@@ -16,9 +16,8 @@ alias f="find ."
 alias calendar="cal"
 alias ta="task"
 alias du1="du -h -d1"
-alias journal="jrnl"
+alias j="jrnl"
 
-alias j="jira"
 alias jv="jira view"
 
 alias l="ls -lh --classify"
