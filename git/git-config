@@ -23,7 +23,7 @@
     dts = difftool --staged .
     dm = difftool --tool=meld .
     dms = difftool --staged --tool=meld .
-    lg = log --oneline --graph --decorate
+    lg = log --oneline --graph --decorate --all
     l = log --name-status --abbrev-commit
     f = fetch
     p = push
