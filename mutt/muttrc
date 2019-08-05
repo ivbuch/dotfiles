@@ -10,7 +10,7 @@ set imap_check_subscribed="yes"
 set imap_list_subscribed="yes"
 set timeout=15
 set mail_check=90
-set imap_keepalive=90
+set imap_keepalive=180
 set imap_idle
 unset mark_old
 set ssl_use_sslv3=yes
