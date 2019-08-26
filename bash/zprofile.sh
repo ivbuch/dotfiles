@@ -1,5 +1,5 @@
 export EDITOR="vim"
-export PAGER="bat"
+export PAGER="less"
 export BROWSER="qutebrowser"
 export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.bin/exec-scripts:$PATH"
