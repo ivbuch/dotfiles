@@ -29,3 +29,4 @@
 - import_tasks: cron.yml
 - import_tasks: buku.yml
 - import_tasks: lightdm.yml
+- import_tasks: jrnl.yml
