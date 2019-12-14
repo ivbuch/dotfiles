@@ -339,6 +339,9 @@ bindsym XF86AudioMute exec $script_path/volume_toggle.sh
 # translate hotkey
 bindsym $mod+t exec $script_path/translate_rofi.sh
 
+# back and forth switch
+bindsym $mod+grave workspace back_and_forth
+
 # assign window to workspace
 assign [class="qutebrowser"] $tab_www
 
