@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source "/my-tools/dotfiles/bash/exec-scripts/_pomodoro.sh"
+
+start_pomodoro_timer 15
