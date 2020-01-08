@@ -11,6 +11,11 @@ command=/my-tools/dotfiles/i3blocks/module-battery.sh
 markup=pango
 interval=30
 
+[pomodoro]
+label=
+command=/my-tools/dotfiles/i3blocks/module-pomodoro.sh
+interval=5
+
 [git]
 label=🚾
 command=/my-tools/dotfiles/i3blocks/module-git.sh
