@@ -283,20 +283,35 @@ mode "$mode_settings" {
     # restart i3wm
     bindsym a restart
 
-    # restart polybar
     bindsym p exec /home/igor/workspace/dotfiles/polybar/launch-polybar.sh i3-restart
 
-    # keyboard backlight
     bindsym k exec $script_path/change_kgb_backlight.sh
 
-    # set random theme
     bindsym t exec systemctl start set-random-theme --user
 
-    # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+Shift+r mode "$mode_settings"
+
+############################################ MODE POMODORO
+
+set $mode_pomodoro Pomodoro mode (s) start, (k) skip, (p) pause
+mode "$mode_pomodoro" {
+
+    bindsym s exec python /my-tools/home-infostructure/python-scripts/pomodoro/pomodoro-client.py start
+
+    bindsym k exec python /my-tools/home-infostructure/python-scripts/pomodoro/pomodoro-client.py skip
+
+    bindsym p exec python /my-tools/home-infostructure/python-scripts/pomodoro/pomodoro-client.py pause
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+p mode "$mode_pomodoro"
+
+############################################ MODE POMODORO
 
 # lock screen
 bindsym $mod+o exec i3lock-fancy
