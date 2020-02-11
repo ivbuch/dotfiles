@@ -64,6 +64,10 @@ interval=2
 command=/my-tools/dotfiles/i3blocks/module-wireguard.sh
 interval=2
 
+[ip]
+command=/my-tools/dotfiles/i3blocks/module-ip.sh
+interval=30
+
 [time]
 label=
 command=echo $(date '+%b %d (%a) %H:%M')
