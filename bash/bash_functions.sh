@@ -205,3 +205,11 @@ use_java_7() {
   export JAVA_HOME=/opt/jdk7
   export PATH="$JAVA_HOME/bin:$PATH"
 }
+
+vpn_up() {
+  sudo wg-quick up wg0 
+}
+
+vpn_down() {
+  sudo wg-quick down wg0 
+}
