@@ -6,16 +6,14 @@ super + @space
 super + Escape
 	pkill -USR1 -x sxhkd
 
-#
-# bspwm hotkeys
-#
+# BSPWM 
 
 # quit/restart bspwm
-super + alt + {q,r}
+super + shift + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
-super + {_,shift + }w
+super + {_,shift + }q
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
@@ -112,13 +110,6 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-
-
-
-
-
-
-
 super + Return
   termite
 
@@ -128,3 +119,8 @@ super + shift + o; {f,i,t}
 super + d
   rofi -show combi -combi-modi 'window,run' -modi combi
 
+super + shift + s; b 
+  systemctl start set-random-theme --user
+
+super + shift + s; h
+  pandoc -t pdf ~/.config/sxhkd/sxhkdrc | zathura - 
