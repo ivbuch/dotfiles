@@ -4,15 +4,12 @@
 bspc rule -r "*"
 
 wmname LG3D
-compton &
 sxhkd &
 polybar --reload --config=/my-tools/dotfiles/polybar/config ivbuch &
 /home/igor/IdeaProjects/dotfiles/polybar/bspwm-launch-polybar.sh &
 /home/igor/.config/virtual-envs/main/bin/flashfocus &
 
-bspc monitor VGA-1 -d 1
-bspc monitor VGA-2 -d 2
-bspc monitor VGA-3 -d 3 CHATS
+bspc monitor VGA-1 -d "0-CHATS" "2-TERMINAL" "3-IDE" "5-WEB"
 
 bspc config border_width 1
 bspc config window_gap 15
