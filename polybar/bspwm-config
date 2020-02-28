@@ -42,12 +42,11 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-0 = Share-TechMono:pixelsize=12
+font-1 = FontAwesome:size=14
 
 modules-left = bspwm
-modules-center = 
+modules-center = pomodoro
 modules-right = date
 
 tray-position = right
@@ -246,17 +245,17 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
+date = %m-%d
 date-alt = " %Y-%m-%d"
 
 time = %H:%M
 time-alt = %H:%M:%S
 
+format = 🕓 <label>
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
 
-label = %date% %time%
+label = %date%   %time%
 
 [module/volume]
 type = internal/volume
@@ -360,6 +359,13 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+[module/pomodoro]
+type = custom/script
+exec = /home/igor/IdeaProjects/dotfiles/polybar/modules/pomodoro.sh
+interval = 5
+format-prefix = "🖧 "
+format-prefix-foreground = #5b
 
 [settings]
 screenchange-reload = true

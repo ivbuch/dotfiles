@@ -254,19 +254,19 @@ bindsym $mod+Home [class=$scratchpad_buku_class] scratchpad show
 
 ### --------------------------------------------------------------------- SCRATCHPADS
 
-# SCREENSHOTS
-set $FN $HOME/Pictures/screenshots/%Y-%m-%d__%H-%M-%S.png
-set $mode_screenshot Screenshot mode (d) desktop (w) window selection
-mode "$mode_screenshot" {
-
-    bindsym d exec --no-startup-id exec scrot $FN && notify-send "Screenshot taken", mode "default"
-    bindsym --release w exec --no-startup-id scrot -s $FN && notify-send "png screenshot of window taken", mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym Print mode "$mode_screenshot"
+##### # SCREENSHOTS
+##### set $FN $HOME/Pictures/screenshots/%Y-%m-%d__%H-%M-%S.png
+##### set $mode_screenshot Screenshot mode (d) desktop (w) window selection
+##### mode "$mode_screenshot" {
+##### 
+    ##### bindsym d exec --no-startup-id exec scrot $FN && notify-send "Screenshot taken", mode "default"
+    ##### bindsym --release w exec --no-startup-id scrot -s $FN && notify-send "png screenshot of window taken", mode "default"
+##### 
+    ##### # back to normal: Enter or Escape
+    ##### bindsym Return mode "default"
+    ##### bindsym Escape mode "default"
+##### }
+##### bindsym Print mode "$mode_screenshot"
 
 
 # SETTINGS
@@ -292,20 +292,20 @@ bindsym $mod+Shift+r mode "$mode_settings"
 
 ############################################ MODE POMODORO
 
-set $mode_pomodoro Pomodoro mode (s) start, (k) skip, (p) pause
-mode "$mode_pomodoro" {
+##### set $mode_pomodoro Pomodoro mode (s) start, (k) skip, (p) pause
+##### mode "$mode_pomodoro" {
+##### 
+    ##### bindsym s exec python /my-tools/home-infostructure/python-scripts/pomodoro/pomodoro-client.py start
+##### 
+    ##### bindsym k exec python /my-tools/home-infostructure/python-scripts/pomodoro/pomodoro-client.py skip
+##### 
+    ##### bindsym p exec python /my-tools/home-infostructure/python-scripts/pomodoro/pomodoro-client.py pause
+##### 
+    ##### bindsym Return mode "default"
+    ##### bindsym Escape mode "default"
+##### }
 
-    bindsym s exec python /my-tools/home-infostructure/python-scripts/pomodoro/pomodoro-client.py start
-
-    bindsym k exec python /my-tools/home-infostructure/python-scripts/pomodoro/pomodoro-client.py skip
-
-    bindsym p exec python /my-tools/home-infostructure/python-scripts/pomodoro/pomodoro-client.py pause
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+Shift+p mode "$mode_pomodoro"
+##### # bindsym $mod+Shift+p mode "$mode_pomodoro"
 
 ############################################ MODE POMODORO
 

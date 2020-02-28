@@ -125,3 +125,14 @@ super + shift + s; b
 
 super + shift + s; h
   pandoc -t pdf ~/.config/sxhkd/sxhkdrc | zathura - 
+
+
+# --- POMODORO
+
+super + shift + p; {s,k,p}
+  python /my-tools/home-infostructure/python-scripts/pomodoro/pomodoro-client.py {start, skip, pause}
+
+
+# --- SCREENSHOTS
+Print
+  maim -s $HOME/Pictures/screenshots/scn-$(date '+%Y-%m-%d__%H:%M').png
