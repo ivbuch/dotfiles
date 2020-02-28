@@ -1,6 +1,7 @@
-# program launcher
+# --- LAUNCHER
 super + @space
-	dmenu_run
+        rofi -show combi -combi-modi 'window,run' -modi combi
+
 
 # make sxhkd reload its configuration files:
 super + Escape
