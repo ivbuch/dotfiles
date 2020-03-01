@@ -21,7 +21,7 @@ alert = #bd2c40
 [bar/ivbuch]
 monitor = ${env:MONITOR:}
 width = 100%
-height = 30
+height = 32
 fixed-center = false
 
 background = ${colors.background}
@@ -37,7 +37,7 @@ border-color = #00000000
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Share-TechMono:pixelsize=13
+font-0 = Share-TechMono:pixelsize=14
 font-1 = FontAwesome:size=14
 font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
 
