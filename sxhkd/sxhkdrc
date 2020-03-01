@@ -1,59 +1,85 @@
 # --- LAUNCHER
 super + @space
-        rofi -show combi -combi-modi 'window,run' -modi combi
-
-
+  rofi -show combi -combi-modi 'window,run' -modi combi
+ 
 # make sxhkd reload its configuration files:
 super + Escape
-	pkill -USR1 -x sxhkd
+  pkill -USR1 -x sxhkd
 
+super + Delete
+  /my-tools/dotfiles/bash/thinkpad/i3exit.sh hibernate
+ 
 # --- BSPWM 
-
-# quit/restart bspwm
+ 
+ # quit/restart bspwm
 super + shift + {q,r}
-	bspc {quit,wm -r}
-
-# close and kill
+  bspc {quit,wm -r}
+ 
+ # close and kill
 super + {_,shift + }q
-	bspc node -{c,k}
-
+  bspc node -{c,k}
+ 
 # focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+super + {h,j,k,l}
+  bspc node -f {west,south,north,east}
 
-# move desktop left/right
-super + ctrl + {h,l}
-	bspc desktop -m {prev,next} --follow
-
-
-# focus on given desktop
-super + {0,3,5}
-	bspc desktop -f { 0-CHATS, 3-IDE, 5-WEB }
-
+# move the node in the given direction
+super + alt + {h,j,k,l}
+  bspc node -s {west,south,north,east}
+ 
+ # move desktop left/right
+super + shift + {h,l}
+  bspc desktop -f {prev.occupied, next.occupied}
+ 
+# move the node in the given direction
+super + shift + {0, 2, 3, 5}
+  bspc node focused -d { 0-CHATS, 2-TERMINAL, 3-IDE, 5-WEB } --follow
+ 
+ # focus on given desktop
+super + {0, 2, 3, 5}
+  bspc desktop -f { 0-CHATS, 2-TERMINAL, 3-IDE, 5-WEB }
+ 
 super + Return
   termite
-
-super + shift + o; {f,i,t}
-  {firefox, idea, termite}
-
-super + d
-  rofi -show combi -combi-modi 'window,run' -modi combi
-
+ 
+super + shift + o; {f,i,t, q}
+  {firefox, idea, termite, qutebrowser }
+ 
+ # new background
 super + shift + s; b 
   systemctl start set-random-theme --user
-
+ 
+# help
 super + shift + s; h
   pandoc -t pdf ~/.config/sxhkd/sxhkdrc | zathura - 
-
-
+ 
+ 
 # --- POMODORO
-
+ 
 super + shift + p; {s,k,p}
-  python /my-tools/home-infostructure/python-scripts/pomodoro/pomodoro-client.py {start, skip, pause}
-
-
+  python /my-tools/home-infostructure/python-scripts/pomodoro/pomodoro-client.py {start, skip, pause} && notify-send "pomodoro {start, skip, pause}"
+ 
+ 
 # --- SCREENSHOTS
 Print
   maim -s $HOME/Pictures/screenshots/scn-$(date '+%Y-%m-%d__%H:%M').png
+ 
 
+# --- THINKPAD
+super + shift + k
+  /my-tools/dotfiles/bash/thinkpad/change_kgb_backlight.sh
+ 
+XF86MonBrightnessDown 
+  /my-tools/dotfiles/bash/thinkpad/change_backlight.sh decrement
 
+XF86MonBrightnessUp 
+  /my-tools/dotfiles/bash/thinkpad/change_backlight.sh increment
+
+XF86AudioLowerVolume
+  amixer set Master 10%- && notify-send "Volume $(amixer get Master  | tail -n 1 | sed -r 's/.*\[([0-9]*)\%].*/\1/')%"
+
+XF86AudioRaiseVolume
+  amixer set Master 10%+ && notify-send "Volume $(amixer get Master  | tail -n 1 | sed -r 's/.*\[([0-9]*)\%].*/\1/')%"
+
+XF86AudioMute 
+  /my-tools/dotfiles/bash/thinkpad/volume_toggle.sh

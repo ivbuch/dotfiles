@@ -10,7 +10,7 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 for i in $(polybar -m | awk -F: '{print $1}'); do 
   export MONITOR="$i" 
-  polybar --config="$config_file" ivbuch --reload & 
+  polybar --config="$config_file" ivbuch --reload 2>/tmp/polybar.log &
 done
 
 echo "Bars launched..."

@@ -5,8 +5,9 @@ bspc rule -r "*"
 
 wmname LG3D
 sxhkd &
-/my-tools/dotfiles/polybar/bspwm-launch-polybar.sh &
+/my-tools/dotfiles/polybar/bspwm-launch-polybar.sh 
 /home/igor/.config/virtual-envs/main/bin/flashfocus &
+setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
 
 bspc monitor -d "0-CHATS" "2-TERMINAL" "3-IDE" "5-WEB"
 
@@ -26,7 +27,7 @@ bspc config gapless_monocle      true
 # bspc rule -a Screenkey manage=off
 # bspc rule -a Screenkey manage=off
 
-bspc rule -a Zathura state=tiled focus=on
-bspc rule -a Firefox desktop='^2' monitor=VGA-1
+bspc rule -a Zathura state=tiled focus=on follow=on
+bspc rule -a firefox desktop='5-WEB' follow=on focus=on
 
-firefox -P "teams" --class="wm_class_firefox_teams" https://teams.microsoft.com
+# firefox -P "teams" --class="wm_class_firefox_teams" https://teams.microsoft.com

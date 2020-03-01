@@ -21,33 +21,29 @@ alert = #bd2c40
 [bar/ivbuch]
 monitor = ${env:MONITOR:}
 width = 100%
-height = 27
-;offset-x = 1%
-;offset-y = 1%
-radius = 6.0
+height = 30
 fixed-center = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
+line-size = 2
 line-color = #f00
+separator = |
 
-border-size = 4
+border-size = 0
 border-color = #00000000
-
-padding-left = 0
-padding-right = 2
 
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Share-TechMono:pixelsize=12
+font-0 = Share-TechMono:pixelsize=13
 font-1 = FontAwesome:size=14
+font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
 
 modules-left = bspwm
 modules-center = pomodoro
-modules-right = date
+modules-right = internet openvpn docker pacman git wireguard ip battery date battery2 xkeyboard
 
 tray-position = right
 tray-padding = 2
@@ -89,22 +85,12 @@ label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
 
-[module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /
-
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
-
 [module/bspwm]
 type = internal/bspwm
 
 format = <label-state> <label-mode>
 
-label-focused = %name%
+label-focused = 📦 %name%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= #fff
 label-focused-padding = 2
@@ -218,7 +204,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = %m-%d
+date = %A %d, %b
 date-alt = " %Y-%m-%d"
 
 time = %H:%M
@@ -333,9 +319,63 @@ menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
+[module/wireguard]
+type = custom/script
+exec = /my-tools/dotfiles/polybar/modules/wireguard.sh
+interval = 3
+
 [module/pomodoro]
 type = custom/script
 exec = /my-tools/dotfiles/polybar/modules/pomodoro.sh
+interval = 1
+format-prefix = "🖧 "
+format-prefix-foreground = #5b
+
+[module/ip]
+type = custom/script
+exec = /my-tools/dotfiles/polybar/modules/ip.sh
+interval = 1
+format-prefix = "🖧 "
+format-prefix-foreground = #5b
+
+[module/docker]
+type = custom/script
+exec = /my-tools/dotfiles/polybar/modules/docker.sh
+interval = 5
+format-prefix = "🖧 "
+format-prefix-foreground = #5b
+
+[module/git]
+type = custom/script
+exec = /my-tools/dotfiles/polybar/modules/git.sh
+interval = 5
+format-prefix = "🖧 "
+format-prefix-foreground = #5b
+
+[module/internet]
+type = custom/script
+exec = echo INTERNET
+interval = 5
+format-prefix = "🖧 "
+format-prefix-foreground = #5b
+
+[module/battery2]
+type = custom/script
+exec = echo BATTERY!
+interval = 5
+format-prefix = "🖧 "
+format-prefix-foreground = #5b
+
+[module/openvpn]
+type = custom/script
+exec = echo OPENVPN
+interval = 5
+format-prefix = "🖧 "
+format-prefix-foreground = #5b
+
+[module/pacman]
+type = custom/script
+exec = /my-tools/dotfiles/polybar/modules/pacman.sh
 interval = 5
 format-prefix = "🖧 "
 format-prefix-foreground = #5b
@@ -346,6 +386,7 @@ screenchange-reload = true
 ;compositing-background = screen
 ;compositing-foreground = source
 ;compositing-border = over
+pseudo-transparency = true
 
 [global/wm]
 margin-top = 5

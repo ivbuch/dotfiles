@@ -281,8 +281,6 @@ mode "$mode_settings" {
 
     bindsym p exec /home/igor/workspace/dotfiles/polybar/launch-polybar.sh i3-restart
 
-    bindsym k exec $script_path/change_kgb_backlight.sh
-
     bindsym t exec systemctl start set-random-theme --user
 
     bindsym Return mode "default"
@@ -342,10 +340,6 @@ bindsym $mod+Ctrl+b exec $script_path/i3-rofi-buku.sh "qutebrowser"
 bindsym XF86MonBrightnessDown exec $script_path/change_backlight.sh decrement
 bindsym XF86MonBrightnessUp exec $script_path/change_backlight.sh increment
 
-# sound
-bindsym XF86AudioLowerVolume exec amixer set Master 10%- && notify-send "Volume $(amixer get Master  | tail -n 1 | sed -r 's/.*\[([0-9]*)\%].*/\1/')%"
-bindsym XF86AudioRaiseVolume exec amixer set Master 10%+ && notify-send "Volume $(amixer get Master  | tail -n 1 | sed -r 's/.*\[([0-9]*)\%].*/\1/')%"
-bindsym XF86AudioMute exec $script_path/volume_toggle.sh
 
 # translate hotkey
 bindsym $mod+t exec $script_path/translate_rofi.sh
@@ -387,8 +381,6 @@ exec --no-startup-id "sleep 3 && rfkill block bluetooth"
 exec_always --no-startup-id ~/.config/virtual-envs/main/bin/flashfocus
 
 exec --no-startup-id qutebrowser
-
-exec --no-startup-id sxhkd
 
 # mount manager
 exec --no-startup-id udiskie --tray --use-udisks2
