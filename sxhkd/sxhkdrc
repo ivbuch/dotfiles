@@ -11,7 +11,7 @@ super + Delete
  
 # --- BSPWM 
  
- # quit/restart bspwm
+# quit/restart bspwm
 super + shift + {q,r}
   bspc {quit,wm -r}
  
@@ -44,6 +44,9 @@ super + Return
  
 super + shift + o; {f,i,t, q}
   {firefox, idea, termite, qutebrowser }
+
+
+# --- SETTINGS
  
  # new background
 super + shift + s; b 
@@ -52,6 +55,10 @@ super + shift + s; b
 # help
 super + shift + s; h
   pandoc -t pdf ~/.config/sxhkd/sxhkdrc | zathura - 
+
+# restart polybar
+super + shift + s; p
+  /my-tools/dotfiles/polybar/bspwm-launch-polybar.sh 
  
  
 # --- POMODORO

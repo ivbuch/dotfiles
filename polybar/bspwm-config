@@ -48,19 +48,9 @@ modules-right = internet openvpn docker pacman git wireguard ip battery date bat
 tray-position = right
 tray-padding = 2
 pseudo-transparency = true
-;tray-transparent = true
-;tray-background = #0063ff
+tray-transparent = true
 
-;wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+wm-restack = bspwm
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -88,11 +78,11 @@ label-indicator-underline = ${colors.secondary}
 [module/bspwm]
 type = internal/bspwm
 
-format = <label-state> <label-mode>
+format = <label-state> <label-mode> <label-monitor>
 
-label-focused = 📦 %name%
+label-focused = %name%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= #fff
+label-focused-underline= #ff0000
 label-focused-padding = 2
 
 label-occupied = %name%
@@ -107,9 +97,10 @@ label-empty = %name%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
-
 label-separator = |
 label-separator-padding = 2
+
+inline-mode = true
 
 [module/mpd]
 type = internal/mpd
