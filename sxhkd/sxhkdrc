@@ -18,26 +18,37 @@ super + shift + {q,r}
  # close and kill
 super + {_,shift + }q
   bspc node -{c,k}
+
+
+# --- BSPWM FOCUS
  
 # focus the node in the given direction
 super + {h,j,k,l}
   bspc node -f {west,south,north,east}
+ 
+# focus on given desktop
+super + {0, 2, 3, 5}
+  bspc desktop -f { 0-CHATS, 2-TERMINAL, 3-IDE, 5-WEB }
+
+# focus desktop left/right
+super + {u,o}
+  bspc desktop -f {prev.occupied, next.occupied}
+
+
+# --- BSPWM MOVE
 
 # move the node in the given direction
 super + alt + {h,j,k,l}
   bspc node -s {west,south,north,east}
  
- # move desktop left/right
-super + shift + {h,l}
-  bspc desktop -f {prev.occupied, next.occupied}
- 
 # move the node in the given direction
 super + shift + {0, 2, 3, 5}
   bspc node focused -d { 0-CHATS, 2-TERMINAL, 3-IDE, 5-WEB } --follow
+
+# move desktop to the next/prev monitor
+super + shift + {h, l}
+  bspc desktop --to-monitor {prev, next} --follow
  
- # focus on given desktop
-super + {0, 2, 3, 5}
-  bspc desktop -f { 0-CHATS, 2-TERMINAL, 3-IDE, 5-WEB }
  
 super + Return
   termite
@@ -59,6 +70,10 @@ super + shift + s; h
 # restart polybar
 super + shift + s; p
   /my-tools/dotfiles/polybar/bspwm-launch-polybar.sh 
+
+# set keymap switch
+super + shift + s; k
+  setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
  
  
 # --- POMODORO
