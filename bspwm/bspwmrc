@@ -3,7 +3,7 @@
 bspc rule -r "*"
 
 wmname LG3D
-sxhkd &
+sxhkd 1>/tmp/sxhkd.log 2>&1 &
 /my-tools/dotfiles/polybar/bspwm-launch-polybar.sh 
 /home/igor/.config/virtual-envs/main/bin/flashfocus &
 setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"

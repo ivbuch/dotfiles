@@ -12,8 +12,8 @@ super + Delete
 # --- BSPWM 
  
 # quit/restart bspwm
-super + shift + {q,r}
-  bspc {quit,wm -r}
+super + shift + q
+  bspc quit
  
  # close and kill
 super + {_,shift + }q
@@ -92,16 +92,29 @@ super + shift + s; k
 # copy text clipboard
 super + shift + s; c
   echo -n "$(greenclip print | rofi -dmenu)" | xclip -selection clipboard
+
+# estart bspwm
+super + shift + s; r
+  bspc wm -r
  
 # --- POMODORO
  
 super + shift + p; {s,k,p}
   python /my-tools/home-infostructure/python-scripts/pomodoro/pomodoro-client.py {start, skip, pause} && notify-send "pomodoro {start, skip, pause}"
  
- 
+# --- ROFI LAUNCH
+
+# open an link from buku in firefox
+super + shift + r; {f, c, q}
+  /my-tools/dotfiles/bash/thinkpad/i3-rofi-buku.sh {"firefox", "chromium", "qutebrowser" }
+
+# kill the process
+super + shift + r; k
+  /my-tools/dotfiles/bash/thinkpad/i3-rofi-kill.sh
+
 # --- SCREENSHOTS
 Print
-  maim -s $HOME/Pictures/screenshots/scn-$(date '+%Y-%m-%d__%H:%M').png
+  maim -s $HOME/Pictures/screenshots/scn-$(date '+%Y-%m-%d____%H_%M').png
  
 
 # --- THINKPAD

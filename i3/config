@@ -5,24 +5,8 @@ for_window [class=$scratchpad_vim_class] move scratchpad
 bindsym $mod+plus [class=$scratchpad_vim_class] scratchpad show
 bindsym $mod+Home [class=$scratchpad_buku_class] scratchpad show
 
-# kill with rofi
-bindsym $mod+Ctrl+k exec $script_path/i3-rofi-kill.sh
-
-# open browser url
-bindsym $mod+Ctrl+g exec $script_path/i3-rofi-buku.sh "chromium"
-bindsym $mod+Ctrl+f exec $script_path/i3-rofi-buku.sh "firefox"
-bindsym $mod+Ctrl+b exec $script_path/i3-rofi-buku.sh "qutebrowser"
-
-# brightness
-bindsym XF86MonBrightnessDown exec $script_path/change_backlight.sh decrement
-bindsym XF86MonBrightnessUp exec $script_path/change_backlight.sh increment
-
-
 # translate hotkey
 bindsym $mod+t exec $script_path/translate_rofi.sh
-
-# fix two monitors mode (what is left and right)
-# exec "xrandr --output VGA-1 --auto --left-of VGA-1"
 
 # set colors
 exec "sleep 2 && ~/.config/virtual-envs/main/bin/wal -i ~/Pictures/wallpapers/active.jpg && i3-msg restart"
