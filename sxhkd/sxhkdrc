@@ -38,6 +38,9 @@ super + {u,o}
 super + {f,t}
   bspc node -t {fullscreen, tiled}
 
+super + p
+  bspc desktop -f 6-PYTHON
+
 
 # --- BSPWM MOVE
 
