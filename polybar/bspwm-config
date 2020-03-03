@@ -41,8 +41,8 @@ font-1 = FontAwesome:size=14
 font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
 
 modules-left = bspwm
-modules-center = 
-modules-right = pomodoro internet openvpn docker pacman git wireguard ip battery battery2 xkeyboard date
+modules-center = openvpn
+modules-right = pomodoro internet docker pacman git wireguard ip battery battery2 xkeyboard date
 
 tray-position = right
 tray-padding = 2
@@ -62,7 +62,7 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
+format-prefix = "⌨️ "
 format-prefix-foreground = ${colors.foreground-alt}
 
 label-layout = %layout%
@@ -364,10 +364,7 @@ format-prefix-foreground = #5b
 
 [module/openvpn]
 type = custom/script
-exec = echo OPENVPN
-interval = 5
-format-prefix = "🖧 "
-format-prefix-foreground = #5b
+exec = /my-tools/dotfiles/polybar/scripts/check-work-vpn.sh
 
 [module/pacman]
 type = custom/script
