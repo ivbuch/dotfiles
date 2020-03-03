@@ -8,6 +8,7 @@ sxhkd &
 /home/igor/.config/virtual-envs/main/bin/flashfocus &
 setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
 udiskie --tray &
+compton &
 
 d_0="0-CHATS"
 d_1="1-QUTE" d_2="2-ZSH"
