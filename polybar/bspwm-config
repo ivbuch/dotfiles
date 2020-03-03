@@ -42,7 +42,7 @@ font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
 
 modules-left = bspwm
 modules-center = 
-modules-right = pomodoro internet openvpn docker pacman git wireguard ip battery xkeyboard date
+modules-right = pomodoro internet openvpn docker pacman git wireguard ip battery battery2 xkeyboard date
 
 tray-position = right
 tray-padding = 2
@@ -253,9 +253,29 @@ animation-charging-1 =  
 animation-charging-2 =  
 animation-charging-framerate = 750
 
-format-full-padding = 1
-format-charging-padding = 1
-format-discharging-padding = 1
+[module/battery2]
+type = internal/battery
+battery = BAT1
+adapter = AC
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+
+format-discharging = <ramp-capacity> <label-discharging>
+
+label-full = %percentage: 4%%
+format-full = <label-full>
+format-full-prefix =  
+format-full-prefix-foreground = ${colors.foreground}
+
+ramp-capacity-0 =  %{F#FF0000} %{F-}
+ramp-capacity-1 =   
+ramp-capacity-2 =   
+
+animation-charging-0 =  
+animation-charging-1 =   
+animation-charging-2 =  
+animation-charging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
