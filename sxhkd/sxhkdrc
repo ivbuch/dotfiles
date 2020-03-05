@@ -38,8 +38,13 @@ super + {u,o}
 super + {f,t}
   bspc node -t {fullscreen, tiled}
 
+# focus on python desktop
 super + p
   bspc desktop -f 6-PYTHON
+
+# focus on prev node
+super + grave
+  bspc node -f older
 
 
 # --- BSPWM MOVE
@@ -99,6 +104,14 @@ super + shift + s; c
 # estart bspwm
 super + shift + s; r
   bspc wm -r
+
+# increase window gap
+super + plus
+  bspc config window_gap "$(($(bspc config window_gap) + 10))"
+
+# deincrease window gap
+super + minus
+  bspc config window_gap "$(($(bspc config window_gap) - 10))"
  
 # --- POMODORO
  
@@ -118,8 +131,11 @@ super + shift + r; k
 # --- SCREENSHOTS
 Print
   maim -s $HOME/Pictures/screenshots/scn-$(date '+%Y-%m-%d____%H_%M').png
- 
 
+# --- TRANSLATE
+super + shift + t; {r, e, m}
+  /my-tools/dotfiles/sxhkd/scripts/translate.sh { ":ru", ":en", "" }
+ 
 # --- THINKPAD
 super + shift + k
   /my-tools/dotfiles/bash/thinkpad/change_kgb_backlight.sh
