@@ -329,6 +329,7 @@ menu-2-1-exec = menu-open-0
 type = custom/script
 exec = /my-tools/dotfiles/polybar/scripts/wireguard.sh
 interval = 3
+click-left = termite -e "/my-tools/dotfiles/polybar/scripts/wireguard-switch.sh"
 
 [module/pomodoro]
 type = custom/script

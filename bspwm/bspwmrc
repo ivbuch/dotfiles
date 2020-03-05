@@ -10,15 +10,7 @@ setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
 udiskie --tray &
 compton &
 
-d_0="0-CHATS"
-d_1="1-QUTE" d_2="2-ZSH"
-d_3="3-IDE"
-d_4="4-DB"
-d_5="5-FIREFOX"
-d_6="6-PYTHON"
-d_7="7"
-d_8="8"
-d_9="9"
+source /my-tools/dotfiles/bspwm/desktops.sh
 
 bspc monitor --reset-desktops "$d_0" "$d_1" "$d_2" "$d_3" "$d_4" "$d_5" "$d_6" "$d_7" "$d_8" "$d_9"
 
@@ -27,7 +19,7 @@ bspc config window_gap 30
 bspc config top_padding 30
 bspc config focus_follows_pointer true
 
-bspc config split_ratio          0.52
+bspc config split_ratio          0.5
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
