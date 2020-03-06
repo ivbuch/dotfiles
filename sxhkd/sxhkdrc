@@ -10,6 +10,10 @@ super + Delete
   /my-tools/dotfiles/bash/thinkpad/i3exit.sh hibernate
  
 # --- BSPWM 
+
+# scratchpad
+super + BackSpace 
+  /my-tools/dotfiles/sxhkd/scripts/toggle-scratchpad.sh
  
 # quit/restart bspwm
 super + shift + q

@@ -10,7 +10,10 @@ setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
 udiskie --tray &
 compton &
 
-source /my-tools/dotfiles/bspwm/desktops.sh
+scratchpad_class="scratchpad"
+termite --class="$scratchpad_class" -e vim &
+
+. /my-tools/dotfiles/bspwm/desktops.sh
 
 bspc monitor --reset-desktops "$d_0" "$d_1" "$d_2" "$d_3" "$d_4" "$d_5" "$d_6" "$d_7" "$d_8" "$d_9"
 
@@ -22,13 +25,6 @@ bspc config focus_follows_pointer true
 bspc config split_ratio          0.5
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
-
-# bspc rule -a Gimp desktop='^8' state=floating follow=on
-# bspc rule -a Chromium desktop='^2' focus=on state=floating follow=on
-# bspc rule -a mplayer2 state=floating
-# bspc rule -a Kupfer.py focus=on
-# bspc rule -a Screenkey manage=off
-# bspc rule -a Screenkey manage=off
 
 bspc rule -a Zathura state=tiled focus=on follow=on
 bspc rule -a "KeePassXC" state=tiled
@@ -42,3 +38,9 @@ bspc rule -a "jetbrains-idea" desktop="$d_3"
 bspc rule -a "jetbrains-pycharm-ce" desktop="$d_6"
 
 bspc rule -a "qutebrowser" desktop="$d_1" follow=on focus=on
+
+bspc rule -a "$scratchpad_class" sticky=on state=floating hidden=on rectangle=1200x900+30+30
+
+if [ -f ~/.config/bsps-setup-desktops.sh ] ; then
+  ~/.config/bsps-setup-desktops.sh 
+fi
