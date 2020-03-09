@@ -1,10 +1,20 @@
 #!/bin/bash
 
+monitors=( $(bspc query --monitors) )
+
+echo ${monitors[0]}
+echo ${#monitors[*]}
+
+source /my-tools/dotfiles/bspwm/desktops.sh
+
+if [ ${#monitors[*]} -eq 1 ] ; then
+  bspc monitor --reset-desktops "$d_0" "$d_1" "$d_2" "$d_3" "$d_4" "$d_5" "$d_6" "$d_7" "$d_8" "$d_9"
+  exit 0
+fi
+
 monitor_laptop="eDP-1"
 monitor_center="DP-2-3"
 monitor_right="DP-2-1"
-
-source /my-tools/dotfiles/bspwm/desktops.sh
 
 bspc desktop $d_0 --to-monitor $monitor_right
 bspc desktop $d_1 --to-monitor $monitor_right
