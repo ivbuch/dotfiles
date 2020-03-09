@@ -38,9 +38,9 @@ super + {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 super + {u,o}
   bspc desktop -f {prev.occupied, next.occupied}
 
-# fullscreen/tiled
+# toggle fullscreen
 super + {f,t}
-  bspc node -t {fullscreen, tiled}
+  /my-tools/dotfiles/sxhkd/scripts/toggle-fullscreen.sh
 
 # focus on python desktop
 super + p

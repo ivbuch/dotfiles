@@ -143,3 +143,7 @@ alias tw="firefox http://localhost:5678"
 
 # yaml
 alias yaml_validate="python -c 'import yaml, sys; print(yaml.safe_load(sys.stdin))'"
+
+# remember the milk
+alias rtm_w="rtm lsp status:incompleme list:week"
+alias rtm_m="rtm lsp status:incompleme list:month"
