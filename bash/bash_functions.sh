@@ -2,6 +2,10 @@ source "$DOT_FILES/bash/bash_functions_docker.sh"
 source "$DOT_FILES/bash/bash_functions_git.sh"
 source "$DOT_FILES/bash/bash_functions_task.sh"
 
+h() {
+  man $(apropos --long . | dmenu -i -l 30 | awk '{print $2, $1}' | tr -d '()')
+}
+
 lg() {
   ls -lah | grep -i "$1"
 }
