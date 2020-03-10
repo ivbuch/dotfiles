@@ -44,6 +44,7 @@ bspc rule -a "qutebrowser" desktop="$d_1" follow=on focus=on
 
 bspc rule -a "$scratchpad_class" sticky=on state=floating hidden=on rectangle=1200x900+30+30
 
-if [ -f ~/.config/bsps-setup-desktops.sh ] ; then
-  ~/.config/bsps-setup-desktops.sh 
+setup_desktop_file="$HOME/.config/bspwm-setup-desktops.sh"
+if [ -f "$setup_desktop_file" ] ; then
+  source "$setup_desktop_file"
 fi

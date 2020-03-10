@@ -42,7 +42,7 @@ font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
 
 modules-left = bspwm
 modules-center = openvpn
-modules-right = pomodoro internet docker pacman git wireguard ip battery battery2 xkeyboard date
+modules-right = borg pomodoro internet docker pacman git wireguard ip battery battery2 xkeyboard date
 
 tray-position = right
 tray-padding = 2
@@ -339,29 +339,21 @@ exec = /my-tools/dotfiles/polybar/scripts/pomodoro.sh
 type = custom/script
 exec = /my-tools/dotfiles/polybar/scripts/ip.sh
 interval = 60
-format-prefix = "🖧 "
-format-prefix-foreground = #5b
 
 [module/docker]
 type = custom/script
 exec = /my-tools/dotfiles/polybar/scripts/docker.sh
 interval = 5
-format-prefix = "🖧 "
-format-prefix-foreground = #5b
 
 [module/git]
 type = custom/script
 exec = /my-tools/dotfiles/polybar/scripts/git.sh
 interval = 5
-format-prefix = "🖧 "
-format-prefix-foreground = #5b
 
 [module/internet]
 type = custom/script
 exec = /my-tools/dotfiles/polybar/scripts/check-internet.sh
 interval = 3
-format-prefix = "🖧 "
-format-prefix-foreground = #5b
 
 [module/openvpn]
 type = custom/script
@@ -371,8 +363,12 @@ exec = /my-tools/dotfiles/polybar/scripts/check-work-vpn.sh
 type = custom/script
 exec = /my-tools/dotfiles/polybar/scripts/pacman.sh
 interval = 5
-format-prefix = "🖧 "
-format-prefix-foreground = #5b
+
+[module/borg]
+type = custom/script
+exec = /my-tools/dotfiles/polybar/scripts/borg.sh
+interval = 30
+format-underline = #FF0000
 
 [settings]
 screenchange-reload = true
