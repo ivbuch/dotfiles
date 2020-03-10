@@ -1,4 +1,7 @@
-#! /bin/sh
+#!/usr/bin/zsh
+
+source /my-tools/dotfiles/bash/zprofile.sh
+
 # If refreshing bspwm, remove all previous rules to prevent doubling up.
 bspc rule -r "*"
 
