@@ -22,7 +22,7 @@ get_status "/my-tools/dotfiles"
 a2="$?"
 
 if [ "$a1" -eq "1" ] || [ "$a2" -eq "1" ] ;  then
-  echo -n "%{F#FF0000}GIT  👎%{F-}"
+  echo -n "%{F#FF0000}GIT  🔴%{F-}"
 else
-  echo -n "GIT  👍"
+  echo -n "GIT  🟢"
 fi
