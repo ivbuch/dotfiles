@@ -24,5 +24,5 @@ a2="$?"
 if [ "$a1" -eq "1" ] || [ "$a2" -eq "1" ] ;  then
   echo -n "%{F#FF0000}GIT  👎%{F-}"
 else
-  echo -n ""
+  echo -n "GIT"
 fi
