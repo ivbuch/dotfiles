@@ -353,6 +353,7 @@ interval = 5
 [module/internet]
 type = custom/script
 exec = /my-tools/dotfiles/polybar/scripts/check-internet.sh
+click-left = /my-tools/dotfiles/polybar/scripts/internet-left-click.sh
 interval = 3
 
 [module/openvpn]
