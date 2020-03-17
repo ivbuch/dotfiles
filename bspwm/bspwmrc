@@ -11,7 +11,8 @@ sxhkd 1>/tmp/sxhkd.log 2>&1 &
 /home/igor/.config/virtual-envs/main/bin/flashfocus &
 setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
 udiskie --tray &
-picom --blur-background --blur-method dual_kawase --experimental-backends --backend glx &
+# picom --blur-background --blur-method dual_kawase --experimental-backends --backend glx &
+compton &
 
 scratchpad_class="scratchpad"
 termite --class="$scratchpad_class" -e vim &
