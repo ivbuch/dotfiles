@@ -38,8 +38,8 @@ fi
 
 ### 3 MONITORS
 
-monitor_laptop="VGA-1"
-monitor_center="VGA-2"
+monitor_laptop="VGA-2"
+monitor_center="VGA-1"
 monitor_right="VGA-3"
 
 source /my-tools/dotfiles/bspwm/desktops.sh
