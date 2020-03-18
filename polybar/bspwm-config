@@ -42,7 +42,7 @@ font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
 
 modules-left = bspwm
 modules-center = openvpn
-modules-right = borg pomodoro internet docker pacman git wireguard ip battery battery2 xkeyboard date
+modules-right = borg pomodoro rtm internet docker pacman git wireguard ip battery battery2 xkeyboard date
 
 tray-position = right
 tray-padding = 2
@@ -372,6 +372,12 @@ interval = 5
 [module/borg]
 type = custom/script
 exec = /my-tools/dotfiles/polybar/scripts/borg.sh
+interval = 30
+format-underline = #FF0000
+
+[module/rtm]
+type = custom/script
+exec = echo RTM
 interval = 30
 format-underline = #FF0000
 

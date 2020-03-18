@@ -71,8 +71,8 @@ super + Return
 
 # --- LAUCH OPTIONS
  
-super + shift + o; {f,i,t, q}
-  {firefox, idea, termite, qutebrowser }
+super + shift + o; {f,i, q}
+  {firefox, idea, qutebrowser }
 
 super + shift + o; c
   firefox -P "teams" --class="wm_class_firefox_teams" "https://teams.microsoft.com" & firefox -P "whatsapp" --class="wm_class_firefox_whatsapp" "https://web.whatsapp.com"
@@ -83,14 +83,12 @@ super + shift + o; w
 super + shift + o; k
   keepassxc
   
-# --- SETTINGS
 super + shift + s
   /my-tools/dotfiles/sxhkd/scripts/menu-settings.sh
- 
-# copy text clipboard
-# super + shift + s; c
-  # echo -n "$(greenclip print | rofi -dmenu)" | xclip -selection clipboard
 
+super + shift + r
+  /my-tools/dotfiles/sxhkd/scripts/menu-rofi.sh
+ 
 # increase window gap
 super + plus
   bspc config window_gap "$(($(bspc config window_gap) + 10))"
@@ -99,20 +97,6 @@ super + plus
 super + minus
   bspc config window_gap "$(($(bspc config window_gap) - 10))"
  
-# --- ROFI LAUNCH
-
-# open an link from buku in firefox
-super + shift + r; {f, c, q}
-  /my-tools/dotfiles/bash/thinkpad/i3-rofi-buku.sh {"firefox", "chromium", "qutebrowser" }
-
-# kill the process
-super + shift + r; k
-  /my-tools/dotfiles/bash/thinkpad/i3-rofi-kill.sh
-
-# keepassxc password
-super + shift + r; p
-  /my-tools/home-infostructure/dotfiles/bash/rofi-keepassxc-to-clipboard.sh
-
 # --- SCREENSHOTS
 Print
   maim -s $HOME/Pictures/screenshots/scn-$(date '+%Y-%m-%d____%H_%M').png
