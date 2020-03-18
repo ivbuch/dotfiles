@@ -12,10 +12,10 @@ sxhkd 1>/tmp/sxhkd.log 2>&1 &
 setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
 udiskie --tray &
 
-if hash picom ; then
-  picom --blur-background --blur-method dual_kawase --experimental-backends --backend glx &
-else
+if [ "$(hostname)" = "igor-manjaro" ] ; then
   compton &
+else
+  picom --blur-background --blur-method dual_kawase --experimental-backends --backend glx &
 fi
 
 scratchpad_class="scratchpad"
