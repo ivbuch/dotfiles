@@ -82,6 +82,9 @@ super + shift + o; w
 
 super + shift + o; k
   keepassxc
+
+super + shift + p
+  /my-tools/dotfiles/sxhkd/scripts/menu-pomodoro.sh
   
 super + shift + s
   /my-tools/dotfiles/sxhkd/scripts/menu-settings.sh

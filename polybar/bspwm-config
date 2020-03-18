@@ -335,10 +335,6 @@ click-left = termite -e "/my-tools/dotfiles/polybar/scripts/wireguard-switch.sh"
 type = custom/script
 exec = /my-tools/dotfiles/polybar/scripts/pomodoro.sh label
 
-click-left = /my-tools/dotfiles/polybar/scripts/pomodoro.sh start
-click-right = /my-tools/dotfiles/polybar/scripts/pomodoro.sh pause
-click-middle = /my-tools/dotfiles/polybar/scripts/pomodoro.sh skip
-
 [module/ip]
 type = custom/script
 exec = /my-tools/dotfiles/polybar/scripts/ip.sh
