@@ -99,11 +99,6 @@ super + plus
 super + minus
   bspc config window_gap "$(($(bspc config window_gap) - 10))"
  
-# --- POMODORO
- 
-super + shift + p; {s,k,p}
-  python /my-tools/home-infostructure/python-scripts/pomodoro/pomodoro-client.py {start, skip, pause} && notify-send "pomodoro {start, skip, pause}"
- 
 # --- ROFI LAUNCH
 
 # open an link from buku in firefox
