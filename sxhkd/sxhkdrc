@@ -84,30 +84,12 @@ super + shift + o; k
   keepassxc
   
 # --- SETTINGS
+super + shift + s
+  /my-tools/dotfiles/sxhkd/scripts/menu-settings.sh
  
- # new background
-super + shift + s; b 
-  systemctl start set-random-theme --user
- 
-# help
-super + shift + s; h
-  text2pdf ~/.config/sxhkd/sxhkdrc | zathura -
-
-# restart polybar
-super + shift + s; p
-  /my-tools/dotfiles/polybar/bspwm-launch-polybar.sh 
-
-# set keymap switch
-super + shift + s; k
-  setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
-
 # copy text clipboard
-super + shift + s; c
-  echo -n "$(greenclip print | rofi -dmenu)" | xclip -selection clipboard
-
-# estart bspwm
-super + shift + s; r
-  bspc wm -r
+# super + shift + s; c
+  # echo -n "$(greenclip print | rofi -dmenu)" | xclip -selection clipboard
 
 # increase window gap
 super + plus
@@ -141,8 +123,8 @@ Print
   maim -s $HOME/Pictures/screenshots/scn-$(date '+%Y-%m-%d____%H_%M').png
 
 # --- TRANSLATE
-super + shift + t; {r, e, m}
-  /my-tools/dotfiles/sxhkd/scripts/translate.sh { ":ru", ":en", "" }
+super + shift + t
+  /my-tools/dotfiles/sxhkd/scripts/menu-translate.sh
  
 # --- THINKPAD
 super + shift + k
