@@ -75,13 +75,13 @@ label-indicator-background = ${colors.secondary}
 type = internal/bspwm
 
 label-focused = %name%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= #ff0000
+label-focused-foreground = #000000
+label-focused-background = #CCCCFF
+label-focused-underline = #FFCC00
 label-focused-padding = 1
 
 label-occupied = %name%
 label-occupied-padding = 1
-label-occupied-underline = #555555
 
 label-urgent = %name%
 label-urgent-background = ${colors.alert}
