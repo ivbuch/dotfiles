@@ -11,13 +11,14 @@ keyboard_backlight() {
   echo $NEW > $FN
 }
 
-r_random_bg="set random background"
-r_show_help="show help"
-r_keymap_switch="enable keymap"
-r_restart_polybar="restart polybar"
-r_restart_wm="restart bspwm"
-r_keyboard_backlight="Keyboard backlight"
+r_random_bg="Set Random Background"
+r_show_help="Show help"
+r_keymap_switch="Enable Keymap"
+r_restart_polybar="Restart Polybar"
+r_restart_wm="Restart BSPWM"
+r_keyboard_backlight="Keyboard Backlight"
 r_dns="Change DNS"
+r_disable_pihole="Disable PiHole for 30 sec"
 
 if ! txt=$(echo "$r_random_bg
 $r_show_help
@@ -26,6 +27,7 @@ $r_keyboard_backlight
 $r_restart_polybar
 $r_restart_wm
 $r_dns
+$r_disable_pihole
 " | rofi -dmenu -i ) ; then
 
   echo "Bad choice"
@@ -40,4 +42,5 @@ case "$txt" in
   "$r_restart_wm") bspc wm -r ;;
   "$r_keyboard_backlight") keyboard_backlight ;;
   "$r_dns") /my-tools/home-infostructure/dotfiles/bash/menu-dns-change.sh ;;
+  "$r_disable_pihole") /my-tools/home-infostructure/dotfiles/bash/disable-pihole.sh 30 ;;
 esac
