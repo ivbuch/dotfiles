@@ -3,26 +3,27 @@
 function get_status() {
   cd "$1"
   st="$(git status 2>&1)"
-  echo "$st" | grep "ahead of" > /dev/null
-  if [ "$?" -eq "0" ];  then
+  if echo "$st" | grep "ahead of" > /dev/null ; then
     return 1
   fi
 
-  echo "$st" | grep "nothing to commit" > /dev/null
-  if [ "$?" -eq "1" ];  then
+  if ! echo "$st" | grep "nothing to commit" > /dev/null ; then
     return 1
   fi
   return 0
 }
 
-get_status "/my-tools/home-infostructure"
-a1="$?"
-
-get_status "/my-tools/dotfiles"
-a2="$?"
-
-if [ "$a1" -eq "1" ] || [ "$a2" -eq "1" ] ;  then
-  echo -n "%{F#FF0000}GIT  🔴%{F-}"
+msg="GIT "
+if get_status "/my-tools/home-infostructure" ; then
+  msg="$msg 🟢"
 else
-  echo -n "GIT  🟢"
+  msg="$msg 🔴"
 fi
+
+if get_status "/my-tools/dotfiles" ; then
+  msg="$msg 🟢"
+else
+  msg="$msg 🔴"
+fi
+
+echo "$msg"
