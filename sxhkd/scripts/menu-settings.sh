@@ -19,9 +19,11 @@ r_restart_wm="Restart BSPWM"
 r_keyboard_backlight="Keyboard Backlight"
 r_dns="Change DNS"
 r_disable_pihole="Disable PiHole for 30 sec"
+r_wireguard_switch="Switch WireGuard"
 
 if ! txt=$(echo "$r_random_bg
 $r_show_help
+$r_wireguard_switch
 $r_keymap_switch
 $r_keyboard_backlight
 $r_restart_polybar
@@ -43,4 +45,5 @@ case "$txt" in
   "$r_keyboard_backlight") keyboard_backlight ;;
   "$r_dns") /my-tools/home-infostructure/dotfiles/bash/menu-dns-change.sh ;;
   "$r_disable_pihole") /my-tools/home-infostructure/dotfiles/bash/disable-pihole.sh 30 ;;
+  "$r_wireguard_switch") termite -e "/my-tools/dotfiles/polybar/scripts/wireguard-switch.sh" ;;
 esac

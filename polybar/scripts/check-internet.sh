@@ -1,5 +1,5 @@
 #!/bin/bash
-# em="☢️"
+
 ping 8.8.8.8 -w 1 -c 1 1>/dev/null 2>/dev/null
 ping_r="$?"
 
@@ -11,22 +11,34 @@ pihole_r="$?"
 
 msg="☢️  INTERNET"
 
+wireguard_status() {
+  if ls /sys/class/net/wg0 1>/dev/null 2>/dev/null ; then
+    echo "🔒 🟢"
+  else
+    echo "🔓 🟡"
+  fi
+}
+
 if [ $ping_r -eq "0" ] ; then
   msg="$msg 🟢"
 else
   msg="$msg 🔴" 
 fi
 
+msg="$msg"
 if [ $dns_r -eq "0" ] ; then
   msg="$msg 🟢"
 else
   msg="$msg 🔴" 
 fi
 
+msg="$msg   📛"
 if [ $pihole_r -eq "0" ] ; then
   msg="$msg 🟢"
 else
   msg="$msg 🔴" 
 fi
 
-echo "$msg"
+wg=$(wireguard_status)
+
+echo "$msg   $wg"

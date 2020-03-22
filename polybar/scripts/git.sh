@@ -14,13 +14,13 @@ function get_status() {
 }
 
 msg="GIT "
-if get_status "/my-tools/home-infostructure" ; then
+if get_status "/my-tools/dotfiles" ; then
   msg="$msg 🟢"
 else
   msg="$msg 🔴"
 fi
 
-if get_status "/my-tools/dotfiles" ; then
+if get_status "/my-tools/home-infostructure" ; then
   msg="$msg 🟢"
 else
   msg="$msg 🔴"

@@ -42,7 +42,7 @@ font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
 
 modules-left = bspwm
 modules-center = openvpn
-modules-right = borg pomodoro rtm internet docker pacman git wireguard ip battery battery2 xkeyboard date
+modules-right = borg pomodoro rtm internet docker pacman git ip battery battery2 xkeyboard date
 
 tray-position = right
 tray-padding = 2
@@ -324,12 +324,6 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
-
-[module/wireguard]
-type = custom/script
-exec = /my-tools/dotfiles/polybar/scripts/wireguard.sh
-interval = 3
-click-left = termite -e "/my-tools/dotfiles/polybar/scripts/wireguard-switch.sh"
 
 [module/pomodoro]
 type = custom/script
