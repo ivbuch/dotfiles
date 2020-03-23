@@ -75,9 +75,9 @@ label-indicator-background = ${colors.secondary}
 type = internal/bspwm
 
 label-focused = %name%
-label-focused-foreground = #000000
-label-focused-background = #CCCCFF
-label-focused-underline = #FFCC00
+label-focused-foreground = #ffffff
+label-focused-background = #008000
+label-focused-underline = #32CD32
 label-focused-padding = 1
 
 label-occupied = %name%
