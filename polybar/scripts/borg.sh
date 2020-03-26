@@ -7,7 +7,6 @@ if [ ! -f "$log_file" ] ; then
   exit 0
 fi
 
-
 b_d="$(cat "$log_file")"
 c_d=$(date +"%Y-%m-%d")
 days_passed="$(( ($(date -d "$c_d" +%s) - $(date -d "$b_d" +%s)) / 86400 ))"
