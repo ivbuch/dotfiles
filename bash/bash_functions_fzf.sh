@@ -23,6 +23,10 @@ fzf_ssh() {
   fi
 }
 
+s(){
+  fzf_ssh
+}
+
 # cd with fzf
 fzf_cd() {
   dir=$(find . -not -path '*/\.*' -type d | grep -v .git | fzf)
