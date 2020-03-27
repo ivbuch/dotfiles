@@ -10,12 +10,10 @@ r_start="Start Timer"
 r_skip="Skip Timer"
 r_pause="Pause Timer"
 
-txt=$(echo "$r_start
+if ! txt=$(echo "$r_start
 $r_skip
 $r_pause
-" | rofi -dmenu)
-
-if [ "$?" -ne 0 ] ; then
+" | rofi -dmenu -i) ; then
   echo "Bad choice"
   exit 0
 fi

@@ -1,21 +1,14 @@
-alias m="man"
 alias piy="ping ya.ru"
-alias gs="echo type git s please"
 alias weather="curl wttr.in"
 alias tma='$HOME_INFOSTRUCTURE/python-scripts/tmux/tmux-attach-session.py'
 alias tx="tmuxp load -2"
 alias txl="ls ~/.tmuxp/"
 alias r='ranger --choosedir=/tmp/ranger-$USER-rangerdir; LASTDIR=`cat /tmp/ranger-$USER-rangerdir`; cd "$LASTDIR"'
-alias ja='. jira-accident-folder.sh'
-alias die="kill -9"
-alias bash_check="shellcheck"
 alias music="ncmpcpp"
-alias i3_tree="i3-msg -t get_tree | jq '.'  | vim - -c 'set filetype=json'"
 alias f="find ."
 alias calendar="cal"
 alias ta="task"
 alias du1="du -h -d1"
-alias j="jrnl"
 
 alias jv="jira view"
 
@@ -25,16 +18,11 @@ alias la="ls -lah --classify --sort=time"
 alias lh="ls -lh --classify --sort=time | head"
 
 alias g="git"
-alias gr="grep  --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
 alias grep="grep --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
 alias grep_="grep --color=never --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
-alias p="vim"
+
 alias e="exit"
-alias q="exit"
-alias _="sudo"
-alias _e="sudo -e"
 alias t="less +F"
-alias v="vim"
 alias psg="ps -ef | grep"
 alias clipboard_from="xclip -o -selection clipboard"
 alias clipboard_to="xclip -i -selection clipboard"
@@ -46,37 +34,25 @@ alias chmod="chmod -v"
 alias rsync="rsync -v"
 alias mkdir="mkdir -v -p"
 alias reload_xresources="xrdb ~/.Xresources"
-alias apt="sudo apt"
-alias apti="sudo apt install"
 alias reddit="rtv"
 alias red="rtv"
 alias font_viewer="gtk2fontsel"
 
-alias u="cd .."
 alias cdd='cd $DOT_FILES'
 alias cdh='cd $HOME_INFOSTRUCTURE'
-alias cda="cd /my-tools/ansible"
-alias cdap="cd /my-tools/ansible/playbooks"
 alias cdw="cd ~/workspace"
 alias cdm="cd ~/Music"
 alias cdD="cd ~/Downloads"
-alias cdpw='cd $HOME/Pictures/wallpapers'
-alias cdps='cd $HOME/Pictures/screenshots'
+alias cdp='cd $HOME/Pictures'
+
 alias cdmfd='cd $HOME_INFOSTRUCTURE/work/medfusion/mf-apps'
 alias cdmfs='cd $HOME/workspace/mfss'
-alias cdmfr='cd $HOME_INFOSTRUCTURE/work/medfusion/rest/rest-client'
 alias cdmft='cd $HOME_INFOSTRUCTURE/work/medfusion/scripts/integration-test-client'
-alias cdmfk='cd $HOME_INFOSTRUCTURE/work/medfusion/kafka'
 
 
 # init dotfiles
 alias init_dotfiles='cd $DOT_FILES/ansible && ansible-playbook init-dotfiles.yml --ask-become-pass'
 alias init_arch_linux="cd $DOT_FILES/ansible && ansible-playbook arch-linux.yml --ask-become-pass"
-
-# SVN
-alias svns="svn status | grep -v -E '^Performing' | grep -v -E '^X.*'  | grep -v -E '^$'"
-alias svnd="svn diff"
-alias svnl="svn up && svn log -l 200 -v | less"
 
 # URL encode/decode
 alias url_encode='python -c "import sys; import urllib.parse; print(urllib.parse.quote(sys.argv[1]))"'
