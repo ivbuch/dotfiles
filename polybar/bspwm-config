@@ -357,7 +357,7 @@ exec = /my-tools/dotfiles/polybar/scripts/check-work-vpn.sh
 [module/pacman]
 type = custom/script
 exec = /my-tools/dotfiles/polybar/scripts/pacman.sh
-interval = 5
+interval = 300
 
 [module/borg]
 type = custom/script

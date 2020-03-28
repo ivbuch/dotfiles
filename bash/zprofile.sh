@@ -33,3 +33,6 @@ export PATH="$PATH:$HOME_INFOSTRUCTURE/bash-scripts/work"
 export PATH="$PATH:/opt/translate-script"
 export PATH="$PATH:$SPRING_HOME/bin"
 export PATH="$PATH:$SPARK_HOME/bin"
+
+# GOLANG PATh
+export GOPATH="$HOME/workspace/go"

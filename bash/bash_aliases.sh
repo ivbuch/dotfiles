@@ -41,9 +41,9 @@ alias font_viewer="gtk2fontsel"
 alias cdd='cd $DOT_FILES'
 alias cdh='cd $HOME_INFOSTRUCTURE'
 alias cdw="cd ~/workspace"
-alias cdm="cd ~/Music"
-alias cdD="cd ~/Downloads"
-alias cdp='cd $HOME/Pictures'
+alias cdm="cd ~/music"
+alias cdD="cd ~/downloads"
+alias cdp='cd $HOME/pictures'
 
 alias cdmfd='cd $HOME_INFOSTRUCTURE/work/medfusion/mf-apps'
 alias cdmfs='cd $HOME/workspace/mfss'
