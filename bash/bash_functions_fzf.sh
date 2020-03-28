@@ -29,7 +29,7 @@ s(){
 
 # cd with fzf
 fzf_cd() {
-  dir=$(find . -not -path '*/\.*' -type d | grep -v .git | fzf)
+  dir=$(find . -not -path '*/\.*' -type d | grep -v .git | fzf -e )
   echo "$dir"
   cd "$dir" || return
 }
