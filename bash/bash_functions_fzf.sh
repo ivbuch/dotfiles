@@ -37,3 +37,11 @@ fzf_cd() {
 cdf() {
   fzf_cd
 }
+
+
+# fzf xdg-open doc
+of() {
+  local files
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0 --reverse))
+  [[ -n "$files" ]] && nohup xdg-open "${files[@]}" 1>/tmp/nohup.log 2>&1 &
+}

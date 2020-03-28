@@ -47,11 +47,6 @@ sl() {
   echo -n "$(cat /tmp/s_latest_host.txt)"
 }
 
-# xdg-open doc
-o() {
-  nohup xdg-open "$1" 1>/tmp/nohup.log 2>&1 &
-}
-
 mkdir_now() {
   d=$(date +'%Y-%m-%d-----%H:%M')
   mkdir "$d"
