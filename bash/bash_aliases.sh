@@ -1,3 +1,5 @@
+source "$DOT_FILES/bash/bash_aliases_k8s.sh"
+
 alias piy="ping ya.ru"
 alias weather="curl wttr.in"
 alias tma='$HOME_INFOSTRUCTURE/python-scripts/tmux/tmux-attach-session.py'
@@ -103,10 +105,6 @@ alias js_karma="node_modules/karma/bin/karma start karma.conf.js"
 
 # PYTHON
 alias pytest_ipdb="pytest -s --pdb --pdbcls=IPython.terminal.debugger:Pdb"
-
-# KUBERNETES
-alias kc="microk8s.kubectl"
-alias kd="microk8s.docker"
 
 # BUKU
 alias b="buku"
