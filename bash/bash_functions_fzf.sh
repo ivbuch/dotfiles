@@ -5,7 +5,7 @@ fzf_vim() {
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
-vimf() {
+vf() {
   fzf_vim
 }
 
