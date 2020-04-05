@@ -1,16 +1,3 @@
-# start vim scratchpad window
-exec --no-startup-id termite --exec=vim --class=$scratchpad_vim_class
-for_window [class=$scratchpad_vim_class] move scratchpad 
-
-bindsym $mod+plus [class=$scratchpad_vim_class] scratchpad show
-bindsym $mod+Home [class=$scratchpad_buku_class] scratchpad show
-
-# translate hotkey
-bindsym $mod+t exec $script_path/translate_rofi.sh
-
-# set colors
-exec "sleep 2 && ~/.config/virtual-envs/main/bin/wal -i ~/Pictures/wallpapers/active.jpg && i3-msg restart"
-
 # bluetooth manager applet
 exec --no-startup-id [ -n "$HOME_OS" ] && blueman-applet
 

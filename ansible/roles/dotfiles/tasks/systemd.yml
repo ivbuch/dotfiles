@@ -48,6 +48,8 @@
   with_items:
     - on-boot.service
     - nm-applet.service
+    - set-random-theme.service
+    - set-random-theme.timer
   tags:
     - systemd
 
@@ -58,9 +60,12 @@
     enabled: yes
     scope: user
   with_items:
+    - blueman-applet.service 
     - nm-applet.service
     - on-boot.service
     - greenclip.service
+    - set-random-theme.service
+    - set-random-theme.timer
   tags:
     - systemd
 

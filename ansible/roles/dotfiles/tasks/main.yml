@@ -5,7 +5,6 @@
 - import_tasks: tmux.yml
 - import_tasks: python.yml
 - import_tasks: systemd.yml
-- import_tasks: i3.yml
 - import_tasks: ansible.yml
 - import_tasks: ranger.yml
 - import_tasks: bash.yml
