@@ -1,0 +1,9 @@
+[Unit]
+Description=On boot script
+
+[Service]
+Type=simple
+ExecStart=/my-tools/dotfiles/systemd/scripts/on-boot.sh
+
+[Install]
+WantedBy=default.target

@@ -12,6 +12,7 @@ case "$1" in
         systemctl suspend
         ;;
     hibernate)
+        source /home/igor/workspace/dotfiles/systemd/scripts/on-boot.sh
         systemctl hibernate
         ;;
     reboot)

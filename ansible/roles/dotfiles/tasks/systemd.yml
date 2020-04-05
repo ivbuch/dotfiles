@@ -40,19 +40,14 @@
   tags:
     - systemd
 
-- name: create nm-applet service
+- name: link user services
   file:
-    src: "{{ mytools_path }}/dotfiles/systemd/nm-applet.service"
-    dest: "{{ ansible_env.HOME }}/.config/systemd/user/nm-applet.service"
+    src: "{{ mytools_path }}/dotfiles/systemd/user-services/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.config/systemd/user/{{ item }}"
     state: link
-  tags:
-    - systemd
-
-- name: create powertop service
-  copy:
-    src: "{{ mytools_path }}/dotfiles/systemd/powertop.service"
-    dest: "/etc/systemd/system/powertop.service"
-  become: yes
+  with_items:
+    - on-boot.service
+    - nm-applet.service
   tags:
     - systemd
 
@@ -64,6 +59,16 @@
     scope: user
   with_items:
     - nm-applet.service
+    - on-boot.service
+    - greenclip.service
+  tags:
+    - systemd
+
+- name: create powertop service
+  copy:
+    src: "{{ mytools_path }}/dotfiles/systemd/system-services/powertop.service"
+    dest: "/etc/systemd/system/powertop.service"
+  become: yes
   tags:
     - systemd
 
@@ -75,7 +80,6 @@
   become: yes
   with_items:
     - tlp.service
-    - tlp-sleep.service
     - powertop.service
   tags:
     - systemd

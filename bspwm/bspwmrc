@@ -11,7 +11,6 @@ sxhkd 1>/tmp/sxhkd.log 2>&1 &
 /home/igor/.config/virtual-envs/main/bin/flashfocus &
 setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
 udiskie --tray &
-greenclip daemon &
 
 if [ "$(hostname)" = "igor-manjaro" ] ; then
   compton &

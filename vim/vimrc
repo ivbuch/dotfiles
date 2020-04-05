@@ -24,6 +24,8 @@ Plugin 'w0rp/ale' " async lint
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'jamessan/vim-gnupg'
+Plugin 'Yggdroot/indentLine' " yaml indent highlighting
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -89,6 +91,7 @@ autocmd FileType groovy setlocal expandtab shiftwidth=5 tabstop=4
 autocmd FileType json   setlocal foldmethod=syntax foldlevel=100000
 autocmd FileType html   setlocal expandtab ts=4 sw=4 ai
 autocmd FileType css   setlocal expandtab ts=4 sw=4 ai
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " colorscheme darkblue
 let g:airline_theme='light'

@@ -9,7 +9,7 @@ dns_r="$?"
 nslookup -timeout=1 googleadservices.com  | grep '0.0.0.0' 1>/dev/null 2>/dev/null
 pihole_r="$?"
 
-msg="☢️  INTERNET"
+msg="🌎   "
 
 wireguard_status() {
   if ls /sys/class/net/wg0 1>/dev/null 2>/dev/null ; then
