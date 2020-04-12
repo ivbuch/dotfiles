@@ -6,3 +6,4 @@ rofimoji
 autorandr
 direnv
 glow
+picom-tryone-git 

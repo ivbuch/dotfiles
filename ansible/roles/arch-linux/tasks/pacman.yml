@@ -1,6 +1,7 @@
 - name: install packages
   pacman:
     name:
+      - htop
       - git
       - gvim
       - tmux
@@ -77,6 +78,7 @@
       - sxhkd
       - python-psycopg2
       - blueman
+      - networkmanager
     state: present
     update_cache: yes
   become: yes
