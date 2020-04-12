@@ -79,6 +79,7 @@
       - python-psycopg2
       - blueman
       - networkmanager
+      - wireguard-tools
     state: present
     update_cache: yes
   become: yes
