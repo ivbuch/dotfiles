@@ -5,3 +5,4 @@ rofi-greenclip
 rofimoji
 autorandr
 direnv
+glow

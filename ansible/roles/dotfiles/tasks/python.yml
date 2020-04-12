@@ -59,7 +59,6 @@
   with_items:
     - "tmuxp"
     - "tldr"
-    - "keepassx"
     - "rtv"
     - "PyQt5"
     - "qutebrowser"

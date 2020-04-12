@@ -3,3 +3,5 @@
     src: "{{ mytools_path }}/dotfiles/mongodb/mongorc.js"
     dest: "{{ ansible_env.HOME }}/.mongorc.js"
     state: link
+  tags:
+    - mongo

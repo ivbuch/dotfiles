@@ -1,9 +1,0 @@
-- name: sync pacman repository
-  cron:
-    name: "pacman repository sync"
-    minute: "0"
-    hour: "*"
-    job: "/usr/bin/pacman -Syw --noconfirm 1>>/var/log/cron-pacman.log 2>>/var/log/cron-pacman.log && date >> /var/log/cron-pacman.log"
-  become: yes
-  tags:
-    - cron

@@ -12,25 +12,3 @@
     state: directory
   tags:
     - qutebrowser
-
-- name: create a link to qutebrowser color template in pywal
-  command: find "{{ ansible_env.HOME }}/.config/virtual-envs/main" -type d -name "pywal"
-  register: pywal_path
-  tags:
-    - qutebrowser
-
-- name: create a link to qutebrowser color template in pywal
-  file:
-    src: "{{ mytools_path }}/dotfiles/i3/theme-changer/qutebrowser_wal_template.yml"
-    dest: "{{ pywal_path.stdout }}/templates/qutebrowser.yml"
-    state: link
-  tags:
-    - qutebrowser
-
-- name: create a link to qutebrowser color template in pywal
-  file:
-    src: "{{ mytools_path }}/dotfiles/i3/theme-changer/qutebrowser_wal_template.yml"
-    dest: "{{ pywal_path.stdout }}/templates/qutebrowser.yml"
-    state: link
-  tags:
-    - qutebrowser

@@ -41,11 +41,12 @@
     path: "{{ ansible_env.HOME }}/{{ item }}"
     state: directory
   with_items:
-    - "Pictures/wallpapers"
-    - "Pictures/screenshots"
-    - "Music/chillout"
-    - "Documents"
-    - "Movies"
+    - "pictures/wallpapers"
+    - "pictures/screenshots"
+    - "music/chillout"
+    - "documents"
+    - "downloads"
+    - "movies"
     - ".bin"
   tags:
     - basic
