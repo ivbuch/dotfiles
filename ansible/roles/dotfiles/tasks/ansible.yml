@@ -4,6 +4,8 @@
     src: "{{ mytools_path }}/dotfiles/ansible/ansible.cfg"
     dest: "{{ ansible_env.HOME }}/.ansible.cfg"
     state: link
+  tags:
+    - ansible
 
 - name: remove default ansible inventory file
   file:
@@ -12,8 +14,12 @@
   become: yes
   become_method: sudo
   when: "'Mac' not in ansible_nodename"
+  tags:
+    - ansible
 
 - name: remove default ansible inventory file (MacOs)
   file:
     dest: "/usr/local/etc/ansible/hosts"
     state: absent
+  tags:
+    - ansible

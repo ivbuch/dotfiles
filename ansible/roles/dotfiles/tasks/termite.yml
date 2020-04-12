@@ -2,9 +2,13 @@
   file:
     path: "{{ ansible_env.HOME }}/.config/termite"
     state: directory
+  tags:
+    - termite
 
 - name: create config link
   file:
     src: "{{ mytools_path }}/dotfiles/termite/config"
     dest: "{{ ansible_env.HOME }}/.config/termite/config"
     state: link
+  tags:
+    - termite

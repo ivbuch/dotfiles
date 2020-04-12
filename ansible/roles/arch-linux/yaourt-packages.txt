@@ -5,3 +5,5 @@ rofi-greenclip
 rofimoji
 autorandr
 direnv
+glow
+picom-tryone-git 

@@ -9,7 +9,6 @@
 - import_tasks: ranger.yml
 - import_tasks: bash.yml
 - import_tasks: qutebrowser.yml
-- import_tasks: translate.yml
 - import_tasks: git.yml
 - import_tasks: ssh.yml
 - import_tasks: mongodb.yml
@@ -24,8 +23,6 @@
 - import_tasks: pylint.yml
 - import_tasks: rofi.yml
 - import_tasks: gtk-3_0.yml
-- import_tasks: task-warrior.yml
-- import_tasks: cron.yml
 - import_tasks: buku.yml
 - import_tasks: lightdm.yml
 - import_tasks: jrnl.yml
