@@ -1,7 +1,7 @@
 # open files with editor
 fzf_vim() {
   local files
-  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0 --reverse))
+  IFS=$'\n' files=($(fzf --query="$1" --multi --select-1 --exit-0 --reverse))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
@@ -42,6 +42,6 @@ cdf() {
 # fzf xdg-open doc
 of() {
   local files
-  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0 --reverse))
+  IFS=$'\n' files=($(fzf --query="$1" --multi --select-1 --exit-0 --reverse))
   [[ -n "$files" ]] && nohup xdg-open "${files[@]}" 1>/tmp/nohup.log 2>&1 &
 }
