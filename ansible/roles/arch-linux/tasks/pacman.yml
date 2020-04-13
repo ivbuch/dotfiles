@@ -81,6 +81,7 @@
       - networkmanager
       - wireguard-tools
       - flashplugin 
+      - translate-shell
     state: present
     update_cache: yes
   become: yes
