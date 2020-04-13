@@ -75,7 +75,7 @@ super + shift + o; {f,i, q}
   {firefox, idea, qutebrowser }
 
 super + shift + o; c
-  firefox -P "teams" --class="wm_class_firefox_teams" "https://teams.microsoft.com" & firefox -P "whatsapp" --class="wm_class_firefox_whatsapp" "https://web.whatsapp.com"
+  firefox -P "slack" --class="wm_class_firefox_slack" "https://sysdigcloud.slack.com" & firefox -P "whatsapp" --class="wm_class_firefox_whatsapp" "https://web.whatsapp.com"
 
 super + shift + o; w
   idea & pycharm.sh

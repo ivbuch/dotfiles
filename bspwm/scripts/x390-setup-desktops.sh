@@ -12,8 +12,8 @@ fi
 
 ### 2 MONITORS
 if [ ${#monitors[*]} -eq 2 ] ; then
-  monitor_laptop="VGA-2"
-  monitor_center="VGA-1"
+  monitor_laptop="eDP1"
+  monitor_center="HDMI2"
 
   source /my-tools/dotfiles/bspwm/desktops.sh
 

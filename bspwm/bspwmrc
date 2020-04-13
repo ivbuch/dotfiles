@@ -39,12 +39,12 @@ bspc config focused_border_color "#ffffff"
 bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 
-bspc rule -a Zathura state=tiled focus=on follow=on
+bspc rule -a Zathura state=fullscreen focus=on follow=on
 bspc rule -a "KeePassXC" state=tiled
 
 bspc rule -a "firefox" desktop="$d_5" follow=on focus=on
 
-bspc rule -a "wm_class_firefox_teams" desktop="$d_0"
+bspc rule -a "wm_class_firefox_slack" desktop="$d_0"
 bspc rule -a "wm_class_firefox_whatsapp" desktop="$d_0"
 
 bspc rule -a "jetbrains-idea" desktop="$d_3"

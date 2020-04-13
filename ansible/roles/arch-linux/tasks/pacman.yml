@@ -80,6 +80,7 @@
       - blueman
       - networkmanager
       - wireguard-tools
+      - flashplugin 
     state: present
     update_cache: yes
   become: yes
