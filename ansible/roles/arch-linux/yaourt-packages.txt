@@ -9,3 +9,5 @@ glow
 picom-tryone-git 
 pydbus
 flashfocus
+pygobject
+gnome-pomodoro-gi
