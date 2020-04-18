@@ -66,13 +66,18 @@ alias dc="docker-compose"
 alias dps="docker ps --format 'table {{.Image}}\t{{.Status}}\t{{.Ports}}'"
 
 # PACMAN
-alias pmu="sudo pacman -Syu"
-alias pms="pacman -Ss"
-alias pmi="sudo pacman -S"
-alias pmrm="sudo pacman -Rs"
+alias pacman_update="sudo pacman -Syu"
+alias pacman_search="pacman -Ss"
+alias pacman_install="sudo pacman -S"
+alias pacman_remove="sudo pacman -Rs"
 alias pacman_package_files="sudo pacman -Q -l" # next goes package name
 alias pacman_download="sudo pacman -Syuw" # downloads packages to install
 alias pacman_cleanup_cach="sudo paccache -ruk0" # removes pacman cached packages
+
+# TRIZEN
+alias trizen_remove="trizen -Rs"
+alias trizen_search="trizen -Ss"
+alias trizen_install="trizen -S"
 
 # NETWORK
 alias ports='netstat -tulanp'

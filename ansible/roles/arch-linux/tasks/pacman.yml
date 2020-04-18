@@ -82,6 +82,8 @@
       - wireguard-tools
       - flashplugin 
       - translate-shell
+      - maim
+      - linux-headers
     state: present
     update_cache: yes
   become: yes

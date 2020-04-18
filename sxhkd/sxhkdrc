@@ -8,6 +8,9 @@ super + Escape
 
 super + Delete
   /my-tools/dotfiles/bash/thinkpad/i3exit.sh hibernate
+
+super + End
+  /home/igor/workspace/dotfiles/sxhkd/scripts/lock.sh
  
 # --- BSPWM 
 

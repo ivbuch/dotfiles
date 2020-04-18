@@ -13,6 +13,7 @@ case "$1" in
         ;;
     hibernate)
         source /home/igor/workspace/dotfiles/systemd/scripts/on-boot.sh
+	notify-send "Going to sleep..."
         systemctl hibernate
         ;;
     reboot)
