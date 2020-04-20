@@ -9,6 +9,7 @@ export DISABLE_AUTO_TITLE="true"
 export DOT_FILES="/my-tools/dotfiles"
 export HOME_INFOSTRUCTURE="/my-tools/home-infostructure"
 export SPARK_HOME="/opt/apache-spark/actual"
+export GO_PATH="$HOME/workspace/go"
 
 # for karma test runner
 export "CHROME_BIN=$(which chromium)"
@@ -33,6 +34,5 @@ export PATH="$PATH:$HOME_INFOSTRUCTURE/bash-scripts/work"
 export PATH="$PATH:/opt/translate-script"
 export PATH="$PATH:$SPRING_HOME/bin"
 export PATH="$PATH:$SPARK_HOME/bin"
+export PATH="$PATH:$GO_PATH/bin"
 
-# GOLANG PATh
-export GOPATH="$HOME/workspace/go"
