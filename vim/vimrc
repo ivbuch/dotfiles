@@ -143,6 +143,9 @@ nmap <Leader>t vat<esc>
 " jump to opening tag
 nmap <Leader>T vato<esc>
 
+" toggle indent lines plugin
+nmap <Leader>ct :IndentLinesToggle<CR>
+
 " exit insert mode
 inoremap jj <Esc>
 

@@ -41,6 +41,11 @@ fde() {
   select_docker_containter_and_invoke_command "" "exec -it" "bash"
 }
 
+# sh exec docker container
+fdes() {
+  select_docker_containter_and_invoke_command "" "exec -it" "sh"
+}
+
 # bash restart docker container
 fdr() {
   select_docker_containter_and_invoke_command "" "restart -t 0" ""
