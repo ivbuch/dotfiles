@@ -61,6 +61,7 @@
     enabled: yes
     scope: user
   with_items:
+    - autorandr.service
     - blueman-applet.service 
     - nm-applet.service
     - on-boot.service
