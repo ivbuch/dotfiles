@@ -9,7 +9,8 @@ export DISABLE_AUTO_TITLE="true"
 export DOT_FILES="/my-tools/dotfiles"
 export HOME_INFOSTRUCTURE="/my-tools/home-infostructure"
 export SPARK_HOME="/opt/apache-spark/actual"
-export GO_PATH="$HOME/workspace/go"
+export GOPATH="$HOME/workspace/go"
+export GO_PATH="$GOPATH"
 
 # for karma test runner
 export "CHROME_BIN=$(which chromium)"
@@ -17,6 +18,7 @@ export "CHROME_BIN=$(which chromium)"
 # makes less search case insensitive
 export LESS="-i -R"
 
+export PATH="$HOME/.bin/go-scripts:$PATH"
 export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.bin/exec-scripts:$PATH"
 export PATH="$HOME/.bin/exec-scripts-dotfiles:$PATH"
@@ -34,5 +36,4 @@ export PATH="$PATH:$HOME_INFOSTRUCTURE/bash-scripts/work"
 export PATH="$PATH:/opt/translate-script"
 export PATH="$PATH:$SPRING_HOME/bin"
 export PATH="$PATH:$SPARK_HOME/bin"
-export PATH="$PATH:$GO_PATH/bin"
-
+export PATH="$PATH:$GOPATH/bin"
