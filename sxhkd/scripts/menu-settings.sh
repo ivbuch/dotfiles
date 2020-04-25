@@ -20,6 +20,7 @@ r_keyboard_backlight="Keyboard Backlight"
 r_dns="Change DNS"
 r_disable_pihole="Disable PiHole for 30 sec"
 r_wireguard_switch="Switch WireGuard"
+r_picom_start="Start Picom"
 
 if ! txt=$(echo "$r_random_bg
 $r_show_help
@@ -30,6 +31,7 @@ $r_restart_polybar
 $r_restart_wm
 $r_dns
 $r_disable_pihole
+$r_picom_start
 " | rofi -dmenu -i ) ; then
 
   echo "Bad choice"
@@ -46,4 +48,5 @@ case "$txt" in
   "$r_dns") /my-tools/home-infostructure/dotfiles/bash/menu-dns-change.sh ;;
   "$r_disable_pihole") /my-tools/home-infostructure/dotfiles/bash/disable-pihole.sh 30 ;;
   "$r_wireguard_switch") termite -e "/my-tools/dotfiles/polybar/scripts/wireguard-switch.sh" ;;
+  "$r_picom_start") picom --blur-background --blur-method dual_kawase --experimental-backends --backend glx
 esac

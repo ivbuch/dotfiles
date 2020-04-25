@@ -1,6 +1,11 @@
 #!/bin/bash
 
-output="$HOME/.bin/go-scripts"
+build_module() {
+  output="$HOME/.bin/go-scripts"
+  module_name="$1"
+  go build -o "$output/gi-$module_name" "$module_name/$module_name.go"
+}
 
-go build -o "$output/gi-docker-module" docker-module.go
-go build -o "$output/gi-borg-module" borg-module/borg-module.go
+build_module "module-borg"
+build_module "module-docker"
+build_module "module-pacman"

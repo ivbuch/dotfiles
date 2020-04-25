@@ -41,8 +41,8 @@ font-1 = FontAwesome:size=14
 font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
 
 modules-left = bspwm
-modules-center = openvpn
-modules-right = borg pomodoro rtm internet docker pacman git ip battery battery2 xkeyboard date
+modules-center = 
+modules-right = docker pacman borg battery battery2 xkeyboard date
 
 tray-position = right
 tray-padding = 2
@@ -336,8 +336,8 @@ interval = 60
 
 [module/docker]
 type = custom/script
-exec = /my-tools/dotfiles/polybar/scripts/docker.sh
-interval = 5
+exec = /home/igor/.bin/go-scripts/gi-module-docker
+interval = 30
 
 [module/git]
 type = custom/script
@@ -356,13 +356,13 @@ exec = /my-tools/dotfiles/polybar/scripts/check-work-vpn.sh
 
 [module/pacman]
 type = custom/script
-exec = /my-tools/dotfiles/polybar/scripts/pacman.sh
+exec = /home/igor/.bin/go-scripts/gi-module-pacman
 interval = 300
 
 [module/borg]
 type = custom/script
-exec = /my-tools/dotfiles/polybar/scripts/borg.sh
-interval = 30
+exec = /home/igor/.bin/go-scripts/gi-module-borg
+interval = 120
 format-underline = #FF0000
 
 [module/rtm]
