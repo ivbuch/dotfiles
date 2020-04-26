@@ -9,3 +9,4 @@ build_module() {
 build_module "module-borg"
 build_module "module-docker"
 build_module "module-pacman"
+build_module "module-git"
