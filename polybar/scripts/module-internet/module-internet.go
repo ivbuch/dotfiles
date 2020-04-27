@@ -20,7 +20,7 @@ func main() {
 		getIcon(isInternetUp),
 		getIcon(isDNSOK),
 		getIcon(isPiholeOk),
-		getIcon(isWireguardEnabled))
+		getIconWireguard(isWireguardEnabled))
 }
 
 func isInternetUp() bool {
