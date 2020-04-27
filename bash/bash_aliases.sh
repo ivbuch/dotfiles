@@ -78,6 +78,7 @@ alias .pacman_cleanup_cach="sudo paccache -ruk0" # removes pacman cached package
 alias .trizen_remove="trizen -Rs"
 alias .trizen_search="trizen -Ss"
 alias .trizen_install="trizen -S"
+alias .trizen_update="trizen -Syua "
 
 # NETWORK
 alias ports='netstat -tulanp'
