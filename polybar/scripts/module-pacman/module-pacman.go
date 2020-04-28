@@ -28,6 +28,9 @@ func getPacmanUpdates() int {
 			if exitCode == 2 {
 				return 0
 			}
+			if exitCode == 1 {
+				return -1
+			}
 			log.Fatalln("checkupdates, " + err.Error())
 		}
 	}
@@ -47,7 +50,7 @@ func getAurUpdates() int {
 func print(pacmanUpdates, aurUpdates int) {
 	clStart := "%{F#FF0000}"
 	clEnd := "%{F-}"
-	if pacmanUpdates == 0 && aurUpdates == 0 {
+	if pacmanUpdates == 0 && aurUpdates == 0 && pacmanUpdates != -1 {
 		clStart = ""
 		clEnd = ""
 	}

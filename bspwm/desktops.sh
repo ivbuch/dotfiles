@@ -1,5 +1,6 @@
 d_0="0-CHATS"
-d_1="1-QUTE" d_2="2-ZSH"
+d_1="1-QUTE"
+d_2="2-ZSH"
 d_3="3-IDE"
 d_4="4-DB"
 d_5="5-FIREFOX"
