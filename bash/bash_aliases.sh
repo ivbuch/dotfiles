@@ -46,6 +46,7 @@ alias cdw="cd ~/workspace"
 alias cdm="cd ~/music"
 alias cdD="cd ~/downloads"
 alias cdp='cd $HOME/pictures'
+alias cdps='cd $HOME/pictures/screenshots'
 
 alias cdmfd='cd $HOME_INFOSTRUCTURE/work/medfusion/mf-apps'
 alias cdmfs='cd $HOME/workspace/mfss'
