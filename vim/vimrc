@@ -18,8 +18,6 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlp.vim'
 Plugin 'benmills/vimux'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'w0rp/ale' " async lint
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
