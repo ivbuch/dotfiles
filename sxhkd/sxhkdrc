@@ -94,6 +94,9 @@ super + shift + s
 
 super + shift + r
   /my-tools/dotfiles/sxhkd/scripts/menu-rofi.sh
+
+super + shift + f
+  /my-tools/dotfiles/sxhkd/scripts/bookmark-manager.sh
  
 # increase window gap
 super + plus
