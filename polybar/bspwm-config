@@ -365,6 +365,12 @@ exec = /home/igor/.bin/go-scripts/gi-module-borg
 interval = 120
 format-underline = #FF0000
 
+[module/ports]
+type = custom/script
+exec = /home/igor/.bin/go-scripts/gi-module-ports
+interval = 1
+format-underline = #FF0000
+
 [module/rtm]
 type = custom/script
 exec = echo RTM
