@@ -23,3 +23,6 @@ cat ~/.cache/wal/sequences
 # bindkey "^s" ssh_connect
 
 eval "$(direnv hook zsh)"
+
+source <(kubectl completion zsh)
+complete -F __start_kubectl k
