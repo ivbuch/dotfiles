@@ -42,7 +42,7 @@ font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
 
 modules-left = bspwm
 modules-center = pomodoro
-modules-right = internet ip git docker pacman borg battery battery2 xkeyboard date
+modules-right = ports internet ip git docker pacman borg battery battery2 xkeyboard date
 
 tray-position = right
 tray-padding = 2
@@ -369,7 +369,6 @@ format-underline = #FF0000
 type = custom/script
 exec = /home/igor/.bin/go-scripts/gi-module-ports
 interval = 1
-format-underline = #FF0000
 
 [module/rtm]
 type = custom/script

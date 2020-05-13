@@ -17,9 +17,8 @@ func portOpen(host string, port string) bool {
 }
 
 func main() {
-	collectorUp := portOpen("localhost", "6666")
 	apiUp := portOpen("localhost", "9000")
-	fmt.Printf("👀 SysDig: %s%s", toImage(collectorUp), toImage(apiUp))
+	fmt.Printf("👀 SysDig: %s", toImage(apiUp))
 }
 
 func toImage(portOpen bool) string {
