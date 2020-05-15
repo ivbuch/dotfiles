@@ -15,7 +15,8 @@ udiskie --tray &
 if [ "$(hostname)" = "igor-manjaro" ] ; then
   compton &
 else
-  picom --blur-background --blur-method dual_kawase --experimental-backends --backend glx &
+  # picom --blur-background --blur-method dual_kawase --experimental-backends --backend glx &
+  picom &
 fi
 
 scratchpad_class="scratchpad"
