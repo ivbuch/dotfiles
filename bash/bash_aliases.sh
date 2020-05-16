@@ -130,3 +130,5 @@ alias yaml_validate="python -c 'import yaml, sys; print(yaml.safe_load(sys.stdin
 alias rtm_t="rtm lsp status:incompleme list:today"
 alias rtm_w="rtm lsp status:incompleme list:week"
 alias rtm_m="rtm lsp status:incompleme list:month"
+
+alias gl="glow README.md"
