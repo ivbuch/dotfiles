@@ -1,5 +1,16 @@
 #!/bin/bash
 
+autorandr_setup() {
+  if selected=$(autorandr | grep -v current | awk '{print $1}' | rofi -dmenu -matching normal); then
+    autorandr --load "$selected"
+  fi
+}
+
+change_theme() {
+  systemctl start set-random-theme --user
+  /my-tools/dotfiles/polybar/bspwm-launch-polybar.sh
+}
+
 keyboard_backlight() {
   FN="/sys/class/leds/tpacpi::kbd_backlight/brightness"
   CURRENT="$(cat $FN)"
@@ -21,6 +32,8 @@ r_dns="Change DNS"
 r_disable_pihole="Disable PiHole for 30 sec"
 r_wireguard_switch="Switch WireGuard"
 r_picom_start="Start Picom"
+r_setup_desktops="Setup BSPWM Desktops"
+r_autorandr="Autorandr setup"
 
 if ! txt=$(echo "$r_random_bg
 $r_show_help
@@ -32,6 +45,8 @@ $r_restart_wm
 $r_dns
 $r_disable_pihole
 $r_picom_start
+$r_setup_desktops
+$r_autorandr
 " | rofi -dmenu -i ) ; then
 
   echo "Bad choice"
@@ -39,7 +54,7 @@ $r_picom_start
 fi
 
 case "$txt" in
-  "$r_random_bg") systemctl start set-random-theme --user ;;
+  "$r_random_bg") change_theme ;;
   "$r_show_help") text2pdf ~/.config/sxhkd/sxhkdrc | zathura - ;;
   "$r_keymap_switch") setxkbmap "us,ru" ",winkeys" "grp:caps_toggle" ;;
   "$r_restart_polybar") /my-tools/dotfiles/polybar/bspwm-launch-polybar.sh ;;
@@ -48,5 +63,7 @@ case "$txt" in
   "$r_dns") /my-tools/home-infostructure/dotfiles/bash/menu-dns-change.sh ;;
   "$r_disable_pihole") /my-tools/home-infostructure/dotfiles/bash/disable-pihole.sh 30 ;;
   "$r_wireguard_switch") termite -e "/my-tools/dotfiles/polybar/scripts/wireguard-switch.sh" ;;
-  "$r_picom_start") picom --blur-background --blur-method dual_kawase --experimental-backends --backend glx
+  "$r_picom_start") picom --blur-background --blur-method dual_kawase --experimental-backends --backend glx ;;
+  "$r_setup_desktops") "$HOME/.config/bspwm/setup-desktops.sh" ;;
+  "$r_autorandr") autorandr_setup ;;
 esac
