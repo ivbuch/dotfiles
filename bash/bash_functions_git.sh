@@ -1,5 +1,5 @@
 # checkout git branch
-fgc() {
+.gitf_checkout() {
   local branches branch
   branches=$(git branch -vv) 
   branch=$(echo "$branches" | fzf +m)
@@ -7,7 +7,7 @@ fgc() {
 }
 
 # checkout git branch all
-fg_ca() {
+.gitf_checkout_all() {
   local branches branch
   branches=$(git branch -a -vv) 
   branch=$(echo "$branches" | fzf +m)
@@ -15,11 +15,26 @@ fg_ca() {
 }
 
 # show commit diff
-fg_cd() {
+.gitf_commit_diff() {
   local commits commit
   commits=$(git log --name-status --abbrev-commit) 
   commit=$(echo "$commits" | fzf +m)
   id=$(echo "$commit" | cut -d\  -f2)
   git difftool $id^..$id
   echo $id
+}
+
+# dump branch
+.gitf_branch_dump() {
+  local branches branch
+
+  if ! branches=$(git branch); then
+    return
+  fi
+
+  branch=$(echo "$branches" | fzf --exact +m | xargs)
+  
+  if [ -n "$branch" ]; then
+    git branch --move "$branch" "___$branch"
+  fi
 }
