@@ -5,6 +5,7 @@ source "$DOT_FILES/bash/bash_functions_rtm.sh"
 source "$DOT_FILES/bash/bash_functions_clipboard.sh"
 source "$DOT_FILES/bash/bash_functions_fzf.sh"
 source "$DOT_FILES/bash/bash_functions_jrnl.sh"
+source "$DOT_FILES/bash/bash_functions_aws.sh"
 
 h() {
   man $(apropos --long . | dmenu -i -l 30 | awk '{print $2, $1}' | tr -d '()')
