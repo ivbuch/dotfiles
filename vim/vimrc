@@ -24,6 +24,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'jamessan/vim-gnupg'
 Plugin 'Yggdroot/indentLine' " yaml indent highlighting
 Plugin 'martinda/Jenkinsfile-vim-syntax' " yaml indent highlighting
+Plugin 'groovy.vim'
 
 
 " All of your Plugins must be added before the following line
@@ -333,4 +334,11 @@ endfunction
 
 function! ValidateYaml()
   0,$ ! python -c 'import yaml, sys; yaml.safe_load(sys.stdin)'
+endfunction
+
+function! FormatGroovy()
+  :set autoread
+  let name = expand('%:p:h') . "/**" . expand('%:t')
+  execute '! npm-groovy-lint 1>/dev/null -c /my-tools/dotfiles/vim/groovylintrc.json --format -f ' . name
+  :set noautoread
 endfunction

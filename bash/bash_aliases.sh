@@ -9,6 +9,7 @@ alias txl="ls ~/.tmuxp/"
 alias r='ranger --choosedir=/tmp/ranger-$USER-rangerdir; LASTDIR=`cat /tmp/ranger-$USER-rangerdir`; cd "$LASTDIR"'
 alias music="ncmpcpp"
 alias f="find ."
+alias fg="find . | grep"
 alias calendar="cal"
 alias ta="task"
 alias du1="du -h -d1"
