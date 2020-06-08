@@ -12,9 +12,6 @@ export SPARK_HOME="/opt/apache-spark/actual"
 export GOPATH="$HOME/workspace/go"
 export GO_PATH="$GOPATH"
 
-# for karma test runner
-export "CHROME_BIN=$(which chromium)"
-
 # makes less search case insensitive
 export LESS="-i -R"
 

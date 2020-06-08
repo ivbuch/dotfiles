@@ -7,7 +7,7 @@ monitors=( $(bspc query --monitors) )
 setup_3_monitors() {
   monitor_laptop="eDP1"
   monitor_center="DVI-I-1-1"
-  monitor_right="HDMI2"
+  monitor_right="DVI-I-2-2"
 
   source /my-tools/dotfiles/bspwm/desktops.sh
 
