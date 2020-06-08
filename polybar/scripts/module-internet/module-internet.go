@@ -1,13 +1,12 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
-	"log"
 	"net"
 	"os"
-	"time"
-
-	"github.com/sparrc/go-ping"
+	"os/exec"
+	"strings"
 )
 
 func main() {
@@ -24,15 +23,15 @@ func main() {
 }
 
 func isInternetUp() bool {
-	pinger, err := ping.NewPinger("8.8.8.8")
+	cmd := exec.Command("ping", "-c 1", "-W 1", "1.1.1.1")
+	cmd.Stdin = strings.NewReader("some input")
+	var out bytes.Buffer
+	cmd.Stdout = &out
+	err := cmd.Run()
 	if err != nil {
-		log.Fatal(err)
+		return false
 	}
-	pinger.Count = 1
-	pinger.Timeout = time.Second
-	pinger.Run()
-	stats := pinger.Statistics()
-	return stats.PacketsRecv == 1
+	return true
 }
 
 func isDNSOK() bool {
