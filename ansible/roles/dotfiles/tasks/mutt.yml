@@ -14,7 +14,7 @@
     - ".mutt/account-work/cache/headers"
     - ".mutt/account-work/cache/bodies"
     - ".mutt/account-work/cache/certificates"
-    - "Downloads/mutt"
+    - "downloads/mutt"
   tags:
     - mutt
 

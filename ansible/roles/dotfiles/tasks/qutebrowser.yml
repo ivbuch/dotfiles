@@ -8,7 +8,7 @@
 
 - name: create download temp directory
   file:
-    path: "{{ ansible_env.HOME }}/Downloads/temp"
+    path: "{{ ansible_env.HOME }}/downloads/temp"
     state: directory
   tags:
     - qutebrowser
