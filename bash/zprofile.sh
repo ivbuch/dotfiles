@@ -10,7 +10,6 @@ export DOT_FILES="/my-tools/dotfiles"
 export HOME_INFOSTRUCTURE="/my-tools/home-infostructure"
 export SPARK_HOME="/opt/apache-spark/actual"
 export GOPATH="$HOME/workspace/go"
-export GO_PATH="$GOPATH"
 
 # makes less search case insensitive
 export LESS="-i -R"

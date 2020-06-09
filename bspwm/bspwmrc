@@ -44,6 +44,7 @@ bspc rule -a Zathura state=fullscreen focus=on follow=on
 bspc rule -a "KeePassXC" state=tiled
 
 bspc rule -a "firefox" desktop="$d_5" follow=on focus=on
+bspc rule -a "Firefox" desktop="$d_5" follow=on focus=on
 
 bspc rule -a "wm_class_firefox_slack" desktop="$d_0"
 bspc rule -a "wm_class_firefox_whatsapp" desktop="$d_0"
