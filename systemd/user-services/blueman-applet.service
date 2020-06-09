@@ -1,0 +1,11 @@
+[Unit]
+Description=blueman-applet service
+
+[Service]
+Type=simple
+ExecStart=blueman-applet
+Restart=always    
+RestartSec=5
+
+[Install]
+WantedBy=default.target

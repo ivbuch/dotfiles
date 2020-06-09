@@ -48,6 +48,7 @@
     state: link
   with_items:
     - on-boot.service
+    - blueman-applet.service
     - nm-applet.service
     - set-random-theme.service
     - set-random-theme.timer
