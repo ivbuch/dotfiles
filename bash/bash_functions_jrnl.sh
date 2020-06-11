@@ -1,17 +1,11 @@
-# JRNL
-alias j="jrnl"
+journal_file="/my-tools/home-infostructure/dotfiles/journal/journal.md"
 
 ja() {
-  jrnl --export markdown | glow - -p 
+  grip "$journal_file" 9090 &
+  firefox localhost:9090
 }
-
-# by tags
-jt() {
-  jrnl "$1" --export markdown | glow - -p 
-}
-
 
 # edit journal
 je() {
-  vim ~/.config/jrnl/journals/journal.txt
+  vim $journal_file
 }
