@@ -37,7 +37,20 @@
   with_items:
     - NetworkManager
     - docker
+  tags:
+    - systemd
+
+- name: Enable Services Arch Linux Only
+  become: yes
+  systemd:
+    name: "{{ item }}"
+    enabled: yes
+    state: restarted
+  changed_when: true
+  with_items:
     - paccache.timer
+  when:
+    - ansible_facts['distribution'] == "Arch"
   tags:
     - systemd
 
@@ -50,6 +63,8 @@
     - on-boot.service
     - blueman-applet.service
     - nm-applet.service
+    - volume-icon-applet.service
+    - greenclip.service
     - set-random-theme.service
     - set-random-theme.timer
   tags:
@@ -65,6 +80,8 @@
     - autorandr.service
     - blueman-applet.service 
     - nm-applet.service
+    - greenclip.service
+    - volume-icon-applet.service
     - on-boot.service
     - greenclip.service
     - set-random-theme.service

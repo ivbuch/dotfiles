@@ -10,6 +10,7 @@ export DOT_FILES="/my-tools/dotfiles"
 export HOME_INFOSTRUCTURE="/my-tools/home-infostructure"
 export SPARK_HOME="/opt/apache-spark/actual"
 export GOPATH="$HOME/workspace/go"
+export CASSANDRA_HOME="/opt/cassandra/active"
 
 # makes less search case insensitive
 export LESS="-i -R"
@@ -33,3 +34,4 @@ export PATH="$PATH:/opt/translate-script"
 export PATH="$PATH:$SPRING_HOME/bin"
 export PATH="$PATH:$SPARK_HOME/bin"
 export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$CASSANDRA_HOME/bin"
