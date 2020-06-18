@@ -1,0 +1,11 @@
+[Unit]
+Description=journal
+
+[Service]
+Type=simple
+ExecStart=/home/igor/.config/virtual-envs/main/bin/grip /my-tools/home-infostructure/dotfiles/journal/journal.md 10000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

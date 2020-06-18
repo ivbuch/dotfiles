@@ -3,8 +3,6 @@ source "$DOT_FILES/bash/bash_functions.sh"
 
 
 VIRTUAL_ENV_DISABLE_PROMPT=1 source $HOME/.config/virtual-envs/main/bin/activate
-source "$HOME_INFOSTRUCTURE/work/medfusion/export-ports.sh"
-
 source "$HOME_INFOSTRUCTURE/bash-scripts/z.sh"
 
 # Import colorscheme from 'wal' asynchronously
