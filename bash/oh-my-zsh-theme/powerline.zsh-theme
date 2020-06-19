@@ -161,7 +161,7 @@ fi
 
 precmd() {
   exit_status=$(echo "[✖️  $?")
-  LEFT="\n$(echo -e '\033(0lq\033(B') 📂 ]  $(pwd) "
+  LEFT="\n$(echo -e '\033(0lq\033(B') 📂 ]  $(pwd) at $(hostname) "
   RIGHT=" $exit_status"
   RIGHTWIDTH=$(($COLUMNS-${#LEFT}))
   print $LEFT${(l:$RIGHTWIDTH::-:)RIGHT}
