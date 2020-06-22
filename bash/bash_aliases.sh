@@ -66,7 +66,7 @@ alias url_decode='python -c "import sys; import urllib.parse; print(urllib.parse
 # Docker
 alias d="docker"
 alias dc="docker-compose"
-alias dps="docker ps --format 'table {{.Image}}\t{{.Status}}\t{{.Ports}}'"
+alias dps="docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Labels}}'"
 
 # PACMAN
 alias .pacman_update="sudo pacman -Syu"
