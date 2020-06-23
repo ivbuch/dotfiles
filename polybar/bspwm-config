@@ -42,7 +42,7 @@ font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
 
 modules-left = bspwm
 modules-center = pomodoro
-modules-right = ports internet ip git docker borg battery battery2 xkeyboard date
+modules-right = ports internet ip git docker borg battery battery2 memory xkeyboard date
 
 tray-position = right
 tray-padding = 2
@@ -144,8 +144,7 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
-label = %percentage_used%%
+label = free %gb_free%
 
 [module/wlan]
 type = internal/network
