@@ -11,3 +11,7 @@
 
   aws ec2 describe-instances  | jq "$query"
 }
+
+.aws_s3_ls_kops() {
+  aws s3 ls s3://kops-dev-draios-com
+}

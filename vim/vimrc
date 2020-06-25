@@ -24,6 +24,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'jamessan/vim-gnupg'
 Plugin 'Yggdroot/indentLine' " yaml indent highlighting
 Plugin 'martinda/Jenkinsfile-vim-syntax' " yaml indent highlighting
+Plugin 'GEverding/vim-hocon'
 Plugin 'groovy.vim'
 
 
