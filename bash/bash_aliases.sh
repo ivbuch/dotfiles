@@ -1,6 +1,7 @@
 source "$DOT_FILES/bash/bash_aliases_k8s.sh"
 source "$DOT_FILES/bash/bash_aliases_gradle.sh"
 
+alias .find="fd"
 alias piy="ping ya.ru"
 alias weather="curl wttr.in"
 alias tma='$HOME_INFOSTRUCTURE/python-scripts/tmux/tmux-attach-session.py'
