@@ -13,14 +13,31 @@ alias .vm_running="VBoxManage list runningvms | awk '{print $1 }' | tr -d '\"'"
     done
   fi
 
-  vm=$(echo "$vms" | fzf -e)
+  local sep="------"
+  vms_list=""
+  for vm in $(echo "$vms"); do
+    vms_list="$vms_list\n$vm\n$vm"
+    vms_list="$vms_list${sep}HEADLESS"
+  done
+
+  vm=$(echo "$vms_list" | fzf -e)
   if [ $? -ne 0 ]; then
     echo "Bad select"
     return 1
   fi
 
-  echo Starting in headless mode $vm
-  VBoxManage startvm "$vm" --type headless
+  headless=$(echo "$vm" | awk -F "$sep" '{print $2}')
+  vm=$(echo "$vm" | awk -F "$sep" '{print $1}')
+
+  start_type="gui"
+  if [ -n "$headless" ]; then
+    start_type='headless'
+    echo Starting in headless mode $vm
+  else
+    echo Starting in NO headless mode $vm
+  fi
+    
+  VBoxManage startvm "$vm" --type $start_type
 }
 
 .vm_stop() {
