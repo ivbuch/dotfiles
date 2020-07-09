@@ -21,7 +21,6 @@ rofi_kill() {
 r_firefox="firefox"
 r_chromium="chromium"
 r_qutebrowser="qutebrowser"
-r_clipboard="clipboard"
 r_keepassxc="keepassxc"
 r_kill_proc="kill process"
 
@@ -29,7 +28,6 @@ txt=$(echo "$r_firefox
 $r_chromium
 $r_qutebrowser
 $r_kill_proc
-$r_clipboard
 $r_keepassxc
 " | rofi -dmenu ])
 
@@ -42,7 +40,6 @@ case "$txt" in
   "$r_firefox") rofi_buku firefox ;;
   "$r_chromium") rofi_buku chromium ;;
   "$r_qutebrowser") rofi_buku qutebrowser ;;
-  "$r_clipboard") echo -n "$(greenclip print | rofi -dmenu)" | xclip -selection clipboard ;;
   "$r_keepassxc") /my-tools/home-infostructure/dotfiles/bash/rofi-keepassxc-to-clipboard.sh ;;
   "$r_kill_proc") rofi_kill ;;
 esac

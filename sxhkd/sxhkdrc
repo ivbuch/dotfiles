@@ -97,6 +97,9 @@ super + shift + r
 
 super + a
   /my-tools/dotfiles/sxhkd/scripts/bookmark-manager.sh
+
+super + c
+  echo -n "$(greenclip print | rofi -dmenu)" | xclip -selection clipboard
  
 # increase window gap
 super + plus
