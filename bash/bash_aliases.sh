@@ -1,3 +1,4 @@
+source "$DOT_FILES/bash/bash_aliases_docker.sh"
 source "$DOT_FILES/bash/bash_aliases_k8s.sh"
 source "$DOT_FILES/bash/bash_aliases_gradle.sh"
 
@@ -63,11 +64,6 @@ alias init_arch_linux="cd $DOT_FILES/ansible && ansible-playbook arch-linux.yml 
 # URL encode/decode
 alias url_encode='python -c "import sys; import urllib.parse; print(urllib.parse.quote(sys.argv[1]))"'
 alias url_decode='python -c "import sys; import urllib.parse; print(urllib.parse.unquote(sys.argv[1]))"'
-
-# Docker
-alias d="docker"
-alias dc="docker-compose"
-alias dps="docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Labels}}'"
 
 # PACMAN
 alias .pacman_update="sudo pacman -Syu"
