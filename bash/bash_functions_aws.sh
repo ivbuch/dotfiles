@@ -15,3 +15,7 @@
 .aws_s3_ls_kops() {
   aws s3 ls s3://kops-dev-draios-com
 }
+
+.aws_ec2_vpcs_count() {
+  aws ec2 describe-vpcs | jq ".Vpcs | length"
+}

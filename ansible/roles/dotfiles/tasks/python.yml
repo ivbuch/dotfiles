@@ -60,10 +60,7 @@
     - "tmuxp"
     - "tldr"
     - "rtv"
-    - "PyQt5"
-    - "qutebrowser"
     - "yapf"
     - "pywal"
-    - "pgcli"
   tags:
     - python
