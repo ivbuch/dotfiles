@@ -42,7 +42,7 @@ font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
 
 modules-left = bspwm
 modules-center = pomodoro
-modules-right = ports internet ip git docker borg battery battery2 memory xkeyboard date
+modules-right = ports internet ip git virtualbox docker borg battery battery2 memory xkeyboard date
 
 tray-position = right
 tray-padding = 2
@@ -332,6 +332,11 @@ exec = /my-tools/dotfiles/polybar/scripts/pomodoro.sh label
 type = custom/script
 exec = /home/igor/.bin/go-scripts/gi-module-ip
 interval = 60
+
+[module/virtualbox]
+type = custom/script
+exec = /home/igor/.bin/go-scripts/gi-module-virtualbox
+interval = 30
 
 [module/docker]
 type = custom/script

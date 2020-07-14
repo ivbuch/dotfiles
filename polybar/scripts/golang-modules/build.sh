@@ -10,7 +10,7 @@ build_module() {
   echo Module built to $output_file
 }
 
-modules=( module-borg module-ip module-pacman module-git module-ip module-internet module-ports module-docker )
+modules=( module-borg module-ip module-pacman module-git module-ip module-internet module-ports module-docker module-virtualbox )
 
 for module in "${modules[@]}"; do
   build_module $module
