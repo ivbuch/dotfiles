@@ -161,7 +161,7 @@ fi
 
 precmd() {
   exit_status=$(echo "[✖️  $?")
-  LEFT="\n$(echo -e '\033(0lq\033(B') 📂 ]  $(pwd) at $(hostname) [k8-context: $(kubectl config current-context)]"
+  LEFT="\n$(echo -e '\033(0lq\033(B') 📂 l  [$(pwd)] at [$(hostname)] [k8s-context: $(kubectl config current-context)]"
   RIGHT=" $exit_status"
   RIGHTWIDTH=$(($COLUMNS-${#LEFT}))
   print $LEFT${(l:$RIGHTWIDTH::-:)RIGHT}
