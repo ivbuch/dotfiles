@@ -1,0 +1,4 @@
+[module/ip]
+type = custom/script
+exec = /home/igor/.bin/go-scripts/gi-module-ip
+interval = 60

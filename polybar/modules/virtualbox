@@ -1,0 +1,4 @@
+[module/virtualbox]
+type = custom/script
+exec = /home/igor/.bin/go-scripts/gi-module-virtualbox
+interval = 30

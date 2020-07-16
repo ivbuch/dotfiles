@@ -1,0 +1,4 @@
+[module/ports]
+type = custom/script
+exec = /home/igor/.bin/go-scripts/gi-module-ports
+interval = 1

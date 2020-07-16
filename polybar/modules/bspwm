@@ -1,0 +1,24 @@
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %name%
+label-focused-foreground = #ffffff
+label-focused-background = #008000
+label-focused-underline = #32CD32
+label-focused-padding = 1
+
+label-occupied = %name%
+label-occupied-padding = 1
+
+label-urgent = %name%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+label-empty = %name%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 1
+
+label-separator = |
+label-separator-padding = 1
+
+inline-mode = true

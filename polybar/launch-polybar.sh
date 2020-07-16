@@ -1,22 +1,24 @@
 #!/usr/bin/env sh
+set -euo pipefail
 
-# Terminate already running bar instances
+run_polybar() {
+  echo "Display bar $1 on $_monitor"
+  MONITOR=$_monitor polybar --config="$1" ivbuch --reload 2>/tmp/polybar.log &
+}
+
 killall -q polybar
 
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-# Launch bar1 and bar2
-# polybar --config=/my-tools/dotfiles/polybar/config ivbuch --reload &
+for _monitor in $(polybar -m | awk -F: '{print $1}'); do 
 
-for i in $(polybar -m | awk -F: '{print $1}'); do 
-  export MONITOR=$i 
-  polybar --config=/my-tools/dotfiles/polybar/config ivbuch --reload & 
+  bar_file="bars/$(hostname)-$_monitor-bar"
+  if [ -f "$bar_file" ]; then
+    run_polybar $bar_file
+  else 
+    run_polybar "bars/common-bar"
+  fi
 done
-
-if [ "$1" = "i3-restart" ]; then
-  sleep 1
-  i3-msg restart
-fi
 
 echo "Bars launched..."

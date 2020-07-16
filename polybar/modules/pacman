@@ -1,0 +1,4 @@
+[module/pacman]
+type = custom/script
+exec = /home/igor/.bin/go-scripts/gi-module-pacman
+interval = 300

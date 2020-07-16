@@ -1,0 +1,3 @@
+[module/openvpn]
+type = custom/script
+exec = /my-tools/dotfiles/polybar/scripts/check-vpn.sh
