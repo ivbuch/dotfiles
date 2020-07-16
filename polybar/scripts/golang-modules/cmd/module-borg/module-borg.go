@@ -14,7 +14,6 @@ const (
 )
 
 func main() {
-
 	_, err := os.Stat(borgLogFile)
 	if os.IsNotExist(err) {
 		printBad()
