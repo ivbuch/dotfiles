@@ -10,7 +10,7 @@ super + Delete
   /my-tools/dotfiles/bash/thinkpad/i3exit.sh hibernate
 
 super + End
-  /home/igor/workspace/dotfiles/sxhkd/scripts/lock.sh
+  i3lock
  
 # --- BSPWM 
 
@@ -100,7 +100,7 @@ super + a
 
 super + c
   echo -n "$(greenclip print | rofi -dmenu)" | xclip -selection clipboard
- 
+
 # increase window gap
 super + plus
   bspc config window_gap "$(($(bspc config window_gap) + 10))"
