@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
-set -euo pipefail
+set -exuo pipefail
 
 run_polybar() {
   echo "Display bar $1 on $_monitor"
   MONITOR=$_monitor polybar --config="$1" ivbuch --reload 2>/tmp/polybar.log &
 }
 
-killall -q polybar
+killall -q polybar || true
 
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
