@@ -57,7 +57,7 @@ case "$txt" in
   "$r_random_bg") change_theme ;;
   "$r_show_help") text2pdf ~/.config/sxhkd/sxhkdrc | zathura - ;;
   "$r_keymap_switch") setxkbmap "us,ru" ",winkeys" "grp:caps_toggle" ;;
-  "$r_restart_polybar") /my-tools/dotfiles/polybar/bspwm-launch-polybar.sh ;;
+  "$r_restart_polybar") /my-tools/dotfiles/polybar/launch-polybar.sh ;;
   "$r_restart_wm") bspc wm -r ;;
   "$r_keyboard_backlight") keyboard_backlight ;;
   "$r_dns") /my-tools/home-infostructure/dotfiles/bash/menu-dns-change.sh ;;

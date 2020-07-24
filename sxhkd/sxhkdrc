@@ -35,7 +35,7 @@ super + {h,j,k,l}
  
 # focus on given desktop
 super + {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
-  bspc desktop -f { 0-CHATS, 1-QUTE, 2-ZSH, 3-IDE, 4-DB, 5-FIREFOX, 6-PYTHON, 7, 8, 9 }
+  bspc desktop -f { 0-CHATS, 1-QUTE, 2-ZSH, 3-IDE, 4-DB, 5-FIREFOX, 6-GOLAND, 7, 8, 9 }
 
 # focus desktop left/right
 super + {u,o}
@@ -45,9 +45,9 @@ super + {u,o}
 super + {f,t}
   /my-tools/dotfiles/sxhkd/scripts/toggle-fullscreen.sh
 
-# focus on python desktop
+# focus on goland desktop
 super + p
-  bspc desktop -f 6-PYTHON
+  bspc desktop -f 6-GOLAND
 
 # focus on prev node
 super + grave
@@ -62,7 +62,7 @@ super + alt + {h,j,k,l}
  
 # move the node in the given direction
 super + shift + {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
-  bspc node focused -d { 0-CHATS, 1-QUTE, 2-ZSH, 3-IDE, 4-DB, 5-FIREFOX, 6-PYTHON, 7, 8, 9 } --follow
+  bspc node focused -d { 0-CHATS, 1-QUTE, 2-ZSH, 3-IDE, 4-DB, 5-FIREFOX, 6-GOLAND, 7, 8, 9 } --follow
 
 # move desktop to the next/prev monitor
 super + shift + {h, l}

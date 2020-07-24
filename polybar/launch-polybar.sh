@@ -7,17 +7,18 @@ run_polybar() {
 }
 
 killall -q polybar || true
+bars_dir=$DOT_FILES/polybar/bars
 
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 for _monitor in $(polybar -m | awk -F: '{print $1}'); do 
 
-  bar_file="bars/$(hostname)-$_monitor-bar"
+  bar_file="$bars_dir/$(hostname)-$_monitor-bar"
   if [ -f "$bar_file" ]; then
     run_polybar $bar_file
   else 
-    run_polybar "bars/common-bar"
+    run_polybar "$bars_dir/common-bar"
   fi
 done
 
