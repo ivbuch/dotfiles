@@ -34,6 +34,7 @@ r_wireguard_switch="Switch WireGuard"
 r_picom_start="Start Picom"
 r_setup_desktops="Setup BSPWM Desktops"
 r_autorandr="Autorandr setup"
+r_vpn="OpenVPN setup"
 
 if ! txt=$(echo "$r_random_bg
 $r_show_help
@@ -47,6 +48,7 @@ $r_disable_pihole
 $r_picom_start
 $r_setup_desktops
 $r_autorandr
+$r_vpn
 " | rofi -dmenu -i ) ; then
 
   echo "Bad choice"
@@ -66,4 +68,5 @@ case "$txt" in
   "$r_picom_start") picom --blur-background --blur-method dual_kawase --experimental-backends --backend glx ;;
   "$r_setup_desktops") "$HOME/.config/bspwm/setup-desktops.sh" ;;
   "$r_autorandr") autorandr_setup ;;
+  "$r_vpn") termite -e "/my-tools/home-infostructure/dotfiles/bash/enable-openvpn.sh" ;;
 esac

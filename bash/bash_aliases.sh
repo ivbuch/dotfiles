@@ -130,3 +130,7 @@ alias rtm_w="rtm lsp status:incompleme list:week"
 alias rtm_m="rtm lsp status:incompleme list:month"
 
 alias gl="glow README.md"
+
+alias .agent_rest="curl http://localhost:24482/api/protobuf/metrics | jq . -C | less"
+alias .agent_rest_prom_metrics="curl http://localhost:24482/api/protobuf/metrics -s | jq . | grep igor_prom | wc -l"
+
