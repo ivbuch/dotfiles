@@ -85,6 +85,9 @@ let g:ctrlp_working_path_mode = 'c'
 " correct folding for xml files, see http://vim.wikia.com/wiki/Vim_as_XML_Editor
 let g:xml_syntax_folding=1
 
+" shows quotes in json
+let g:indentLine_conceallevel = 0
+
 " fileType properties
 autocmd FileType xml    setlocal foldmethod=syntax foldlevel=100000
 autocmd FileType py     setlocal expandtab shiftwidth=4
