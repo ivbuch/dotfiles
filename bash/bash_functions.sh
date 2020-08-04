@@ -7,6 +7,7 @@ source "$DOT_FILES/bash/bash_functions_fzf.sh"
 source "$DOT_FILES/bash/bash_functions_jrnl.sh"
 source "$DOT_FILES/bash/bash_functions_aws.sh"
 source "$DOT_FILES/bash/bash_functions_vm.sh"
+source "$DOT_FILES/bash/bash_functions_kafka.sh"
 
 h() {
   man $(apropos --long . | dmenu -i -l 30 | awk '{print $2, $1}' | tr -d '()')
