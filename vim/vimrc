@@ -346,3 +346,9 @@ function! FormatGroovy()
   execute '! npm-groovy-lint 1>/dev/null -c /my-tools/dotfiles/vim/groovylintrc.json --format -f ' . name
   :set noautoread
 endfunction
+
+function! BashHeader()
+  execute "normal gg"
+  execute "normal O" . "#/bin/bash"
+  execute "normal o" . "set -exuo pipefail"
+endfunction
