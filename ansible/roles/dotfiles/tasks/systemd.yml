@@ -65,6 +65,7 @@
     - nm-applet.service
     - volume-icon-applet.service
     - greenclip.service
+    - syncthing.service
     - set-random-theme.service
     - set-random-theme.timer
   tags:
@@ -81,9 +82,9 @@
     - blueman-applet.service 
     - nm-applet.service
     - greenclip.service
+    - syncthing.service
     - volume-icon-applet.service
     - on-boot.service
-    - greenclip.service
     - set-random-theme.service
     - set-random-theme.timer
   tags:
