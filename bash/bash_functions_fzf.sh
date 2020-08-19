@@ -45,3 +45,12 @@ of() {
   IFS=$'\n' files=($(fzf --query="$1" --multi --select-1 --exit-0 --reverse))
   [[ -n "$files" ]] && nohup xdg-open "${files[@]}" 1>/tmp/nohup.log 2>&1 &
 }
+
+# fzf tmuxp
+tm() {
+  file_to_load=$(find -L $HOME/.tmuxp -maxdepth 1 -type f -printf '%f\n' | sed 's|.yml||' | sort | fzf -e --reverse )
+  if [[ $? != 0 ]]; then
+    return 0
+  fi
+  tmuxp load --yes "${file_to_load%.*}"
+}
