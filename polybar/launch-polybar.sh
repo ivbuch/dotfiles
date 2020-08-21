@@ -7,7 +7,7 @@ run_polybar() {
 }
 
 killall -q polybar || true
-bars_dir=$DOT_FILES/polybar/bars
+bars_dir=/my-tools/dotfiles/polybar/bars
 
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
