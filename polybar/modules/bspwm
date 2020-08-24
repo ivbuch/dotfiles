@@ -13,8 +13,10 @@ label-urgent = %name%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 
+label-occupied-underline = ${colors.foreground-alt}
+
 label-empty = %name%
-label-empty-foreground = ${colors.foreground-alt}
+label-empty-foreground = ${colors.foreground}
 label-empty-padding = 1
 
 label-separator = |
