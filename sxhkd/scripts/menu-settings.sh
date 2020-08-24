@@ -65,7 +65,7 @@ case "$txt" in
   "$r_dns") /my-tools/home-infostructure/dotfiles/bash/menu-dns-change.sh ;;
   "$r_disable_pihole") /my-tools/home-infostructure/dotfiles/bash/disable-pihole.sh 30 ;;
   "$r_wireguard_switch") termite -e "/my-tools/dotfiles/polybar/scripts/wireguard-switch.sh" ;;
-  "$r_picom_start") picom --blur-background --blur-method dual_kawase --experimental-backends --backend glx ;;
+  "$r_picom_start") compton --blur-method kawase  --blur-strength 5 --blur-background --backend glx  ;;
   "$r_setup_desktops") "$HOME/.config/bspwm/setup-desktops.sh" ;;
   "$r_autorandr") autorandr_setup ;;
   "$r_vpn") termite -e "/my-tools/home-infostructure/dotfiles/bash/enable-openvpn.sh" ;;
