@@ -58,10 +58,10 @@ fd_exec_root() {
 
 # bash log docker container
 fdl() {
-  select_docker_containter_and_invoke_command "" "logs -f" ""
+  select_docker_containter_and_invoke_command "" "logs -f --tail 200" ""
 }
 fdla() {
-  select_docker_containter_and_invoke_command "-a" "logs -f" ""
+  select_docker_containter_and_invoke_command "-a" "logs -f --tail 200" ""
 }
 
 # bash inspect docker container
