@@ -14,9 +14,6 @@ super + End
  
 # --- BSPWM 
 
-# scratchpad
-super + BackSpace 
-  /my-tools/dotfiles/sxhkd/scripts/toggle-scratchpad.sh
  
 # quit/restart bspwm
 super + shift + q
@@ -42,8 +39,12 @@ super + {u,o}
   bspc desktop -f {prev.occupied, next.occupied}
 
 # toggle fullscreen
-super + {f,t}
+super + f
   /my-tools/dotfiles/sxhkd/scripts/toggle-fullscreen.sh
+
+# floating/tiled mode
+super + t 
+  /my-tools/dotfiles/sxhkd/scripts/toggle-floating.sh
 
 # focus on goland desktop
 super + p
