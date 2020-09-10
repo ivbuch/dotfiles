@@ -97,7 +97,10 @@ super + shift + r
   /my-tools/dotfiles/sxhkd/scripts/menu-rofi.sh
 
 super + a
-  /my-tools/dotfiles/sxhkd/scripts/bookmark-manager.sh
+  /my-tools/dotfiles/sxhkd/scripts/bookmark-manager.sh firefox
+
+super + b
+  /my-tools/dotfiles/sxhkd/scripts/bookmark-manager.sh qutebrowser
 
 super + c
   echo -n "$(greenclip print | rofi -dmenu)" | xclip -selection clipboard
@@ -123,6 +126,9 @@ super + {Left, Down, Up, Right}
 
 super + shift + {Left, Down, Up, Right}
   /my-tools/dotfiles/sxhkd/scripts/bspwm-resize.sh contract {west,south,north,east} 50
+
+super + d
+  /my-tools/dotfiles/sxhkd/scripts/rofi-kill.sh
 
 # --- SCREENSHOTS
 Print

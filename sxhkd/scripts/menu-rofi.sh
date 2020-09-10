@@ -1,4 +1,5 @@
-#!/bin/bash
+#/bin/bash
+set -exuo pipefail
 
 rofi_buku() {
   if selected=$(buku -p -f 4 | rofi -dmenu -fullscreen -matching normal); then
