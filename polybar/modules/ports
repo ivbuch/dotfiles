@@ -2,3 +2,4 @@
 type = custom/script
 exec = /home/igor/.bin/go-scripts/gi-module-ports
 interval = 1
+click-left = notify-send "0 - API, 1 - Agent"
