@@ -135,7 +135,7 @@ Print
   maim -s $HOME/pictures/screenshots/scn-$(date '+%Y-%m-%d____%H_%M').png
 
 # --- TRANSLATE
-super + shift + t
+super + r
   /my-tools/dotfiles/sxhkd/scripts/menu-translate.sh
  
 # --- THINKPAD
