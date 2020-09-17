@@ -33,3 +33,6 @@ nmap <Leader>jf Ifinal <Esc>
 
 " delete all nsl
 nmap <Leader>jdn :%s/ \/\/\$NON-NLS-1\$//gc <CR>
+
+" Expand all folding in a file
+nmap zR :action ExpandAllRegions<CR>:action ExpandAllRegions<CR>
