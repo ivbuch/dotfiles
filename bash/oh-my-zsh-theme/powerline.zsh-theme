@@ -147,7 +147,7 @@ else
     VENV_STATUS=""
 fi
 
-PROMPT="%F{blue}"$POWERLINE_GIT_INFO_LEFT" %k"$'\ue0b0'"%f "
+PROMPT=""$POWERLINE_GIT_INFO_LEFT" %k"" "
 
 if [ "$POWERLINE_DISABLE_RPROMPT" = "" ]; then
     if [ "$POWERLINE_RIGHT_A" = "" ]; then
