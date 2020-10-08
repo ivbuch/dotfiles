@@ -132,7 +132,7 @@ super + d
 
 # --- SCREENSHOTS
 Print
-  maim -s $HOME/pictures/screenshots/scn-$(date '+%Y-%m-%d____%H_%M').png
+  maim -s $HOME/pictures/screenshots/scn-$(date '+%Y-%m-%d____%H_%M_%S').png
 
 # --- TRANSLATE
 super + r
