@@ -112,9 +112,6 @@ alias js_karma="node_modules/karma/bin/karma start karma.conf.js"
 # PYTHON
 alias pytest_ipdb="pytest -s --pdb --pdbcls=IPython.terminal.debugger:Pdb"
 
-# BUKU
-alias b="buku"
-
 # TORRENT
 alias torrent_start="systemctl restart transmission.service && chromium http://localhost:9091"
  

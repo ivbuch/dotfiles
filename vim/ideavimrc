@@ -36,3 +36,6 @@ nmap <Leader>jdn :%s/ \/\/\$NON-NLS-1\$//gc <CR>
 
 " Expand all folding in a file
 nmap zR :action ExpandAllRegions<CR>:action ExpandAllRegions<CR>
+
+" Git compare with Repository version
+nmap <Leader>gd :action Compare.SameVersion<CR>
