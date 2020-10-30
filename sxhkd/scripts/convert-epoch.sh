@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if value=$(rofi -dmenu); then
+if value=$(rofi -dmenu -p "Epoch Converter"); then
   if x=$(epoch-converter $value 2>&1); then
     notify-send "$x"
   else

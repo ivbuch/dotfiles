@@ -60,6 +60,9 @@ bspc rule -a "$scratchpad_class" sticky=on state=floating hidden=on rectangle=12
 # idea start up window
 bspc rule -a "java-lang-Thread" desktop="3-IDE"
 
+# zoom window
+bspc rule -a "zoom" desktop="9-ZOOM"
+
 setup_desktop_file="$HOME/.config/bspwm/setup-desktops.sh"
 if [ -f "$setup_desktop_file" ] ; then
   source "$setup_desktop_file"

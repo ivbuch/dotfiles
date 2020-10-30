@@ -32,7 +32,7 @@ super + {h,j,k,l}
  
 # focus on given desktop
 super + {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
-  bspc desktop -f { 0-CHATS, 1-QUTE, 2-ZSH, 3-IDE, 4-DB, 5-FIREFOX, 6-GOLAND, 7, 8, 9 }
+  bspc desktop -f { 0-CHATS, 1-QUTE, 2-ZSH, 3-IDE, 4-DB, 5-FIREFOX, 6-GOLAND, 7, 8, 9-ZOOM }
 
 # focus desktop left/right
 super + {u,o}
@@ -63,7 +63,7 @@ super + alt + {h,j,k,l}
  
 # move the node in the given direction
 super + shift + {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
-  bspc node focused -d { 0-CHATS, 1-QUTE, 2-ZSH, 3-IDE, 4-DB, 5-FIREFOX, 6-GOLAND, 7, 8, 9 } --follow
+  bspc node focused -d { 0-CHATS, 1-QUTE, 2-ZSH, 3-IDE, 4-DB, 5-FIREFOX, 6-GOLAND, 7, 8, 9-ZOOM } --follow
 
 # move desktop to the next/prev monitor
 super + shift + {h, l}
