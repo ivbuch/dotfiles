@@ -10,7 +10,7 @@ super + Delete
   /my-tools/dotfiles/bash/thinkpad/i3exit.sh hibernate
 
 super + End
-  i3lock
+  i3lock && sleep 5 && xset s activate
  
 # --- BSPWM 
 
@@ -86,6 +86,18 @@ super + shift + o; w
 
 super + shift + o; k
   keepassxc
+
+super + shift + o; l
+  firefox "http://localhost:81/#/explore/overview/l:10/everywhere/cpu.used.percent?showAs=timeSeries"
+
+super + shift + o; m
+  firefox "http://localhost/#/explore/overview/l:10/everywhere/cpu.used.percent?showAs=timeSeries"
+
+super + shift + o; j + d
+  firefox "file:///home/igor/.cache/grip/journal.html"
+
+super + shift + o; j + s
+  firefox "file:///home/igor/.cache/grip/sysdig.html"
 
 super + shift + p
   /my-tools/dotfiles/sxhkd/scripts/menu-pomodoro.sh

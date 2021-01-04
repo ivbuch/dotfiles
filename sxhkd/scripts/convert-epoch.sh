@@ -3,7 +3,7 @@
 export PRINT_LOCAL_TIMEZONES=false
 
 if value=$(rofi -dmenu -p "Epoch Converter"); then
-  if x=$(epoch-converter $value 2>&1); then
+  if x=$(epoch-converter -values $value 2>&1); then
     notify-send "$x"
   else
     notify-send -u critical "$x"

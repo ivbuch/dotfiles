@@ -35,6 +35,8 @@
   branch=$(echo "$branches" | fzf --exact +m | xargs)
   
   if [ -n "$branch" ]; then
-    git branch --move "$branch" "___$branch"
+    new_branch="___${branch}"
+    git branch --move "$branch" "${new_branch}"
+    echo "Moved ${branch} to ${new_branch}"
   fi
 }
