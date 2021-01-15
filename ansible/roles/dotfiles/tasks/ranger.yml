@@ -13,5 +13,6 @@
   with_items:
     - rc.conf
     - rifle.conf
+    - scope.sh
   tags:
     - ranger

@@ -131,4 +131,4 @@ alias gl="glow README.md"
 alias .agent_rest="curl http://localhost:24482/api/protobuf/metrics | jq . -C | less"
 alias .agent_rest_prom_metrics="curl http://localhost:24482/api/protobuf/metrics -s | jq . | grep igor_prom | wc -l"
 
-alias .java_remove_jitdumps="find . -name 'jitdump.20*' -or  -name 'javacore.20*' -or -name 'Snap.20*' | xargs -I {} rm {} -v"
+alias .java_remove_jitdumps="find . -name 'jitdump.20*' -or  -name 'javacore.20*' -or -name 'Snap.20*' -or -name 'heapdump.2*' | xargs -I {} rm {} -v"
