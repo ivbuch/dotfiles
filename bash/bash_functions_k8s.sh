@@ -22,3 +22,24 @@
 
   kubectl get pods --selector "$1" --output json --field-selector=status.phase=Running | jq ".items[0].metadata.name" --raw-output
 }
+
+
+.k8_goutils() {
+  # pod_name="igor-go-utilss"
+  pod_name="igor-go-utils"
+  run_pod="kubectl run igor-go-utils --image=ivbuch/go-utils:0.1 --image-pull-policy=Always"
+  if kubectl get pods ${pod_name}; then 
+    echo "Recreate pod?[no]"
+    read recreate
+    recreate_pod=${recreate:-no}
+    if [ "${recreate_pod}" = "yes" ]; then
+      kubectl delete pod ${pod_name}
+      eval ${run_pod}
+      sleep 5
+    fi
+  else
+    eval ${run_pod}
+    sleep 5
+  fi
+  kubectl exec -it ${pod_name} -- bash
+}
