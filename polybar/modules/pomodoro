@@ -1,3 +1,0 @@
-[module/pomodoro]
-type = custom/script
-exec = /my-tools/dotfiles/polybar/scripts/pomodoro.sh label

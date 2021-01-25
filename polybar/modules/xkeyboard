@@ -1,5 +1,0 @@
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-format-prefix-foreground = ${colors.foreground-alt}
-label-layout = %layout%

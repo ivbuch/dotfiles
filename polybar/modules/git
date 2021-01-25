@@ -1,4 +1,0 @@
-[module/git]
-type = custom/script
-exec = /home/igor/.bin/go-scripts/gi-module-git
-interval = 5

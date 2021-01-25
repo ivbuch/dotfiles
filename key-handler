@@ -1,8 +1,0 @@
-#!/bin/sh
-while read file
-do
-        case "$1" in
-        "C-c")
-                cp "$file" "/home/igor/Pictures/share" -v ;;
-        esac
-done

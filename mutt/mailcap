@@ -1,6 +1,0 @@
-text/html;                      chromium %s; nametemplate=%s.html
-text/html;                      w3m -dump %s; nametemplate=%s.html; copiousoutput
-application/*; 			mkdir -p /tmp/mutt \; cp %s /tmp/mutt \; xdg-open /tmp/mutt/$(basename %s) &
-image/png;                      sxiv %s
-image/jpg;                      sxiv %s
-image/jpeg;                      sxiv %s

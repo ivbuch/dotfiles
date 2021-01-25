@@ -1,3 +1,0 @@
-mytools_path: /my-tools
-homeinfostructure_path: "{{ ansible_env.HOME }}/workspace/home-infostructure"
-dotfiles_path: "{{ ansible_env.HOME }}/workspace/dotfiles"

@@ -1,5 +1,0 @@
-[module/internet]
-type = custom/script
-exec = /home/igor/.bin/go-scripts/gi-module-internet
-click-left = /my-tools/dotfiles/polybar/scripts/internet-left-click.sh
-interval = 3

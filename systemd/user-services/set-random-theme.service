@@ -1,9 +1,0 @@
-[Unit]
-Description=Change i3 theme
-
-[Service]
-Type=forking
-ExecStart=/my-tools/dotfiles/systemd/scripts/set-random-theme/set-random-theme.sh
-
-[Install]
-WantedBy=default.target

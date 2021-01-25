@@ -1,7 +1,0 @@
-- name: create config link
-  file:
-    src: "{{ mytools_path }}/dotfiles/bspwm"
-    dest: "{{ ansible_env.HOME }}/.config/bspwm"
-    state: link
-  tags:
-    - bspwm

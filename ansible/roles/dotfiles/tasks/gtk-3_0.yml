@@ -1,7 +1,0 @@
-- name: create config link
-  file:
-    src: "{{ mytools_path }}/dotfiles/gtk-3.0"
-    dest: "{{ ansible_env.HOME }}/.config/gtk-3.0"
-    state: link
-  tags:
-    - gtk

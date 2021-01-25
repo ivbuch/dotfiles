@@ -1,9 +1,0 @@
-include-file = $DOT_FILES/polybar/common-settings
-
-[bar/ivbuch]
-include-file = $DOT_FILES/polybar/bar-common-settings
-
-modules-left = bspwm
-modules-center = 
-modules-right = ip ports internet git docker virtualbox
-tray-position = none

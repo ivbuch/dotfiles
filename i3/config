@@ -1,8 +1,0 @@
-# bluetooth manager applet
-exec --no-startup-id [ -n "$HOME_OS" ] && blueman-applet
-
-# disable bluetooth
-exec --no-startup-id "sleep 3 && rfkill block bluetooth"
-
-# mutt work
-exec --no-startup-id [ -n "$WORK_OS" ] && mutt-work

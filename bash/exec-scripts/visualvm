@@ -1,5 +1,0 @@
-#!/bin/bash
-
-source "/home/igor/.sdkman/bin/sdkman-init.sh"
-sdk use java 11.0.7.hs-adpt 
-/opt/visualvm/visualvm_204/bin/visualvm

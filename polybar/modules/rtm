@@ -1,5 +1,0 @@
-[module/rtm]
-type = custom/script
-exec = echo RTM
-interval = 30
-format-underline = #FF0000
