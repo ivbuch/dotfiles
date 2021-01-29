@@ -132,3 +132,12 @@ alias .agent_rest="curl http://localhost:24482/api/protobuf/metrics | jq . -C | 
 alias .agent_rest_prom_metrics="curl http://localhost:24482/api/protobuf/metrics -s | jq . | grep igor_prom | wc -l"
 
 alias .java_remove_jitdumps="find . -name 'jitdump.20*' -or  -name 'javacore.20*' -or -name 'Snap.20*' -or -name 'heapdump.2*' | xargs -I {} rm {} -v"
+
+# antlr
+alias .antlr_generate='java -cp /opt/antlr/antlr-4.9.1-complete.jar:. org.antlr.v4.Tool' # add g4 file
+alias .antlr_compile='javac -cp .:/opt/antlr/antlr-4.9.1-complete.jar ' # add asdasd*.java
+alias .antlr_test='java -cp /opt/antlr/antlr-4.9.1-complete.jar:. org.antlr.v4.gui.TestRig' # add Hello r
+
+
+
+

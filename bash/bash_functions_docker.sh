@@ -38,7 +38,7 @@ fdrma() {
 
 # bash exec docker container
 fde() {
-  select_docker_containter_and_invoke_command "" "exec -it" "bash"
+  select_docker_containter_and_invoke_command "" "exec -it -e 'TERM=xterm-256color'" "bash"
 }
 
 # sh exec docker container
