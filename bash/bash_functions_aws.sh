@@ -7,7 +7,7 @@
 
 .aws_ec2_all() {
   local query
-  query='.Reservations[].Instances[] | {Name: .KeyName, NewName: (.Tags[] | select (.Key == "Name") | .Value), PublicIP: .PublicIpAddress, State: .State.Name}'
+  query='.Reservations[].Instances[] | {Name: .KeyName, NewName: (.Tags[] | select (.Key == "Name") | .Value), PublicIP: .PublicIpAddress, PrivateIpAddress: .PrivateIpAddress, State: .State.Name}'
 
   aws ec2 describe-instances  | jq "$query"
 }

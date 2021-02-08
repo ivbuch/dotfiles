@@ -160,11 +160,24 @@ if [ "$POWERLINE_DISABLE_RPROMPT" = "" ]; then
 fi
 
 precmd() {
-  exit_status=$(echo "[✖️  $?")
-  LEFT="\n$(echo -e '\033(0lq\033(B') 📂 l  [$(pwd)] at [$(hostname)] [k8s-context: $(kubectl config current-context 2>/dev/null || echo none)]"
-  RIGHT=" $exit_status"
+  exit_status="$?"
+  color_start="%F{red}"
+  color_end="%f"
+  exit_status_colorful=$(echo "[✖️  status: %F{red} ${exit_status}%f ]")
+  k8_context=" $(kubectl config current-context 2>/dev/null || echo none)"
+  k8_context_colorful="${color_start}${k8_context} ${color_end}"
+
+  host="$(hostname)"
+  host_colorful="%F{red}${host}%f"
+
+  cpath="$(pwd)"
+  cpath_colorful="${color_start}${cpath}${color_end}"
+
+  LEFT="\n$(echo -e '\033(0lq\033(B') 📂 l [${cpath_colorful}] at [${host_colorful}] [k8s-context: ${k8_context_colorful}]"
+  RIGHT=" ${exit_status_colorful}"
   RIGHTWIDTH=$(($COLUMNS-${#LEFT}))
-  print $LEFT${(l:$RIGHTWIDTH::-:)RIGHT}
+  print -P $LEFT${(l:$RIGHTWIDTH::-:)RIGHT}
+  echo -e '\033(0x'
 }
 
 preexec() {
