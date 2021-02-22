@@ -4,6 +4,6 @@ include-file = $DOT_FILES/polybar/common-settings
 include-file = $DOT_FILES/polybar/bar-common-settings
 
 modules-left = bspwm
-modules-center = pomodoro
-modules-right = openvpn borg battery battery2 memory xkeyboard date
+modules-center = 
+modules-right = pomodoro openvpn borg battery battery2 memory xkeyboard date
 tray-position = right
