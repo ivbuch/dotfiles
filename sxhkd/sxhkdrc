@@ -73,6 +73,12 @@ super + shift + {h, l}
 super + Return
   termite
 
+super + control + Return
+  bspc config split_ratio "0.3" && termite && bspc config split_ratio "0.5"
+
+super + alt + Return
+  bspc config split_ratio "0.7" && termite && bspc config split_ratio "0.5"
+
 # --- LAUCH OPTIONS
  
 super + shift + o; {f,i, q}

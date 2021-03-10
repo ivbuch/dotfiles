@@ -50,8 +50,6 @@ bspc rule -a "Firefox" desktop="$d_5" follow=on focus=on
 bspc rule -a "wm_class_firefox_slack" desktop="$d_0"
 bspc rule -a "wm_class_firefox_whatsapp" desktop="$d_0"
 
-bspc rule -a "jetbrains-idea" desktop="$d_3"
-bspc rule -a "jetbrains-idea-ce" desktop="$d_3"
 bspc rule -a "jetbrains-pycharm-ce" desktop="$d_6"
 bspc rule -a "qutebrowser" desktop="$d_1" follow=on focus=on
 
