@@ -94,10 +94,10 @@ super + shift + o; k
   keepassxc
 
 super + shift + o; l
-  firefox "http://localhost:81/#/explore/overview/l:10/everywhere/cpu.used.percent?showAs=timeSeries"
+  firefox "http://localhost:40009"
 
 super + shift + o; m
-  firefox "http://localhost/#/explore/overview/l:10/everywhere/cpu.used.percent?showAs=timeSeries"
+  firefox "http://localhost:40000"
 
 super + shift + o; j + d
   firefox "file:///home/igor/.cache/grip/journal.html"
