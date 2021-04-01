@@ -17,6 +17,19 @@
 }
 
 .aws_s3_ls_kops_dev_qa() {
+  aws s3 ls "$(cat ~/.config/work/kops-dev-qa-s3)" | awk '
+  $0 !~ /Auto cleaned/ {
+    v = substr($2, 1, length($2) - length("/"))
+    print v
+  }
+  '
+}
+
+.aws_ec2_vpcs_count() {
+  aws ec2 describe-vpcs | jq ".Vpcs | length"
+}
+
+.kops_config_s3_dev_qa() {
   envs=$(aws s3 ls "$(cat ~/.config/work/kops-dev-qa-s3)" | awk '
   $0 !~ /Auto cleaned/ {
     v = substr($2, 1, length($2) - length("/"))
@@ -29,8 +42,4 @@
     return
   fi
   KOPS_STATE_STORE=${KOPS_STATE_QA_STORE} kops export kubecfg --name "${selected_env}"
-}
-
-.aws_ec2_vpcs_count() {
-  aws ec2 describe-vpcs | jq ".Vpcs | length"
 }
