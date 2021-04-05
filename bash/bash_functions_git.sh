@@ -40,3 +40,30 @@
     echo "Moved ${branch} to ${new_branch}"
   fi
 }
+
+# copy local branch name to system clipboard
+.git_copy_local_branch_name() {
+  local branches branch
+
+  if ! branches=$(git branch); then
+    return
+  fi
+
+  pretty=$(echo ${branches} | awk '
+  {
+    if ($1 == "*" || $1 == "+") {
+      print $2
+      next
+    }
+    print $1
+  }'
+  )
+  branch=$(echo "${pretty}" | fzf --no-multi --preview 'git log {}')
+  if [ -z ${branch} ]; then 
+    echo "no branch selected"
+    return 1
+  fi 
+
+  echo -n "${branch}" | xclip -i -selection clipboard
+  echo "Branch \"${branch}\" copied into clipboard"
+}

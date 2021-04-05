@@ -13,7 +13,12 @@
 }
 
 .aws_s3_ls_kops_dev() {
-  aws s3 ls "$(cat ~/.config/work/kops-dev-s3)"
+  aws s3 ls "$(cat ~/.config/work/kops-dev-s3)" | awk '
+  $0 !~ /Auto cleaned/ && $0 !~ /keys/ && $0 !~ /^[1-9]/ && $0 !~ /agent-automation/ {
+    v = substr($2, 1, length($2) - length("/"))
+    print v
+  }
+  '
 }
 
 .aws_s3_ls_kops_dev_qa() {
