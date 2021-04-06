@@ -1,5 +1,8 @@
 #!/usr/bin/zsh
 
+log_file=/tmp/bspwm-init.txt
+exec 1>${log_file} 2>&1
+
 source /my-tools/dotfiles/bash/zprofile.sh
 
 # If refreshing bspwm, remove all previous rules to prevent doubling up.
@@ -17,7 +20,7 @@ if [ "$(hostname)" = "igor-manjaro" ] ; then
 else
   # picom --blur-background --blur-method dual_kawase --experimental-backends --backend glx &
   # compton --blur-background --blur-method kawase --backend glx & ;;
-  picom &
+  # picom &
 fi
 
 scratchpad_class="scratchpad"
@@ -62,6 +65,14 @@ bspc rule -a "java-lang-Thread" desktop="3-IDE"
 bspc rule -a "zoom" desktop="9-ZOOM"
 
 setup_desktop_file="$HOME/.config/bspwm/setup-desktops.sh"
-if [ -f "$setup_desktop_file" ] ; then
-  source "$setup_desktop_file"
+if [ -f "${setup_desktop_file}" ] ; then
+  source "${setup_desktop_file}"
+fi
+
+if [ "$(hostname)" = "igordesk" ]; then
+  autorandr --load desktop
+  systemctl start set-random-theme --user
+  /my-tools/dotfiles/polybar/bspwm-launch-polybar.sh
+  /my-tools/dotfiles/polybar/launch-polybar.sh
+  compton --blur-method kawase  --blur-strength 5 --blur-background --backend glx &
 fi

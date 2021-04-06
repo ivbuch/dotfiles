@@ -31,7 +31,6 @@
   if ! branches=$(git branch); then
     return
   fi
-
   branch=$(echo "$branches" | fzf --exact +m | xargs)
   
   if [ -n "$branch" ]; then
@@ -66,4 +65,37 @@
 
   echo -n "${branch}" | xclip -i -selection clipboard
   echo "Branch \"${branch}\" copied into clipboard"
+}
+
+# pretty print git branch with tracking
+.git_branch() {
+  branches=$(PAGER=cat git branch -vv)
+  if [ -z ${branches} ]; then
+    return 1
+  fi
+
+  pretty=$(echo ${branches} | awk '
+  BEGIN {
+    printf("%50-s| %50-s\n", "Branch Name", "Remote branch")
+    for (i = 0; i < 100; i++) {
+      printf("-")
+    }
+    print ""
+  }
+  {
+    branch_name = $1
+    remote = ""
+    if ($1 == "*" || $1 == "+") {
+      branch_name = $2
+    }
+    s = index($0, "[origin/")
+    if (s > 0) {
+      e = index($0, "]")
+      remote = substr($0, s + 1, e - s - 1)
+    }
+    printf("%50-s| %50-s\n", branch_name, remote)
+  }
+  '
+  )
+  echo ${pretty}
 }
