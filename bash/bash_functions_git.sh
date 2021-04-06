@@ -67,6 +67,10 @@
   echo "Branch \"${branch}\" copied into clipboard"
 }
 
+.gcb() {
+  .git_copy_local_branch_name
+}
+
 # pretty print git branch with tracking
 .git_branch() {
   branches=$(PAGER=cat git branch -vv)
@@ -99,3 +103,4 @@
   )
   echo ${pretty}
 }
+
