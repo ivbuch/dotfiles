@@ -26,3 +26,4 @@ source <(kubectl completion zsh)
 complete -F __start_kubectl k
 complete -C '/usr/local/bin/aws_completer' aws
 complete -C cmon-completer cmon
+jenkins-cli completion zsh > "${fpath[1]}/_jenkins-cli"
