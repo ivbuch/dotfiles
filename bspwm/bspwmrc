@@ -13,7 +13,7 @@ sxhkd 1>/tmp/sxhkd.log 2>&1 &
 
 source /my-tools/dotfiles/bspwm/export-desktop-numbers.sh
 
-bspc monitor --reset-desktops "$d_0" "$d_1" "$d_2" "$d_3" "$d_4" "$d_5" "$d_6" "$d_7" "$d_8" "$d_9"
+bspc monitor --reset-desktops "${d_0}" "${d_1}" "${d_2}" "${d_3}" "${d_4}" "${d_5}" "${d_6}" "${d_7}" "${d_8}" "${d_9}"
 
 bspc config border_width 1
 bspc config window_gap 30
@@ -32,14 +32,15 @@ bspc config remove_unplugged_monitors true
 bspc rule -a Zathura state=fullscreen focus=on follow=on
 bspc rule -a "KeePassXC" state=tiled
 
-bspc rule -a "Firefox" desktop="$d_5" follow=on focus=on
-bspc rule -a "Chromium-browser" desktop="$d_4"
+bspc rule -a "Firefox" desktop="${d_5}" follow=on focus=on
+bspc rule -a "Chromium-browser" desktop="${d_4}"
 
-bspc rule -a "wm_class_firefox_slack" desktop="$d_0"
-bspc rule -a "wm_class_firefox_whatsapp" desktop="$d_0"
+bspc rule -a "wm_class_firefox_slack" desktop="${d_0}"
+bspc rule -a "wm_class_firefox_whatsapp" desktop="${d_0}"
+bspc rule -a "firefox-private" desktop="${d_8}"
 
-bspc rule -a "jetbrains-pycharm-ce" desktop="$d_6"
-bspc rule -a "qutebrowser" desktop="$d_1" follow=on focus=on
+bspc rule -a "jetbrains-pycharm-ce" desktop="${d_6}"
+bspc rule -a "qutebrowser" desktop="${d_1}" follow=on focus=on
 
 # idea start up window
 bspc rule -a "java-lang-Thread" desktop="3-IDE"

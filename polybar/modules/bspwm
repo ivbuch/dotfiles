@@ -4,22 +4,22 @@ type = internal/bspwm
 label-focused = %name%
 label-focused-foreground = ${colors.background-alt}
 label-focused-background = ${colors.foreground-alt}
-label-focused-padding = 1
+label-focused-padding = 2
 
 label-occupied = %name%
-label-occupied-padding = 1
+label-occupied-padding = 2
 
 label-urgent = %name%
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 1
+label-urgent-padding = 2
 
 label-occupied-underline = ${colors.foreground-alt}
 
-label-empty = 
+label-empty = %name%
 label-empty-foreground = 
 label-empty-padding = 0
 
 label-separator = |
-label-separator-padding = 1
+label-separator-padding = 2
 
 inline-mode = true
