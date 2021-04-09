@@ -10,21 +10,10 @@ bspc rule -r "*"
 
 wmname LG3D
 sxhkd 1>/tmp/sxhkd.log 2>&1 &
-/my-tools/dotfiles/polybar/launch-polybar.sh &
 /home/igor/.config/virtual-envs/main/bin/flashfocus &
 setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
 udiskie --tray &
 
-if [ "$(hostname)" = "igor-manjaro" ] ; then
-  compton &
-else
-  # picom --blur-background --blur-method dual_kawase --experimental-backends --backend glx &
-  # compton --blur-background --blur-method kawase --backend glx & ;;
-  # picom &
-fi
-
-scratchpad_class="scratchpad"
-termite --class="$scratchpad_class" -e vim &
 
 . /my-tools/dotfiles/bspwm/desktops.sh
 
@@ -47,7 +36,6 @@ bspc config remove_unplugged_monitors true
 bspc rule -a Zathura state=fullscreen focus=on follow=on
 bspc rule -a "KeePassXC" state=tiled
 
-bspc rule -a "firefox" desktop="$d_5" follow=on focus=on
 bspc rule -a "Firefox" desktop="$d_5" follow=on focus=on
 
 bspc rule -a "wm_class_firefox_slack" desktop="$d_0"
@@ -55,8 +43,6 @@ bspc rule -a "wm_class_firefox_whatsapp" desktop="$d_0"
 
 bspc rule -a "jetbrains-pycharm-ce" desktop="$d_6"
 bspc rule -a "qutebrowser" desktop="$d_1" follow=on focus=on
-
-bspc rule -a "$scratchpad_class" sticky=on state=floating hidden=on rectangle=1200x900+30+30
 
 # idea start up window
 bspc rule -a "java-lang-Thread" desktop="3-IDE"
@@ -71,8 +57,14 @@ fi
 
 if [ "$(hostname)" = "igordesk" ]; then
   autorandr --load desktop
-  systemctl start set-random-theme --user
-  /my-tools/dotfiles/polybar/bspwm-launch-polybar.sh
-  /my-tools/dotfiles/polybar/launch-polybar.sh
-  compton --blur-method kawase  --blur-strength 5 --blur-background --backend glx &
 fi
+
+systemctl start set-random-theme --user
+/my-tools/dotfiles/polybar/bspwm-launch-polybar.sh
+/my-tools/dotfiles/polybar/launch-polybar.sh
+compton --blur-method kawase  --blur-strength 5 --blur-background --backend glx &
+
+bspc rule --add Termite:startup --one-shot node="@2:/"
+termite --name=startup &
+firefox &
+qutebrowser &

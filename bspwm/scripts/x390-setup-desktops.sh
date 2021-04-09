@@ -52,16 +52,8 @@ setup_2_monitors() {
   bspc desktop $d_5 --focus
 }
 
-### 1 MONITOR
-if [ ${#monitors[*]} -eq 1 ] ; then
-  bspc monitor --reset-desktops "$d_0" "$d_1" "$d_2" "$d_3" "$d_4" "$d_5" "$d_6" "$d_7" "$d_8" "$d_9"
-  exit 0
-fi
-
-### 2 MONITORS
-if [ ${#monitors[*]} -eq 2 ] ; then
-  setup_2_monitors
-  exit 0
-fi
-
-setup_3_monitors
+case "${#monitors[*]}" in
+  1) bspc monitor --reset-desktops "$d_0" "$d_1" "$d_2" "$d_3" "$d_4" "$d_5" "$d_6" "$d_7" "$d_8" "$d_9" ;;
+  2) setup_2_monitors ;;
+  3) setup_3_monitors ;;
+esac

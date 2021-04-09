@@ -31,8 +31,8 @@ super + {h,j,k,l}
   bspc node -f {west,south,north,east}
  
 # focus on given desktop
-super + {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
-  bspc desktop -f { 0-CHATS, 1-QUTE, 2-ZSH, 3-IDE, 4-DB, 5-FIREFOX, 6-GOLAND, 7, 8, 9-ZOOM }
+super + {0-9}
+  bspc desktop -f { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }
 
 # focus desktop left/right
 super + {u,o}
@@ -62,8 +62,8 @@ super + alt + {h,j,k,l}
   bspc node -s {west,south,north,east}
  
 # move the node in the given direction
-super + shift + {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
-  bspc node focused -d { 0-CHATS, 1-QUTE, 2-ZSH, 3-IDE, 4-DB, 5-FIREFOX, 6-GOLAND, 7, 8, 9-ZOOM } --follow
+super + shift + {0-9}
+  bspc node focused -d { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 } --follow
 
 # move desktop to the next/prev monitor
 super + shift + {h, l}
@@ -91,7 +91,6 @@ super + shift + o; w
   idea & pycharm.sh
 
 super + shift + o; k
-  keepassxc
 
 super + shift + o; l
   firefox "http://localhost:40009"
@@ -99,32 +98,23 @@ super + shift + o; l
 super + shift + o; m
   firefox "http://localhost:40000"
 
-super + shift + o; j + d
-  firefox "file:///home/igor/.cache/grip/journal.html"
+super + c ; { c, t, e, s, p, q, f, k }
+  { \
+    echo -n "$(greenclip print | rofi -dmenu)" | xclip -selection clipboard, \
+    /my-tools/dotfiles/sxhkd/scripts/menu-translate.sh, \
+    /my-tools/dotfiles/sxhkd/scripts/convert-epoch.sh, \
+    /my-tools/dotfiles/sxhkd/scripts/menu-settings.sh, \
+    /my-tools/dotfiles/sxhkd/scripts/menu-pomodoro.sh, \
+    /my-tools/dotfiles/sxhkd/scripts/bookmark-manager.sh qutebrowser, \
+    /my-tools/dotfiles/sxhkd/scripts/bookmark-manager.sh firefox, \
+    keepassxc
+  }
 
-super + shift + o; j + s
-  firefox "file:///home/igor/.cache/grip/sysdig.html"
-
-super + shift + p
-  /my-tools/dotfiles/sxhkd/scripts/menu-pomodoro.sh
-  
-super + shift + s
-  /my-tools/dotfiles/sxhkd/scripts/menu-settings.sh
-
-super + shift + r
-  /my-tools/dotfiles/sxhkd/scripts/menu-rofi.sh
-
-super + a
-  /my-tools/dotfiles/sxhkd/scripts/bookmark-manager.sh qutebrowser
-
-super + b
-  /my-tools/dotfiles/sxhkd/scripts/bookmark-manager.sh firefox
-
-super + c
-  echo -n "$(greenclip print | rofi -dmenu)" | xclip -selection clipboard
-
-super + e
-  /my-tools/dotfiles/sxhkd/scripts/convert-epoch.sh
+super + j ; { d, s }
+  { \
+    qutebrowser "file:///home/igor/.cache/grip/journal.html", \
+    qutebrowser "file:///home/igor/.cache/grip/sysdig.html"
+  }
 
 # increase window gap
 super + plus
@@ -152,10 +142,6 @@ super + d
 Print
   maim -s $HOME/pictures/screenshots/scn-$(date '+%Y-%m-%d____%H_%M_%S').png
 
-# --- TRANSLATE
-super + r
-  /my-tools/dotfiles/sxhkd/scripts/menu-translate.sh
- 
 # --- THINKPAD
 super + shift + k
   /my-tools/dotfiles/bash/thinkpad/change_kgb_backlight.sh
