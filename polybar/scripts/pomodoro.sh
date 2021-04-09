@@ -6,10 +6,10 @@ label() {
   text=$("$HOME/.config/virtual-envs/main/bin/python" "$pomodoro_client" status 2>/tmp/aaa)
   if [ -n "$text" ]; then
     text=$(echo "$text" | sed 's/Pomodoro//')
-    echo "%{F-}🍅 $text%{F-}"
+    echo "Pomodoro: %{F-}$text%{F-}"
     exit 0
   fi
-  echo "🍅 disabled"
+  echo "Pomodoro: disabled"
 }
 
 pomodoro() {
