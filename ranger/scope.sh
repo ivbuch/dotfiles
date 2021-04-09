@@ -43,7 +43,7 @@ PYGMENTIZE_STYLE='autumn'
 handle_extension() {
     case "${FILE_EXTENSION_LOWER}" in
 	dam)
-	    i_sysdig-protobuf-decoder "${FILE_PATH}" | jq . -C && exit 5
+	    i-protobuf-decoder "${FILE_PATH}" | jq . -C && exit 5
             exit 0;;
         # Archive
         a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|\

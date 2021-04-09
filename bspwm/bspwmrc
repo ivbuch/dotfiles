@@ -10,12 +10,8 @@ bspc rule -r "*"
 
 wmname LG3D
 sxhkd 1>/tmp/sxhkd.log 2>&1 &
-/home/igor/.config/virtual-envs/main/bin/flashfocus &
-setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
-udiskie --tray &
 
-
-. /my-tools/dotfiles/bspwm/desktops.sh
+source /my-tools/dotfiles/bspwm/export-desktop-numbers.sh
 
 bspc monitor --reset-desktops "$d_0" "$d_1" "$d_2" "$d_3" "$d_4" "$d_5" "$d_6" "$d_7" "$d_8" "$d_9"
 
@@ -37,6 +33,7 @@ bspc rule -a Zathura state=fullscreen focus=on follow=on
 bspc rule -a "KeePassXC" state=tiled
 
 bspc rule -a "Firefox" desktop="$d_5" follow=on focus=on
+bspc rule -a "Chromium-browser" desktop="$d_4"
 
 bspc rule -a "wm_class_firefox_slack" desktop="$d_0"
 bspc rule -a "wm_class_firefox_whatsapp" desktop="$d_0"
@@ -50,21 +47,9 @@ bspc rule -a "java-lang-Thread" desktop="3-IDE"
 # zoom window
 bspc rule -a "zoom" desktop="9-ZOOM"
 
-setup_desktop_file="$HOME/.config/bspwm/setup-desktops.sh"
-if [ -f "${setup_desktop_file}" ] ; then
-  source "${setup_desktop_file}"
-fi
-
 if [ "$(hostname)" = "igordesk" ]; then
   autorandr --load desktop
 fi
 
-systemctl start set-random-theme --user
-/my-tools/dotfiles/polybar/bspwm-launch-polybar.sh
-/my-tools/dotfiles/polybar/launch-polybar.sh
-compton --blur-method kawase  --blur-strength 5 --blur-background --backend glx &
-
-bspc rule --add Termite:startup --one-shot node="@2:/"
-termite --name=startup &
-firefox &
-qutebrowser &
+source "${HOME}/.config/bspwm/setup-host-desktops.sh"
+source "${HOME}/.config/bspwm/startup-apps.sh"
