@@ -35,7 +35,7 @@ super + {0-9}
   bspc desktop -f { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }
 
 # focus desktop left/right
-super + {u,o}
+super + {bracketleft,bracketright}
   bspc desktop -f {prev.occupied, next.occupied}
 
 # toggle fullscreen
@@ -81,16 +81,8 @@ super + alt + Return
 
 # --- LAUCH OPTIONS
  
-super + shift + o; {f,i, q}
-  {firefox, idea, qutebrowser }
-
 super + shift + o; c
   firefox -P "slack" --class="wm_class_firefox_slack" "https://sysdigcloud.slack.com" & firefox -P "whatsapp" --class="wm_class_firefox_whatsapp" "https://web.whatsapp.com"
-
-super + shift + o; w
-  idea & pycharm.sh
-
-super + shift + o; k
 
 super + shift + o; l
   firefox "http://localhost:40009"
@@ -98,7 +90,7 @@ super + shift + o; l
 super + shift + o; m
   firefox "http://localhost:40000"
 
-super + c ; { c, t, e, s, p, q, f, k }
+super + Insert ; { c, t, e, s, p, q, f, k }
   { \
     echo -n "$(greenclip print | rofi -dmenu)" | xclip -selection clipboard, \
     /my-tools/dotfiles/sxhkd/scripts/menu-translate.sh, \
