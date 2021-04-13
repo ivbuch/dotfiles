@@ -27,7 +27,7 @@
 .k8_goutils() {
   # pod_name="igor-go-utilss"
   pod_name="igor-go-utils"
-  run_pod="kubectl run igor-go-utils --image=ivbuch/go-utils:0.1 --image-pull-policy=Always"
+  run_pod="kubectl run igor-go-utils --image=ivbuch/go-utils:0.3 --image-pull-policy=Always"
   if kubectl get pods ${pod_name}; then 
     echo "Recreate pod?[no]"
     read recreate
@@ -42,4 +42,22 @@
     sleep 5
   fi
   kubectl exec -it ${pod_name} -- bash
+}
+
+.kp() {
+  pod=$(kubectl get pods -A | fzf --header-lines 1 \
+    --preview-window follow \
+    --preview "kubectl logs --namespace '{1}' '{2}' --since=5m" \
+    --bind 'ctrl-l:preview(echo {})')
+  if [ -z "${pod}" ]; then
+    return 1
+  fi
+
+  echo -n "${pod}" | awk '
+  {
+    ORS = ""
+    namespace = $1
+    pod_name = $2
+    print "--namespace", namespace, pod_name
+  }' | xclip -selection clipboard
 }
