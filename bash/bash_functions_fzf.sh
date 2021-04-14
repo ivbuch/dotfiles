@@ -59,3 +59,32 @@ tm() {
   fi
   tmuxp load --yes "${file_to_load%.*}"
 }
+
+# copy filename
+.cpf() {
+  depth="${1:-10}"
+  to_copy=$(find . -maxdepth "${depth}" | awk '{
+  name = substr($0, 3)
+  print name
+  }' | fzf)
+
+  if [ -z "${to_copy}" ]; then
+    exit 1
+  fi
+
+  echo -n ${to_copy} | xclip -selection clipboard
+  echo "\"${to_copy}\" copied to clipboard"
+}
+
+# copy filename fullpath
+.cpff() {
+  depth="${1:-10}"
+  .cpf "${depth}"
+  selected_file=$(xclip -selection clipboard -o)
+  if [ -z "${selected_file}" ]; then
+    exit 1
+  fi
+  full_name=$(readlink -f ${selected_file})
+  echo -n ${full_name} | xclip -selection clipboard
+  echo "\"${full_name}\" copied to clipboard"
+}
