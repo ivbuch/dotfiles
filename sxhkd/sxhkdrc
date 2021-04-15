@@ -90,7 +90,7 @@ super + shift + o; l
 super + shift + o; m
   firefox "http://localhost:40000"
 
-super + Home ; { c, t, e, s, p, q, f, k }
+super + z ; { c, t, e, s, p, q, f, k }
   { \
     echo -n "$(greenclip print | rofi -dmenu)" | xclip -selection clipboard, \
     /my-tools/dotfiles/sxhkd/scripts/menu-translate.sh, \

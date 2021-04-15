@@ -5,4 +5,4 @@ include-file = $DOT_FILES/polybar/bar-common-settings
 
 modules-left = bspwm
 modules-center = pomodoro
-modules-right = ports internet ip git virtualbox docker borg battery battery2 memory xkeyboard date
+modules-right = ports internet ip borg battery battery2 memory xkeyboard date

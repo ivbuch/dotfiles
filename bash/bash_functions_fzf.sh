@@ -69,7 +69,7 @@ tm() {
   }' | fzf)
 
   if [ -z "${to_copy}" ]; then
-    exit 1
+    return 1
   fi
 
   echo -n ${to_copy} | xclip -selection clipboard
@@ -82,7 +82,7 @@ tm() {
   .cpf "${depth}"
   selected_file=$(xclip -selection clipboard -o)
   if [ -z "${selected_file}" ]; then
-    exit 1
+    return 1
   fi
   full_name=$(readlink -f ${selected_file})
   echo -n ${full_name} | xclip -selection clipboard
