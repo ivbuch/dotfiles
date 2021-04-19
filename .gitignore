@@ -1,3 +1,4 @@
 *.swp
 bspwm/setup-desktops.sh
 .idea
+*.iml

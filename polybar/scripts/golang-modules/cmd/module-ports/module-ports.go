@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/mitchellh/go-ps"
 	"net"
 	"time"
 )
@@ -18,27 +17,13 @@ func portOpen(host string, port string) bool {
 }
 
 func main() {
-	agentRunning := isAgentRunning()
 	apiUp := portOpen("localhost", "9000")
-	fmt.Printf("👀 SysDig: %s %s", toImage(apiUp), toImage(agentRunning))
-}
-
-func isAgentRunning() bool {
-	processes, err := ps.Processes()
-	if err != nil {
-		panic(err)
-	}
-	for _, proc := range processes {
-		if proc.Executable() == "dragent" {
-			return true
-		}
-	}
-	return false
+	fmt.Printf("9090: %s", toImage(apiUp))
 }
 
 func toImage(green bool) string {
 	if green {
-		return "🟢"
+		return "+"
 	}
-	return "🔴"
+	return "-"
 }
