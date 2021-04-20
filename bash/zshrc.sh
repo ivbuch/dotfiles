@@ -28,6 +28,7 @@ complete -C '/usr/local/bin/aws_completer' aws
 complete -C cmon-completer cmon
 
 if [ "$(hostname)" = "igordesk" ]; then
+  source /usr/local/ibmcloud/autocomplete/zsh_autocomplete
   jenkins-cli completion zsh > "${fpath[1]}/_jenkins-cli"
   i-kafka-consumer completion zsh > "${fpath[1]}/_i-kafka-consumer"
   i-protobuf-decoder completion zsh > "${fpath[1]}/_i-protobuf-decoder"
