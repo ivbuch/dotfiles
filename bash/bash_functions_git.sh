@@ -67,12 +67,12 @@
   echo "Branch \"${branch}\" copied into clipboard"
 }
 
-.gcb() {
+.gbc() {
   .git_copy_local_branch_name
 }
 
 # pretty print git branch with tracking
-.git_branch() {
+.gb() {
   branches=$(PAGER=cat git branch -vv)
   if [ -z ${branches} ]; then
     return 1
@@ -88,10 +88,19 @@
   }
   {
     branch_name = $1
+    if (branch_name == "staging" || branch_name == "master") {
+      next
+    }
     remote = ""
     if ($1 == "*" || $1 == "+") {
       branch_name = $2
     }
+
+    s = index(branch_name, "___")
+    if (s > 0) {
+      next
+    }
+
     s = index($0, "[origin/")
     if (s > 0) {
       e = index($0, "]")
