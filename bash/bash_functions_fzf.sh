@@ -61,7 +61,7 @@ tm() {
 }
 
 # copy filename
-.cpf() {
+.cp() {
   depth="${1:-10}"
   to_copy=$(find . -maxdepth "${depth}" | awk '{
   name = substr($0, 3)
@@ -77,7 +77,7 @@ tm() {
 }
 
 # copy filename fullpath
-.cpff() {
+.cpf() {
   depth="${1:-10}"
   .cpf "${depth}"
   selected_file=$(xclip -selection clipboard -o)
