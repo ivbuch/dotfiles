@@ -46,5 +46,5 @@
     echo "no choice"
     return
   fi
-  KOPS_STATE_STORE=${KOPS_STATE_QA_STORE} kops export kubecfg --name "${selected_env}"
+  KOPS_STATE_STORE=${KOPS_STATE_QA_STORE} kops export kubecfg --name "${selected_env}" --admin
 }
