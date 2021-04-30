@@ -37,3 +37,8 @@ export PATH="$PATH:$SPARK_HOME/bin"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$CASSANDRA_HOME/bin"
 export PATH="$PATH:$KAFKA_HOME/bin"
+
+if [ -d /usr/pgadmin4/bin ]; then
+  export PATH="$PATH:/usr/pgadmin4/bin"
+fi
+

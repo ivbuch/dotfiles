@@ -113,3 +113,18 @@
   echo ${pretty}
 }
 
+.gsf() {
+  text=$(git status . -sb | sed '/##/ d')
+  selected=$(echo "${text}" | fzf --multi)
+  if [ -z "${selected}" ]; then
+    return 1;
+  fi
+
+  names=$(echo "${selected}" | awk '
+  { names = names "  " $2 }
+  END {
+    print names
+  }')
+  echo -n "${names}" | xclip -i -selection clipboard
+}
+

@@ -27,7 +27,7 @@
 .k8_goutils() {
   # pod_name="igor-go-utilss"
   pod_name="igor-go-utils"
-  run_pod="kubectl run igor-go-utils --image=ivbuch/go-utils:0.3 --image-pull-policy=Always"
+  run_pod="kubectl run igor-go-utils --image=ivbuch/go-utils:0.4 --image-pull-policy=Always"
   if kubectl get pods ${pod_name}; then 
     echo "Recreate pod?[no]"
     read recreate

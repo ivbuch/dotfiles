@@ -79,7 +79,7 @@ tm() {
 # copy filename fullpath
 .cpf() {
   depth="${1:-10}"
-  .cpf "${depth}"
+  .cp "${depth}"
   selected_file=$(xclip -selection clipboard -o)
   if [ -z "${selected_file}" ]; then
     return 1
