@@ -1,0 +1,7 @@
+- name: link config directory
+  file:
+    src: "{{ mytools_path }}/dotfiles/sxiv"
+    dest: "{{ ansible_env.HOME }}/.config/sxiv"
+    state: link
+  tags:
+    - sxiv

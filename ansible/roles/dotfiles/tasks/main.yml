@@ -28,3 +28,4 @@
 - import_tasks: jrnl.yml
 - import_tasks: bspwm.yml
 - import_tasks: sxhkd.yml
+- import_tasks: sxiv.yml

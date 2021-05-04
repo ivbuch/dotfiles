@@ -18,7 +18,7 @@ common_startapp_apps() {
 }
 
 igordesk_startapp_apps() {
-  bspc rule -a "jetbrains-idea" desktop="${d_3} --one-shot"
+  bspc rule -a "jetbrains-idea" desktop="${d_3}" --one-shot
   idea &
 
   firefox -P "slack" --class="wm_class_firefox_slack" "https://sysdigcloud.slack.com" & 
