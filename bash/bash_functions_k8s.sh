@@ -45,7 +45,7 @@
 }
 
 .kp() {
-  pod=$(kubectl get pods -A | fzf --header-lines 1 \
+  pod=$(kubectl get pods -A | fzf --exact --header-lines=1 --nth=2 --header-lines 1 \
     --preview-window follow \
     --preview "kubectl logs --namespace '{1}' '{2}' --since=5m" \
     --bind 'ctrl-l:preview(echo {})')
@@ -60,4 +60,38 @@
     pod_name = $2
     print "--namespace", namespace, pod_name
   }' | xclip -selection clipboard
+}
+
+.kpc() {
+  pod=$(kubectl get pods -A | fzf --exact --header-lines=1 --nth=2 --header-lines 1 \
+    --preview-window follow \
+    --preview "kubectl logs --namespace '{1}' '{2}' --since=5m" \
+    --bind 'ctrl-l:preview(echo {})')
+  if [ -z "${pod}" ]; then
+    return 1
+  fi
+  pod_name=$(echo -n "${pod}" | awk '
+  {
+    ORS = ""
+    namespace = $1
+    pod_name = $2
+    print pod_name
+  }')
+  namespace=$(echo -n "${pod}" | awk '
+  {
+    ORS = ""
+    namespace = $1
+    print namespace
+  }')
+  files=$(kubectl exec "${pod_name}" --namespace "${namespace}" -- find / -type f ! -ipath '/proc*' ! -ipath '/usr/*' ! -ipath '/sys/*' ! -ipath '/dev/*' || true)
+  if [ -z "${files}" ]; then
+    return 1
+  fi
+  selected_file=$(echo ${files} | fzf --exact)
+  if [ -z "${pod}" ]; then
+    return 1
+  fi
+
+  output_file=$(basename "${selected_file}")
+  kubectl cp --namespace "${namespace}" "${pod_name}":"${selected_file}" "${output_file}"
 }
