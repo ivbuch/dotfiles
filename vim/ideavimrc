@@ -38,7 +38,10 @@ nmap <Leader>jdn :%s/ \/\/\$NON-NLS-1\$//gc <CR>
 nmap zR :action ExpandAllRegions<CR>:action ExpandAllRegions<CR>
 
 " Git compare with Repository version
-nmap <Leader>gd :action Compare.SameVersion<CR>
+nmap <Leader>gcc :action Compare.SameVersion<CR>
 
 " View Github Pull Requests
 nmap <Leader>gp :action Github.View.Pull.Request<CR>
+
+" Git compare with Branch
+nmap <Leader>gcb :action Git.CompareWithBranch <CR>

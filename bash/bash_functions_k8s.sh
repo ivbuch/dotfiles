@@ -45,6 +45,26 @@
 }
 
 .kp() {
+  # copy pod in default namespace
+  pod=$(kubectl get pods | fzf --exact --header-lines=1 --nth=1 --header-lines 1 \
+    --preview-window follow \
+    --preview "kubectl logs '{1}' --since=5m" \
+    --bind 'ctrl-l:preview(echo {})')
+  if [ -z "${pod}" ]; then
+    return 1
+  fi
+
+  echo -n "${pod}" | awk '
+  {
+    ORS = ""
+    namespace = $1
+    pod_name = $2
+    print "--namespace", namespace, pod_name
+  }' | xclip -selection clipboard
+}
+
+.kpa() {
+  # copy pod across all namespaces
   pod=$(kubectl get pods -A | fzf --exact --header-lines=1 --nth=2 --header-lines 1 \
     --preview-window follow \
     --preview "kubectl logs --namespace '{1}' '{2}' --since=5m" \
@@ -63,6 +83,7 @@
 }
 
 .kpc() {
+  # kubectl cp
   pod=$(kubectl get pods -A | fzf --exact --header-lines=1 --nth=2 --header-lines 1 \
     --preview-window follow \
     --preview "kubectl logs --namespace '{1}' '{2}' --since=5m" \
@@ -93,5 +114,6 @@
   fi
 
   output_file=$(basename "${selected_file}")
+  echo Executing kubectl cp --namespace "${namespace}" "${pod_name}":"${selected_file}" "${output_file}"
   kubectl cp --namespace "${namespace}" "${pod_name}":"${selected_file}" "${output_file}"
 }
