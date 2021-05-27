@@ -57,9 +57,8 @@
   echo -n "${pod}" | awk '
   {
     ORS = ""
-    namespace = $1
-    pod_name = $2
-    print "--namespace", namespace, pod_name
+    pod_name = $1
+    print pod_name
   }' | xclip -selection clipboard
 }
 
