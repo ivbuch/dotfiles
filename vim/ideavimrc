@@ -45,3 +45,6 @@ nmap <Leader>gp :action Github.View.Pull.Request<CR>
 
 " Git compare with Branch
 nmap <Leader>gcb :action Git.CompareWithBranch <CR>
+
+" Edit Run Configuration
+nmap <Leader>ec :action editRunConfigurations <CR>
