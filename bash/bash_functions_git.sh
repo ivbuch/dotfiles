@@ -1,4 +1,4 @@
-# checkout git branch
+### .gitf_checkout !!! checkout git branch
 .gitf_checkout() {
   local branches branch
   branches=$(git branch -vv) 
@@ -6,7 +6,7 @@
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
-# checkout git branch all
+### .gitf_checkout_all !!! checkout git branch all
 .gitf_checkout_all() {
   local branches branch
   branches=$(git branch -a -vv) 
@@ -14,7 +14,7 @@
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
-# show commit diff
+### .gitf_commit_diff !!! show commit diff
 .gitf_commit_diff() {
   local commits commit
   commits=$(git log --name-status --abbrev-commit) 
@@ -24,7 +24,7 @@
   echo $id
 }
 
-# dump branch
+### .gitf_branch_dump !!! dump branch
 .gitf_branch_dump() {
   local branches branch
 
@@ -67,11 +67,12 @@
   echo "Branch \"${branch}\" copied into clipboard"
 }
 
+### .gbc !!! copy local branch name
 .gbc() {
   .git_copy_local_branch_name
 }
 
-# pretty print git branch with tracking
+### .gb !!! pretty print git branch with tracking
 .gb() {
   branches=$(PAGER=cat git branch -vv)
   if [ -z ${branches} ]; then
@@ -113,6 +114,7 @@
   echo ${pretty}
 }
 
+### .gsf !!! git status -> select modified files
 .gsf() {
   text=$(git status . -sb | sed '/##/ d')
   selected=$(echo "${text}" | fzf --multi)
@@ -128,3 +130,23 @@
   echo -n "${names}" | xclip -i -selection clipboard
 }
 
+### .glf !!! copy commit id from history to clipboard
+.glf() {
+  text=$(git log --pretty=format:"%h!!!%an!!!%s!!!%cs!!!%d")
+  commit=$(echo "${text}" | awk '
+    {
+      split($0, fields, "!!!")
+      commit = fields[1]
+      author = fields[2]
+      message = fields[3]
+      commit_date = fields[4]
+      ref = substr(fields[5], 1, 30)
+
+      printf("%-8s  %8s  %20s  %30s  %s\n", commit, commit_date, author, ref, message)
+    }' | fzf --reverse)
+
+  if [ -z "${commit}" ]; then
+    return 1
+  fi
+  echo -n "${commit}" | awk '{ print $1 }' | tr -d '\n' | xclip -i -selection clipboard
+}

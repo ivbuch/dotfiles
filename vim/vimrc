@@ -263,6 +263,9 @@ vmap <Leader>z "ap
 nmap <Leader>Z "bp 
 vmap <Leader>Z "bp
 
+" copy text to the end of line to system clipboard
+nmap <Leader>C "+y$
+
 " open edit ~/.vimrc
 nmap <Leader>ev :e ~/.vimrc <CR>
 

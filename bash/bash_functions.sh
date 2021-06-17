@@ -55,3 +55,21 @@ mkdir_now() {
   d=$(date +'%Y-%m-%d-----%H:%M')
   mkdir "$d"
 }
+
+### .f !!! select alias
+.f() {
+  selected=$(grep -E "^###" --color=never /my-tools/dotfiles/bash/*func*.sh --no-filename | awk '
+    {
+      v = substr($0, 5)
+      split(v, fields, " !!! ")
+      alias = fields[1]
+      comment = fields[2]
+
+      printf("%-18s  %s\n", alias, comment)
+    }' | fzf --reverse)
+
+  if [ -z "${selected}" ]; then
+    return 1
+  fi
+  echo -n "${selected}" | awk '{ print $1 }' | tr -d '\n' | xclip -i -selection clipboard
+}
