@@ -116,3 +116,41 @@
   echo Executing kubectl cp --namespace "${namespace}" "${pod_name}":"${selected_file}" "${output_file}"
   kubectl cp --namespace "${namespace}" "${pod_name}":"${selected_file}" "${output_file}"
 }
+
+.k8_network_utils() {
+  pod_name="igor-network-utils"
+
+  pods=$(kubectl get pods --field-selector=metadata.name=${pod_name},status.phase=Running --output json  | jq --raw-output '.items | length')
+
+  if [ "${pods}" = "1" ]; then
+    echo "Hooray! ${pod_name} is already UP"
+  else 
+    echo "Running ${pod_name}"
+    kubectl run "${pod_name}" --image=ivbuch/igor-network-utils:0.1 --image-pull-policy=Always
+    sleep 2
+
+    max_iterations=50
+    wait_seconds=2
+    iterations=1
+    while true
+    do
+      pods=$(kubectl get pods --field-selector=metadata.name=${pod_name},status.phase=Running --output json  | jq --raw-output '.items | length')
+
+      if [ "${pods}" = "1" ]; then
+	echo "Hooray! ${pod_name} is UP"
+	break
+      fi
+
+      if [ "${iterations}" -ge "${max_iterations}" ]; then
+	echo "${pod_name}  didn't start up"
+	return 1
+      fi
+      iterations=$((iterations + 1))
+      echo "Attempt ${iterations} of ${max_iterations}"
+      echo "Sleeping ${wait_seconds} seconds..."
+      sleep ${wait_seconds}
+    done
+  fi
+
+  kubectl exec -it ${pod_name} -- bash
+}
