@@ -1,5 +1,6 @@
 - import_tasks: basic.yml
 - import_tasks: termite.yml
+- import_tasks: alacritty.yml
 - import_tasks: mutt.yml
 - import_tasks: vim.yml
 - import_tasks: tmux.yml

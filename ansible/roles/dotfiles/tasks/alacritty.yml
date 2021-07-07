@@ -1,0 +1,7 @@
+- name: create config link
+  file:
+    src: "{{ mytools_path }}/dotfiles/alacritty"
+    dest: "{{ ansible_env.HOME }}/.config/alacritty"
+    state: link
+  tags:
+    - alacritty
