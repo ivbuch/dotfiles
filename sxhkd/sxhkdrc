@@ -71,7 +71,7 @@ super + shift + {h, l}
  
  
 super + Return
-  termite
+  alacritty
 
 super + control + Return
   bspc config split_ratio "0.3" && termite && bspc config split_ratio "0.5"
@@ -152,3 +152,7 @@ XF86AudioRaiseVolume
 
 XF86AudioMute 
   /my-tools/dotfiles/bash/thinkpad/volume_toggle.sh
+
+# --- change theme
+super + b
+  systemctl start set-random-theme --user && /my-tools/dotfiles/polybar/bspwm-launch-polybar.sh

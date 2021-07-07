@@ -150,3 +150,14 @@
   fi
   echo -n "${commit}" | awk '{ print $1 }' | tr -d '\n' | xclip -i -selection clipboard
 }
+
+### .gcb !!! copy current branch name into clipboard
+.gcb() {
+  if ! text=$(git status) then
+    echo bad
+    return 1
+  fi
+  branch_name=$(echo "${text}" -n | head -n 1 | awk '{ print substr($0, length("on branch ") + 1)}')
+  echo -n "${branch_name}" | xclip -i -selection clipboard
+  echo "Branch name '${branch_name}' copied into clipboard"
+}
