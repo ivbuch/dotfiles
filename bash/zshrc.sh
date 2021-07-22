@@ -23,6 +23,9 @@ cat ~/.cache/wal/sequences
 eval "$(direnv hook zsh)"
 
 source <(kubectl completion zsh)
+
+which helm 1>/dev/null 2>/dev/null && source <(helm completion zsh)
+
 complete -F __start_kubectl k
 complete -C '/usr/local/bin/aws_completer' aws
 complete -C cmon-completer cmon
