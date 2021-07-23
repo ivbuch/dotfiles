@@ -22,6 +22,7 @@ cat ~/.cache/wal/sequences
 
 eval "$(direnv hook zsh)"
 
+# source <(arduino-cli completion)
 source <(kubectl completion zsh)
 complete -F __start_kubectl k
 complete -C '/usr/local/bin/aws_completer' aws
