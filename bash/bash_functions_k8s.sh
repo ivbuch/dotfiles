@@ -103,7 +103,17 @@
     namespace = $1
     print namespace
   }')
-  files=$(kubectl exec "${pod_name}" --namespace "${namespace}" -- find / -type f ! -ipath '/proc*' ! -ipath '/usr/*' ! -ipath '/sys/*' ! -ipath '/dev/*' || true)
+
+  case "${pod_name}" in
+    sysdigcloud-collector*) container="collector";;
+    *) container="";;
+  esac
+
+  if [ -n "${container}" ]; then
+    container_param="-c ${container}"
+  fi
+
+  files=$(kubectl exec "${pod_name}" --namespace "${namespace}" ${container_param} -- find / -type f ! -ipath '/proc*' ! -ipath '/usr/*' ! -ipath '/sys/*' ! -ipath '/dev/*' || true)
   if [ -z "${files}" ]; then
     return 1
   fi
@@ -153,4 +163,55 @@
   fi
 
   kubectl exec -it ${pod_name} -- bash
+}
+
+..get_namespace_pod_container_name() {
+  pod=$(kubectl get pods -A | fzf --exact --header-lines=1 --nth=2 --header-lines 1 \
+    --preview-window follow \
+    --preview "kubectl logs --namespace '{1}' '{2}' --since=5m" \
+    --bind 'ctrl-l:preview(echo {})')
+  if [ -z "${pod}" ]; then
+    return 1
+  fi
+  pod_name=$(echo -n "${pod}" | awk '
+  {
+    ORS = ""
+    namespace = $1
+    pod_name = $2
+    print pod_name
+  }')
+  namespace=$(echo -n "${pod}" | awk '
+  {
+    ORS = ""
+    namespace = $1
+    print namespace
+  }')
+
+  container=""
+  case "${pod_name}" in
+    sysdigcloud-collector*) container="collector";;
+    *worker*) container="worker";;
+    *) container="";;
+  esac
+
+  container_param=""
+  if [ -n "${container}" ]; then
+    container_param="--container ${container}"
+  fi
+}
+
+.kp_exec() {
+  if ! ..get_namespace_pod_container_name; then
+    return 1
+  fi
+  echo eval kubectl exec -it "${container_param}" --namespace "${namespace}" "${pod_name}" -- $@
+  eval kubectl exec -it "${container_param}" --namespace "${namespace}" "${pod_name}" -- $@
+}
+
+.kp_logs() {
+  if ! ..get_namespace_pod_container_name; then
+    return 1
+  fi
+  echo eval kubectl logs "${container_param}" --namespace "${namespace}" "${pod_name}" $@
+  eval kubectl logs "${container_param}" --namespace "${namespace}" "${pod_name}" $@
 }
