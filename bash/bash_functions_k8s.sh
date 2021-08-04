@@ -215,3 +215,14 @@
   echo eval kubectl logs "${container_param}" --namespace "${namespace}" "${pod_name}" $@
   eval kubectl logs "${container_param}" --namespace "${namespace}" "${pod_name}" $@
 }
+
+
+.kp_events() {
+    {
+        echo $'TIME\tNAMESPACE\tTYPE\tREASON\tOBJECT\tSOURCE\tMESSAGE';
+        kubectl get events -o json "$@" \
+            | jq -r  '.items | map(. + {t: (.eventTime//.lastTimestamp)}) | sort_by(.t)[] | [.t, .metadata.namespace, .type, .reason, .involvedObject.kind + "/" + .involvedObject.name, .source.component + "," + (.source.host//"-"), .message] | @tsv';
+    } \
+        | column -s $'\t' -t \
+        | less -S
+}
