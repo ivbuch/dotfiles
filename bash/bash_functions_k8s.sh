@@ -81,39 +81,12 @@
   }' | xclip -selection clipboard
 }
 
-.kpc() {
-  # kubectl cp
-  pod=$(kubectl get pods -A | fzf --exact --header-lines=1 --nth=2 --header-lines 1 \
-    --preview-window follow \
-    --preview "kubectl logs --namespace '{1}' '{2}' --since=5m" \
-    --bind 'ctrl-l:preview(echo {})')
-  if [ -z "${pod}" ]; then
+.kp_copy() {
+  if ! ..get_namespace_pod_container_name; then
     return 1
   fi
-  pod_name=$(echo -n "${pod}" | awk '
-  {
-    ORS = ""
-    namespace = $1
-    pod_name = $2
-    print pod_name
-  }')
-  namespace=$(echo -n "${pod}" | awk '
-  {
-    ORS = ""
-    namespace = $1
-    print namespace
-  }')
-
-  case "${pod_name}" in
-    sysdigcloud-collector*) container="collector";;
-    *) container="";;
-  esac
-
-  if [ -n "${container}" ]; then
-    container_param="-c ${container}"
-  fi
-
-  files=$(kubectl exec "${pod_name}" --namespace "${namespace}" ${container_param} -- find / -type f ! -ipath '/proc*' ! -ipath '/usr/*' ! -ipath '/sys/*' ! -ipath '/dev/*' || true)
+  # files=$(eval kubectl exec "${container_param}" --namespace "${namespace}" "${pod_name}" -- find / -type f ! -ipath '/proc*' ! -ipath '/usr/*' ! -ipath '/sys/*' ! -ipath '/dev/*' || true)
+  files=$(eval kubectl exec "${container_param}" --namespace "${namespace}" "${pod_name}" -- find '/' ! -ipath '/proc' ! -ipath '/usr' ! -ipath '/sys' ! -ipath '/root' ! -ipath '/dev' ! -ipath '/var/lib')
   if [ -z "${files}" ]; then
     return 1
   fi
@@ -124,7 +97,7 @@
 
   output_file=$(basename "${selected_file}")
   echo Executing kubectl cp --namespace "${namespace}" "${pod_name}":"${selected_file}" "${output_file}"
-  kubectl cp --namespace "${namespace}" "${pod_name}":"${selected_file}" "${output_file}"
+  eval kubectl cp "${container_param}" --namespace "${namespace}" "${pod_name}":"${selected_file}" "${output_file}"
 }
 
 .k8_network_utils() {
@@ -191,6 +164,7 @@
   case "${pod_name}" in
     sysdigcloud-collector*) container="collector";;
     *worker*) container="worker";;
+    sysdigcloud-api*) container="api";;
     *) container="";;
   esac
 
