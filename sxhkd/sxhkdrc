@@ -42,10 +42,6 @@ super + {bracketleft,bracketright}
 super + f
   /my-tools/dotfiles/sxhkd/scripts/toggle-fullscreen.sh
 
-# floating/tiled mode
-super + t 
-  /my-tools/dotfiles/sxhkd/scripts/toggle-floating.sh
-
 # focus on goland desktop
 super + p
   bspc desktop -f 6-GOLAND
@@ -90,16 +86,21 @@ super + shift + o; l
 super + shift + o; m
   firefox "http://localhost:40000"
 
-super + z ; { c, t, e, s, p, q, f, k }
+super + { e, t }
+  { \
+    /my-tools/dotfiles/sxhkd/scripts/convert-epoch.sh, \
+    /my-tools/dotfiles/sxhkd/scripts/menu-translate.sh, \
+  }
+
+super + z ; { c, s, p, q, f, k, t }
   { \
     echo -n "$(greenclip print | rofi -dmenu)" | xclip -selection clipboard, \
-    /my-tools/dotfiles/sxhkd/scripts/menu-translate.sh, \
-    /my-tools/dotfiles/sxhkd/scripts/convert-epoch.sh, \
     /my-tools/dotfiles/sxhkd/scripts/menu-settings.sh, \
     /my-tools/dotfiles/sxhkd/scripts/menu-pomodoro.sh, \
     /my-tools/dotfiles/sxhkd/scripts/bookmark-manager.sh qutebrowser, \
     /my-tools/dotfiles/sxhkd/scripts/bookmark-manager.sh firefox, \
-    keepassxc
+    keepassxc, \
+    /my-tools/dotfiles/sxhkd/scripts/toggle-floating.sh, \
   }
 
 super + j ; { d, s }

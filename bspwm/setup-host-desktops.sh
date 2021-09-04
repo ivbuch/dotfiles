@@ -1,7 +1,7 @@
 #!/bin/bash
 
 setup_igordesk() {
-  monitor_left=DisplayPort-0
+  monitor_left=DisplayPort-2
   monitor_right=DisplayPort-1
 
   bspc desktop ${d_0} --to-monitor ${monitor_right}

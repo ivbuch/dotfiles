@@ -34,6 +34,7 @@
   aws ec2 describe-vpcs | jq ".Vpcs | length"
 }
 
+### .kops_config_s3_dev_qa !!! import kops cluster from s3 qa bucket
 .kops_config_s3_dev_qa() {
   envs=$(aws s3 ls "$(cat ~/.config/work/kops-dev-qa-s3)" | awk '
   $0 !~ /Auto cleaned/ {
@@ -47,4 +48,5 @@
     return
   fi
   KOPS_STATE_STORE=${KOPS_STATE_QA_STORE} kops export kubecfg --name "${selected_env}" --admin
+  kubectl config set-context --current --namespace sysdigcloud
 }
