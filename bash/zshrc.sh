@@ -22,7 +22,6 @@ cat ~/.cache/wal/sequences
 
 eval "$(direnv hook zsh)"
 
-# source <(arduino-cli completion)
 source <(kubectl completion zsh)
 
 which helm 1>/dev/null 2>/dev/null && source <(helm completion zsh)
