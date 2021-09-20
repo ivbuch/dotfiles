@@ -139,6 +139,7 @@ alias .antlr_generate='java -cp /opt/antlr/antlr-4.9.1-complete.jar:. org.antlr.
 alias .antlr_compile='javac -cp .:/opt/antlr/antlr-4.9.1-complete.jar ' # add asdasd*.java
 alias .antlr_test='java -cp /opt/antlr/antlr-4.9.1-complete.jar:. org.antlr.v4.gui.TestRig' # add Hello r
 
-
-
-
+# arduino
+alias a="arduino-cli"
+alias ac="arduino-cli compile --fqbn arduino:avr:mega"
+alias au="arduino-cli upload --fqbn arduino:avr:mega -p /dev/ttyACM0"
