@@ -139,10 +139,7 @@
 }
 
 ..get_namespace_pod_container_name() {
-  pod=$(kubectl get pods -A | fzf --exact --header-lines=1 --nth=2 --header-lines 1 \
-    --preview-window follow \
-    --preview "kubectl logs --namespace '{1}' '{2}' --since=5m" \
-    --bind 'ctrl-l:preview(echo {})')
+  pod=$(kubectl get pods -A | fzf --exact --header-lines=1 --nth=2 --header-lines 1)
   if [ -z "${pod}" ]; then
     return 1
   fi
