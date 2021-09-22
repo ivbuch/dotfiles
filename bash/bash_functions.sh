@@ -10,6 +10,13 @@ source "$DOT_FILES/bash/bash_functions_vm.sh"
 source "$DOT_FILES/bash/bash_functions_kafka.sh"
 source "$DOT_FILES/bash/bash_functions_k8s.sh"
 
+bk() {
+  for arg in "$@"; do
+    echo Backing up with cp "${arg}" "${arg}.bk"
+    cp "${arg}" "${arg}.bk"
+  done
+}
+
 lg() {
   ls -lah | grep -i "$1"
 }
