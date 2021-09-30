@@ -197,3 +197,13 @@
         | column -s $'\t' -t \
         | less -S
 }
+
+### .kp_get_pods_running_to_a_pod !!! show pods on a node where given pod is running
+.kp_get_pods_running_to_a_pod() {
+  node=$(kubectl get pods -o json "${1}" | jq '.status.hostIP' --raw-output)
+  if [ -z "${node}" ]; then
+    echo "no node"
+    return 1
+  fi
+  kubectl get pod --field-selector="spec.nodeName=${node}"
+}
