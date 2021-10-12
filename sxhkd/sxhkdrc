@@ -12,9 +12,11 @@ super + Delete
 super + End
   i3lock && sleep 5 && xset s activate
  
-# --- BSPWM 
+# qutebrowser (super + pageUp)
+# firefox (super + pageUp)
+super + { Prior,Next }
+  /my-tools/dotfiles/sxhkd/scripts/bookmark-manager.sh { qutebrowser, firefox }
 
- 
 # quit/restart bspwm
 super + shift + q
   bspc quit
@@ -23,8 +25,7 @@ super + shift + q
 super + {_,shift + }q
   bspc node -{c,k}
 
-
-# --- BSPWM FOCUS
+### --- BSPWM FOCUS
  
 # focus the node in the given direction
 super + {h,j,k,l}
@@ -85,6 +86,9 @@ super + shift + o; l
 
 super + shift + o; m
   firefox "http://localhost:40000"
+
+super + P
+  /my-tools/home-infostructure/dotfiles/bash/rofi-keepassxc-to-clipboard.sh
 
 super + { e, t }
   { \

@@ -158,12 +158,17 @@
   }')
 
   container=""
-  case "${pod_name}" in
-    sysdigcloud-collector*) container="collector";;
-    *worker*) container="worker";;
-    sysdigcloud-api*) container="api";;
-    *) container="";;
-  esac
+
+  containers=$(kubectl get pod "${pod_name}" -o json | jq '.spec.containers | length' --raw-output)
+
+  if [[ ${containers} -gt 1 ]]; then
+    case "${pod_name}" in
+      sysdigcloud-collector*) container="collector";;
+      *worker*) container="worker";;
+      sysdigcloud-api*) container="api";;
+      *) container="";;
+    esac
+  fi
 
   container_param=""
   if [ -n "${container}" ]; then
