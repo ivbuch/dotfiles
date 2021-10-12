@@ -163,8 +163,9 @@ precmd() {
   exit_status="$?"
   color_start="%F{red}"
   color_end="%f"
-  exit_status_colorful=$(echo "[✖️  status: %F{red} ${exit_status}%f ]")
-  k8_context=" $(kubectl config current-context 2>/dev/null || echo none)"
+  exit_status_colorful=$(echo "[🛑 status: %F{red} ${exit_status}%f ]")
+  k8_namespace=$(kubectl config view --minify --output 'jsonpath={..namespace}'; echo)
+  k8_context=" $(kubectl config current-context 2>/dev/null || echo none)🔥${k8_namespace}"
   k8_context_colorful="${color_start}${k8_context} ${color_end}"
 
   host="$(hostname)"
