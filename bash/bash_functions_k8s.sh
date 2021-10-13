@@ -139,23 +139,41 @@
 }
 
 ..get_namespace_pod_container_name() {
-  pod=$(kubectl get pods -A | fzf --exact --header-lines=1 --nth=2 --header-lines 1)
-  if [ -z "${pod}" ]; then
+
+  if [[ "${showAllPods}" == "yes" ]]; then
+    pod_line=$(kubectl get pods -A | fzf --exact --header-lines=1 --header-lines 1)
+  else
+    pod_line=$(kubectl get pods | fzf --exact --header-lines=1 --header-lines 1)
+  fi
+
+  if [ -z "${pod_line}" ]; then
     return 1
   fi
-  pod_name=$(echo -n "${pod}" | awk '
-  {
-    ORS = ""
-    namespace = $1
-    pod_name = $2
-    print pod_name
-  }')
-  namespace=$(echo -n "${pod}" | awk '
-  {
-    ORS = ""
-    namespace = $1
-    print namespace
-  }')
+  if [[ "${showAllPods}" == "yes" ]]; then
+    pod_name=$(echo -n "${pod_line}" | awk '
+    {
+      ORS = ""
+      namespace = $1
+      pod_name = $2
+      print pod_name
+    }')
+    namespace=$(echo -n "${pod_line}" | awk '
+    {
+      ORS = ""
+      namespace = $1
+      print namespace
+    }')
+    namespace_param="--namespace ${namespace}"
+else
+    pod_name=$(echo -n "${pod_line}" | awk '
+    {
+      ORS = ""
+      pod_name = $1
+      print pod_name
+    }')
+    namespace_param=""
+    echo podddd ${pod_name}
+  fi
 
   container=""
 
@@ -180,18 +198,28 @@
   if ! ..get_namespace_pod_container_name; then
     return 1
   fi
-  echo eval kubectl exec -it "${container_param}" --namespace "${namespace}" "${pod_name}" -- $@
-  eval kubectl exec -it "${container_param}" --namespace "${namespace}" "${pod_name}" -- $@
+  echo eval kubectl exec -it "${container_param}" "${namespace_param}"  "${pod_name}" -- $@
+  eval kubectl exec -it "${container_param}" "${namespace_param}" "${pod_name}" -- $@
 }
+
+.kp_execA() {
+  showAllPods=yes
+  .kp_exec "$@"
+}
+
 
 .kp_logs() {
   if ! ..get_namespace_pod_container_name; then
     return 1
   fi
-  echo eval kubectl logs "${container_param}" --namespace "${namespace}" "${pod_name}" $@
-  eval kubectl logs "${container_param}" --namespace "${namespace}" "${pod_name}" $@
+  echo eval kubectl logs "${container_param}" "${namespace_param}" "${pod_name}" $@
+  eval kubectl logs "${container_param}" "${namespace_param}" "${pod_name}" $@
 }
 
+.kp_logsA() {
+  showAllPods=yes
+  .kp_logs "$@"
+}
 
 .kp_events() {
     {
