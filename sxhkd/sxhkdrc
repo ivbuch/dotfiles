@@ -14,7 +14,7 @@ super + End
  
 # qutebrowser (super + pageUp)
 # firefox (super + pageUp)
-super + { Prior,Next }
+super + { Tab, Next }
   /my-tools/dotfiles/sxhkd/scripts/bookmark-manager.sh { qutebrowser, firefox }
 
 # quit/restart bspwm
@@ -46,6 +46,10 @@ super + f
 # focus on goland desktop
 super + p
   bspc desktop -f 6-GOLAND
+
+# sticky flag
+super + s
+  bspc node -g sticky
 
 # focus on prev node
 super + grave

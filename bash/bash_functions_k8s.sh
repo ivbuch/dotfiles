@@ -85,19 +85,18 @@
   if ! ..get_namespace_pod_container_name; then
     return 1
   fi
-  # files=$(eval kubectl exec "${container_param}" --namespace "${namespace}" "${pod_name}" -- find / -type f ! -ipath '/proc*' ! -ipath '/usr/*' ! -ipath '/sys/*' ! -ipath '/dev/*' || true)
-  files=$(eval kubectl exec "${container_param}" --namespace "${namespace}" "${pod_name}" -- find '/' ! -ipath '/proc' ! -ipath '/usr' ! -ipath '/sys' ! -ipath '/root' ! -ipath '/dev' ! -ipath '/var/lib')
+
+  # files=$(eval kubectl exec "${container_param}" "${namespace_param}" "${pod_name}" -- find '/tmp' ! -ipath '/proc' ! -ipath '/usr' ! -ipath '/sys' ! -ipath '/root' ! -ipath '/dev' ! -ipath '/var/lib')
+  files=$(eval kubectl exec "${container_param}" "${namespace_param}" "${pod_name}" -- find '/tmp')
   if [ -z "${files}" ]; then
     return 1
   fi
   selected_file=$(echo ${files} | fzf --exact)
-  if [ -z "${pod}" ]; then
+  if [ -z "${selected_file}" ]; then
     return 1
   fi
-
-  output_file=$(basename "${selected_file}")
   echo Executing kubectl cp --namespace "${namespace}" "${pod_name}":"${selected_file}" "${output_file}"
-  eval kubectl cp "${container_param}" --namespace "${namespace}" "${pod_name}":"${selected_file}" "${output_file}"
+  eval kubectl cp "${container_param}" "${namespace_param}" "${pod_name}":"${selected_file}" .
 }
 
 .k8_network_utils() {
@@ -192,6 +191,22 @@ else
   if [ -n "${container}" ]; then
     container_param="--container ${container}"
   fi
+}
+
+.kp_get_config() {
+  if [ -z "$1" ]; then
+    echo "Provide destination file"
+    return 1
+  fi
+
+  if ! ..get_namespace_pod_container_name; then
+    return 1
+  fi
+  echo eval kubectl exec -it "${container_param}" "${namespace_param}"  "${pod_name}" -- $@
+  output=$(mktemp)
+  eval kubectl exec -it "${container_param}" "${namespace_param}" "${pod_name}" -- curl localhost:9001/actuator/info 1>"${output}"
+  output_formatted=$(mktemp)
+  cat ${output} | jq .config > ${1}
 }
 
 .kp_exec() {
