@@ -198,13 +198,19 @@ else
     echo "Provide destination file"
     return 1
   fi
+  port="${2:-9001}"
+  if [ -z "$1" ]; then
+    echo "Provide destination file"
+    return 1
+  fi
 
   if ! ..get_namespace_pod_container_name; then
     return 1
   fi
   echo eval kubectl exec -it "${container_param}" "${namespace_param}"  "${pod_name}" -- $@
   output=$(mktemp)
-  eval kubectl exec -it "${container_param}" "${namespace_param}" "${pod_name}" -- curl localhost:9001/actuator/info 1>"${output}"
+  echo kubectl exec -it "${container_param}" "${namespace_param}" "${pod_name}" -- curl localhost:${port}/actuator/info 1>"${output}"
+  eval kubectl exec -it "${container_param}" "${namespace_param}" "${pod_name}" -- curl localhost:${port}/actuator/info 1>"${output}"
   output_formatted=$(mktemp)
   cat ${output} | jq .config > ${1}
 }
