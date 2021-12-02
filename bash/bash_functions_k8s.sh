@@ -95,8 +95,9 @@
   if [ -z "${selected_file}" ]; then
     return 1
   fi
-  echo Executing kubectl cp --namespace "${namespace}" "${pod_name}":"${selected_file}" "${output_file}"
-  eval kubectl cp "${container_param}" "${namespace_param}" "${pod_name}":"${selected_file}" .
+  output_name="$(basename ${selected_file})"
+  echo eval kubectl cp "${container_param}" "${namespace_param}" "${pod_name}":"${selected_file}" ${output_name}
+  eval kubectl cp "${container_param}" "${namespace_param}" "${pod_name}":"${selected_file}" "${output_name}"
 }
 
 .k8_network_utils() {
