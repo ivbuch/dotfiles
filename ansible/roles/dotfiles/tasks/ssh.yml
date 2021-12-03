@@ -7,7 +7,7 @@
 
 - name: create link to ~/.ssh/config
   file:
-    src: "{{ homeinfostructure_path }}/dotfiles/ssh-config"
+    src: "{{ home_infa_path }}/dotfiles/ssh-config"
     dest: "{{ ansible_env.HOME }}/.ssh/config"
     state: link
   tags:

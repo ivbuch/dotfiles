@@ -5,7 +5,7 @@ source "$DOT_FILES/bash/bash_aliases_gradle.sh"
 alias .find="fd"
 alias piy="ping ya.ru"
 alias weather="curl wttr.in"
-alias tma='$HOME_INFOSTRUCTURE/python-scripts/tmux/tmux-attach-session.py'
+alias tma='$HOME_INFRA/python-scripts/tmux/tmux-attach-session.py'
 alias tx="tmuxp load -2"
 alias txl="ls ~/.tmuxp/"
 alias r='ranger --choosedir=/tmp/ranger-$USER-rangerdir; LASTDIR=`cat /tmp/ranger-$USER-rangerdir`; cd "$LASTDIR"'
@@ -45,7 +45,7 @@ alias red="rtv"
 alias font_viewer="gtk2fontsel"
 
 alias cdd='cd $DOT_FILES'
-alias cdh='cd $HOME_INFOSTRUCTURE'
+alias cdh='cd $HOME_INFRA'
 alias cdw="cd ~/workspace"
 alias cdm="cd /run/media/igor/"
 alias cdD="cd ~/downloads"
@@ -53,9 +53,9 @@ alias cdp='cd $HOME/pictures'
 alias cdps='cd $HOME/pictures/screenshots'
 alias cdti='cd /tmp/igor'
 
-alias cdmfd='cd $HOME_INFOSTRUCTURE/work/medfusion/mf-apps'
+alias cdmfd='cd $HOME_INFRA/work/medfusion/mf-apps'
 alias cdmfs='cd $HOME/workspace/mfss'
-alias cdmft='cd $HOME_INFOSTRUCTURE/work/medfusion/scripts/integration-test-client'
+alias cdmft='cd $HOME_INFRA/work/medfusion/scripts/integration-test-client'
 
 
 # init dotfiles
@@ -105,7 +105,7 @@ alias sd="systemctl"
 alias sdu="systemctl --user"
 
 # WORK
-alias rc='python $HOME_INFOSTRUCTURE/work/medfusion/rest/rest-client/main.py' 
+alias rc='python $HOME_INFRA/work/medfusion/rest/rest-client/main.py' 
 
 # KARMA
 alias js_karma="node_modules/karma/bin/karma start karma.conf.js"

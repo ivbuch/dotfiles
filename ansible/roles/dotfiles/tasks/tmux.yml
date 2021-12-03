@@ -8,7 +8,7 @@
 
 - name: create tmuxp directory
   file:
-    src: "{{ mytools_path }}/home-infostructure/tmuxp"
+    src: "{{ mytools_path }}/home-infra/tmuxp"
     dest: "{{ ansible_env.HOME }}/.tmuxp"
     state: link
   tags:

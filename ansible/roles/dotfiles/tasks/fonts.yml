@@ -7,7 +7,7 @@
 
 - name: link fonts
   file:
-    src: "/my-tools/home-infostructure/fonts"
+    src: "/my-tools/home-infra/fonts"
     path: "{{ ansible_env.HOME }}/.local/share/fonts"
     state: link
   tags:
@@ -15,7 +15,7 @@
 
 - name: link fonts
   file:
-    src: "/my-tools/home-infostructure/fonts/desktop"
+    src: "/my-tools/home-infra/fonts/desktop"
     path: "{{ ansible_env.HOME }}/.fonts"
     state: link
   tags:

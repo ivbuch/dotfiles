@@ -53,8 +53,8 @@
     state: present
   with_items:
     - "source {{ mytools_path }}/dotfiles/bash/bash_aliases.sh"
-    - "source {{ mytools_path }}/home-infostructure/bash-scripts/work/bash_aliases.sh"
-    - "source {{ mytools_path }}/home-infostructure/bash-scripts/work/bash_functions.sh"
+    - "source {{ mytools_path }}/home-infra/bash-scripts/work/bash_aliases.sh"
+    - "source {{ mytools_path }}/home-infra/bash-scripts/work/bash_functions.sh"
   tags:
     - bash
 
@@ -106,7 +106,7 @@
 
 - name: link exec-scripts folder
   file:
-    src: "{{ mytools_path }}/home-infostructure/dotfiles/exec-scripts"
+    src: "{{ mytools_path }}/home-infra/dotfiles/exec-scripts"
     dest: "{{ ansible_env.HOME }}/.bin/exec-scripts"
     state: link
   tags:

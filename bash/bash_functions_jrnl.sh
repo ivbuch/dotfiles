@@ -1,4 +1,4 @@
-journal_file="/my-tools/home-infostructure/dotfiles/journal/journal.md"
+journal_file="/my-tools/home-infra/dotfiles/journal/journal.md"
 
 ja() {
   firefox localhost:10000

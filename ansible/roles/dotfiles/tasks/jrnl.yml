@@ -1,6 +1,6 @@
 - name: create config link
   file:
-    src: "{{ homeinfostructure_path }}/dotfiles/jrnl"
+    src: "{{ home_infa_path }}/dotfiles/jrnl"
     dest: "{{ ansible_env.HOME }}/.config/jrnl"
     state: link
   tags:

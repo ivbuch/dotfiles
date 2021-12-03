@@ -24,7 +24,6 @@
 - import_tasks: pylint.yml
 - import_tasks: rofi.yml
 - import_tasks: gtk-3_0.yml
-- import_tasks: buku.yml
 - import_tasks: lightdm.yml
 - import_tasks: jrnl.yml
 - import_tasks: bspwm.yml

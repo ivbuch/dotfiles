@@ -11,9 +11,9 @@ if [ ! -d "$DOT_FILES" ]; then
   git clone https://github.com/ivbuch/dotfiles.git
 fi
 
-if [ ! -d "$WORKSPACE/home-infostructure" ]; then
+if [ ! -d "$WORKSPACE/home-infra" ]; then
   cd $WORKSPACE
-  git clone git@bitbucket.org:buchatsky/home-infostructure.git
+  git clone git@bitbucket.org:buchatsky/home-infra.git
 fi
 
 sudo pacman -Sy ansible

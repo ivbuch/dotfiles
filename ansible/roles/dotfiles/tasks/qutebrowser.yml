@@ -1,6 +1,6 @@
 - name: create link to quteconfig (unix)
   file:
-    src: "{{ homeinfostructure_path }}/dotfiles/qutebrowser"
+    src: "{{ home_infa_path }}/dotfiles/qutebrowser"
     dest: "{{ ansible_env.HOME }}/.config/qutebrowser"
     state: link
   tags:

@@ -92,7 +92,7 @@ super + shift + o; m
   firefox "http://localhost:40000"
 
 super + P
-  /my-tools/home-infostructure/dotfiles/bash/rofi-keepassxc-to-clipboard.sh
+  /my-tools/home-infra/dotfiles/bash/rofi-keepassxc-to-clipboard.sh
 
 super + { e, t }
   { \

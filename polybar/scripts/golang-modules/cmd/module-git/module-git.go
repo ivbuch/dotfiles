@@ -9,7 +9,7 @@ import (
 
 func main() {
 	dotfilesChanged := hasChanges("/my-tools/dotfiles")
-	hiChanged := hasChanges("/my-tools/home-infostructure")
+	hiChanged := hasChanges("/my-tools/home-infra")
 
 	fmt.Printf("GIT %s %s", toImage(dotfilesChanged), toImage(hiChanged))
 }

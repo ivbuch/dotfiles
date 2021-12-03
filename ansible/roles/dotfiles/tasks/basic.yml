@@ -16,8 +16,8 @@
   become_method: sudo
   with_items:
     - { "src": "{{ dotfiles_path }}", "dest": "{{ mytools_path }}/dotfiles" }
-    - { "src": "{{ homeinfostructure_path }}/ansible", "dest": "{{ mytools_path }}/ansible" }
-    - { "src": "{{ homeinfostructure_path }}", "dest": "{{ mytools_path }}/home-infostructure" }
+    - { "src": "{{ home_infa_path }}/ansible", "dest": "{{ mytools_path }}/ansible" }
+    - { "src": "{{ home_infa_path }}", "dest": "{{ mytools_path }}/home-infra" }
   tags:
     - basic
 

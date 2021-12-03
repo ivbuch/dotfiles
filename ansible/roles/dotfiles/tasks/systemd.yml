@@ -10,7 +10,7 @@
 
 - name: copy rc-local.service
   copy:
-    src: "{{ mytools_path }}/home-infostructure/dotfiles/rc-local/rc-local.service"
+    src: "{{ mytools_path }}/home-infra/dotfiles/rc-local/rc-local.service"
     dest: "/usr/lib/systemd/system/rc-local.service"
     remote_src: yes
   become: yes
@@ -20,7 +20,7 @@
 
 - name: link rc.local script
   file:
-    src: "{{ mytools_path }}/home-infostructure/dotfiles/rc-local/rc.local"
+    src: "{{ mytools_path }}/home-infra/dotfiles/rc-local/rc.local"
     dest: "/etc/rc.local"
     state: link
   become: yes

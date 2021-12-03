@@ -15,7 +15,7 @@ function get_status() {
   return 0
 }
 
-get_status "/my-tools/home-infostructure"
+get_status "/my-tools/home-infra"
 if [ "$?" -eq "1" ];  then
   echo -n "<span foreground='#ffffff' background='#ff0000'>HI</span>."
 else

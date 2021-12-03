@@ -28,7 +28,7 @@ interval=60
 
 [mail]
 label=
-command=python /my-tools/home-infostructure/work/medfusion/get-unread-mail.py
+command=python /my-tools/home-infra/work/medfusion/get-unread-mail.py
 interval=10
 signal=12
 

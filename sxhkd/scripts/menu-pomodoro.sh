@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pomodoro_client="/my-tools/home-infostructure/python-scripts/pomodoro/pomodoro-client.py"
+pomodoro_client="/my-tools/home-infra/python-scripts/pomodoro/pomodoro-client.py"
 
 pomodoro() {
   "$HOME/.config/virtual-envs/main/bin/python" $pomodoro_client "$1" && notify-send "pomodoro $1"

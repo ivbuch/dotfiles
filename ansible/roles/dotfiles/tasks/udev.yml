@@ -1,6 +1,6 @@
 - name: copy udev rules
   copy:
-    src: "{{ mytools_path }}/home-infostructure/dotfiles/udev/10-custom-user.rules"
+    src: "{{ mytools_path }}/home-infra/dotfiles/udev/10-custom-user.rules"
     dest: "/etc/udev/rules.d"
     remote_src: yes
   become: yes

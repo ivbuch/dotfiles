@@ -41,6 +41,6 @@ case "$txt" in
   "$r_firefox") rofi_buku firefox ;;
   "$r_chromium") rofi_buku chromium ;;
   "$r_qutebrowser") rofi_buku qutebrowser ;;
-  "$r_keepassxc") /my-tools/home-infostructure/dotfiles/bash/rofi-keepassxc-to-clipboard.sh ;;
+  "$r_keepassxc") /my-tools/home-infra/dotfiles/bash/rofi-keepassxc-to-clipboard.sh ;;
   "$r_kill_proc") rofi_kill ;;
 esac

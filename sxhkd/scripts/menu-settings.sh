@@ -62,11 +62,11 @@ case "$txt" in
   "$r_restart_polybar") /my-tools/dotfiles/polybar/launch-polybar.sh ;;
   "$r_restart_wm") bspc wm -r ;;
   "$r_keyboard_backlight") keyboard_backlight ;;
-  "$r_dns") /my-tools/home-infostructure/dotfiles/bash/menu-dns-change.sh ;;
-  "$r_disable_pihole") /my-tools/home-infostructure/dotfiles/bash/disable-pihole.sh 30 ;;
+  "$r_dns") /my-tools/home-infra/dotfiles/bash/menu-dns-change.sh ;;
+  "$r_disable_pihole") /my-tools/home-infra/dotfiles/bash/disable-pihole.sh 30 ;;
   "$r_wireguard_switch") termite -e "/my-tools/dotfiles/polybar/scripts/wireguard-switch.sh" ;;
   "$r_picom_start") compton --blur-method kawase  --blur-strength 5 --blur-background --backend glx  ;;
   "$r_setup_desktops") "$HOME/.config/bspwm/setup-desktops.sh" ;;
   "$r_autorandr") autorandr_setup ;;
-  "$r_vpn") termite -e "/my-tools/home-infostructure/dotfiles/bash/enable-openvpn.sh" ;;
+  "$r_vpn") termite -e "/my-tools/home-infra/dotfiles/bash/enable-openvpn.sh" ;;
 esac
