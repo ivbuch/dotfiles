@@ -22,51 +22,51 @@ keyboard_backlight() {
   echo $NEW > $FN
 }
 
-r_random_bg="Set Random Background"
-r_show_help="Show help"
-r_keymap_switch="Enable Keymap"
-r_restart_polybar="Restart Polybar"
-r_restart_wm="Restart BSPWM"
-r_keyboard_backlight="Keyboard Backlight"
-r_dns="Change DNS"
-r_disable_pihole="Disable PiHole for 30 sec"
-r_wireguard_switch="Switch WireGuard"
-r_picom_start="Start Picom"
-r_setup_desktops="Setup BSPWM Desktops"
-r_autorandr="Autorandr setup"
-r_vpn="OpenVPN setup"
+elems=(
+  "Set Random Background"
+  "Show help"
+  "Enable Keymap"
+  "Restart Polybar"
+  "Restart BSPWM"
+  "Keyboard Backlight"
+  "Change DNS"
+  "Disable PiHole for 30 sec"
+  "Switch WireGuard"
+  "Start Picom"
+  "Setup BSPWM Desktops"
+  "Autorandr setup"
+  "OpenVPN setup"
+  "Open Jira"
+)
 
-if ! txt=$(echo "$r_random_bg
-$r_show_help
-$r_wireguard_switch
-$r_keymap_switch
-$r_keyboard_backlight
-$r_restart_polybar
-$r_restart_wm
-$r_dns
-$r_disable_pihole
-$r_picom_start
-$r_setup_desktops
-$r_autorandr
-$r_vpn
-" | rofi -dmenu -i ) ; then
+values=""
+for x in "${elems[@]}"; do
+  if [ -z "${values}" ]; then
+    values="${x}"
+    continue
+  fi 
+  values="${values}\\n${x}"
+done
 
+
+if ! txt=$(echo -e "${values}" | rofi -dmenu -i ) ; then
   echo "Bad choice"
   exit 0
 fi
 
 case "$txt" in
-  "$r_random_bg") change_theme ;;
-  "$r_show_help") text2pdf ~/.config/sxhkd/sxhkdrc | zathura - ;;
-  "$r_keymap_switch") setxkbmap "us,ru" ",winkeys" "grp:caps_toggle" ;;
-  "$r_restart_polybar") /my-tools/dotfiles/polybar/launch-polybar.sh ;;
-  "$r_restart_wm") bspc wm -r ;;
-  "$r_keyboard_backlight") keyboard_backlight ;;
-  "$r_dns") /my-tools/home-infra/dotfiles/bash/menu-dns-change.sh ;;
-  "$r_disable_pihole") /my-tools/home-infra/dotfiles/bash/disable-pihole.sh 30 ;;
-  "$r_wireguard_switch") termite -e "/my-tools/dotfiles/polybar/scripts/wireguard-switch.sh" ;;
-  "$r_picom_start") compton --blur-method kawase  --blur-strength 5 --blur-background --backend glx  ;;
-  "$r_setup_desktops") "$HOME/.config/bspwm/setup-desktops.sh" ;;
-  "$r_autorandr") autorandr_setup ;;
-  "$r_vpn") termite -e "/my-tools/home-infra/dotfiles/bash/enable-openvpn.sh" ;;
+  "Set Random Background") change_theme ;;
+  "Show help") text2pdf ~/.config/sxhkd/sxhkdrc | zathura - ;;
+  "Enable Keymap") setxkbmap "us,ru" ",winkeys" "grp:caps_toggle" ;;
+  "Restart Polybar") /my-tools/dotfiles/polybar/launch-polybar.sh ;;
+  "Restart BSPWM") bspc wm -r ;;
+  "Keyboard Backlight") keyboard_backlight ;;
+  "Change DNS") /my-tools/home-infra/dotfiles/bash/menu-dns-change.sh ;;
+  "Disable PiHole for 30 sec") ${HOME_INFRA}/dotfiles/bash/disable-pihole.sh 30 ;;
+  "Switch WireGuard") termite -e "/my-tools/dotfiles/polybar/scripts/wireguard-switch.sh" ;;
+  "Start Picom") compton --blur-method kawase  --blur-strength 5 --blur-background --backend glx  ;;
+  "Setup BSPWM Desktops") "$HOME/.config/bspwm/setup-desktops.sh" ;;
+  "Autorandr setup") autorandr_setup ;;
+  "OpenVPN setup") termite -e "/my-tools/home-infra/dotfiles/bash/enable-openvpn.sh" ;;
+  "Open Jira") ${HOME_INFRA}/dotfiles/bash/jira-open.sh ;;
 esac
