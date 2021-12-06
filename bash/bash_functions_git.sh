@@ -1,3 +1,9 @@
+### .git_gc !!! clean up local repo
+.git_gc() {
+  git gc
+  git fsck
+}
+
 ### .gitf_checkout !!! checkout git branch
 .gitf_checkout() {
   local branches branch
