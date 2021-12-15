@@ -53,7 +53,7 @@ of() {
 
 # fzf tmuxp
 tm() {
-  file_to_load=$(find -L $HOME/.tmuxp -maxdepth 1 -type f -printf '%f\n' | sed 's|.yml||' | sort | fzf -e --reverse )
+  file_to_load=$(find -L ${HOME}/.tmuxp -maxdepth 1 -type f -printf '%f\n' | sed 's|.yml||' | sort | fzf -e --reverse )
   if [[ $? != 0 ]]; then
     return 0
   fi
