@@ -1,6 +1,7 @@
 source "$DOT_FILES/bash/bash_aliases_docker.sh"
 source "$DOT_FILES/bash/bash_aliases_k8s.sh"
 source "$DOT_FILES/bash/bash_aliases_gradle.sh"
+source "$DOT_FILES/bash/bash_aliases_git.sh"
 
 alias .find="fd"
 alias piy="ping ya.ru"
@@ -23,7 +24,6 @@ alias lt="ls -lh --classify --sort=time"
 alias la="ls -lah --classify --sort=time"
 alias lh="ls -lh --classify --sort=time | head"
 
-alias g="git"
 alias grep="grep --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
 alias grep_="grep --color=never --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
 

@@ -61,7 +61,7 @@ mkdir_now() {
 
 ### .f !!! select alias
 .f() {
-  selected=$(grep -E "^###" --color=never /my-tools/dotfiles/bash/*func*.sh --no-filename | awk '
+  selected=$(grep -E "^###" --color=never /my-tools/dotfiles/bash/*func*.sh /my-tools/home-infra/bash-scripts/work/*func*.sh --no-filename | awk '
     {
       v = substr($0, 5)
       split(v, fields, " !!! ")
