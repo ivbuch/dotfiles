@@ -1,5 +1,5 @@
-source "$HOME/.bash_aliases"
-source "$DOT_FILES/bash/bash_functions.sh"
+source "${HOME}/.bash_aliases"
+source "${DOT_FILES}/bash/bash_functions.sh"
 
 
 VIRTUAL_ENV_DISABLE_PROMPT=1 source $HOME/.config/virtual-envs/main/bin/activate
