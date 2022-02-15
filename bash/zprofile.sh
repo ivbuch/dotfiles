@@ -36,9 +36,13 @@ export PATH="$PATH:$SPRING_HOME/bin"
 export PATH="$PATH:$SPARK_HOME/bin"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$CASSANDRA_HOME/bin"
-export PATH="$PATH:$KAFKA_HOME/bin"
+export PATH="${PATH}:${KAFKA_HOME}/bin"
+
+if [ -d /opt/gcloud/google-cloud-sdk ]; then
+  export PATH="${PATH}:/opt/gcloud/google-cloud-sdk/bin"
+fi
 
 if [ -d /usr/pgadmin4/bin ]; then
-  export PATH="$PATH:/usr/pgadmin4/bin"
+  export PATH="${PATH}:/usr/pgadmin4/bin"
 fi
 

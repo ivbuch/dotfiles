@@ -83,10 +83,14 @@ HISTFILE=~/.zsh_history
 autoload -Uz compinit
 compinit
 
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
 autoload bashcompinit
 bashcompinit
 
 bindkey -v
+
+setopt auto_cd
 
 # search with arrors up/down
 autoload -U up-line-or-beginning-search
