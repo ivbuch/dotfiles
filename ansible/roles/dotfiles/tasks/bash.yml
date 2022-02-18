@@ -5,35 +5,9 @@
   tags:
     - bash
 
-- name: Cloning  oh-my-zsh
-  git:
-    repo=https://github.com/robbyrussell/oh-my-zsh
-    dest=~/.oh-my-zsh
-  when: oh_my_zsh_register.stat.exists == false
-  register: cloning
-  tags:
-    - bash
-
-- name: Creating new ~/.zshrc
-  copy:
-    src=~/.oh-my-zsh/templates/zshrc.zsh-template
-    dest=~/.zshrc
-  when: cloning is changed
-  tags:
-    - bash
-
 - name: Set zsh default shell
   shell: chsh -s $(which zsh) igor
   become: yes
-  tags:
-    - bash
-
-- name: touch .zshrc file
-  file: 
-    dest: "{{ ansible_env.HOME }}/.zshrc"
-    state: touch
-  register: touch_log
-  changed_when: touch_log.diff.before.state != "file"
   tags:
     - bash
 
@@ -55,31 +29,6 @@
     - "source {{ mytools_path }}/dotfiles/bash/bash_aliases.sh"
     - "source {{ mytools_path }}/home-infra/bash-scripts/work/bash_aliases.sh"
     - "source {{ mytools_path }}/home-infra/bash-scripts/work/bash_functions.sh"
-  tags:
-    - bash
-
-- name: .zshrc must source aliases and python main virtual-env
-  lineinfile:
-    path: "{{ ansible_env.HOME }}/.zshrc"
-    line: "source /my-tools/dotfiles/bash/zshrc.sh"
-    state: present
-  tags:
-    - bash
-
-- name: link powerline theme
-  file:
-    src: "{{ mytools_path }}/dotfiles/bash/oh-my-zsh-theme/powerline.zsh-theme"
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/themes/powerline.zsh-theme"
-    state: link
-  tags:
-    - bash
-
-- name: powerline settings
-  lineinfile:
-    path: "{{ ansible_env.HOME }}/.zshrc"
-    line: "source /my-tools/dotfiles/bash/oh-my-zsh-theme/theme-settings.sh"
-    insertafter: '^ZSH_THEME='
-    state: present
   tags:
     - bash
 

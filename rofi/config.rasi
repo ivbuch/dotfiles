@@ -1,8 +1,8 @@
 configuration {
 	matching: "fuzzy";
-	theme: "/usr/share/rofi/themes/DarkBlue.rasi";
 	color-normal: "#0F0A04, #F0ECBF, #0F0A04, #B7873A, #0F0A04";
 	color-urgent: "#0F0A04, #987944, #0F0A04, #987944, #F0ECBF";
 	color-active: "#0F0A04, #F0ECBF, #0F0A04, #B7873A, #0F0A04";
 	color-window: "#0F0A04, #0F0A04, #B7873A";
 }
+@theme "/usr/share/rofi/themes/DarkBlue.rasi"

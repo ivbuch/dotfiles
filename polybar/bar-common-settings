@@ -21,6 +21,7 @@ font-0 = Share-TechMono:pixelsize=12
 font-1 = FontAwesome:size=14
 font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
 
+tray-position = left
 tray-padding = 2
 pseudo-transparency = true
 tray-transparent = true
