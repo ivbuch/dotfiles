@@ -63,10 +63,10 @@ case "$txt" in
   "Keyboard Backlight") keyboard_backlight ;;
   "Change DNS") /my-tools/home-infra/dotfiles/bash/menu-dns-change.sh ;;
   "Disable PiHole for 30 sec") ${HOME_INFRA}/dotfiles/bash/disable-pihole.sh 30 ;;
-  "Switch WireGuard") termite -e "/my-tools/dotfiles/polybar/scripts/wireguard-switch.sh" ;;
+  "Switch WireGuard") alacritty -e "/my-tools/dotfiles/polybar/scripts/wireguard-switch.sh" ;;
   "Start Picom") compton --blur-method kawase  --blur-strength 5 --blur-background --backend glx  ;;
   "Setup BSPWM Desktops") "$HOME/.config/bspwm/setup-desktops.sh" ;;
   "Autorandr setup") autorandr_setup ;;
-  "OpenVPN setup") termite -e "/my-tools/home-infra/dotfiles/bash/enable-openvpn.sh" ;;
+  "OpenVPN setup") alacritty -e "/my-tools/home-infra/dotfiles/bash/enable-openvpn.sh" ;;
   "Open Jira") ${HOME_INFRA}/dotfiles/bash/jira-open.sh ;;
 esac
