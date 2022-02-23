@@ -81,6 +81,7 @@
       - translate-shell
       - maim
       - linux-headers
+      - go-yq
     state: present
     update_cache: yes
   become: yes
