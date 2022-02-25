@@ -42,6 +42,9 @@ PYGMENTIZE_STYLE='autumn'
 
 handle_extension() {
     case "${FILE_EXTENSION_LOWER}" in
+	json)
+	    jq . "${FILE_PATH}" && exit 5
+            exit 0;;
 	dam)
 	    i-protobuf-decoder "${FILE_PATH}" | jq . -C && exit 5
             exit 0;;
