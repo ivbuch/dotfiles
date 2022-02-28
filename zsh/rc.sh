@@ -1,8 +1,7 @@
-SAVEHIST=5000  # Save most-recent 1000 lines
+SAVEHIST=5000
+HISTSIZE=5000
 HISTFILE=~/.zsh_history
 setopt share_history
-
-# here
 
 (cat ~/.cache/wal/sequences &)
 
