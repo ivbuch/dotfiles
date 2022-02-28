@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -f /bin/qutebrowser ]; then
-  /bin/qutebrowser
+  /bin/qutebrowser "$@"
 else
   ${HOME}/workspace/qutebrowser/.venv/bin/python3 -m qutebrowser "$@"
 fi
