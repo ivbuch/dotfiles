@@ -68,3 +68,10 @@ if [ "$(hostname)" = "igordesk" ]; then
   # i-protobuf-decoder completion zsh > "${fpath[1]}/_i-protobuf-decoder"
   # i-postgres-cli completion zsh > "${fpath[1]}/_i-postgres-cli"
 fi
+
+# PageDuty autocomplete
+if where pd 1>/dev/null 2>/dev/null; then
+  PD_AC_ZSH_SETUP_PATH=/home/igor/.cache/pagerduty-cli/autocomplete/zsh_setup && test -f $PD_AC_ZSH_SETUP_PATH && source $PD_AC_ZSH_SETUP_PATH; # pd autocomplete setup
+fi
+
+

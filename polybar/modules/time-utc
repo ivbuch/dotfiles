@@ -1,0 +1,4 @@
+[module/time-utc]
+type = custom/script
+interval = 5
+exec = TZ=UTC date "+%H:%M %Z"

@@ -5,7 +5,7 @@ interval = 1
 date = %A %d, %b
 date-alt = " %Y-%m-%d"
 
-time = %H:%M  %S
+time = "%H:%M  "
 time-alt = %H:%M:%S
 
 format = <label>

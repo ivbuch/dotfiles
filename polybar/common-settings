@@ -15,5 +15,6 @@ include-file = $DOT_FILES/polybar/modules/borg
 include-file = $DOT_FILES/polybar/modules/battery
 include-file = $DOT_FILES/polybar/modules/battery2
 include-file = $DOT_FILES/polybar/modules/date
+include-file = $DOT_FILES/polybar/modules/time-utc
 include-file = $DOT_FILES/polybar/modules/xkeyboard
 include-file = $DOT_FILES/polybar/modules/memory
