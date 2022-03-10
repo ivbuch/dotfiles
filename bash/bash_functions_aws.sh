@@ -34,9 +34,9 @@
   aws ec2 describe-vpcs | jq ".Vpcs | length"
 }
 
-### .kops_config_s3_dev_qa !!! import kops cluster from s3 qa bucket
-.kops_config_s3_dev_qa() {
-  envs=$(aws s3 ls "$(cat ~/.config/work/kops-dev-qa-s3)" | awk '
+### .kops-config-s3-dev-qa !!! import kops cluster from s3 qa bucket
+.kops-config-s3-dev-qa() {
+  envs=$(aws s3 ls "$(cat ~/.config/sysdig/kops-dev-qa-s3)" | awk '
   $0 !~ /Auto cleaned/ {
     v = substr($2, 1, length($2) - length("/"))
     print v
