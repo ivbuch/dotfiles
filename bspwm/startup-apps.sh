@@ -17,7 +17,7 @@ common_startapp_apps() {
   udiskie --tray &
 }
 
-igordesk_startapp_apps() {
+work_startapp_apps() {
   bspc rule -a "jetbrains-idea" desktop="${d_3}" --one-shot
   idea &
 
@@ -32,6 +32,7 @@ setup_x390_desktops() {
 common_startapp_apps
 
 case "$(hostname)" in
-  "igordesk") igordesk_startapp_apps ;;
+  "igordesk") work_startapp_apps ;;
+  "igor-legion") work_startapp_apps ;;
   "x390") setup_x390_desktops ;;
 esac

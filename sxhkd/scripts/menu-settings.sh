@@ -11,6 +11,11 @@ change_theme() {
   /my-tools/dotfiles/polybar/bspwm-launch-polybar.sh
 }
 
+restart_compton() {
+  pkill -9 compton
+  compton --config ${HOME}/.config/compton.conf
+}
+
 keyboard_backlight() {
   FN="/sys/class/leds/tpacpi::kbd_backlight/brightness"
   CURRENT="$(cat $FN)"
@@ -64,7 +69,7 @@ case "$txt" in
   "Change DNS") /my-tools/home-infra/dotfiles/bash/menu-dns-change.sh ;;
   "Disable PiHole for 30 sec") ${HOME_INFRA}/dotfiles/bash/disable-pihole.sh 30 ;;
   "Switch WireGuard") alacritty -e "/my-tools/dotfiles/polybar/scripts/wireguard-switch.sh" ;;
-  "Start Picom") compton --blur-method kawase  --blur-strength 5 --blur-background --backend glx  ;;
+  "Start Picom") restart_compton ;;
   "Setup BSPWM Desktops") "$HOME/.config/bspwm/setup-desktops.sh" ;;
   "Autorandr setup") autorandr_setup ;;
   "OpenVPN setup") alacritty -e "/my-tools/home-infra/dotfiles/bash/enable-openvpn.sh" ;;
