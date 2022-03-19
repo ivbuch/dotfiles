@@ -42,6 +42,7 @@ elems=(
   "Autorandr setup"
   "OpenVPN setup"
   "Open Jira"
+  "Rearrange Nodes"
 )
 
 values=""
@@ -70,8 +71,9 @@ case "$txt" in
   "Disable PiHole for 30 sec") ${HOME_INFRA}/dotfiles/bash/disable-pihole.sh 30 ;;
   "Switch WireGuard") alacritty -e "/my-tools/dotfiles/polybar/scripts/wireguard-switch.sh" ;;
   "Start Picom") restart_compton ;;
-  "Setup BSPWM Desktops") "$HOME/.config/bspwm/setup-desktops.sh" ;;
+  "Setup BSPWM Desktops") "${HOME}/.config/bspwm/setup-desktops.sh" ;;
   "Autorandr setup") autorandr_setup ;;
   "OpenVPN setup") alacritty -e "/my-tools/home-infra/dotfiles/bash/enable-openvpn.sh" ;;
   "Open Jira") ${HOME_INFRA}/dotfiles/bash/jira-open.sh ;;
+  "Rearrange Nodes") ${DOT_FILES}/bspwm/rearrange-nodes.sh ;;
 esac

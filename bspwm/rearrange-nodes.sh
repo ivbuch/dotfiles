@@ -13,13 +13,14 @@ move_nodes() {
     wm_class="$(xprop -id ${node_id} | grep WM_CLASS | sed 's/.* = "/"/')"
     wm_class_1=$(echo "${wm_class}" | awk -F ", " '{ print $1 }')
     wm_class_2=$(echo "${wm_class}" | awk -F ", " '{ print $2 }')
+    wm_class_2_lower=$(echo "${wm_class_2}" | awk '{ print tolower($0) }')
 
     echo "title:${title} node_id:${node_id} wm_class_1:${wm_class_1} wm_class_2:${wm_class_2}"
-    case "${wm_class_2}" in
-      *Alacritty*) move_to_desktop "${node_id}" ${wm_class_2} "2" ;;
+    case "${wm_class_2_lower}" in
+      *alacritty*) move_to_desktop "${node_id}" ${wm_class_2} "2" ;;
       *wm_class_firefox_slack*) move_to_desktop "${node_id}" ${wm_class_2} "0" ;;
       *jetbrains-idea*) move_to_desktop "${node_id}" ${wm_class_2} "3" ;;
-      *Chromium*) move_to_desktop "${node_id}" ${wm_class_2} "4" ;;
+      *chromium*) move_to_desktop "${node_id}" ${wm_class_2} "4" ;;
       *zoom*) move_to_desktop "${node_id}" ${wm_class_2} "9" ;;
       *firefox*) move_to_desktop "${node_id}" ${wm_class_2} "5" ;;
       *qutebrowser*) move_to_desktop "${node_id}" ${wm_class_2} "1" ;;

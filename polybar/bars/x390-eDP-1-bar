@@ -6,4 +6,3 @@ include-file = $DOT_FILES/polybar/bar-common-settings
 modules-left = bspwm
 modules-center = 
 modules-right = ip openvpn battery battery2 memory xkeyboard date
-tray-position = right
