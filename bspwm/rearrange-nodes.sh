@@ -19,6 +19,7 @@ move_nodes() {
     case "${wm_class_2_lower}" in
       *alacritty*) move_to_desktop "${node_id}" ${wm_class_2} "2" ;;
       *wm_class_firefox_slack*) move_to_desktop "${node_id}" ${wm_class_2} "0" ;;
+      *wm_class_firefox_whatsapp*) move_to_desktop "${node_id}" ${wm_class_2} "0" ;;
       *jetbrains-idea*) move_to_desktop "${node_id}" ${wm_class_2} "3" ;;
       *chromium*) move_to_desktop "${node_id}" ${wm_class_2} "4" ;;
       *zoom*) move_to_desktop "${node_id}" ${wm_class_2} "9" ;;
