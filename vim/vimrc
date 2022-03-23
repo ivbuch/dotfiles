@@ -355,3 +355,10 @@ function! BashHeader()
   execute "normal O" . "#!/bin/bash"
   execute "normal o" . "set -exuo pipefail"
 endfunction
+
+if &diff
+    colorscheme evening
+
+    " quit all buffers
+    nnoremap <silent> <F12> :quitall<CR>
+endif

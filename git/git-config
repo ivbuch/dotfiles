@@ -18,12 +18,12 @@
     bv = branch -vv
     bva = branch -vv --all
 
-    d = diff .
-    dt = difftool .
-    ds = difftool --staged .
-    dts = difftool --staged .
     dm = difftool --tool=meld .
     dms = difftool --staged --tool=meld .
+
+    dv = difftool --tool=vimdiff .
+    dvs = difftool --staged --tool=vimdiff .
+
     lg = log --oneline --graph --decorate --all
     l = log --name-status --abbrev-commit
     f = fetch
