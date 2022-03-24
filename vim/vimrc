@@ -357,7 +357,15 @@ function! BashHeader()
 endfunction
 
 if &diff
-    colorscheme evening
+    colorscheme industry
+    " DiffAdd     diff mode: Added line
+    " DiffChange  diff mode: Changed line
+    " DiffDelete  diff mode: Deleted line
+    " DiffText    diff mode: Changed text within a changed line
+    hi DiffAdd      ctermfg=WHITE          ctermbg=NONE
+    hi DiffChange   ctermfg=WHITE          ctermbg=NONE
+    hi DiffDelete   ctermfg=WHITE          ctermbg=NONE
+    hi DiffText     ctermfg=RED          ctermbg=WHITE
 
     " quit all buffers
     nnoremap <silent> <F12> :quitall<CR>
