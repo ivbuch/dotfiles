@@ -30,7 +30,27 @@ move_nodes() {
   done
 }
 
+move_to_alone_desktops() {
+  # need to move some desktops to Desktop desktop in order to delete it
+  monitors="$(bspc query --monitors)"
+  monitors_count=$(echo "${monitors}" | wc -l)
+  if [ "${monitors_count}" == "1" ]; then
+    echo "nothing to change"
+    exit 0
+  fi
+
+  for x in ${monitors}; do
+    desktops=$(bspc query --desktops --monitor "${x}" --names)
+    if [ "${desktops}" == "Desktop" ]; then
+      echo "Moving desktop 0 to monitor ${x}"
+      bspc desktop 0 --to-monitor "${x}"
+      exit return 0
+    fi
+  done
+}
+
 cleanup_desktops() {
+  move_to_alone_desktops
   desktop_to_remove="Desktop"
   while true
   do
