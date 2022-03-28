@@ -350,6 +350,12 @@ function! FormatGroovy()
   :set noautoread
 endfunction
 
+function! AddJiraTicketUrl()
+  read ~/.config/sysdig/jira-url.txt
+  :put +
+  execute "normal I\<Bs>"
+endfunction
+
 function! BashHeader()
   execute "normal gg"
   execute "normal O" . "#!/bin/bash"
