@@ -351,9 +351,7 @@ function! FormatGroovy()
 endfunction
 
 function! AddJiraTicketUrl()
-  read ~/.config/sysdig/jira-url.txt
-  :put +
-  execute "normal I\<Bs>"
+  read ! /my-tools/home-infra/vim/insert-jira.sh
 endfunction
 
 function! BashHeader()
