@@ -366,10 +366,10 @@ if &diff
     " DiffChange  diff mode: Changed line
     " DiffDelete  diff mode: Deleted line
     " DiffText    diff mode: Changed text within a changed line
-    hi DiffAdd      ctermfg=WHITE          ctermbg=NONE
-    hi DiffChange   ctermfg=WHITE          ctermbg=NONE
-    hi DiffDelete   ctermfg=WHITE          ctermbg=NONE
-    hi DiffText     ctermfg=RED          ctermbg=WHITE
+    hi DiffAdd      ctermfg=BLACK          ctermbg=YELLOW
+    hi DiffChange   ctermfg=BLACK          ctermbg=WHITE
+    hi DiffDelete   ctermfg=BLACK          ctermbg=YELLOW
+    hi DiffText     ctermfg=RED          ctermbg=YELLOW
 
     " quit all buffers
     nnoremap <silent> <F12> :quitall<CR>
