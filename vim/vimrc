@@ -9,7 +9,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 
-
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'surround.vim'
 Plugin 'vim-airline/vim-airline'
@@ -50,6 +49,7 @@ set hlsearch
 set number
 set norelativenumber
 set ignorecase
+set smartcase
 set shiftwidth=2
 set foldmethod=manual
 set hidden
