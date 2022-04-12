@@ -18,3 +18,8 @@ c_ip() {
   echo -n "$i" | xclip -selection clipboard
   echo "IP $i copied to clipboard"
 }
+
+### .copy !!! copy stdin into clipboard
+.copy() {
+  xclip -selection clipboard
+}

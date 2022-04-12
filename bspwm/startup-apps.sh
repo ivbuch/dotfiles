@@ -4,10 +4,10 @@ common_startapp_apps() {
   systemctl start set-random-theme --user
   /my-tools/dotfiles/polybar/bspwm-launch-polybar.sh
   /my-tools/dotfiles/polybar/launch-polybar.sh
-  compton --blur-method kawase  --blur-strength 5 --blur-background --backend glx &
+  # compton --blur-method kawase  --blur-strength 5 --blur-background --backend glx &
 
   bspc rule --add Termite:startup --one-shot node="@2:/"
-  termite --name=startup &
+  # termite --name=startup &
   firefox &
   qutebrowser &
   chromium-browser &
@@ -19,7 +19,7 @@ common_startapp_apps() {
 
 work_startapp_apps() {
   bspc rule -a "jetbrains-idea" desktop="${d_3}" --one-shot
-  idea &
+  # idea &
 
   firefox -P "slack" --class="wm_class_firefox_slack" "https://sysdigcloud.slack.com" & 
   firefox -P "whatsapp" --class="wm_class_firefox_whatsapp" "https://web.whatsapp.com" &

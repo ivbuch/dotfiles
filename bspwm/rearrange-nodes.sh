@@ -36,7 +36,7 @@ move_to_alone_desktops() {
   monitors_count=$(echo "${monitors}" | wc -l)
   if [ "${monitors_count}" == "1" ]; then
     echo "nothing to change"
-    exit 0
+    return 0
   fi
 
   for x in ${monitors}; do
@@ -44,7 +44,7 @@ move_to_alone_desktops() {
     if [ "${desktops}" == "Desktop" ]; then
       echo "Moving desktop 0 to monitor ${x}"
       bspc desktop 0 --to-monitor "${x}"
-      exit return 0
+      return 0
     fi
   done
 }
@@ -64,3 +64,5 @@ cleanup_desktops() {
 
 cleanup_desktops
 move_nodes
+/my-tools/dotfiles/polybar/launch-polybar.sh
+systemctl start set-random-theme --user
