@@ -64,5 +64,5 @@ cleanup_desktops() {
 
 cleanup_desktops
 move_nodes
-/my-tools/dotfiles/polybar/launch-polybar.sh
 systemctl start set-random-theme --user
+/my-tools/dotfiles/polybar/launch-polybar.sh

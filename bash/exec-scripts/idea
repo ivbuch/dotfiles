@@ -1,2 +1,2 @@
 #!/bin/bash
-/opt/idea/active/bin/idea.sh
+BROWSER=firefox /opt/idea/active/bin/idea.sh
