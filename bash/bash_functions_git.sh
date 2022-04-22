@@ -159,11 +159,20 @@
 
 ### .gcb !!! copy current branch name into clipboard
 .gcb() {
-  if ! text=$(git status) then
+  if ! text=$(git status); then
     echo bad
-    return 1
+    return 1 
   fi
   branch_name=$(echo "${text}" -n | head -n 1 | awk '{ print substr($0, length("on branch ") + 1)}')
   echo -n "${branch_name}" | xclip -i -selection clipboard
   echo "Branch name '${branch_name}' copied into clipboard"
+}
+
+### .gh-jenkins !!! open PR jenkins link in browser
+.gh-jenkins() {
+  set +x
+  url="$(gh pr checks | sed 's|.*\(https://sysdig-jenkins.*\)|\1|')"
+  echo "Captured ${url}"
+  firefox "${url}"
+  bspc desktop -f 5
 }

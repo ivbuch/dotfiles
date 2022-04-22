@@ -1,0 +1,4 @@
+[module/time-eu]
+type = custom/script
+interval = 5
+exec = TZ="Europe/Rome" date "+%H:%M %Z"
