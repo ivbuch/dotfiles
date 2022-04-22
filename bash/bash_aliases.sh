@@ -17,8 +17,6 @@ alias calendar="cal"
 alias ta="task"
 alias du1="du -h -d1"
 
-alias jv="jira view"
-
 alias l="ls -lh --classify"
 alias lt="ls -lh --classify --sort=time"
 alias la="ls -lah --classify --sort=time"

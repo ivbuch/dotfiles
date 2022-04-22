@@ -76,3 +76,8 @@ mkdir_now() {
   fi
   echo -n "${selected}" | awk '{ print $1 }' | tr -d '\n' | xclip -i -selection clipboard
 }
+
+### .jira-my !!! my jira tasks {
+.jira-my() {
+  jira issue list -a$(jira me)
+}

@@ -170,8 +170,7 @@
 
 ### .gh-jenkins !!! open PR jenkins link in browser
 .gh-jenkins() {
-  set +x
-  url="$(gh pr checks | sed 's|.*\(https://sysdig-jenkins.*\)|\1|')"
+  url="$(gh pr checks | grep_ 'sysdig-jenkins' | sed 's|.*\(https://sysdig-jenkins.*\)|\1|')"
   echo "Captured ${url}"
   firefox "${url}"
   bspc desktop -f 5

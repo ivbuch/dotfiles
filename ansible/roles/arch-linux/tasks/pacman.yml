@@ -56,6 +56,7 @@
       - dunst
       - gtk2fontsel
       - task
+      - noto-fonts
       - noto-fonts-emoji
       - cronie
       - diff-so-fancy
