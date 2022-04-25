@@ -3,8 +3,6 @@ HISTSIZE=5000
 HISTFILE=~/.zsh_history
 setopt share_history
 
-(cat ~/.cache/wal/sequences &)
-
 autoload -Uz compinit
 compinit
 

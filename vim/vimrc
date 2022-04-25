@@ -98,7 +98,8 @@ autocmd FileType css   setlocal expandtab ts=4 sw=4 ai
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType Jenkinsfile setlocal ts=2 sts=2 sw=2 expandtab
 
-" colorscheme darkblue
+colorscheme gruvbox
+set background=dark
 let g:airline_theme='light'
 
 " visual bg color
@@ -361,15 +362,8 @@ function! BashHeader()
 endfunction
 
 if &diff
-    colorscheme industry
-    " DiffAdd     diff mode: Added line
-    " DiffChange  diff mode: Changed line
-    " DiffDelete  diff mode: Deleted line
-    " DiffText    diff mode: Changed text within a changed line
-    hi DiffAdd      ctermfg=BLACK          ctermbg=YELLOW
-    hi DiffChange   ctermfg=BLACK          ctermbg=WHITE
-    hi DiffDelete   ctermfg=BLACK          ctermbg=YELLOW
-    hi DiffText     ctermfg=RED          ctermbg=YELLOW
+    " disable readonly
+    set noro
 
     " quit all buffers
     nnoremap <silent> <F12> :quitall<CR>
