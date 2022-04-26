@@ -172,6 +172,13 @@
 .gh-jenkins() {
   url="$(gh pr checks | grep_ 'sysdig-jenkins' | sed 's|.*\(https://sysdig-jenkins.*\)|\1|')"
   echo "Captured ${url}"
-  firefox "${url}"
+  updated_url="$(echo "${url}" | sed 's|display/redirect|console|')"
+  echo "Updated ${updated_url}"
+  firefox "${updated_url}"
   bspc desktop -f 5
+}
+
+### .gh-pr-web !!! open PR in web
+.gh-pr-web() {
+  BROWSER=firefox gh pr view --web
 }
