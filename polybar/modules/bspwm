@@ -11,7 +11,7 @@ label-focused-padding = 2
 # OCCUPIED
 label-occupied = %name%
 label-occupied-padding = 2
-label-occupied-underline = #555555
+label-occupied-underline = #ffffff
 
 # URGENT
 label-urgent = %name%
