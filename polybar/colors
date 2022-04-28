@@ -1,8 +1,8 @@
 [colors]
-background = ${xrdb:background}
-background-alt = ${xrdb:background}
+background = #aa000000
+background-alt = #aa000000
 
-foreground = ${xrdb:foreground}
+foreground = ${xrdb:background}
 foreground-alt = ${xrdb:foreground}
 foreground-alt-2 = ${xrdb:color1}
 
