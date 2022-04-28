@@ -44,7 +44,7 @@ source "${DOT_FILES}/bash/bash_functions.sh"
 
 VIRTUAL_ENV_DISABLE_PROMPT=1 source $HOME/.config/virtual-envs/main/bin/activate
 source "${HOME_INFRA}/bash-scripts/z.sh"
-
+source "${HOME_INFRA}/dotfiles/zsh/rc.sh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -z "$TMUX" ] && tmux
