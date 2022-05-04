@@ -39,12 +39,16 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-source "${HOME}/.bash_aliases"
+source "${HOME_INFRA}/dotfiles/zsh/rc.sh"
+
+source "${DOT_FILES}/bash/bash_aliases.sh"
 source "${DOT_FILES}/bash/bash_functions.sh"
+source "${HOME_INFRA}/dotfiles/zsh/zsh-aliases.sh"
+source "${HOME_INFRA}/dotfiles/zsh/zsh-functions.sh"
+
+source "${HOME_INFRA}/dotfiles/zsh/libs/z.sh"
 
 VIRTUAL_ENV_DISABLE_PROMPT=1 source $HOME/.config/virtual-envs/main/bin/activate
-source "${HOME_INFRA}/bash-scripts/z.sh"
-source "${HOME_INFRA}/dotfiles/zsh/rc.sh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -z "$TMUX" ] && tmux
@@ -75,5 +79,3 @@ fi
 if where pd 1>/dev/null 2>/dev/null; then
   PD_AC_ZSH_SETUP_PATH=/home/igor/.cache/pagerduty-cli/autocomplete/zsh_setup && test -f $PD_AC_ZSH_SETUP_PATH && source $PD_AC_ZSH_SETUP_PATH; # pd autocomplete setup
 fi
-
-
