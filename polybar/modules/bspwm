@@ -1,6 +1,23 @@
 [module/bspwm]
 type = internal/bspwm
 
+format = <label-state> <label-mode>
+
+label-tiled=
+label-monocle=M
+label-fullscreen=F
+label-floating=P
+label-locked = L
+
+label-sticky = S
+label-sticky-foreground = #ffffff
+label-sticky-background = #3f3f3f
+label-sticky-underline = #fba922
+label-stick-padding = 2
+
+
+label-private = P
+
 # FOCUSED
 label-focused = %name%
 label-focused-foreground = #ffffff
