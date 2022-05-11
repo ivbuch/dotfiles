@@ -34,9 +34,8 @@
   aws ec2 describe-vpcs | jq ".Vpcs | length"
 }
 
-### .kops-config-s3-dev-qa !!! import kops cluster from s3 qa bucket
-.kops-config-s3-dev-qa() {
-  envs=$(aws s3 ls "$(cat ~/.config/sysdig/kops-dev-qa-s3)" | awk '
+.kops-config-from-s3_helper() {
+  envs=$(aws s3 ls "$(cat ${1})" | awk '
   $0 !~ /Auto cleaned/ {
     v = substr($2, 1, length($2) - length("/"))
     print v
@@ -47,6 +46,16 @@
     echo "no choice"
     return
   fi
-  KOPS_STATE_STORE=${KOPS_STATE_QA_STORE} kops export kubecfg --name "${selected_env}" --admin
+  KOPS_STATE_STORE="s3://$(cat ${1})" kops export kubecfg --name "${selected_env}" --admin
   kubectl config set-context --current --namespace sysdigcloud
+}
+
+### .kops-config-s3-dev-qa !!! import kops cluster from s3 qa bucket
+.kops-config-s3-dev-qa() {
+  .kops-config-from-s3_helper "${HOME}/.config/sysdig/kops-dev-qa-s3"
+}
+
+### .kops-config-s3-dev !!! import kops cluster from s3 dev bucket
+.kops-config-s3-dev() {
+  .kops-config-from-s3_helper "${HOME}/.config/sysdig/kops-dev-s3"
 }
