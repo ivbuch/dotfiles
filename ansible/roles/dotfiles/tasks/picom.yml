@@ -1,0 +1,7 @@
+- name: create config link
+  file:
+    src: "{{ mytools_path }}/dotfiles/picom"
+    dest: "{{ ansible_env.HOME }}/.config/picom"
+    state: link
+  tags:
+    - "picom"

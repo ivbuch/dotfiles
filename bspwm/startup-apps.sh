@@ -4,7 +4,10 @@ common_startapp_apps() {
   systemctl start set-random-theme --user
   /my-tools/dotfiles/polybar/bspwm-launch-polybar.sh
   /my-tools/dotfiles/polybar/launch-polybar.sh
-  # compton --blur-method kawase  --blur-strength 5 --blur-background --backend glx &
+
+  if command -v picom &</dev/null; then
+    picom --experimental-backends &
+  fi
 
   bspc rule --add Termite:startup --one-shot node="@2:/"
   # termite --name=startup &

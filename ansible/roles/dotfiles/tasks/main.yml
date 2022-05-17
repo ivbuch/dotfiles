@@ -19,7 +19,7 @@
 - import_tasks: udev.yml
 - import_tasks: mpd.yml
 - import_tasks: ncmpcpp.yml
-- import_tasks: compton.yml
+- import_tasks: picom.yml
 - import_tasks: dunst.yml
 - import_tasks: pylint.yml
 - import_tasks: rofi.yml
