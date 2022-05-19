@@ -13,7 +13,6 @@ common_startapp_apps() {
   # termite --name=startup &
   firefox &
   qutebrowser &
-  chromium-browser &
 
   /home/igor/.config/virtual-envs/main/bin/flashfocus &
   setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
