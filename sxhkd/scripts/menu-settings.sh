@@ -11,9 +11,10 @@ change_theme() {
   /my-tools/dotfiles/polybar/bspwm-launch-polybar.sh
 }
 
-restart_compton() {
-  pkill -9 compton
-  compton --config ${HOME}/.config/compton.conf
+restart_picom() {
+  pkill -9 compton || true
+  pkill -9 picom || true
+  picom --experimental-backends &
 }
 
 keyboard_backlight() {
@@ -70,7 +71,7 @@ case "$txt" in
   "Change DNS") /my-tools/home-infra/dotfiles/bash/menu-dns-change.sh ;;
   "Disable PiHole for 30 sec") ${HOME_INFRA}/dotfiles/bash/disable-pihole.sh 30 ;;
   "Switch WireGuard") alacritty -e "/my-tools/dotfiles/polybar/scripts/wireguard-switch.sh" ;;
-  "Start Picom") restart_compton ;;
+  "Start Picom") restart_picom ;;
   "Setup BSPWM Desktops") "${HOME}/.config/bspwm/setup-desktops.sh" ;;
   "Autorandr setup") autorandr_setup ;;
   "OpenVPN setup") alacritty -e "/my-tools/home-infra/dotfiles/bash/enable-openvpn.sh" ;;
