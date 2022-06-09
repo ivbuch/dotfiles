@@ -1,0 +1,10 @@
+[Unit]
+Description=Screenshot cleanup service
+Wants=screenshot-cleanup.timer
+
+[Service]
+Type=oneshot
+ExecStart=/my-tools/dotfiles/systemd/user-services/screenshot-cleanup/screenshot-cleanup.sh
+
+[Install]
+WantedBy=multi-user.target

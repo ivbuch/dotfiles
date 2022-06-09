@@ -1,0 +1,10 @@
+[Unit]
+Description=Screenshot cleanup service
+Requires=screenshot-cleanup.service
+
+[Timer]
+Unit=screenshot-cleanup.service
+OnCalendar=*-*-* 10:00:00
+
+[Install]
+WantedBy=timers.target

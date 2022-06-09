@@ -56,20 +56,24 @@
 
 - name: link user services
   file:
-    src: "{{ mytools_path }}/dotfiles/systemd/user-services/{{ item }}"
-    dest: "{{ ansible_env.HOME }}/.config/systemd/user/{{ item }}"
+    src: "{{ mytools_path }}/dotfiles/systemd/user-services/{{ item.src }}"
+    dest: "{{ ansible_env.HOME }}/.config/systemd/user/{{ item.dst }}"
     state: link
   with_items:
-    - on-boot.service
-    - blueman-applet.service
-    - nm-applet.service
-    - volume-icon-applet.service
-    - greenclip.service
-    - syncthing.service
-    - set-random-theme.service
-    - set-random-theme.timer
+    - {src: "vim/vimrc", dst: ".vimrc" }
+    - {src: "on-boot.service", dst: "on-boot.service" }
+    - {src: "blueman-applet.service", dst: "blueman-applet.service" }
+    - {src: "nm-applet.service", dst: "nm-applet.service" }
+    - {src: "volume-icon-applet.service", dst: "volume-icon-applet.service" }
+    - {src: "greenclip.service", dst: "greenclip.service" }
+    - {src: "syncthing.service", dst: "syncthing.service" }
+    - {src: "set-random-theme.service", dst: "set-random-theme.service" }
+    - {src: "set-random-theme.timer", dst: "set-random-theme.timer" }
+    - {src: "screenshot-cleanup/screenshot-cleanup.service", dst: "screenshot-cleanup.service" }
+    - {src: "screenshot-cleanup/screenshot-cleanup.timer", dst: "screenshot-cleanup.timer" }
   tags:
     - systemd
+    - user-systemd-scripts
 
 - name: enable user services
   systemd:
@@ -87,6 +91,8 @@
     - on-boot.service
     - set-random-theme.service
     - set-random-theme.timer
+    - screenshot-cleanup.service
+    - screenshot-cleanup.timer
   tags:
     - systemd
 
