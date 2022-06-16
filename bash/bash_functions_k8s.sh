@@ -14,16 +14,7 @@
   kubectl exec -it kafkacat -- kafkacat -C -t $topic -o $offset -f '%t\n%p\n%o\n%R%s\n\n\n\n\n' -b z-kafka:9092 
 }
 
-.k8_pod_by_label() {
-  if [ -z "$1" ]; then
-    echo "Provide label selector like 'app=test'"
-    return 1
-  fi
-
-  kubectl get pods --selector "$1" --output json --field-selector=status.phase=Running | jq ".items[0].metadata.name" --raw-output
-}
-
-
+### .k8_goutils !!! run go utils pod
 .k8_goutils() {
   # pod_name="igor-go-utilss"
   pod_name="igor-go-utils"
@@ -44,7 +35,8 @@
   kubectl exec -it ${pod_name} -- bash
 }
 
-.kp() {
+### .k8_get_pod !!! get pod
+.k8_get_pod() {
   # copy pod in default namespace
   pod=$(kubectl get pods | fzf --exact --header-lines=1 --nth=1 --header-lines 1 \
     --preview-window follow \
@@ -62,6 +54,7 @@
   }' | xclip -selection clipboard
 }
 
+### .k8a_get_pod !!! get pod all namespaces
 .kpa() {
   # copy pod across all namespaces
   pod=$(kubectl get pods -A | fzf --exact --header-lines=1 --nth=2 --header-lines 1 \
@@ -81,7 +74,9 @@
   }' | xclip -selection clipboard
 }
 
-.kp_copy() {
+### .k8_copy !!! copy from a pod
+.k8_copy() {
+  showAllPods="${showAllPods:-no}"
   if ! ..get_namespace_pod_container_name; then
     return 1
   fi
@@ -100,6 +95,7 @@
   eval kubectl cp "${container_param}" "${namespace_param}" "${pod_name}":"${selected_file}" "${output_name}"
 }
 
+### .k8_network_utils !!! network utils
 .k8_network_utils() {
   pod_name="igor-network-utils"
 
@@ -139,7 +135,7 @@
 }
 
 ..get_namespace_pod_container_name() {
-
+  # echo "lala ${showAllPods}" 
   if [[ "${showAllPods}" == "yes" ]]; then
     pod_line=$(kubectl get pods -A | fzf --exact --header-lines=1 --header-lines 1)
   else
@@ -194,7 +190,8 @@ else
   fi
 }
 
-.kp_get_config() {
+### .k8_get_config !!! get pod config
+.k8_get_config() {
   if [ -z "$1" ]; then
     echo "Provide destination file"
     return 1
@@ -205,6 +202,7 @@ else
     return 1
   fi
 
+  showAllPods="${showAllPods:-no}"
   if ! ..get_namespace_pod_container_name; then
     return 1
   fi
@@ -216,7 +214,9 @@ else
   cat ${output} | jq .config > ${1}
 }
 
-.kp_exec() {
+### .k8_exec !!! exec into any namespace pod
+.k8_exec() {
+  showAllPods="${showAllPods:-no}"
   if ! ..get_namespace_pod_container_name; then
     return 1
   fi
@@ -224,13 +224,16 @@ else
   eval kubectl exec -it "${container_param}" "${namespace_param}" "${pod_name}" -- $@
 }
 
-.kp_execA() {
-  showAllPods=yes
+### .k8a_exec !!! exec into any cluster pod
+.k8a_exec() {
+  export showAllPods=yes
   .kp_exec "$@"
+  unset showAllPods
 }
 
-
-.kp_logs() {
+### .k8_logs !!! logs from any pod in the namespace
+.k8_logs() {
+  showAllPods="${showAllPods:-no}"
   if ! ..get_namespace_pod_container_name; then
     return 1
   fi
@@ -238,12 +241,15 @@ else
   eval kubectl logs "${container_param}" "${namespace_param}" "${pod_name}" $@
 }
 
-.kp_logsA() {
+### .k8a_logs !!! logs from any pod in the cluster
+.k8a_logs() {
   showAllPods=yes
-  .kp_logs "$@"
+  .k8_logs "$@"
+  unset showAllPods
 }
 
-.kp_events() {
+### .k8_events !!! logs from any pod in the cluster
+.k8_events() {
     {
         echo $'TIME\tNAMESPACE\tTYPE\tREASON\tOBJECT\tSOURCE\tMESSAGE';
         kubectl get events -o json "$@" \
@@ -253,8 +259,8 @@ else
         | less -S
 }
 
-### .kp_get_pods_running_to_a_pod !!! show pods on a node where given pod is running
-.kp_get_pods_running_to_a_pod() {
+### .k8_get_pods_running_to_a_pod !!! show pods on a node where given pod is running
+.k8_get_pods_running_to_a_pod() {
   node=$(kubectl get pods -o json "${1}" | jq '.status.hostIP' --raw-output)
   if [ -z "${node}" ]; then
     echo "no node"
