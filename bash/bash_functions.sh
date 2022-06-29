@@ -81,3 +81,11 @@ mkdir_now() {
 .jira-my() {
   jira issue list -a$(jira me)
 }
+
+.jira-my-open() {
+  jira issue list -a$(jira me) -s "Open"
+}
+
+.jira-my-review() {
+  jira issue list -a$(jira me) -s "Review"
+}

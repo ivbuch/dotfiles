@@ -26,6 +26,7 @@ Plugin 'martinda/Jenkinsfile-vim-syntax' " yaml indent highlighting
 Plugin 'GEverding/vim-hocon'
 Plugin 'groovy.vim'
 Plugin 'Fugitive.vim'
+Plugin 'mogelbrod/vim-jsonpath'
 
 
 " All of your Plugins must be added before the following line
