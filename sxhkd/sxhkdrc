@@ -26,6 +26,9 @@ super + {_,shift + }q
   bspc node -{c,k}
 
 ### --- BSPWM FOCUS
+
+super + r
+  bspc node @parent -R 90
  
 # focus the node in the given direction
 super + {h,j,k,l}

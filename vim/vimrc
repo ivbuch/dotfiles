@@ -160,6 +160,9 @@ inoremap jj <Esc>
 " exit visual mode
 vmap JJ <Esc>
 
+" open selected text in new file
+vmap <Leader>n : w! /tmp/new-buffer<CR> :edit /tmp/new-buffer<CR>
+
 " write buffer
 noremap <Leader>s :write<CR>
 
@@ -240,7 +243,10 @@ nmap <Leader>fix :put +<cr>:set filetype=xml<cr>:call FormatXml()<cr>
 
 " format python
 nmap <Leader>fp ::0,$! python -c 'import yaml, sys; yaml.safe_load(sys.stdin)'<CR>
-"
+
+" format encoded in string json
+nmap <Leader>ej ::. ! python -c 'import json, sys; lines = sys.stdin.readlines(); print(json.loads(lines[0]))'<CR>
+
 " validate yaml
 nmap <Leader>vy :call ValidateYaml() <CR>
 
@@ -271,24 +277,6 @@ nmap <Leader>C "+y$
 
 " open edit ~/.vimrc
 nmap <Leader>ev :e ~/.vimrc <CR>
-
-" open edit ~/.i3/config
-nmap <Leader>ei3 :e ~/.config/i3/config <CR>
-
-" open edit ~/.config/ranger/rc.conf
-nmap <Leader>er :e ~/.config/ranger/rc.conf <CR>
-
-" open edit ~/.config/qutebrowser/keys/conf
-nmap <Leader>eq :e ~/.config/qutebrowser/config.py <CR>
-
-" open edit ~/.tmux.conf
-nmap <Leader>et :e ~/.tmux.conf <CR>
-
-" open edit ~/.Xresources
-nmap <Leader>ex :e ~/.Xresources <CR>
-
-" help - list all bindings
-nmap <leader>? :help index.txt<CR>
 
 " spell checking, on and off
 noremap <Leader><F9> :setlocal spell spelllang=en_us<CR>

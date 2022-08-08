@@ -14,8 +14,8 @@
   kubectl exec -it kafkacat -- kafkacat -C -t $topic -o $offset -f '%t\n%p\n%o\n%R%s\n\n\n\n\n' -b z-kafka:9092 
 }
 
-### .k8_goutils !!! run go utils pod
-.k8_goutils() {
+### .k_goutils !!! run go utils pod
+.k_goutils() {
   # pod_name="igor-go-utilss"
   pod_name="igor-go-utils"
   run_pod="kubectl run igor-go-utils --image=ivbuch/go-utils:0.4 --image-pull-policy=Always"
@@ -35,8 +35,8 @@
   kubectl exec -it ${pod_name} -- bash
 }
 
-### .k8_get_pod !!! get pod
-.k8_get_pod() {
+### .k_get_pod !!! get pod
+.k_get_pod() {
   # copy pod in default namespace
   pod=$(kubectl get pods | fzf --exact --header-lines=1 --nth=1 --header-lines 1 \
     --preview-window follow \
@@ -54,7 +54,27 @@
   }' | xclip -selection clipboard
 }
 
-### .k8a_get_pod !!! get pod all namespaces
+### .k_get_pod_uid !!! get pod uid
+.k_get_pod_uid() {
+  # copy pod in default namespace
+  pod=$(kubectl get pods | fzf --exact --header-lines=1 --nth=1 --header-lines 1 \
+    --preview-window follow \
+    --preview "kubectl logs '{1}' --since=5m" \
+    --bind 'ctrl-l:preview(echo {})')
+  if [ -z "${pod}" ]; then
+    return 1
+  fi
+
+  pod_name=$(echo -n "${pod}" | awk '
+  {
+    ORS = ""
+    pod_name = $1
+    print pod_name
+  }')
+  kubectl get pod "${pod_name}" -o yaml | yq .metadata.uid | xclip -selection clipboard
+}
+
+### .kpa !!! get pod all namespaces
 .kpa() {
   # copy pod across all namespaces
   pod=$(kubectl get pods -A | fzf --exact --header-lines=1 --nth=2 --header-lines 1 \
@@ -74,8 +94,8 @@
   }' | xclip -selection clipboard
 }
 
-### .k8_copy !!! copy from a pod
-.k8_copy() {
+### .k_copy !!! copy from a pod
+.k_copy() {
   showAllPods="${showAllPods:-no}"
   if ! ..get_namespace_pod_container_name; then
     return 1
@@ -95,8 +115,8 @@
   eval kubectl cp "${container_param}" "${namespace_param}" "${pod_name}":"${selected_file}" "${output_name}"
 }
 
-### .k8_network_utils !!! network utils
-.k8_network_utils() {
+### .k_network_utils !!! network utils
+.k_network_utils() {
   pod_name="igor-network-utils"
 
   pods=$(kubectl get pods --field-selector=metadata.name=${pod_name},status.phase=Running --output json  | jq --raw-output '.items | length')
@@ -190,8 +210,8 @@ else
   fi
 }
 
-### .k8_get_config !!! get pod config
-.k8_get_config() {
+### .k_get_config !!! get pod config
+.k_get_config() {
   if [ -z "$1" ]; then
     echo "Provide destination file"
     return 1
@@ -214,8 +234,8 @@ else
   cat ${output} | jq .config > ${1}
 }
 
-### .k8_exec !!! exec into any namespace pod
-.k8_exec() {
+### .k_exec !!! exec into any namespace pod
+.k_exec() {
   showAllPods="${showAllPods:-no}"
   if ! ..get_namespace_pod_container_name; then
     return 1
@@ -224,15 +244,15 @@ else
   eval kubectl exec -it "${container_param}" "${namespace_param}" "${pod_name}" -- $@
 }
 
-### .k8a_exec !!! exec into any cluster pod
-.k8a_exec() {
+### .k_exec_a !!! exec into any cluster pod
+.k_exec_a() {
   export showAllPods=yes
   .kp_exec "$@"
   unset showAllPods
 }
 
-### .k8_logs !!! logs from any pod in the namespace
-.k8_logs() {
+### .k_logs !!! logs from any pod in the namespace
+.k_logs() {
   showAllPods="${showAllPods:-no}"
   if ! ..get_namespace_pod_container_name; then
     return 1
@@ -241,15 +261,15 @@ else
   eval kubectl logs "${container_param}" "${namespace_param}" "${pod_name}" $@
 }
 
-### .k8a_logs !!! logs from any pod in the cluster
-.k8a_logs() {
+### .k_logs_a !!! logs from any pod in the cluster
+.k_logs_a() {
   showAllPods=yes
   .k8_logs "$@"
   unset showAllPods
 }
 
-### .k8_events !!! logs from any pod in the cluster
-.k8_events() {
+### .k_events !!! logs from any pod in the cluster
+.k_events() {
     {
         echo $'TIME\tNAMESPACE\tTYPE\tREASON\tOBJECT\tSOURCE\tMESSAGE';
         kubectl get events -o json "$@" \
@@ -259,8 +279,8 @@ else
         | less -S
 }
 
-### .k8_get_pods_running_to_a_pod !!! show pods on a node where given pod is running
-.k8_get_pods_running_to_a_pod() {
+### .k_get_pods_running_to_a_pod !!! show pods on a node where given pod is running
+.k_get_pods_running_to_a_pod() {
   node=$(kubectl get pods -o json "${1}" | jq '.status.hostIP' --raw-output)
   if [ -z "${node}" ]; then
     echo "no node"
