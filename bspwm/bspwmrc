@@ -46,7 +46,7 @@ bspc rule -a "qutebrowser" desktop="${d_1}" follow=on focus=on
 bspc rule -a "java-lang-Thread" desktop="3-IDE"
 
 # zoom window
-bspc rule -a "zoom" desktop="9-ZOOM"
+bspc rule -a "zoom" desktop="9-ZOOM" sticky=on
 
 if [ "$(hostname)" = "igordesk" ]; then
   autorandr --load desktop
