@@ -27,6 +27,7 @@ Plugin 'GEverding/vim-hocon'
 Plugin 'groovy.vim'
 Plugin 'Fugitive.vim'
 Plugin 'mogelbrod/vim-jsonpath'
+Plugin 'lmeijvogel/vim-yaml-helper'
 
 
 " All of your Plugins must be added before the following line
