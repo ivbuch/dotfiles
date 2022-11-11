@@ -103,7 +103,7 @@ super + { e, t }
     /my-tools/dotfiles/sxhkd/scripts/menu-translate.sh, \
   }
 
-super + z ; { c, s, p, q, f, k, t }
+super + z ; { c, s, p, q, f, k, t, n }
   { \
     echo -n "$(greenclip print | rofi -dmenu)" | xclip -selection clipboard, \
     /my-tools/dotfiles/sxhkd/scripts/menu-settings.sh, \
@@ -112,6 +112,7 @@ super + z ; { c, s, p, q, f, k, t }
     /my-tools/dotfiles/sxhkd/scripts/bookmark-manager.sh firefox, \
     keepassxc, \
     /my-tools/dotfiles/sxhkd/scripts/toggle-floating.sh, \
+    /my-tools/dotfiles/bspwm/rearrange-nodes.sh, \
   }
 
 super + j ; { d, s }
@@ -168,3 +169,8 @@ XF86AudioMute
 # --- change theme
 super + b
   systemctl start set-random-theme --user && /my-tools/dotfiles/polybar/bspwm-launch-polybar.sh
+
+super + w +; l
+  /my-tools/home-infra/work/sysdig/bash-scripts/misc/logdna/logdna.sh
+super + w +; d
+  /my-tools/home-infra/work/sysdig/bash-scripts/misc/prodmon/prodmon-monitor.sh

@@ -35,8 +35,13 @@
   kubectl exec -it ${pod_name} -- bash
 }
 
-### .k_get_pod !!! get pod
-.k_get_pod() {
+### .kg !!! get pod and grep
+.kg() {
+  kubectl get pods | grep "${1}"
+}
+
+### .k !!! get pod
+.k() {
   # copy pod in default namespace
   pod=$(kubectl get pods | fzf --exact --header-lines=1 --nth=1 --header-lines 1 \
     --preview-window follow \
@@ -251,8 +256,8 @@ else
   unset showAllPods
 }
 
-### .k_logs !!! logs from any pod in the namespace
-.k_logs() {
+### .kl !!! logs from any pod in the namespace
+.kl() {
   showAllPods="${showAllPods:-no}"
   if ! ..get_namespace_pod_container_name; then
     return 1
@@ -262,7 +267,7 @@ else
 }
 
 ### .k_logs_a !!! logs from any pod in the cluster
-.k_logs_a() {
+.kla() {
   showAllPods=yes
   .k8_logs "$@"
   unset showAllPods

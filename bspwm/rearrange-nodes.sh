@@ -62,6 +62,8 @@ cleanup_desktops() {
   done
 }
 
+autorandr --change
+sleep 3
 cleanup_desktops
 move_nodes
 systemctl start set-random-theme --user
