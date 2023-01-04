@@ -1,0 +1,10 @@
+[Unit]
+Description=Folders cleanup service
+Wants=folders-cleanup.timer
+
+[Service]
+Type=oneshot
+ExecStart=/my-tools/dotfiles/systemd/user-services/folders-cleanup/folders-cleanup.sh
+
+[Install]
+WantedBy=multi-user.target

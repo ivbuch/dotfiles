@@ -30,11 +30,19 @@ markdown_view() {
   pandoc "$1" | lynx -stdin
 }
 
-mkdir_move() {
-  mkdir "$1"
-  mv "$2" "$1"
-  echo "Moved $2 to $1"
-  cd "$1" || return
+### .mkdir-move-file-to-new-dir !!! create dir $2 and move file $1 into it
+.mkdir-move-file-to-new-dir() {
+  mkdir "$2"
+  mv "$1" "$2"
+  echo "Moved $1 to $2"
+  cd "$2" || return
+}
+
+### .mkdir-now !!! create dir timestampt and cds into it
+.mkdir-now() {
+  d=$(date +'%Y-%m-%d-----%H:%M')
+  mkdir "$d"
+  cd "${d}"
 }
 
 download_youtube_audio() {
@@ -52,11 +60,6 @@ opened_ports_by_pid() {
 # echo latest s host
 sl() {
   echo -n "$(cat /tmp/s_latest_host.txt)"
-}
-
-mkdir_now() {
-  d=$(date +'%Y-%m-%d-----%H:%M')
-  mkdir "$d"
 }
 
 ### .f !!! select alias

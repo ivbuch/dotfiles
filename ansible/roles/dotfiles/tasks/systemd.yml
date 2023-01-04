@@ -69,8 +69,8 @@
     - {src: "syncthing.service", dst: "syncthing.service" }
     - {src: "set-random-theme.service", dst: "set-random-theme.service" }
     - {src: "set-random-theme.timer", dst: "set-random-theme.timer" }
-    - {src: "screenshot-cleanup/screenshot-cleanup.service", dst: "screenshot-cleanup.service" }
-    - {src: "screenshot-cleanup/screenshot-cleanup.timer", dst: "screenshot-cleanup.timer" }
+    - {src: "folders-cleanup/folders-cleanup.service", dst: "folders-cleanup.service" }
+    - {src: "folders-cleanup/folders-cleanup.timer", dst: "folders-cleanup.timer" }
   tags:
     - systemd
     - user-systemd-scripts
@@ -91,8 +91,8 @@
     - on-boot.service
     - set-random-theme.service
     - set-random-theme.timer
-    - screenshot-cleanup.service
-    - screenshot-cleanup.timer
+    - folders-cleanup.service
+    - folders-cleanup.timer
   tags:
     - systemd
 

@@ -1,0 +1,10 @@
+[Unit]
+Description=Folders cleanup service
+Requires=folders-cleanup.service
+
+[Timer]
+Unit=folders-cleanup.service
+OnCalendar=*-*-* 10:00:00
+
+[Install]
+WantedBy=timers.target
