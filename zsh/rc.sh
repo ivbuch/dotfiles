@@ -73,7 +73,8 @@ if [ "$(hostname)" = "igor-legion" ]; then
   # i-kafka-consumer completion zsh > "${fpath[1]}/_i-kafka-consumer"
   # i-protobuf-decoder completion zsh > "${fpath[1]}/_i-protobuf-decoder"
   # i-postgres-cli completion zsh > "${fpath[1]}/_i-postgres-cli"
-  sdc-rest completion zsh > "${fpath[1]}/_sdc-rest"
+  sdc completion zsh > "${fpath[1]}/_sdc"
+  i-dtu completion zsh > "${fpath[1]}/_i-dtu"
 fi
 
 # PageDuty autocomplete

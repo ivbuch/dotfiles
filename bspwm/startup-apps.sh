@@ -6,7 +6,7 @@ common_startapp_apps() {
   /my-tools/dotfiles/polybar/launch-polybar.sh
 
   if command -v picom &</dev/null; then
-    picom --experimental-backends &
+    picom --daemon &
   fi
 
   bspc rule --add Termite:startup --one-shot node="@2:/"
