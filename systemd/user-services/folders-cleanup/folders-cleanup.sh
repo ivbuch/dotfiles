@@ -1,7 +1,7 @@
 #!/bin/bash
-set -exuo pipefail
+set -euo pipefail
 
-cleanup_folder() {
+daily_cleanup_folder() {
   folder="${1}"
 
   files_to_move="$(find ${folder} -maxdepth 1 -type f)"
@@ -35,5 +35,40 @@ cleanup_folder() {
   IFS="$OIFS"
 }
 
-cleanup_folder "${HOME}/pictures/screenshots"
-cleanup_folder "${HOME}/downloads"
+monthly_cleanup_folder() {
+  folder="${1}"
+  files_to_move="$(find ${folder} -maxdepth 1 -type f -name '20*.yaml')"
+
+  if [ -z "${files_to_move}" ] ; then
+    echo no new files...exit
+    return 0
+  fi
+
+  date_folder=$(date -d "yesterday" '+%Y-%m-%d')
+  dest_folder="${folder}/${date_folder}"
+
+  echo mkdir -p "${dest_folder}"
+
+  OIFS="$IFS"
+  IFS=$'\n'
+
+  for x in $(find ${folder} -maxdepth 1 -type f -name '20*.yaml'); do
+    if [ "${x}" == "${folder}" ]; then
+      continue
+    fi
+
+    epoch="$(stat -c '%W' ${x})"
+    folder_name="$(date -d @${epoch} +'%Y-%m')"
+    dest_folder="${folder}/archive/${folder_name}"
+
+    mkdir -p "${dest_folder}"
+    mv "${x}" "${dest_folder}"
+  done
+
+  IFS="$OIFS"
+}
+
+daily_cleanup_folder "${HOME}/pictures/screenshots"
+daily_cleanup_folder "${HOME}/downloads"
+monthly_cleanup_folder "/my-tools/home-infra/work/sysdig/docs/create-pr/backend"
+monthly_cleanup_folder "/my-tools/home-infra/work/sysdig/docs/create-pr/harness-cd"

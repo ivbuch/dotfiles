@@ -2,7 +2,8 @@
 while read file; do
   case "${1}" in
    "C-c")
-	  share="${HOME}/Pictures/share"
+	  share="${HOME}/pictures/share"
+	  mkdir -p "${share}"
 	  cp "${file}" "${share}" -v && notify-send "Copied ${file} to ${share}" ;;
    "C-d")
 	  trash="/tmp/deleted-pics"

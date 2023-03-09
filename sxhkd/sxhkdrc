@@ -121,13 +121,6 @@ super + j ; { d, s }
     qutebrowser "file:///home/igor/.cache/grip/sysdig.html"
   }
 
-# increase window gap
-super + plus
-  bspc config window_gap "$(($(bspc config window_gap) + 10))"
-
-# deincrease window gap
-super + minus
-  bspc config window_gap "$(($(bspc config window_gap) - 10))"
 
 
 # window size 
