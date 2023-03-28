@@ -71,10 +71,10 @@ if [ "$(hostname)" = "igor-legion" ]; then
   source /usr/local/ibmcloud/autocomplete/zsh_autocomplete
   # ~/.bin/go-scripts/jenkins-cli completion zsh > "${fpath[1]}/_jenkins-cli"
   # i-kafka-consumer completion zsh > "${fpath[1]}/_i-kafka-consumer"
-  # i-protobuf-decoder completion zsh > "${fpath[1]}/_i-protobuf-decoder"
+  protobuf-decoder completion zsh > "${fpath[1]}/_protobuf-decoder"
   # i-postgres-cli completion zsh > "${fpath[1]}/_i-postgres-cli"
   sdc completion zsh > "${fpath[1]}/_sdc"
-  i-dtu completion zsh > "${fpath[1]}/_i-dtu"
+  dtu completion zsh > "${fpath[1]}/_i-dtu"
 fi
 
 # PageDuty autocomplete
