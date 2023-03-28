@@ -2,7 +2,7 @@
 set -euo pipefail
 
 jq_output="${2:---color-output}"
-if output=$(protobuf-decoder agent-metric-sample "$1" 2>/dev/null); then
+if output=$(protobuf-decoder agent-metric-sample "$1" -s 2>/dev/null); then
   echo "${output}" | jq . "${jq_output}"
   exit 0
 fi
