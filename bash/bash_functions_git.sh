@@ -119,6 +119,15 @@
   )
   echo ${pretty}
 }
+#
+### .gpb !!! push branch as origin/local-name
+.gpb() {
+  branch_name="$(git rev-parse --abbrev-ref HEAD)"
+  if [ -z "${branch_name}" ]; then
+    return 1;
+  fi
+  git push origin HEAD:${branch_name} --set-upstream
+}
 
 ### .gsf !!! git status -> select modified files
 .gsf() {

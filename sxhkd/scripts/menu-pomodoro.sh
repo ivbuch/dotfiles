@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+# install pip pydbus, pygobject
 
 pomodoro_client="/my-tools/home-infra/python-scripts/pomodoro/pomodoro-client.py"
 
