@@ -91,6 +91,8 @@ let g:xml_syntax_folding=1
 " shows quotes in json
 let g:indentLine_conceallevel = 0
 
+let g:copilot_node_command = "/opt/vim-copilot-node/node"
+
 " fileType properties
 autocmd FileType xml    setlocal foldmethod=syntax foldlevel=100000
 autocmd FileType py     setlocal expandtab shiftwidth=4

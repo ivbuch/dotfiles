@@ -41,6 +41,7 @@ alias reload_xresources="xrdb ~/.Xresources"
 alias reddit="rtv"
 alias red="rtv"
 alias font_viewer="gtk2fontsel"
+alias .wacom="/my-tools/dotfiles/wacom-tablet/map-to-output.sh"
 
 alias cdd='cd $DOT_FILES'
 alias cdh='cd $HOME_INFRA'
