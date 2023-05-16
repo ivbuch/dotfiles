@@ -32,3 +32,5 @@
     m = merge
 [branch]
     pager = cat
+[url "git@github.com:"]
+    insteadOf = https://github.com/

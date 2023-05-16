@@ -29,6 +29,9 @@ Plugin 'Fugitive.vim'
 Plugin 'mogelbrod/vim-jsonpath'
 Plugin 'lmeijvogel/vim-yaml-helper'
 
+" https://github.com/unblevable/quick-scope
+Plugin 'unblevable/quick-scope'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

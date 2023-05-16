@@ -4,12 +4,11 @@
   git fsck
 }
 
-### .gitf_checkout !!! checkout git branch
-.gitf_checkout() {
-  local branches branch
-  branches=$(git branch -vv) 
-  branch=$(echo "$branches" | fzf +m)
-  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+### .gfb !!! copy branch name
+.gfb() {
+  branch=$(git branch | fzf +m)
+  branch=$(echo "$branch" | sed "s/.* //")
+  echo -n "${branch}" | xclip -selection clipboard
 }
 
 ### .gitf_checkout_all !!! checkout git branch all
@@ -126,6 +125,7 @@
   if [ -z "${branch_name}" ]; then
     return 1;
   fi
+  echo Running: git push origin HEAD:${branch_name} --set-upstream
   git push origin HEAD:${branch_name} --set-upstream
 }
 

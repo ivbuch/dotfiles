@@ -103,7 +103,7 @@ super + { e, t }
     /my-tools/dotfiles/sxhkd/scripts/menu-translate.sh, \
   }
 
-super + z ; { c, s, p, q, f, k, t, n }
+super + z ; { c, s, p, q, f, k, t, n, w }
   { \
     echo -n "$(greenclip print | rofi -dmenu)" | xclip -selection clipboard, \
     /my-tools/dotfiles/sxhkd/scripts/menu-settings.sh, \
@@ -113,6 +113,7 @@ super + z ; { c, s, p, q, f, k, t, n }
     keepassxc, \
     /my-tools/dotfiles/sxhkd/scripts/toggle-floating.sh, \
     /my-tools/dotfiles/bspwm/rearrange-nodes.sh, \
+    /my-tools/dotfiles/wacom-tablet/bspwm-wacom.sh
   }
 
 super + j ; { d, s }
