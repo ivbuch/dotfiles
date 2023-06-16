@@ -107,7 +107,7 @@
   fi
 
   # files=$(eval kubectl exec "${container_param}" "${namespace_param}" "${pod_name}" -- find '/tmp' ! -ipath '/proc' ! -ipath '/usr' ! -ipath '/sys' ! -ipath '/root' ! -ipath '/dev' ! -ipath '/var/lib')
-  files=$(eval kubectl exec "${container_param}" "${namespace_param}" "${pod_name}" -- find '/tmp')
+  files=$(eval kubectl exec "${container_param}" "${namespace_param}" "${pod_name}" -- find '/tmp' '/opt/draios/metrics')
   if [ -z "${files}" ]; then
     return 1
   fi
