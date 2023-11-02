@@ -126,7 +126,7 @@
     return 1;
   fi
   echo Running: git push origin HEAD:${branch_name} --set-upstream
-  git push origin HEAD:${branch_name} --set-upstream
+  git push origin HEAD:${branch_name} --set-upstream $@
 }
 
 ### .gsf !!! git status -> select modified files

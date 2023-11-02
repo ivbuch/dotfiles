@@ -28,6 +28,7 @@ Plugin 'groovy.vim'
 Plugin 'Fugitive.vim'
 Plugin 'mogelbrod/vim-jsonpath'
 Plugin 'lmeijvogel/vim-yaml-helper'
+Plugin 'hashivim/vim-terraform'
 
 " https://github.com/unblevable/quick-scope
 Plugin 'unblevable/quick-scope'
