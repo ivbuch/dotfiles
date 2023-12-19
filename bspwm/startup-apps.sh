@@ -12,7 +12,6 @@ common_startapp_apps() {
   bspc rule --add Termite:startup --one-shot node="@2:/"
   # termite --name=startup &
   firefox &
-  qutebrowser &
 
   /home/igor/.config/virtual-envs/main/bin/flashfocus &
   setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"

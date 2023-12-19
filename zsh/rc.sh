@@ -47,6 +47,7 @@ source "${HOME_INFRA}/dotfiles/zsh/zsh-aliases.sh"
 source "${HOME_INFRA}/dotfiles/zsh/zsh-functions.sh"
 
 source "${HOME_INFRA}/dotfiles/zsh/libs/z.sh"
+source "${HOME_INFRA}/dotfiles/zsh/libs/az.completion"
 
 VIRTUAL_ENV_DISABLE_PROMPT=1 source $HOME/.config/virtual-envs/main/bin/activate
 
@@ -65,6 +66,7 @@ which helm 1>/dev/null 2>/dev/null && source <(helm completion zsh)
 
 complete -F __start_kubectl k
 complete -C '/usr/local/bin/aws_completer' aws
+complete -C '/usr/local/bin/aws_completer' awslocal
 complete -C cmon-completer cmon
 
 if [ "$(hostname)" = "igor-legion" ]; then

@@ -107,7 +107,7 @@
   fi
 
   # files=$(eval kubectl exec "${container_param}" "${namespace_param}" "${pod_name}" -- find '/tmp' ! -ipath '/proc' ! -ipath '/usr' ! -ipath '/sys' ! -ipath '/root' ! -ipath '/dev' ! -ipath '/var/lib')
-  files=$(eval kubectl exec "${container_param}" "${namespace_param}" "${pod_name}" -- find '/tmp')
+  files=$(eval kubectl exec "${container_param}" "${namespace_param}" "${pod_name}" -- find '/tmp' '/opt/draios/metrics')
   if [ -z "${files}" ]; then
     return 1
   fi
@@ -292,4 +292,24 @@ else
     return 1
   fi
   kubectl get pod --field-selector="spec.nodeName=${node}"
+}
+
+### .k-cm-view !!! view configmap content
+.k-cm-view() {
+  configmap=$(kubectl get configmap -o json | jq '.items[] | .metadata.name' --raw-output | fzf --exact --header-lines=1 --nth=1)
+  if [ -z "${configmap}" ]; then
+    echo "no configmap selected"
+    return 1
+  fi
+  kubectl get configmap --output yaml "${configmap}"
+}
+
+### .k-secret-view !!! view secret content
+.k-secret-view() {
+  secret=$(kubectl get secret -o json | jq '.items[] | .metadata.name' --raw-output | fzf --exact --header-lines=1 --nth=1)
+  if [ -z "${secret}" ]; then
+    echo "no secret selected"
+    return 1
+  fi
+  kubectl get secret --output yaml "${secret}"
 }

@@ -62,7 +62,7 @@ cleanup_desktops() {
   done
 }
 
-autorandr --change
+autorandr --change || true
 sleep 3
 cleanup_desktops
 move_nodes

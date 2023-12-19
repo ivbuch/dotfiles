@@ -1,6 +1,6 @@
 export EDITOR="vim"
 export PAGER="less"
-export BROWSER="qutebrowser"
+export BROWSER="firefox"
 export KAFKA_HOME="/opt/kafka"
 
 export ORACLE_PATH="/my-tools/dotfiles/sqlplus"
