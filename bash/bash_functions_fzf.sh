@@ -63,7 +63,7 @@ tm() {
 # copy filename
 .cp() {
   depth="${1:-10}"
-  to_copy=$(find . -maxdepth "${depth}" | awk '{
+  to_copy=$(find . -maxdepth "${depth}" -not -path '*/.*' | awk '{
   name = substr($0, 3)
   print name
   }' | fzf)
